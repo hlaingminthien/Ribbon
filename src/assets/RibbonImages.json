@@ -1,0 +1,18 @@
+{
+  "Ribbons": [
+    { "imgaeUrl": "./assets/images/ribbons/lightViolet.png", "name": "All Cancers" },
+    { "imgaeUrl":  "./assets/images/ribbons/pink.png", "name": "Breast" },
+    { "imgaeUrl":  "./assets/images/ribbons/blueGreen.png", "name": "Cervical" },
+    { "imgaeUrl":  "./assets/images/ribbons/darkBlue.png", "name": "Colorectal" },
+    { "imgaeUrl":  "./assets/images/ribbons/green.png", "name": "Nasopharyngeal" },
+    { "imgaeUrl":  "./assets/images/ribbons/green.png", "name": "Liver" },
+    { "imgaeUrl":  "./assets/images/ribbons/gray.png", "name": "Lung" },
+    { "imgaeUrl":  "./assets/images/ribbons/paleGreen.png", "name": "Lymphoma" },
+    { "imgaeUrl":  "./assets/images/ribbons/darkGray.png", "name": "Melanoma" },
+    { "imgaeUrl":  "./assets/images/ribbons/paleGreen.png", "name": "Ovarian" },
+    { "imgaeUrl":  "./assets/images/ribbons/skyBlue.png", "name": "Prostate" },
+    { "imgaeUrl":  "./assets/images/ribbons/paleBlue.png", "name": "Stomach" },
+    { "imgaeUrl":  "./assets/images/ribbons/orange.png", "name": "Kidney" },
+    { "imgaeUrl":  "./assets/images/ribbons/paleOrange.png", "name": "Uterine" }
+  ]
+}

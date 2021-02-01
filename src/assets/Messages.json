@@ -1,0 +1,30 @@
+{
+  "messages": [
+    {
+      "title": "For Cancer Patients",
+      "message": [
+        {
+          "id": 1,
+          "text": "Don't give up keep fighting and live each day to the fullest"
+        },
+        {
+          "id": 2,
+          "text": "Don't give up keep fighting and live each day to the fullest"
+        }
+      ]
+    },
+    {
+        "title": "For Cancer Patients",
+        "message": [
+          {
+            "id": 3,
+            "text": "Don't give up keep fighting and live each day to the fullest"
+          },
+          {
+            "id": 4,
+            "text": "Don't give up keep fighting and live each day to the fullest"
+          }
+        ]
+      }
+  ]
+}
