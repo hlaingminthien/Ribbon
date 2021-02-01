@@ -7,6 +7,7 @@ import { violet, paleViolet } from "../../../assets/colors";
 import { ThankYouCard } from "../components/pledgeForm"
 import { PledgeCard } from "../components/pledgeCard"
 import { ShareForms } from "../components/pledgeForm"
+import { withRouter } from "react-router-dom";
 
 
 const PledgeRibbonsForMobile = props => {
@@ -26,6 +27,9 @@ const PledgeRibbonsForMobile = props => {
     const _handleShare = () => {
         setComplete(true);
     }
+    const _handlePledge = () => {
+        props.history.push("/");
+      };
 
     return (
         <div>
@@ -82,16 +86,16 @@ const PledgeRibbonsForMobile = props => {
             }
             {
                 (complete && step == 3) &&
-                <ThankuCard _handleEdit={_handleEdit} />
+                <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge} />
             }
         </div>
     )
 }
-export default PledgeRibbonsForMobile
+export default withRouter(PledgeRibbonsForMobile)
 
 const Ribbons = props => {
     const { _handleRibbonClick, step, _handleTextChange, recipientName, complete, senderName, message, _handleSelect, menuVisible, _handleSelectOption, _handleReview,
-        _handleEdit, _handleConfirm, media
+        _handleEdit, _handleConfirm, media,
     } = props
     const [selected, setSelected] = useState(false);
     const [nextOfStep1, setNextOfStep1] = useState(selected ? true : false);
@@ -137,31 +141,7 @@ const Ribbons = props => {
         if (number == k) PopupDiv(e).style.visibility = "hidden";
         // _handleRibbonClick(true);
     };
-
-    const _handleHover = (e, name, k) => {
-        console.log(e.target.id);
-        setNumber(k);
-        if (selected === false) {
-            RibbonDiv(e).style.background = "#cecece";
-            if (PopupDiv(e)) {
-                PopupDiv(e).style.visibility = "visible";
-            } else {
-                return;
-            }
-        }
-    };
-    const _handleLeave = (e) => {
-        if (selected === false) {
-            RibbonDiv(e).style.background = "white";
-            RibbonDiv(e).style.color = "#000000";
-
-            if (PopupDiv(e)) {
-                PopupDiv(e).style.visibility = "hidden";
-            } else {
-                return;
-            }
-        }
-    };
+   
     return (
         <div >
             {
@@ -209,19 +189,19 @@ const Ribbons = props => {
                 (step === 3 && !complete) &&
                 <div className='d-flex justify-content-center m-2'>
                     <div className='bg-light shadow p-3 align-self-center text-center mx-1' style={{ borderRadius: 23, width: 52, height: 52 }}>
-                        <i class="fa fa-envelope-o" aria-hidden="true" style={{ fontSize: 23 }}></i>
+                        <i className="fa fa-envelope-o" aria-hidden="true" style={{ fontSize: 23 }}></i>
 
                     </div>
                     <div className='bg-light shadow p-3 align-self-center text-center mx-1' style={{ borderRadius: 23, width: 52, height: 52 }}>
-                        <i class="fa fa-facebook" aria-hidden="true" style={{ fontSize: 23 }}></i>
+                        <i className="fa fa-facebook" aria-hidden="true" style={{ fontSize: 23 }}></i>
 
                     </div>
                     <div className='bg-light shadow p-3 align-self-center text-center mx-1' style={{ borderRadius: 23, width: 52, height: 52 }}>
-                        <i class="fa fa-instagram" aria-hidden="true" style={{ fontSize: 23 }}></i>
+                        <i className="fa fa-instagram" aria-hidden="true" style={{ fontSize: 23 }}></i>
 
                     </div>
                     <div className='bg-light p-3 shadow align-self-center text-center mx-1' style={{ borderRadius: 23, width: 52, height: 52 }}>
-                        <i class="fa fa-telegram" aria-hidden="true" style={{ fontSize: 23 }}></i>
+                        <i className="fa fa-telegram" aria-hidden="true" style={{ fontSize: 23 }}></i>
 
                     </div>
                 </div>
@@ -231,8 +211,9 @@ const Ribbons = props => {
                 <div>
                     <div className=" d-flex py-3 justify-content-center text-white">
                         <img className='img-responsive' src={"/card.png"} style={{ maxWidth: 270, borderRadius: 20 }} />
+                        
                         <div className='d-flex flex-column pt-5 justify-content-start text-left' style={{ position: 'absolute', width: 245  }}>
-                            <div className={`d-flex flex-column move-me move-me-1`} style={{ minHeight: 120 }}>
+                            <div className={`d-flex flex-column ${step != 1 && "move-me move-me-1"} `} style={{ minHeight: 120 }}>
                                 <span className='' style={{ fontSize: 18, fontWeight: 'bold' }}>{recipientName}{recipientName ? "," : null}</span>
                                 <span className='text-white pt-2' style={{ fontWeight: 500, fontSize: 15, lineHeight: 1.5 }}>
                                     {message}{message ? "!" : null}
@@ -304,7 +285,8 @@ const Ribbons = props => {
 }
 
 const ThankuCard = props => {
-    const { _handleEdit } = props
+    const { _handleEdit,_handlePledge } = props
+    
     return (
         <div className='d-flex justify-content-center text-center'>
             <div className='bg-light p-3 col-8 m-3' style={{ borderRadius: 10 }} >
@@ -318,14 +300,14 @@ const ThankuCard = props => {
                 <div className='p-2  d-flex justify-content-center'>
                     <NCIS_Button
                         text={"Pledge Another"}
-                        // onClick={_handleConfirm}
+                        onClick={()=>window.location.reload()}
                         className="mx-2"
                     />
                 </div>
                 <div className='p-2 d-flex justify-content-center'>
                     <NCIS_Button
                         text={"Back To Home"}
-                        onClick={_handleEdit}
+                        onClick={_handlePledge}
                         className="mx-2"
                         buttonColor={violet}
                     />
