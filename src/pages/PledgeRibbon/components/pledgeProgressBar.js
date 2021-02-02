@@ -3,19 +3,19 @@ import { paleViolet, violet } from "../../../assets/colors";
 
 export const PledgeProgress = (props) => {
   const {step, media }=props
-  console.log(step);
   const circleStyle = {
-    width:( media.desktop || media.tablet ) ? 40 : 30,
-    height: ( media.desktop || media.tablet ) ? 40 : 30,
+    width:( media.desktop ) ? 33 : (media.tablet) ? 28 : 27,
+    height: ( media.desktop ) ? 33: (media.tablet) ? 28 :27,
     borderRadius: "50%",
     lineHeight: 2,
     textAlign: "center",
-    fontSize: media.mobile ? 13 : 19,
+    fontSize: media.mobile ? 12 : (media.tablet) ? 13 : 17,
     color: "#ffffff",
   };
   return (
     <div style={{marginTop: 30}}>
       <div
+      className=''
         style={{
           height: 5,
           background: violet,
@@ -26,7 +26,7 @@ export const PledgeProgress = (props) => {
         }}
       />
 
-      <div className="row m-0 justify-content-between">
+      <div className="row m-0 justify-content-between algin-self-center pt-1">
         <div className="col-3" style={{...circleStyle,background:step===1?violet:paleViolet}}>
           1
         </div>

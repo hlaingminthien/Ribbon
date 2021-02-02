@@ -4,6 +4,7 @@ import { PledgeForm } from "../components/pledgeForm";
 import { PledgeProgress } from "../components/pledgeProgressBar";
 import { withMedia } from "react-media-query-hoc";
 import PledgeRibbonsForMobile from "../components/PledgeRibbonForMobile";
+import PledgeRibbonsForTablet from '../components/PledgeRibbonsForTablet';
 
 const PledgeContainer = (props) => {
   const { media } = props;
@@ -13,6 +14,8 @@ const PledgeContainer = (props) => {
   const [senderName, setSenderName] = useState("");
 
   const [message, setMessage] = useState("");
+  const [imgUrl, setImgUrl] = useState(null);
+  const [warning, setWarning]=useState(false);
 
   const _handleEdit = () => {
     setStep(step == 3 ? 2 : 1);
@@ -22,9 +25,15 @@ const PledgeContainer = (props) => {
   };
 
   const _handleReview = (e) => {
-    console.log("step2");
     e.preventDefault();
-    setStep(2);
+
+    if(recipientName && senderName){
+      setStep(2);
+      setWarning(false)
+    }else{
+      setWarning(true)
+    }
+    
   };
   const _handleConfirm = (e) => {
     e.preventDefault();
@@ -36,12 +45,18 @@ const PledgeContainer = (props) => {
   const _handleTextChange = (e) => {
     if (e.target.id === "recipient") {
       setRecipientName(e.target.value);
+      setWarning(false)
     } else {
       setSenderName(e.target.value);
+      setWarning(false)
     }
   };
   const _handleRibbonClick = (state) => {
     setMenuVisible(state);
+  };
+
+  const _handleImage = (img) => {
+    setImgUrl(img);
   };
 
   let background =
@@ -59,8 +74,8 @@ const PledgeContainer = (props) => {
           style={{ height: media.desktop || media.tablet ? "96vh" : "100vh" }}
         />
       </div>
-      <div className="col-10 pt-4">
-        {(media.desktop || media.tablet) ? (
+      <div className={`${(media.tablet) ? "col-12" : "col-10" } pt-4`}>
+        {(media.desktop ) ? (
           <div className="row px-0 ">
             <div
               className="d-flex justify-content-start col-4 pr-5 align-self-start border border-danger"
@@ -71,6 +86,9 @@ const PledgeContainer = (props) => {
                 senderName={senderName}
                 message={message}
                 media={media}
+                step={step}
+                _handleImage={_handleImage}
+                imgUrl={imgUrl}
               />
             </div>
             <div
@@ -92,16 +110,35 @@ const PledgeContainer = (props) => {
                 menuVisible={menuVisible}
                 _handleRibbonClick={_handleRibbonClick}
                 media={media}
+                _handleImage={_handleImage}
+                warning={warning}
               />
             </div>
             
           </div>
         ) 
-        //  :(media.tablet) ?
-        // <div className="d-flex justify-content-center border border-danger">
-        //   <PledgeProgress step={step} media={media} />
+         :(media.tablet) ?
+        <div className="d-flex justify-content-center align-self-center pt-1" style={{ }}>
           
-        // </div>
+          <PledgeRibbonsForTablet
+                step={step}
+                media={media}
+                _handleConfirm={_handleConfirm}
+                _handleEdit={_handleEdit}
+                _handleTextChange={_handleTextChange}
+                _handleReview={_handleReview}
+                _handleSelect={_handleSelect}
+                _handleSelectOption={_handleSelectOption}
+                recipientName={recipientName}
+                message={message}
+                senderName={senderName}
+                menuVisible={menuVisible}
+                recipientName={recipientName}
+                senderName={senderName}
+                message={message}
+                _handleRibbonClick={_handleRibbonClick}
+              />
+        </div>
         :
          (
           <div className="d-flex justify-content-center">
