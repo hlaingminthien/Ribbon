@@ -13,7 +13,6 @@ export const PledgeProgress = (props) => {
     fontSize: media.mobile ? 13 : 19,
     color: "#ffffff",
   };
-  console.log(">>>",media)
   return (
     <div style={{marginTop: 30}}>
       <div

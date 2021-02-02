@@ -14,7 +14,7 @@ function App() {
   const Media = {
     mobile: "screen and  (max-width:766px)",
     tablet: "screen and (min-width:768px) and (max-width: 1100px)",
-    desktop: "screen and (min-width:768px) and (max-width: 3000px)",
+    desktop: "screen and (min-width:1101px) and (max-width: 3000px)",
     cusHeight_600: "screen and (min-height: 600px) and (max-height: 699px)",
     cusHeight_700: "screen and (min-height: 700px) and (max-height: 760px)",
     cusHeight_800: "screen and (min-height: 761px) and (max-height: 850px)",
