@@ -75,7 +75,7 @@ const PledgeContainer = (props) => {
             </div>
             <div
               className="col-8 pt-4"
-              style={{ height: "90vh", overflow: "hidden" }}
+              style={{ height: "90vh"}}
             >
               <PledgeProgress step={step} media={media} />
               <PledgeForm

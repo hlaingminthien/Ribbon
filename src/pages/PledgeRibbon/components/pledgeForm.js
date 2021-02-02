@@ -4,6 +4,7 @@ import { NCIS_TextBox } from "../../../tools/NCIS_TextBox";
 import { NCIS_Button } from "../../../tools/NCIS_Button";
 import RibbonImages from "../../../assets/RibbonImages.json";
 import { violet } from "../../../assets/colors";
+import ShareIcons from "./socialShareIcons";
 
 export const PledgeForm = (props) => {
   const {
@@ -220,11 +221,8 @@ export const ThankYouCard = () => {
 export const ShareForms = () => {
   return (
     <div className="row justify-content-center">
-      <div
-        className="col-12 shadow"
-        style={{ width: 35, height: 35, background: "#ffffff", lineHeight: 1 }}
-      >
-        <i className="fa fa-facebook-f" />
+      <div className="mx-2 row col-12">npm
+          <ShareIcons/>
       </div>
       <br />
       <NCIS_Button
