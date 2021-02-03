@@ -234,10 +234,18 @@ const PledgeRibbons = (props) => {
               onMouseOver={(e) => _handleHover(e)}
             >
               <h6 id={k}>{v.name}</h6>
-              <div id={k} style={{ fontSize: 12 }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
+              {v.ribbonDetails ? (
+                      <div className="px-2" id={k} style={{ fontSize: 12 }}>
+                        {v.ribbonDetails.map((c, i) => (
+                          <p key={i}>{c}</p>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="px-2" id={k} style={{ fontSize: 12 }}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Proin vel sollicitudin sapien.
+                      </div>
+                    )}
             </div>
           )}
         </div>
@@ -246,33 +254,45 @@ const PledgeRibbons = (props) => {
   );
 };
 
-export const ThankYouCard = () => {
+export const ThankYouCard = (props) => {
+  const { _handleEdit, _handlePledge } = props;
+
   return (
-    <div
-      className="bg-light shadow mt-2 w-100 p-5"
-      style={{
-        borderRadius: 25,
-        // position: "absolute",
-        // top: 0,
-        // left: 0,
-        margin: 0,
-      }}
-    >
-      <strong>Thank you for Pledging</strong>
-      <br />
-      {/* <p></p> */}
-      <div className="row justify-content-center">
-        <NCIS_Button
-          text={"Back To Home"}
-          // onClick={_handleEdit}
-          className="mx-2"
-          buttonColor={violet}
-        />
-        <NCIS_Button
-          text={"Pledge Another"}
-          // onClick={_handleConfirm}
-          className="mx-2"
-        />
+    <div className="d-flex justify-content-center py-2 ">
+      <div
+        className="bg-light p-3 col-6 m-3 shadow"
+        style={{ borderRadius: 10 }}
+      >
+        <div
+          className="text-center"
+          style={{ fontWeight: "bold", fontSize: 18 }}
+        >
+          Thank for your Pledging
+        </div>
+        <p className="p-2" style={{ fontSize: 14 }}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel
+          sollicitudin sapien. Suspendisse eu ornare erat. Nullam tristique
+          augue sit amet lorem elementum hendrerit eu et nulla. Nullam in
+          posuere mauris, eu fringilla magna. Praesent a sodales leo, quis
+          feugiat eros.
+        </p>
+        <div className="d-flex justify-content-center text-left">
+          <div className="p-2  d-flex justify-content-center">
+            <NCIS_Button
+              text={"Pledge Another"}
+              onClick={() => window.location.reload()}
+              className="mx-2"
+            />
+          </div>
+          <div className="p-2 d-flex justify-content-center">
+            <NCIS_Button
+              text={"Back To Home"}
+              onClick={_handlePledge}
+              className="mx-2"
+              buttonColor={violet}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -43,12 +43,12 @@ const PledgeRibbonsForTablet = (props) => {
   };
   return (
     <div className="pt-4 container justify-content-center">
-      <div className="d-flex col-11 container justify-content-center justify-content-between ">
+      <div className={`d-flex ${window.innerWidth > 800 ? "col-8" : "col-10"} container justify-content-center justify-content-between`}>
         <div
-          className="col-8 align-self-center pb-5 justify-content-start "
+          className="col-7 align-self-center pb-5 justify-content-start "
           style={{}}
         >
-          <div className='col-10'>
+          <div className='col-10 pt-5' style={{}}>
             <PledgeProgress step={step} media={media} />
           </div>
           <strong
@@ -81,7 +81,7 @@ const PledgeRibbonsForTablet = (props) => {
             </div>
           ) : null}
         </div>
-        <div className="pt-1">
+        <div className="pt-5">
           <PledgeCardForTablet
             recipientName={recipientName}
             senderName={senderName}
@@ -147,33 +147,33 @@ export default withRouter(PledgeRibbonsForTablet);
 const PledgeCardForTablet = (props) => {
   const { recipientName, senderName, message, media, step, imgUrl } = props;
   return (
-    <div className=" d-flex pt-3 pb-1 justify-content-center text-white">
+    <div className={` d-flex pb-1 ${(window.innerWidth > 780 && media.tablet ) && "pt-5"} justify-content-center text-white`}>
       <img
         className="img-responsive"
         src={"/card.png"}
-        style={{ maxWidth: 200, borderRadius: 20 }}
+        style={{ maxWidth:( window.innerWidth > 780 && media.tablet) ? 280 : 210, borderRadius: 20, minHeight : ( window.innerWidth > 780 && media.tablet) ? 300 : 230 }}
       />
 
       <div
-        className="d-flex flex-column pt-4 px-3 justify-content-start text-left"
-        style={{ position: "absolute", width: 205 }}
+        className={`d-flex flex-column ${window.innerWidth>780 ? "pt-5" : "pt-4"} px-3 justify-content-start text-left`}
+        style={{ position: "absolute", width: ( window.innerWidth > 780 && media.tablet)? 260 : 205 }}
       >
         <div
           className={`d-flex flex-column ${step != 1 && "move-me move-me-1"} `}
-          style={{ minHeight: 110 }}
+          style={{ minHeight:( window.innerWidth > 780 && media.tablet) ? 180 : 110 }}
         >
-          <span className="" style={{ fontSize: 14, fontWeight: "bold" }}>
+          <span className="" style={{ fontSize:( window.innerWidth > 780 && media.tablet)? 17 : 14, fontWeight: "bold" }}>
             {recipientName}
             {recipientName ? "," : null}
           </span>
           <span
             className="text-white pt-2"
-            style={{ fontWeight: 500, fontSize: 12, lineHeight: 1.5 }}
+            style={{ fontWeight: 500, fontSize:( window.innerWidth > 780 && media.tablet)? 14 : 12, lineHeight: 1.5 }}
           >
             {message}
             {message ? "!" : null}
           </span>
-          <span className="pt-2" style={{ fontWeight: 600, fontSize: 12 }}>
+          <span className="pt-2" style={{ fontWeight: 600, fontSize: ( window.innerWidth > 780 && media.tablet)? 14 : 12 }}>
             {senderName ? "Love," : null} {senderName}
           </span>
         </div>
@@ -187,7 +187,7 @@ const PledgeCardForTablet = (props) => {
             <img
               src={imgUrl}
               alt="selected-ribbons"
-              style={{ width: 58, height: 58 }}
+              style={{ width:( window.innerWidth > 780 && media.tablet)? 80 : 58, height: ( window.innerWidth > 780 && media.tablet) ? 80 : 58 }}
             />
           </div>
         )}

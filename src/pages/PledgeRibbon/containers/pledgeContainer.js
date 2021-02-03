@@ -60,9 +60,9 @@ const PledgeContainer = (props) => {
   };
 
   let background =
-    media.desktop || media.tablet
-      ? "/pledgeBackground.svg"
-      : "/PledgeBgMobo.png";
+    (media.desktop) ?
+     "/pledgeBackground.svg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
+      "/PledgeBgMobo.png";
 
   return (
     <div className="d-flex justify-content-center aling-self-center pt-3">
@@ -71,7 +71,7 @@ const PledgeContainer = (props) => {
           className="img-fluid"
           src={background}
           alt="bg-svg"
-          style={{ height: media.desktop || media.tablet ? "96vh" : "100vh" }}
+          style={{ height: media.desktop ? "96vh" : media.tablet ? "100vh" : "100vh" }}
         />
       </div>
       <div className={`${(media.tablet) ? "col-12" : "col-10" } pt-4`}>
@@ -118,7 +118,7 @@ const PledgeContainer = (props) => {
           </div>
         ) 
          :(media.tablet) ?
-        <div className="d-flex justify-content-center align-self-center pt-1" style={{ }}>
+        <div className="d-flex justify-content-center align-self-center pt-1" style={{ marginTop: ( window.innerWidth > 780 && media.tablet) ? '20%' : '19%'}}>
           
           <PledgeRibbonsForTablet
                 step={step}

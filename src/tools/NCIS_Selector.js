@@ -78,7 +78,7 @@ const Options = (props) => {
           <li style={{ color: orange, fontWeight: "bold", paddingLeft: 20, paddingTop: 5, paddingBottom: 5 , fontSize: window.innerWidth > 1500 ? 22 :media.mobile? 12: 14 }}>{v1.title}</li>
           <br />
           {v1.message.map((v2, k2) => (
-            <p
+            <p className='py-2'
             key={v2.id}
               style={{ cursor: "pointer", paddingLeft: 10,fontWeight: 500, fontSize: window.innerWidth > 1500 ? 22 :media.mobile? 12: 14 }}
               onMouseEnter={(e) => _handleMouseEnter(e)}
