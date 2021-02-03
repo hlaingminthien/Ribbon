@@ -5,6 +5,8 @@ import { PledgeProgress } from "../components/pledgeProgressBar";
 import { withMedia } from "react-media-query-hoc";
 import PledgeRibbonsForMobile from "../components/PledgeRibbonForMobile";
 import PledgeRibbonsForTablet from '../components/PledgeRibbonsForTablet';
+import domtoimage from 'dom-to-image-more';
+import { saveAs } from 'file-saver';
 
 const PledgeContainer = (props) => {
   const { media } = props;
@@ -35,10 +37,18 @@ const PledgeContainer = (props) => {
     }
     
   };
+
   const _handleConfirm = (e) => {
     e.preventDefault();
-    setStep(3);
+    const myNode = document.getElementById('my-node')
+    console.log(myNode)
+    domtoimage.toJpeg(myNode)
+      .then(function (blob) {
+          saveAs(blob, "hehe.png");
+          setStep(3);
+      });
   };
+
   const _handleSelectOption = (e) => {
     setMessage(e);
   };
@@ -83,6 +93,7 @@ const PledgeContainer = (props) => {
               className="d-flex justify-content-start col-4 pr-5 align-self-start border border-danger"
               style={{ textAlign: "center" }}
             >
+               <div className="pt-3 pb-1" style={{marginTop: window.innerWidth >1500? '8%' : (media.tablet) ? '15%' :'7%', marginLeft: '3%', position: (media.tablet || media.desktop) && 'fixed'}}>
               <PledgeCard
                 recipientName={recipientName}
                 senderName={senderName}
@@ -92,6 +103,7 @@ const PledgeContainer = (props) => {
                 _handleImage={_handleImage}
                 imgUrl={imgUrl}
               />
+              </div>
             </div>
             <div
               className="col-8 pt-4"

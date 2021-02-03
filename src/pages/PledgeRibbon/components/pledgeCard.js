@@ -20,53 +20,49 @@ export const PledgeCard = (props) => {
     const { recipientName, senderName, message, media, step, imgUrl } = props;
 
     return (
-      <div className=" d-flex pt-3 pb-1 justify-content-center text-white " style={{marginTop: window.innerWidth >1500? '8%' : (media.tablet) ? '15%' :'7%', marginLeft: '3%', position: (media.tablet || media.desktop) && 'fixed'}}>
+      <div  className=" d-flex justify-content-center text-white" id="my-node" style={{background: 'transparent'}}>
         <img
-          className="img-responsive"
-          src={"/card.png"}
-          style={{ maxWidth: 260, borderRadius: 20 }}
-        />
-  
-        <div
-          className=" pt-4 px-3 justify-content-start text-left"
-          style={{ position: "absolute", width: 275,padding: 20, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? 20 : 18 , textAlign: 'left' }}
-        >
+            className="img-responsive"
+            src={"/card.png"}
+            style={{ maxWidth: 260, borderRadius: 10 }}
+          />
+    
           <div
-            className={`pt-3 ${step != 1 && "move-me move-me-1"} `}
-            style={{ minHeight: 150 }}
+            className=" pt-4 px-3 justify-content-start text-left"
+            style={{ position: "absolute", width: 275,padding: 20, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? 20 : 18 , textAlign: 'left' }}
           >
-            <span className="" style={{ fontSize: 16, fontWeight: "bold" }}>
-              {recipientName}
-              {recipientName ? "," : null}
-            </span>
-            <br></br>
-            <span
-              className="text-white pt-2"
-              style={{ fontWeight: 500, fontSize: 14, lineHeight: 1.5 }}
+            <div
+              className={`pt-3 ${step != 1 && "move-me:move-me-1"} `}
+              style={{ minHeight: 150 }}
             >
-              {message}
-              {message ? "!" : null}
-            </span>
-            <br></br>
-            <span className="pt-2" style={{ fontWeight: 600, fontSize: 14 }}>
-              {senderName ? "Love," : null} {senderName}
-            </span>
-          </div>
-  
-          {imgUrl && (
-            <div className="d-flex justify-content-end align-items-start">
-              {/* <div style={{}}>
-                                     
-                                      </div> */}
-  
-              <img
-                src={imgUrl}
-                alt="selected-ribbons"
-                style={{ width:80, height:80 }}
-              />
+              <span className="" style={{ fontSize: 16, fontWeight: "bold" }}>
+                {recipientName}
+                {recipientName ? "," : null}
+              </span>
+              <br></br>
+              <span
+                className="text-white pt-2"
+                style={{ fontWeight: 500, fontSize: 14, lineHeight: 1.5 }}
+              >
+                {message}
+                {message ? "!" : null}
+              </span>
+              <br></br>
+              <span className="pt-2" style={{ fontWeight: 600, fontSize: 14 }}>
+                {senderName ? "Love," : null} {senderName}
+              </span>
             </div>
-          )}
-        </div>
+    
+            {imgUrl && (
+              <div className="d-flex justify-content-end align-items-start">
+                <img
+                  src={imgUrl}
+                  alt="selected-ribbons"
+                  style={{ width:80, height:80 }}
+                />
+              </div>
+            )}
+          </div>
       </div>
     );
   };

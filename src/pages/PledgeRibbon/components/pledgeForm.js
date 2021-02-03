@@ -311,6 +311,7 @@ const ShareApp = (props) => {
 
   return (
     <div>
+      {/* <ShareIcons/> */}
       <div className="d-flex justify-content-center m-2 pt-5 py-3">
         <div
           className=" shadow p-3 align-self-center text-center mx-2"

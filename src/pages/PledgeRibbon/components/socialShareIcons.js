@@ -23,33 +23,52 @@ class ShareIcons extends Component {
     const ShareList = Passers({
       url,
       className: "",
-      style:"padding-left:3",
+      style: "padding-left:3",
     })({
       className: "",
       title: `Share ${String(window.location)}`,
     })("li");
 
     return (
-    <div >
-    <section className=" my-3">
-        <ShareList className="mx-3">
-            <div className=""style={{textAlign:"center"}}>
-                
-            <EmailShareButton className="mx-3" subject={title} body="body"  >
-              <EmailIcon size={size} round />
-            </EmailShareButton>
+      <div >
+        <section className=" my-3">
+          <ShareList className="mx-3">
+            <div className="" style={{ textAlign: "center" }}>
 
-            <FacebookShareButton className="mx-3" quote={title}>
-              <FacebookIcon size={size} round />
-            </FacebookShareButton>
+              <EmailShareButton className="mx-3" subject={title} body="body"  >
+                {/* <EmailIcon size={size} round /> */}
+                <i
+                  className="fa fa-envelope-o" style={{
+                    fontSize: 27,
+                    color: "rgb(22, 16, 92)",
+                  }}
+                  aria-hidden="true"
+                ></i>
+              </EmailShareButton>
 
-            <TelegramShareButton className="mx-3" quote={title} >
-              <TelegramIcon size={size} round  />
-            </TelegramShareButton>
+              <FacebookShareButton className="mx-3" quote={shareImage}>
+                <i
+                  className="fa fa-facebook" style={{
+                    fontSize: 27,
+                    color: "rgb(22, 16, 92)",
+                  }}
+                  aria-hidden="true"
+                ></i>
+              </FacebookShareButton>
+
+              <TelegramShareButton className="mx-3" quote={title} >
+                <i
+                  className="fa fa-telegram" style={{
+                    fontSize: 27,
+                    color: "rgb(22, 16, 92)",
+                  }}
+                  aria-hidden="true"
+                ></i>
+              </TelegramShareButton>
             </div>
-        </ShareList>
+          </ShareList>
         </section>
-        </div>
+      </div>
     );
   }
 }
