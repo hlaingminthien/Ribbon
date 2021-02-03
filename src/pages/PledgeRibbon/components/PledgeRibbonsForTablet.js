@@ -42,7 +42,7 @@ const PledgeRibbonsForTablet = (props) => {
     setShareApp(app == shareApp ? null : app);
   };
   return (
-    <div className="pt-4 container justify-content-center">
+    <div className="pt-3 px-1 container justify-content-center">
       <div className={`d-flex ${window.innerWidth > 800 ? "col-8" : "col-10"} container justify-content-center justify-content-between`}>
         <div
           className="col-7 align-self-center pb-5 justify-content-start "
@@ -93,7 +93,10 @@ const PledgeRibbonsForTablet = (props) => {
           />
         </div>
       </div>
-      <Ribbon {...props} _handleImage={_handleImage} />
+      <div className={` ${window.innerWidth > 1000 && "px-2" } `}>
+        <Ribbon {...props} _handleImage={_handleImage} />
+
+      </div>
       {step === 3 && !complete && (
         <ShareApp shareApp={shareApp} handleShareApp={handleShareApp} />
       )}
@@ -147,33 +150,33 @@ export default withRouter(PledgeRibbonsForTablet);
 const PledgeCardForTablet = (props) => {
   const { recipientName, senderName, message, media, step, imgUrl } = props;
   return (
-    <div className={` d-flex pb-1 ${(window.innerWidth > 780 && media.tablet ) && "pt-5"} justify-content-center text-white`}>
+    <div className={` d-flex pb-1 ${(window.innerWidth > 780 && media.tablet) && "pt-5"} justify-content-center text-white`}>
       <img
         className="img-responsive"
         src={"/card.png"}
-        style={{ maxWidth:( window.innerWidth > 780 && media.tablet) ? 280 : 210, borderRadius: 20, minHeight : ( window.innerWidth > 780 && media.tablet) ? 300 : 230 }}
+        style={{ maxWidth: (window.innerWidth > 780 && media.tablet) ? 280 : 210, borderRadius: 20, minHeight: (window.innerWidth > 780 && media.tablet) ? 300 : 240 }}
       />
 
       <div
-        className={`d-flex flex-column ${window.innerWidth>780 ? "pt-5" : "pt-4"} px-3 justify-content-start text-left`}
-        style={{ position: "absolute", width: ( window.innerWidth > 780 && media.tablet)? 260 : 205 }}
+        className={`d-flex flex-column ${window.innerWidth > 780 ? "pt-5" : "pt-4"} px-3 justify-content-start text-left`}
+        style={{ position: "absolute", width: (window.innerWidth > 780 && media.tablet) ? 260 : 205 }}
       >
         <div
           className={`d-flex flex-column ${step != 1 && "move-me move-me-1"} `}
-          style={{ minHeight:( window.innerWidth > 780 && media.tablet) ? 180 : 110 }}
+          style={{ minHeight: (window.innerWidth > 780 && media.tablet) ? 180 : 110 }}
         >
-          <span className="" style={{ fontSize:( window.innerWidth > 780 && media.tablet)? 17 : 14, fontWeight: "bold" }}>
+          <span className="" style={{ fontSize: (window.innerWidth > 780 && media.tablet) ? 17 : 14, fontWeight: "bold" }}>
             {recipientName}
             {recipientName ? "," : null}
           </span>
           <span
             className="text-white pt-2"
-            style={{ fontWeight: 500, fontSize:( window.innerWidth > 780 && media.tablet)? 14 : 12, lineHeight: 1.5 }}
+            style={{ fontWeight: 500, fontSize: (window.innerWidth > 780 && media.tablet) ? 14 : 12, lineHeight: 1.5 }}
           >
             {message}
             {message ? "!" : null}
           </span>
-          <span className="pt-2" style={{ fontWeight: 600, fontSize: ( window.innerWidth > 780 && media.tablet)? 14 : 12 }}>
+          <span className="pt-2" style={{ fontWeight: 600, fontSize: (window.innerWidth > 780 && media.tablet) ? 14 : 12 }}>
             {senderName ? "Love," : null} {senderName}
           </span>
         </div>
@@ -187,7 +190,7 @@ const PledgeCardForTablet = (props) => {
             <img
               src={imgUrl}
               alt="selected-ribbons"
-              style={{ width:( window.innerWidth > 780 && media.tablet)? 80 : 58, height: ( window.innerWidth > 780 && media.tablet) ? 80 : 58 }}
+              style={{ width: (window.innerWidth > 780 && media.tablet) ? 80 : 58, height: (window.innerWidth > 780 && media.tablet) ? 80 : 58 }}
             />
           </div>
         )}
@@ -271,8 +274,8 @@ const Ribbon = (props) => {
                   id={k}
                   style={{ borderRadius: "10px", minHeight: 73 }}
                   onClick={(e) => _handleClick(e, v.name, k, v.imgaeUrl)}
-                  // onMouseOver={(e) => _handleHover(e, v.name, k)}
-                  // onMouseLeave={(e) => _handleLeave(e, v.name)}
+                // onMouseOver={(e) => _handleHover(e, v.name, k)}
+                // onMouseLeave={(e) => _handleLeave(e, v.name)}
                 >
                   <img
                     src={v.imgaeUrl}
@@ -307,8 +310,8 @@ const Ribbon = (props) => {
                       background: "white",
                       zIndex: 200,
                     }}
-                    // onMouseLeave={(e) => _handleLeave(e)}
-                    // onMouseOver={(e) => _handleHover(e)}
+                  // onMouseLeave={(e) => _handleLeave(e)}
+                  // onMouseOver={(e) => _handleHover(e)}
                   >
                     <div className="d-flex justify-content-between px-2">
                       <h6 className="pt-2" id={k}>
@@ -326,11 +329,11 @@ const Ribbon = (props) => {
                         ))}
                       </div>
                     ) : (
-                      <div className="px-2" id={k} style={{ fontSize: 12 }}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Proin vel sollicitudin sapien.
-                      </div>
-                    )}
+                        <div className="px-2" id={k} style={{ fontSize: 12 }}>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                          Proin vel sollicitudin sapien.
+                        </div>
+                      )}
                   </div>
                 )}
               </div>

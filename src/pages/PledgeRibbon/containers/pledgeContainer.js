@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { PledgeCard } from "../components/pledgeCard";
-import { PledgeForm } from "../components/pledgeForm";
+import  PledgeForm from "../components/pledgeForm";
 import { PledgeProgress } from "../components/pledgeProgressBar";
 import { withMedia } from "react-media-query-hoc";
 import PledgeRibbonsForMobile from "../components/PledgeRibbonForMobile";
@@ -58,7 +58,9 @@ const PledgeContainer = (props) => {
   const _handleImage = (img) => {
     setImgUrl(img);
   };
-
+  const _handleShare = () => {
+    setStep(4);
+  };
   let background =
     (media.desktop) ?
      "/pledgeBackground.svg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
@@ -104,6 +106,7 @@ const PledgeContainer = (props) => {
                 _handleReview={_handleReview}
                 _handleSelect={_handleSelect}
                 _handleSelectOption={_handleSelectOption}
+                _handleShare={_handleShare}
                 recipientName={recipientName}
                 message={message}
                 senderName={senderName}
