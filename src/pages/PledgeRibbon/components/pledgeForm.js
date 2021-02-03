@@ -4,6 +4,7 @@ import { NCIS_TextBox } from "../../../tools/NCIS_TextBox";
 import { NCIS_Button } from "../../../tools/NCIS_Button";
 import RibbonImages from "../../../assets/RibbonImages.json";
 import { violet, paleViolet } from "../../../assets/colors";
+import ShareIcons from "./socialShareIcons";
 
 export const PledgeForm = (props) => {
   const {
