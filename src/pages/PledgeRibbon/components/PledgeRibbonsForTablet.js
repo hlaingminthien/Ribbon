@@ -9,6 +9,7 @@ import { PledgeCard } from "../components/pledgeCard";
 import { ShareForms } from "../components/pledgeForm";
 import { withRouter } from "react-router-dom";
 import { PledgeProgress } from "../components/pledgeProgressBar";
+import ShareApp1 from './pledgeForm';
 
 const PledgeRibbonsForTablet = (props) => {
   const {
@@ -41,6 +42,7 @@ const PledgeRibbonsForTablet = (props) => {
   const handleShareApp = (app) => {
     setShareApp(app == shareApp ? null : app);
   };
+  console.log("????",step)
   return (
     <div className="pt-3 px-1 container justify-content-center">
       <div className={`d-flex ${window.innerWidth > 800 ? "col-8" : "col-10"} container justify-content-center justify-content-between`}>
@@ -98,10 +100,18 @@ const PledgeRibbonsForTablet = (props) => {
 
       </div>
       {step === 3 && !complete && (
-        <ShareApp shareApp={shareApp} handleShareApp={handleShareApp} />
+        <ShareApp1
+        handleShareApp={handleShareApp}
+        _handleShare={_handleShare}
+        shareApp={shareApp}
+        paleViolet={paleViolet}
+        media={media}
+        
+      />
+        // <ShareApp shareApp={shareApp} handleShareApp={handleShareApp} />
       )}
       {complete && step == 3 && (
-        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge} />
+        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge}  media={media} />
       )}
       {step == 2 && (
         <div className="d-flex justify-content-center flex-wrap">
@@ -112,6 +122,7 @@ const PledgeRibbonsForTablet = (props) => {
               className="mx-2"
               buttonColor={paleViolet}
               fontSize={14}
+              media={media}
             />
           </div>
           <div className="py-1">
@@ -120,6 +131,7 @@ const PledgeRibbonsForTablet = (props) => {
               onClick={_handleConfirm}
               fontSize={14}
               className="mx-2"
+              media={media}
             />
           </div>
         </div>
@@ -132,6 +144,7 @@ const PledgeRibbonsForTablet = (props) => {
             className="mx-2"
             fontSize={14}
             buttonColor={paleViolet}
+            media={media}
           />
           <NCIS_Button
             text={"Share"}
@@ -139,6 +152,7 @@ const PledgeRibbonsForTablet = (props) => {
             // onClick={_handleConfirm}
             className="mx-2"
             fontSize={14}
+            media={media}
           />
         </div>
       )}
@@ -342,7 +356,7 @@ const Ribbon = (props) => {
           <div className="d-flex justify-content-center pt-4">
             <NCIS_Button
               text={"Next"}
-              fontSize={14}
+              fontSize={14}  media={media}
               onClick={() => setNextOfStep1(selected ? true : false)}
             />
           </div>
@@ -388,7 +402,7 @@ const Ribbon = (props) => {
             </div>
             {!menuVisible && step == 1 ? (
               <div className="pt-3 d-flex justify-content-center">
-                <NCIS_Button text={"Review"} type="submit" fontSize={14} />
+                <NCIS_Button text={"Review"} type="submit" fontSize={14}  media={media} />
               </div>
             ) : null}
           </form>
@@ -398,7 +412,7 @@ const Ribbon = (props) => {
   );
 };
 const ThankuCard = (props) => {
-  const { _handleEdit, _handlePledge } = props;
+  const { _handleEdit, _handlePledge, media } = props;
 
   return (
     <div className="d-flex justify-content-center py-2 ">
@@ -425,6 +439,7 @@ const ThankuCard = (props) => {
               text={"Pledge Another"}
               onClick={() => window.location.reload()}
               className="mx-2"
+              media={media}
             />
           </div>
           <div className="p-2 d-flex justify-content-center">
@@ -433,6 +448,7 @@ const ThankuCard = (props) => {
               onClick={_handlePledge}
               className="mx-2"
               buttonColor={violet}
+              media={media}
             />
           </div>
         </div>
