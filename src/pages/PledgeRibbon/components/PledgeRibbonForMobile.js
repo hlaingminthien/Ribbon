@@ -175,7 +175,7 @@ console.log("SH",shareApp)
         <>
           <div className="d-flex flex-row flex-wrap justify-content-center px-1">
             {RibbonImages.Ribbons.map((v, k) => (
-              <div className="col-4 " style={{ cursor: "pointer" }}>
+              <div className="col-4 " style={{ cursor: "pointer" }} key={k}>
                 <div
                   className="text-center"
                   id={k}

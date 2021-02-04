@@ -171,7 +171,7 @@ const PledgeRibbons = (props) => {
     console.log(e.target.id);
     setNumber(k);
     if (selected === false) {
-      RibbonDiv(e).style.background = "#cecece";
+      if(RibbonDiv(e)) RibbonDiv(e).style.background = "#cecece";
       if (PopupDiv(e)) {
         PopupDiv(e).style.visibility = "visible";
       } else {
@@ -195,6 +195,7 @@ const PledgeRibbons = (props) => {
     <div className="d-flex flex-row flex-wrap">
       {RibbonImages.Ribbons.map((v, k) => (
         <div
+        key={k}
           className="w-25  align-items-center py-1"
           style={{ cursor: "pointer" }}
           onClick={() => _handleImage(v.imgaeUrl)}
@@ -311,8 +312,8 @@ const ShareApp = (props) => {
 
   return (
     <div>
-      {/* <ShareIcons/> */}
-      <div className="d-flex justify-content-center m-2 pt-5 py-3">
+      <ShareIcons/>
+      {/* <div className="d-flex justify-content-center m-2 pt-5 py-3">
         <div
           className=" shadow p-3 align-self-center text-center mx-2"
           style={{
@@ -393,7 +394,7 @@ const ShareApp = (props) => {
             }}
           ></i>
         </div>
-      </div>
+      </div> */}
       {shareApp && (
         <div
           className="d-flex justify-content-center text-center"

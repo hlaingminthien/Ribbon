@@ -9,8 +9,7 @@ import {
   TelegramIcon,
 } from "react-share";
 
-
-class ShareIcons extends Component {
+class Icons extends Component {
 
   render() {
 
@@ -18,54 +17,49 @@ class ShareIcons extends Component {
       url = "https://github.com/nygardk/react-share",//String(window.location),
       title = "Steadylearner Website",
       shareImage = "https://www.steadylearner.com/static/images/brand/prop-passer.png",
-      size = "3.2rem",
+      size = "2.5rem",
     } = this.props;
     const ShareList = Passers({
       url,
       className: "",
-      style: "padding-left:3",
     })({
       className: "",
       title: `Share ${String(window.location)}`,
     })("li");
 
     return (
-      <div >
-        <section className=" my-3">
-          <ShareList className="mx-3">
-            <div className="" style={{ textAlign: "center" }}>
+      <div>
+          <section className="my-3">
+          <ShareList style={{ textAlign: "center" }}>
+            <EmailShareButton className="mx-3" subject={title} body="body"  >
+              <i
+                className="fa fa-envelope-o" style={{
+                  fontSize: 27,
+                  color: "rgb(22, 16, 92)",
+                }}
+                aria-hidden="true"
+              ></i>
+            </EmailShareButton>
 
-              <EmailShareButton className="mx-3" subject={title} body="body"  >
-                {/* <EmailIcon size={size} round /> */}
-                <i
-                  className="fa fa-envelope-o" style={{
-                    fontSize: 27,
-                    color: "rgb(22, 16, 92)",
-                  }}
-                  aria-hidden="true"
-                ></i>
-              </EmailShareButton>
+            <FacebookShareButton className="mx-3" quote={title}>
+              <i
+                className="fa fa-facebook" style={{
+                  fontSize: 27,
+                  color: "rgb(22, 16, 92)",
+                }}
+                aria-hidden="true"
+              ></i>
+            </FacebookShareButton>
 
-              <FacebookShareButton className="mx-3" quote={shareImage}>
-                <i
-                  className="fa fa-facebook" style={{
-                    fontSize: 27,
-                    color: "rgb(22, 16, 92)",
-                  }}
-                  aria-hidden="true"
-                ></i>
-              </FacebookShareButton>
-
-              <TelegramShareButton className="mx-3" quote={title} >
-                <i
-                  className="fa fa-telegram" style={{
-                    fontSize: 27,
-                    color: "rgb(22, 16, 92)",
-                  }}
-                  aria-hidden="true"
-                ></i>
-              </TelegramShareButton>
-            </div>
+            <TelegramShareButton className="mx-3" quote={title} >
+              <i
+                className="fa fa-telegram" style={{
+                  fontSize: 27,
+                  color: "rgb(22, 16, 92)",
+                }}
+                aria-hidden="true"
+              ></i>
+            </TelegramShareButton>
           </ShareList>
         </section>
       </div>
@@ -73,5 +67,4 @@ class ShareIcons extends Component {
   }
 }
 
-export default ShareIcons;
-
+export default Icons;

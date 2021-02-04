@@ -163,8 +163,8 @@ const Sponsors = () => {
       className="row w-50"
     >
       <div style={{ fontSize: 25, fontWeight: "bold" }}>Sponsors</div>
-      {new Array(8).fill(null).map((v) => (
-        <div className="w-25 py-4">
+      {new Array(8).fill(null).map((v,k) => (
+        <div className="w-25 py-4" key={k}>
           <div
             className="bg-light"
             style={{
