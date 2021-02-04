@@ -1,5 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { withRouter } from "react-router-dom";
+import { Passers } from "prop-passer";
+import {
+  FacebookShareButton,
+  EmailShareButton,
+  TelegramShareButton,
+  FacebookIcon,
+  EmailIcon,
+  TelegramIcon,
+} from "react-share";
+
 import { NCIS_Selector } from "../../../tools/NCIS_Selector";
 import { NCIS_TextBox } from "../../../tools/NCIS_TextBox";
 import { NCIS_Button } from "../../../tools/NCIS_Button";
@@ -30,7 +40,7 @@ const PledgeForm = (props) => {
     setShareApp(app == shareApp ? null : app);
   };
   const _handlePledge = () => {
-    console.log(">>>",props.history)
+    // console.log(">>>",props.history)
     props.history.push("/");
   };
   return (
@@ -168,7 +178,7 @@ const PledgeRibbons = (props) => {
   };
 
   const _handleHover = (e, name, k) => {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     setNumber(k);
     if (selected === false) {
       if(RibbonDiv(e)) RibbonDiv(e).style.background = "#cecece";
@@ -308,33 +318,39 @@ export const ThankYouCard = (props) => {
 };
 
 const ShareApp = (props) => {
-  const { handleShareApp, shareApp, _handleEdit, paleViolet,_handleShare } = props;
+  const { handleShareApp, shareApp, _handleEdit, paleViolet,_handleShare,url = "https://github.com/nygardk/react-share",//String(window.location),
+  title = "Steadylearner Website",
+  shareImage = "https://www.steadylearner.com/static/images/brand/prop-passer.png",
+  size = "2.5rem", } = props;
 
+  const ShareList = Passers({
+    url,
+    className: "",
+  })({
+    className: "",
+    title: `Share ${String(window.location)}`,
+  })("li");
   return (
     <div>
-      <ShareIcons/>
-      {/* <div className="d-flex justify-content-center m-2 pt-5 py-3">
-        <div
-          className=" shadow p-3 align-self-center text-center mx-2"
+      <section className="d-flex justify-content-center m-2 pt-5 py-3">
+      <ShareList style={{ textAlign: "center" }}>
+        <EmailShareButton className=" shadow p-3 align-self-center text-center mx-2"
           style={{
             borderRadius: 23,
             border: "1px solid #FAFAFA",
             width: shareApp == 1 ? 54 : 59,
             height: shareApp == 1 ? 54 : 59,
             background: shareApp == 1 ? "rgb(22, 16, 92)" : "#fff",
-          }}
-          onClick={() => handleShareApp(1)} //gmail
-        >
-          <i
-            className="fa fa-envelope-o"
-            aria-hidden="true"
-            style={{
-              fontSize: shareApp == 1 ? 23 : 27,
-              color: shareApp == 1 ? "#fff" : "rgb(22, 16, 92)",
-            }}
-          ></i>
-        </div>
-        <div
+          }} subject={title} body="body"  >
+              <i
+                className="fa fa-envelope-o" style={{
+                  fontSize: shareApp == 1 ? 23 : 27,
+                  color: shareApp == 1 ? "#fff" : "rgb(22, 16, 92)",
+                }}
+                aria-hidden="true"
+              ></i>
+            </EmailShareButton>
+        <FacebookShareButton quote={title}
           className=" shadow p-3 align-self-center text-center mx-3"
           style={{
             borderRadius: 23,
@@ -353,8 +369,8 @@ const ShareApp = (props) => {
               color: shareApp == 2 ? "#fff" : "rgb(22, 16, 92)",
             }}
           ></i>
-        </div>
-        <div
+        </FacebookShareButton>
+        <TelegramShareButton quote={title}
           className=" shadow p-3 align-self-center text-center mx-2"
           style={{
             borderRadius: 23,
@@ -373,7 +389,7 @@ const ShareApp = (props) => {
               color: shareApp == 3 ? "#fff" : "rgb(22, 16, 92)",
             }}
           ></i>
-        </div>
+        </TelegramShareButton>
         <div
           className=" p-3 shadow align-self-center text-center mx-3"
           style={{
@@ -394,7 +410,9 @@ const ShareApp = (props) => {
             }}
           ></i>
         </div>
-      </div> */}
+      </ShareList>
+        
+      </section>
       {shareApp && (
         <div
           className="d-flex justify-content-center text-center"

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import axios from 'axios';
+
 import { PledgeCard } from "../components/pledgeCard";
-import  PledgeForm from "../components/pledgeForm";
+import PledgeForm from "../components/pledgeForm";
 import { PledgeProgress } from "../components/pledgeProgressBar";
 import { withMedia } from "react-media-query-hoc";
 import PledgeRibbonsForMobile from "../components/PledgeRibbonForMobile";
@@ -17,7 +19,8 @@ const PledgeContainer = (props) => {
 
   const [message, setMessage] = useState("");
   const [imgUrl, setImgUrl] = useState(null);
-  const [warning, setWarning]=useState(false);
+  const [warning, setWarning] = useState(false);
+  const [shareImage,setShareImage]=useState(null);
 
   const _handleEdit = () => {
     setStep(step == 3 ? 2 : 1);
@@ -29,22 +32,42 @@ const PledgeContainer = (props) => {
   const _handleReview = (e) => {
     e.preventDefault();
 
-    if(recipientName && senderName){
+    if (recipientName && senderName) {
       setStep(2);
       setWarning(false)
-    }else{
+    } else {
       setWarning(true)
     }
-    
+
   };
 
   const _handleConfirm = (e) => {
+    var formData = new FormData();
+        formData.append('username', 'Chris');
+        console.log("sdfsdfsdfsdfsd=>",formData)
     e.preventDefault();
     const myNode = document.getElementById('my-node')
     console.log(myNode)
+    setStep(3);
     domtoimage.toJpeg(myNode)
       .then(function (blob) {
-          saveAs(blob, "hehe.png");
+        // saveAs(blob, "hehe.png");
+        
+        var formData = new FormData();
+        formData.append('ribbon', blob);
+        console.log("Form",formData)
+        let url = 'http://172.104.40.242:9898/api/uploadImage';
+        axios.post(url, { body : formData}, {
+          headers: {
+            'content-type': 'multipart/form-data'
+          }
+        })
+          .then(res => {
+            console.log(res.data);
+            const shareImg = res.data.payload;
+            setShareImage(shareImg)
+          })
+          .catch(err => console.log(err));
           setStep(3);
       });
   };
@@ -73,9 +96,9 @@ const PledgeContainer = (props) => {
   };
   let background =
     (media.desktop) ?
-     "/pledgeBackground.svg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
-      "/PledgeBgMobo.png";
-
+      "/pledgeBackground.svg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
+        "/PledgeBgMobo.png";
+console.log(">>>shareImg",shareImage)
   return (
     <div className="d-flex justify-content-center aling-self-center pt-3">
       <div id="testsvg">
@@ -86,28 +109,28 @@ const PledgeContainer = (props) => {
           style={{ height: media.desktop ? "96vh" : media.tablet ? "100vh" : "100vh" }}
         />
       </div>
-      <div className={`${(media.tablet) ? "col-12" : "col-10" } pt-4`}>
-        {(media.desktop ) ? (
+      <div className={`${(media.tablet) ? "col-12" : "col-10"} pt-4`}>
+        {(media.desktop) ? (
           <div className="row px-0 ">
             <div
               className="d-flex justify-content-start col-4 pr-5 align-self-start border border-danger"
               style={{ textAlign: "center" }}
             >
-               <div className="pt-3 pb-1" style={{marginTop: window.innerWidth >1500? '8%' : (media.tablet) ? '15%' :'7%', marginLeft: '3%', position: (media.tablet || media.desktop) && 'fixed'}}>
-              <PledgeCard
-                recipientName={recipientName}
-                senderName={senderName}
-                message={message}
-                media={media}
-                step={step}
-                _handleImage={_handleImage}
-                imgUrl={imgUrl}
-              />
+              <div className="pt-3 pb-1" style={{ marginTop: window.innerWidth > 1500 ? '8%' : (media.tablet) ? '15%' : '7%', marginLeft: '3%', position: (media.tablet || media.desktop) && 'fixed' }}>
+                <PledgeCard
+                  recipientName={recipientName}
+                  senderName={senderName}
+                  message={message}
+                  media={media}
+                  step={step}
+                  _handleImage={_handleImage}
+                  imgUrl={imgUrl}
+                />
               </div>
             </div>
             <div
               className="col-8 pt-4"
-              style={{ height: "90vh"}}
+              style={{ height: "90vh" }}
             >
               <PledgeProgress step={step} media={media} />
               <PledgeForm
@@ -129,37 +152,13 @@ const PledgeContainer = (props) => {
                 warning={warning}
               />
             </div>
-            
+
           </div>
-        ) 
-         :(media.tablet) ?
-        <div className="d-flex justify-content-center align-self-center pt-1" style={{ marginTop: ( window.innerWidth > 780 && media.tablet) ? '20%' : '19%'}}>
-          
-          <PledgeRibbonsForTablet
-                step={step}
-                media={media}
-                _handleConfirm={_handleConfirm}
-                _handleEdit={_handleEdit}
-                _handleTextChange={_handleTextChange}
-                _handleReview={_handleReview}
-                _handleSelect={_handleSelect}
-                _handleSelectOption={_handleSelectOption}
-                recipientName={recipientName}
-                message={message}
-                senderName={senderName}
-                menuVisible={menuVisible}
-                recipientName={recipientName}
-                senderName={senderName}
-                message={message}
-                _handleRibbonClick={_handleRibbonClick}
-              />
-        </div>
-        :
-         (
-          <div className="d-flex justify-content-center">
-            <div className="">
-              <PledgeProgress step={step} media={media} />
-              <PledgeRibbonsForMobile
+        )
+          : (media.tablet) ?
+            <div className="d-flex justify-content-center align-self-center pt-1" style={{ marginTop: (window.innerWidth > 780 && media.tablet) ? '20%' : '19%' }}>
+
+              <PledgeRibbonsForTablet
                 step={step}
                 media={media}
                 _handleConfirm={_handleConfirm}
@@ -178,8 +177,32 @@ const PledgeContainer = (props) => {
                 _handleRibbonClick={_handleRibbonClick}
               />
             </div>
-          </div>
-        )}
+            :
+            (
+              <div className="d-flex justify-content-center">
+                <div className="">
+                  <PledgeProgress step={step} media={media} />
+                  <PledgeRibbonsForMobile
+                    step={step}
+                    media={media}
+                    _handleConfirm={_handleConfirm}
+                    _handleEdit={_handleEdit}
+                    _handleTextChange={_handleTextChange}
+                    _handleReview={_handleReview}
+                    _handleSelect={_handleSelect}
+                    _handleSelectOption={_handleSelectOption}
+                    recipientName={recipientName}
+                    message={message}
+                    senderName={senderName}
+                    menuVisible={menuVisible}
+                    recipientName={recipientName}
+                    senderName={senderName}
+                    message={message}
+                    _handleRibbonClick={_handleRibbonClick}
+                  />
+                </div>
+              </div>
+            )}
       </div>
     </div>
   );
