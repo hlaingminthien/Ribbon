@@ -1,4 +1,14 @@
 import React, { useState, useRef } from "react";
+import { Passers } from "prop-passer";
+import {
+  FacebookShareButton,
+  EmailShareButton,
+  TelegramShareButton,
+  FacebookIcon,
+  EmailIcon,
+  TelegramIcon,
+} from "react-share";
+
 import { NCIS_Selector } from "../../../tools/NCIS_Selector";
 import { NCIS_TextBox } from "../../../tools/NCIS_TextBox";
 import { NCIS_Button } from "../../../tools/NCIS_Button";
@@ -9,7 +19,7 @@ import { PledgeCard } from "../components/pledgeCard";
 import { ShareForms } from "../components/pledgeForm";
 import { withRouter } from "react-router-dom";
 import { PledgeProgress } from "../components/pledgeProgressBar";
-import ShareApp1 from './pledgeForm';
+
 
 const PledgeRibbonsForTablet = (props) => {
   const {
@@ -19,7 +29,7 @@ const PledgeRibbonsForTablet = (props) => {
     _handleRibbonClick,
     _handleTextChange,
     step,
-    media,
+    media,complete,_handleShare,
     _handleReview,
     _handleConfirm,
     _handleEdit,
@@ -27,12 +37,10 @@ const PledgeRibbonsForTablet = (props) => {
     senderName,
     message,
   } = props;
-  const [complete, setComplete] = useState(false);
+  
   const [imgUrl, setImgUrl] = useState(null);
   const [shareApp, setShareApp] = useState(null);
-  const _handleShare = () => {
-    setComplete(true);
-  };
+  
   const _handlePledge = () => {
     props.history.push("/");
   };
@@ -42,7 +50,7 @@ const PledgeRibbonsForTablet = (props) => {
   const handleShareApp = (app) => {
     setShareApp(app == shareApp ? null : app);
   };
-  console.log("????",step)
+
   return (
     <div className="pt-3 px-1 container justify-content-center">
       <div className={`d-flex ${window.innerWidth > 800 ? "col-8" : "col-10"} container justify-content-center justify-content-between`}>
@@ -99,8 +107,8 @@ const PledgeRibbonsForTablet = (props) => {
         <Ribbon {...props} _handleImage={_handleImage} />
 
       </div>
-      {step === 3 && !complete && (
-        <ShareApp1
+      {(step === 3 && !complete) && (
+        <ShareApp
         handleShareApp={handleShareApp}
         _handleShare={_handleShare}
         shareApp={shareApp}
@@ -155,6 +163,7 @@ const PledgeRibbonsForTablet = (props) => {
             media={media}
           />
         </div>
+        
       )}
     </div>
   );
@@ -164,7 +173,7 @@ export default withRouter(PledgeRibbonsForTablet);
 const PledgeCardForTablet = (props) => {
   const { recipientName, senderName, message, media, step, imgUrl } = props;
   return (
-    <div className={` d-flex pb-1 ${(window.innerWidth > 780 && media.tablet) && "pt-5"} justify-content-center text-white`}>
+    <div className={` d-flex pb-1 ${(window.innerWidth > 780 && media.tablet) && "pt-5"} justify-content-center text-white`} id="my-node" >
       <img
         className="img-responsive"
         src={"/card.png"}
@@ -177,7 +186,7 @@ const PledgeCardForTablet = (props) => {
       >
         <div
           className={`d-flex flex-column ${step != 1 && "move-me move-me-1"} `}
-          style={{ minHeight: (window.innerWidth > 780 && media.tablet) ? 180 : 110 }}
+          style={{ minHeight: (window.innerWidth > 780 && media.tablet) ? 160 : 110 }}
         >
           <span className="" style={{ fontSize: (window.innerWidth > 780 && media.tablet) ? 17 : 14, fontWeight: "bold" }}>
             {recipientName}
@@ -195,19 +204,14 @@ const PledgeCardForTablet = (props) => {
           </span>
         </div>
 
-        {imgUrl && (
           <div className="d-flex justify-content-end align-items-start">
-            {/* <div style={{}}>
-                                   
-                                    </div> */}
-
             <img
-              src={imgUrl}
+              src={imgUrl ? imgUrl : "./assets/images/ribbons/skyBlue.png"}
               alt="selected-ribbons"
               style={{ width: (window.innerWidth > 780 && media.tablet) ? 80 : 58, height: (window.innerWidth > 780 && media.tablet) ? 80 : 58 }}
             />
           </div>
-        )}
+        
       </div>
     </div>
   );
@@ -458,32 +462,40 @@ const ThankuCard = (props) => {
 };
 
 const ShareApp = (props) => {
-  const { handleShareApp, shareApp } = props;
+  const { handleShareApp, shareApp, _handleEdit, paleViolet,_handleShare,url = "https://github.com/nygardk/react-share",//String(window.location),
+  title = "Steadylearner Website",
+  shareImage = "https://www.steadylearner.com/static/images/brand/prop-passer.png",
+  size = "2.5rem", } = props;
 
+  const ShareList = Passers({
+    url,
+    className: "",
+  })({
+    className: "",
+    title: `Share ${String(window.location)}`,
+  })("li");
   return (
     <div>
-      <div className="d-flex justify-content-center m-2 pt-5 py-3">
-        <div
-          className=" shadow p-3 align-self-center text-center mx-2"
+      <section className="d-flex justify-content-center m-2 pt-5 py-3">
+      <ShareList style={{ textAlign: "center" }}>
+        <EmailShareButton className=" shadow p-3 align-self-center text-center mx-2"
+        onClick={() => handleShareApp(1)} 
           style={{
             borderRadius: 23,
             border: "1px solid #FAFAFA",
             width: shareApp == 1 ? 54 : 59,
             height: shareApp == 1 ? 54 : 59,
             background: shareApp == 1 ? "rgb(22, 16, 92)" : "#fff",
-          }}
-          onClick={() => handleShareApp(1)} //gmail
-        >
-          <i
-            className="fa fa-envelope-o"
-            aria-hidden="true"
-            style={{
-              fontSize: shareApp == 1 ? 23 : 27,
-              color: shareApp == 1 ? "#fff" : "rgb(22, 16, 92)",
-            }}
-          ></i>
-        </div>
-        <div
+          }} subject={title} body="body"  >
+              <i
+                className="fa fa-envelope-o" style={{
+                  fontSize: shareApp == 1 ? 23 : 27,
+                  color: shareApp == 1 ? "#fff" : "rgb(22, 16, 92)",
+                }}
+                aria-hidden="true"
+              ></i>
+            </EmailShareButton>
+        <FacebookShareButton quote={title}
           className=" shadow p-3 align-self-center text-center mx-3"
           style={{
             borderRadius: 23,
@@ -502,8 +514,8 @@ const ShareApp = (props) => {
               color: shareApp == 2 ? "#fff" : "rgb(22, 16, 92)",
             }}
           ></i>
-        </div>
-        <div
+        </FacebookShareButton>
+        <TelegramShareButton quote={title}
           className=" shadow p-3 align-self-center text-center mx-2"
           style={{
             borderRadius: 23,
@@ -515,14 +527,14 @@ const ShareApp = (props) => {
           onClick={() => handleShareApp(3)} //insta
         >
           <i
-            className="fa fa-instagram"
+            className="fa fa-telegram"
             aria-hidden="true"
             style={{
               fontSize: shareApp == 3 ? 23 : 27,
               color: shareApp == 3 ? "#fff" : "rgb(22, 16, 92)",
             }}
           ></i>
-        </div>
+        </TelegramShareButton>
         <div
           className=" p-3 shadow align-self-center text-center mx-3"
           style={{
@@ -535,7 +547,7 @@ const ShareApp = (props) => {
           onClick={() => handleShareApp(4)} //telegram
         >
           <i
-            className="fa fa-telegram"
+            className="fa fa-instagram"
             aria-hidden="true"
             style={{
               fontSize: shareApp == 4 ? 23 : 27,
@@ -543,7 +555,9 @@ const ShareApp = (props) => {
             }}
           ></i>
         </div>
-      </div>
+      </ShareList>
+        
+      </section>
       {shareApp && (
         <div
           className="d-flex justify-content-center text-center"
@@ -555,6 +569,106 @@ const ShareApp = (props) => {
           </div>
         </div>
       )}
+      
     </div>
   );
+  // const { handleShareApp, shareApp } = props;
+
+  // return (
+  //   <div>
+  //     <div className="d-flex justify-content-center m-2 pt-5 py-3">
+  //       <div
+  //         className=" shadow p-3 align-self-center text-center mx-2"
+  //         style={{
+  //           borderRadius: 23,
+  //           border: "1px solid #FAFAFA",
+  //           width: shareApp == 1 ? 54 : 59,
+  //           height: shareApp == 1 ? 54 : 59,
+  //           background: shareApp == 1 ? "rgb(22, 16, 92)" : "#fff",
+  //         }}
+  //         onClick={() => handleShareApp(1)} //gmail
+  //       >
+  //         <i
+  //           className="fa fa-envelope-o"
+  //           aria-hidden="true"
+  //           style={{
+  //             fontSize: shareApp == 1 ? 23 : 27,
+  //             color: shareApp == 1 ? "#fff" : "rgb(22, 16, 92)",
+  //           }}
+  //         ></i>
+  //       </div>
+  //       <div
+  //         className=" shadow p-3 align-self-center text-center mx-3"
+  //         style={{
+  //           borderRadius: 23,
+  //           border: "1px solid #FAFAFA",
+  //           width: shareApp == 2 ? 54 : 59,
+  //           height: shareApp == 2 ? 54 : 59,
+  //           background: shareApp == 2 ? "rgb(22, 16, 92)" : "#fff",
+  //         }}
+  //         onClick={() => handleShareApp(2)} //facebook
+  //       >
+  //         <i
+  //           className="fa fa-facebook"
+  //           aria-hidden="true"
+  //           style={{
+  //             fontSize: shareApp == 2 ? 23 : 27,
+  //             color: shareApp == 2 ? "#fff" : "rgb(22, 16, 92)",
+  //           }}
+  //         ></i>
+  //       </div>
+  //       <div
+  //         className=" shadow p-3 align-self-center text-center mx-2"
+  //         style={{
+  //           borderRadius: 23,
+  //           border: "1px solid #FAFAFA",
+  //           width: shareApp == 3 ? 54 : 59,
+  //           height: shareApp == 3 ? 54 : 59,
+  //           background: shareApp == 3 ? "rgb(22, 16, 92)" : "#fff",
+  //         }}
+  //         onClick={() => handleShareApp(3)} //insta
+  //       >
+  //         <i
+  //           className="fa fa-instagram"
+  //           aria-hidden="true"
+  //           style={{
+  //             fontSize: shareApp == 3 ? 23 : 27,
+  //             color: shareApp == 3 ? "#fff" : "rgb(22, 16, 92)",
+  //           }}
+  //         ></i>
+  //       </div>
+  //       <div
+  //         className=" p-3 shadow align-self-center text-center mx-3"
+  //         style={{
+  //           borderRadius: 23,
+  //           border: "1px solid #FAFAFA",
+  //           width: shareApp == 4 ? 54 : 59,
+  //           height: shareApp == 4 ? 54 : 59,
+  //           background: shareApp == 4 ? "rgb(22, 16, 92)" : "#fff",
+  //         }}
+  //         onClick={() => handleShareApp(4)} //telegram
+  //       >
+  //         <i
+  //           className="fa fa-telegram"
+  //           aria-hidden="true"
+  //           style={{
+  //             fontSize: shareApp == 4 ? 23 : 27,
+  //             color: shareApp == 4 ? "#fff" : "rgb(22, 16, 92)",
+  //           }}
+  //         ></i>
+  //       </div>
+  //     </div>
+  //     {shareApp && (
+  //       <div
+  //         className="d-flex justify-content-center text-center"
+  //         style={{ fontSize: 14, fontWeight: 600 }}
+  //       >
+  //         <div className="col-5">
+  //           Spread the world by tagging your recipient and add the hashtag
+  //           #Compagin
+  //         </div>
+  //       </div>
+  //     )}
+  //   </div>
+  // );
 };
