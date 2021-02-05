@@ -43,28 +43,17 @@ const PledgeContainer = (props) => {
   };
 
   const _handleConfirm = (e) => {
-    var formData = new FormData();
-        formData.append('username', 'Chris');
-        // console.log("sdfsdfsdfsdfsd=>",formData)
     e.preventDefault();
     const myNode = document.getElementById('my-node')
-    // console.log(myNode)
+    console.log(myNode)
     setStep(3);
     domtoimage.toJpeg(myNode)
       .then(function (blob) {
-        saveAs(blob, "hehe.png");
-        
         var formData = new FormData();
         formData.append('ribbon', blob);
-        // console.log("Form",formData)
         let url = 'http://172.104.40.242:9898/api/uploadImage';
-        axios.post(url, { body : formData}, {
-          headers: {
-            'content-type': 'multipart/form-data'
-          }
-        })
+        axios.post(url, { ribbon : blob})
           .then(res => {
-            console.log(res.data);
             const shareImg = res.data.payload;
             setShareImage(shareImg)
           })
@@ -153,6 +142,7 @@ const PledgeContainer = (props) => {
                 complete={complete}
                 _handleImage={_handleImage}
                 warning={warning}
+                shareImage={shareImage}
               />
             </div>
 

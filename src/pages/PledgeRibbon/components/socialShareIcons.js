@@ -14,7 +14,7 @@ class Icons extends Component {
   render() {
 
     const {
-      url = "https://github.com/nygardk/react-share",//String(window.location),
+      // url = "H"+,//String(window.location),
       title = "Steadylearner Website",
       shareImage = "https://www.steadylearner.com/static/images/brand/prop-passer.png",
       size = "2.5rem",
