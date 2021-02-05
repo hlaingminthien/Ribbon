@@ -133,7 +133,7 @@ const Ribbons = (props) => {
     handleShareApp,
     shareApp,
     media, paleViolet,_handleShare,url = "http://172.104.40.242:9898/" + shareImg,//String(window.location),
-  title = "Steadylearner Website",
+  title = "National University Cancer Institute Singapore" ,
   shareImage =  "http://172.104.40.242:9898/" + shareImg,
   size = "2.5rem", } = props;
 
@@ -142,7 +142,7 @@ const Ribbons = (props) => {
     className: "",
   })({
     className: "",
-    title: `Share ${String(window.location)}`,
+    // title: `Share ${String(window.location)}`,
   })("li");
   const [selected, setSelected] = useState(false);
   const [nextOfStep1, setNextOfStep1] = useState(selected ? true : false);
