@@ -322,7 +322,7 @@ export const ThankYouCard = (props) => {
 const ShareApp = (props) => {
   const { handleShareApp, shareApp, shareImg, _handleEdit, paleViolet, _handleShare,
     url = "http://172.104.40.242:9898/" + shareImg,//String(window.location),
-    title = "Pledge ribbon",
+    title = "National University Cancer Institute Singapore",
     shareImage = "http://172.104.40.242:9898/" + shareImg,
     // shareImage = "https://www.steadylearner.com/static/images/brand/prop-passer.png",
     size = "2.5rem", } = props;
@@ -332,7 +332,7 @@ const ShareApp = (props) => {
     className: ""
   })({
     className: "",
-    title: `Share ${String(window.location)}`,
+    // title: `Share ${String(window.location)}`,
   })("li");
   return (
     <div>

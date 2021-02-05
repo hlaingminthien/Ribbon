@@ -464,7 +464,7 @@ const ThankuCard = (props) => {
 
 const ShareApp = (props) => {
   const { handleShareApp,shareImg, shareApp, _handleEdit, paleViolet,_handleShare,url = "http://172.104.40.242:9898/" + shareImg,//String(window.location),
-  title = "Steadylearner Website",
+  title = "National University Cancer Institute Singapore",
   shareImage =  "http://172.104.40.242:9898/" + shareImg,
   size = "2.5rem", } = props;
 
@@ -473,7 +473,7 @@ const ShareApp = (props) => {
     className: "",
   })({
     className: "",
-    title: `Share ${String(window.location)}`,
+    // title: `Share ${String(window.location)}`,
   })("li");
   return (
     <div>
