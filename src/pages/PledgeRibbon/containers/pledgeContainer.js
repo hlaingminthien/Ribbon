@@ -21,6 +21,7 @@ const PledgeContainer = (props) => {
   const [imgUrl, setImgUrl] = useState(null);
   const [warning, setWarning] = useState(false);
   const [shareImage,setShareImage]=useState(null);
+  const [complete, setComplete] = useState(false);
 
   const _handleEdit = () => {
     setStep(step == 3 ? 2 : 1);
@@ -44,18 +45,18 @@ const PledgeContainer = (props) => {
   const _handleConfirm = (e) => {
     var formData = new FormData();
         formData.append('username', 'Chris');
-        console.log("sdfsdfsdfsdfsd=>",formData)
+        // console.log("sdfsdfsdfsdfsd=>",formData)
     e.preventDefault();
     const myNode = document.getElementById('my-node')
-    console.log(myNode)
+    // console.log(myNode)
     setStep(3);
     domtoimage.toJpeg(myNode)
       .then(function (blob) {
-        // saveAs(blob, "hehe.png");
+        saveAs(blob, "hehe.png");
         
         var formData = new FormData();
         formData.append('ribbon', blob);
-        console.log("Form",formData)
+        // console.log("Form",formData)
         let url = 'http://172.104.40.242:9898/api/uploadImage';
         axios.post(url, { body : formData}, {
           headers: {
@@ -92,13 +93,14 @@ const PledgeContainer = (props) => {
     setImgUrl(img);
   };
   const _handleShare = () => {
-    setStep(4);
+    setComplete(true);
+    setStep(3);
   };
   let background =
     (media.desktop) ?
       "/pledgeBackground.svg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
         "/PledgeBgMobo.png";
-console.log(">>>shareImg",shareImage)
+// console.log(">>>shareImg",shareImage)
   return (
     <div className="d-flex justify-content-center aling-self-center pt-3">
       <div id="testsvg">
@@ -148,6 +150,7 @@ console.log(">>>shareImg",shareImage)
                 menuVisible={menuVisible}
                 _handleRibbonClick={_handleRibbonClick}
                 media={media}
+                complete={complete}
                 _handleImage={_handleImage}
                 warning={warning}
               />
@@ -166,6 +169,7 @@ console.log(">>>shareImg",shareImage)
                 _handleTextChange={_handleTextChange}
                 _handleReview={_handleReview}
                 _handleSelect={_handleSelect}
+                _handleShare={_handleShare}
                 _handleSelectOption={_handleSelectOption}
                 recipientName={recipientName}
                 message={message}
@@ -174,6 +178,7 @@ console.log(">>>shareImg",shareImage)
                 recipientName={recipientName}
                 senderName={senderName}
                 message={message}
+                complete={complete}
                 _handleRibbonClick={_handleRibbonClick}
               />
             </div>

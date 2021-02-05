@@ -24,7 +24,7 @@ const PledgeForm = (props) => {
     menuVisible,
     _handleRibbonClick,
     _handleTextChange,
-    step,
+    step,complete,
     _handleReview,
     _handleConfirm,
     _handleEdit,
@@ -43,27 +43,28 @@ const PledgeForm = (props) => {
     // console.log(">>>",props.history)
     props.history.push("/");
   };
+
   return (
     <div className="py-2">
       <form>
         <div>
-          <strong>{`Step ${step}:`}</strong>
+          <strong>{step && `Step ${step}:`}</strong>
         </div>
         <label style={{ fontWeight: "bold", fontSize: 20 }}>
           {step === 1
             ? "Choose Your Ribbon and Create Your Message"
             : step === 2
             ? "Review Your Ribbon"
-            : "Share Your Message"}
+            : (step === 3) ? "Share Your Message" : ""}
         </label>
         <br />
-        {step === 3 &&
+        {(step === 3 && !complete ) &&
           "Click Back to edit or select on the following icons to share your message"}
         {step === 1 && <PledgeRibbons {...props} />}
         {/* //  _handleSelect={_handleSelect} _handleRibbonClick={_handleRibbonClick} menuVisible={menuVisible} */}
-        {step === 4 ? (
+        {(step === 3 && complete) ? (
           <ThankYouCard _handlePledge={_handlePledge} />
-        ) : step === 3 ? (
+        ) : (step === 3 && !complete ) ? (
           <ShareApp
             handleShareApp={handleShareApp}
             _handleShare={_handleShare}
@@ -71,7 +72,7 @@ const PledgeForm = (props) => {
             paleViolet={paleViolet}
             
           />
-        ) : (
+        ) : (step === 2 || step === 1) && (
           <div
             className="form-group row mx-auto justify-content-center py-4"
             style={{ padding: 50 }}
@@ -279,7 +280,7 @@ export const ThankYouCard = (props) => {
   return (
     <div className="d-flex justify-content-center p-2 ">
       <div
-        className="bg-light p-3 col-6 m-3 shadow"
+        className="bg-light p-3 col-6 my-3 mx-4 shadow"
         style={{ borderRadius: 10 }}
       >
         <div
@@ -295,19 +296,19 @@ export const ThankYouCard = (props) => {
           posuere mauris, eu fringilla magna. Praesent a sodales leo, quis
           feugiat eros.
         </p>
-        <div className="d-flex justify-content-center text-left">
-          <div className="p-2  d-flex justify-content-center">
+        <div className="d-flex justify-content-center text-left mx-2">
+          <div className="py-2  d-flex justify-content-center">
             <NCIS_Button
               text={"Pledge Another"}
               onClick={() => window.location.reload()}
-              className="mx-2"
+              className="mx-1"
             />
           </div>
-          <div className="p-2 d-flex justify-content-center">
+          <div className="py-2 d-flex justify-content-center">
             <NCIS_Button
               text={"Back To Home"}
               onClick={_handlePledge}
-              className="mx-2"
+              className="mx-1"
               buttonColor={violet}
             />
           </div>
@@ -335,6 +336,7 @@ const ShareApp = (props) => {
       <section className="d-flex justify-content-center m-2 pt-5 py-3">
       <ShareList style={{ textAlign: "center" }}>
         <EmailShareButton className=" shadow p-3 align-self-center text-center mx-2"
+        onClick={() => handleShareApp(1)}
           style={{
             borderRadius: 23,
             border: "1px solid #FAFAFA",
@@ -382,7 +384,7 @@ const ShareApp = (props) => {
           onClick={() => handleShareApp(3)} //insta
         >
           <i
-            className="fa fa-instagram"
+            className="fa fa-telegram"
             aria-hidden="true"
             style={{
               fontSize: shareApp == 3 ? 23 : 27,
@@ -402,7 +404,7 @@ const ShareApp = (props) => {
           onClick={() => handleShareApp(4)} //telegram
         >
           <i
-            className="fa fa-telegram"
+            className="fa fa-instagram"
             aria-hidden="true"
             style={{
               fontSize: shareApp == 4 ? 23 : 27,
@@ -424,6 +426,7 @@ const ShareApp = (props) => {
           </div>
         </div>
       )}
+      
       <div className="d-flex justify-content-center pt-5">
         <NCIS_Button
           text={"Back"}
