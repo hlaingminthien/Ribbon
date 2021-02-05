@@ -170,6 +170,7 @@ const PledgeContainer = (props) => {
                 message={message}
                 complete={complete}
                 _handleRibbonClick={_handleRibbonClick}
+                shareImage={shareImage}
               />
             </div>
             :
@@ -194,6 +195,8 @@ const PledgeContainer = (props) => {
                     senderName={senderName}
                     message={message}
                     _handleRibbonClick={_handleRibbonClick}
+                    shareImage={shareImage}
+                    complete={complete}
                   />
                 </div>
               </div>

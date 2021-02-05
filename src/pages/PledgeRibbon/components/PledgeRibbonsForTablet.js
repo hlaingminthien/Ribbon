@@ -35,7 +35,7 @@ const PledgeRibbonsForTablet = (props) => {
     _handleEdit,
     recipientName,
     senderName,
-    message,
+    message,shareImage
   } = props;
   
   const [imgUrl, setImgUrl] = useState(null);
@@ -114,6 +114,7 @@ const PledgeRibbonsForTablet = (props) => {
         shareApp={shareApp}
         paleViolet={paleViolet}
         media={media}
+        shareImg={shareImage}
         
       />
         // <ShareApp shareApp={shareApp} handleShareApp={handleShareApp} />
@@ -462,9 +463,9 @@ const ThankuCard = (props) => {
 };
 
 const ShareApp = (props) => {
-  const { handleShareApp, shareApp, _handleEdit, paleViolet,_handleShare,url = "https://github.com/nygardk/react-share",//String(window.location),
+  const { handleShareApp,shareImg, shareApp, _handleEdit, paleViolet,_handleShare,url = "http://172.104.40.242:9898/" + shareImg,//String(window.location),
   title = "Steadylearner Website",
-  shareImage = "https://www.steadylearner.com/static/images/brand/prop-passer.png",
+  shareImage =  "http://172.104.40.242:9898/" + shareImg,
   size = "2.5rem", } = props;
 
   const ShareList = Passers({

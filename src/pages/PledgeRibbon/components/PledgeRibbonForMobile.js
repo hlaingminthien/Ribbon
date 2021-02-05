@@ -33,7 +33,7 @@ const PledgeRibbonsForMobile = (props) => {
     _handleEdit,
     recipientName,
     senderName,
-    message,
+    message,shareImage
   } = props;
   const [complete, setComplete] = useState(false);
   const [shareApp, setShareApp] = useState(null);
@@ -72,7 +72,7 @@ const PledgeRibbonsForMobile = (props) => {
         </div>
       ) : null}
 
-      <Ribbons {...props} complete={complete} handleShareApp={handleShareApp} shareApp={shareApp} />
+      <Ribbons {...props} complete={complete} handleShareApp={handleShareApp} shareApp={shareApp} shareImg={shareImage} />
       {step == 2 && (
         <div className="d-flex justify-content-center flex-wrap">
           <div className="py-1">
@@ -122,7 +122,7 @@ const Ribbons = (props) => {
     _handleTextChange,
     recipientName,
     complete,
-    senderName,
+    senderName,shareImg,
     message,
     _handleSelect,
     menuVisible,
@@ -132,9 +132,9 @@ const Ribbons = (props) => {
     _handleConfirm,
     handleShareApp,
     shareApp,
-    media, paleViolet,_handleShare,url = "https://github.com/nygardk/react-share",//String(window.location),
+    media, paleViolet,_handleShare,url = "http://172.104.40.242:9898/" + shareImg,//String(window.location),
   title = "Steadylearner Website",
-  shareImage = "https://www.steadylearner.com/static/images/brand/prop-passer.png",
+  shareImage =  "http://172.104.40.242:9898/" + shareImg,
   size = "2.5rem", } = props;
 
   const ShareList = Passers({
