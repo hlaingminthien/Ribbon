@@ -102,12 +102,12 @@ const PledgeContainer = (props) => {
       </div>
       <div className={`${(media.tablet) ? "col-12" : "col-10"} pt-4`}>
         {(media.desktop) ? (
-          <div className="row px-0 ">
+          <div className="row px-0">
             <div
-              className="d-flex justify-content-start col-4 pr-5 align-self-start border border-danger"
+              className="d-flex justify-content-start col-4 align-self-start "
               style={{ textAlign: "center" }}
             >
-              <div className="pt-3 pb-1" style={{ marginTop: window.innerWidth > 1500 ? '8%' : (media.tablet) ? '15%' : '7%', marginLeft: '3%', position: (media.tablet || media.desktop) && 'fixed' }}>
+              <div className="pt-3 pb-1" style={{ marginTop: window.innerWidth > 1500 ? '8%' : (media.tablet) ? '15%' : '7%', marginLeft: '0%', position: (media.tablet || media.desktop) && 'fixed' }}>
                 <PledgeCard
                   recipientName={recipientName}
                   senderName={senderName}
@@ -177,7 +177,10 @@ const PledgeContainer = (props) => {
             (
               <div className="d-flex justify-content-center">
                 <div className="">
+                  <div className='pt-2'>
                   <PledgeProgress step={step} media={media} />
+
+                  </div>
                   <PledgeRibbonsForMobile
                     step={step}
                     media={media}

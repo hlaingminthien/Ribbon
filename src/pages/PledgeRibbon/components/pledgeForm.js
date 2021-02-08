@@ -5,9 +5,9 @@ import {
   FacebookShareButton,
   EmailShareButton,
   TelegramShareButton,
-  FacebookIcon,
+  FacebookIcon, LineIcon,
   EmailIcon,
-  TelegramIcon,
+  LinkedinIcon, WhatsappIcon, LinkedinShareButton
 } from "react-share";
 
 import { NCIS_Selector } from "../../../tools/NCIS_Selector";
@@ -335,117 +335,238 @@ const ShareApp = (props) => {
     // title: `Share ${String(window.location)}`,
   })("li");
   return (
-    <div>
-      <section className="d-flex justify-content-center m-2 pt-5 py-3">
-        <ShareList style={{ textAlign: "center" }}>
-          <EmailShareButton className=" shadow p-3 align-self-center text-center mx-2"
-            onClick={() => handleShareApp(1)}
-            style={{
-              borderRadius: 23,
-              border: "1px solid #FAFAFA",
-              width: shareApp == 1 ? 54 : 59,
-              height: shareApp == 1 ? 54 : 59,
-              background: shareApp == 1 ? "rgb(22, 16, 92)" : "#fff",
-            }} subject={title} body="body"  >
-            <i
-              className="fa fa-envelope-o" style={{
-                fontSize: shareApp == 1 ? 23 : 27,
-                color: shareApp == 1 ? "#fff" : "rgb(22, 16, 92)",
-              }}
-              aria-hidden="true"
-            ></i>
-          </EmailShareButton>
-          <FacebookShareButton quote={title}
-            className=" shadow p-3 align-self-center text-center mx-3"
-            style={{
-              borderRadius: 23,
-              border: "1px solid #FAFAFA",
-              width: shareApp == 2 ? 54 : 59,
-              height: shareApp == 2 ? 54 : 59,
-              background: shareApp == 2 ? "rgb(22, 16, 92)" : "#fff",
-            }}
-            onClick={() => handleShareApp(2)} //facebook
-          >
-            <i
-              className="fa fa-facebook"
-              aria-hidden="true"
-              style={{
-                fontSize: shareApp == 2 ? 23 : 27,
-                color: shareApp == 2 ? "#fff" : "rgb(22, 16, 92)",
-              }}
-            ></i>
-          </FacebookShareButton>
-          <TelegramShareButton quote={title}
-            className=" shadow p-3 align-self-center text-center mx-2"
-            style={{
-              borderRadius: 23,
-              border: "1px solid #FAFAFA",
-              width: shareApp == 3 ? 54 : 59,
-              height: shareApp == 3 ? 54 : 59,
-              background: shareApp == 3 ? "rgb(22, 16, 92)" : "#fff",
-            }}
-            onClick={() => handleShareApp(3)} //insta
-          >
-            <i
-              className="fa fa-telegram"
-              aria-hidden="true"
-              style={{
-                fontSize: shareApp == 3 ? 23 : 27,
-                color: shareApp == 3 ? "#fff" : "rgb(22, 16, 92)",
-              }}
-            ></i>
-          </TelegramShareButton>
-          <div
-            className=" p-3 shadow align-self-center text-center mx-3"
-            style={{
-              borderRadius: 23,
-              border: "1px solid #FAFAFA",
-              width: shareApp == 4 ? 54 : 59,
-              height: shareApp == 4 ? 54 : 59,
-              background: shareApp == 4 ? "rgb(22, 16, 92)" : "#fff",
-            }}
-            onClick={() => handleShareApp(4)} //telegram
-          >
-            <i
-              className="fa fa-instagram"
-              aria-hidden="true"
-              style={{
-                fontSize: shareApp == 4 ? 23 : 27,
-                color: shareApp == 4 ? "#fff" : "rgb(22, 16, 92)",
-              }}
-            ></i>
-          </div>
-        </ShareList>
+    <>
+      <div className='d-flex justify-content-center'>
+        <div className='px-2 pt-5' style={{ fontWeight: 600 }}>Share Via:</div>
+        <div>
+          <section className="d-flex justify-content-center m-2 pt-4 p-3">
+            <ShareList style={{ textAlign: "center" }}>
+              <div className='text-center'>
+                <WhatsappIcon className=" shadow p-3 align-self-center text-center mx-2"
+                  onClick={() => handleShareApp(1)}
+                  style={{
+                    borderRadius: 23,
+                    border: "1px solid #FAFAFA",
+                    width: shareApp == 1 ? 54 : 59,
+                    height: shareApp == 1 ? 54 : 59,
+                    background: shareApp == 1 ? "rgb(22, 16, 92)" : "#fff",
+                  }} subject={title} body="body"  >
+                  <i
+                    className="fa fa-envelope-o" style={{
+                      fontSize: shareApp == 1 ? 23 : 27,
+                      color: shareApp == 1 ? "#fff" : "rgb(22, 16, 92)",
+                    }}
+                    aria-hidden="true"
+                  ></i>
+                </WhatsappIcon>
+                <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>E-mail</div>
+              </div>
 
-      </section>
-      {shareApp && (
-        <div
-          className="d-flex justify-content-center text-center"
-          style={{ fontSize: 14, fontWeight: 600 }}
-        >
-          <div className="col-5">
-            Spread the world by tagging your recipient and add the hashtag
-            #Compagin
+              <div className='text-center'>
+                <FacebookShareButton quote={title}
+                  className=" shadow p-3 align-self-center text-center mx-3"
+                  style={{
+                    borderRadius: 23,
+                    border: "1px solid #FAFAFA",
+                    width: shareApp == 2 ? 54 : 59,
+                    height: shareApp == 2 ? 54 : 59,
+                    background: shareApp == 2 ? "rgb(22, 16, 92)" : "#fff",
+                  }}
+                  onClick={() => handleShareApp(2)} //facebook
+                >
+                  <i
+                    className="fa fa-facebook"
+                    aria-hidden="true"
+                    style={{
+                      fontSize: shareApp == 2 ? 23 : 27,
+                      color: shareApp == 2 ? "#fff" : "rgb(22, 16, 92)",
+                    }}
+                  ></i>
+                </FacebookShareButton>
+                <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>facebook</div>
+
+              </div>
+
+              <div className='text-center'>
+                <div
+                  className=" p-3 shadow align-self-center text-center mx-3"
+                  style={{
+                    borderRadius: 23,
+                    border: "1px solid #FAFAFA",
+                    width: shareApp == 4 ? 54 : 59,
+                    height: shareApp == 4 ? 54 : 59,
+                    background: shareApp == 4 ? "rgb(22, 16, 92)" : "#fff",
+                  }}
+                  onClick={() => handleShareApp(4)} //telegram
+                >
+                  <i
+                    className="fa fa-instagram"
+                    aria-hidden="true"
+                    style={{
+                      fontSize: shareApp == 4 ? 23 : 27,
+                      color: shareApp == 4 ? "#fff" : "rgb(22, 16, 92)",
+                    }}
+                  ></i>
+                </div>
+                <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>Instagram</div>
+
+              </div>
+              <div className='text-center'>
+                <LinkedinIcon quote={title}
+                  className=" shadow p-3 align-self-center text-center mx-3"
+                  style={{
+                    borderRadius: 23,
+                    border: "1px solid #FAFAFA",
+                    width: shareApp == 2 ? 54 : 59,
+                    height: shareApp == 2 ? 54 : 59,
+                    background: shareApp == 2 ? "rgb(22, 16, 92)" : "#fff",
+                  }}
+                  onClick={() => handleShareApp(2)} //facebook
+                >
+                  <i
+                    className="fab fa-whatsapp"
+                    aria-hidden="true"
+                    style={{
+                      fontSize: shareApp == 2 ? 23 : 27,
+                      color: shareApp == 2 ? "#fff" : "rgb(22, 16, 92)",
+                    }}
+                  ></i>
+                </LinkedinIcon>
+                <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>LinkIn</div>
+
+              </div>
+            </ShareList>
+          </section>
+          <div className=''>
+            <section className="d-flex justify-content-center m-2">
+              <ShareList>
+                <div className='text-center'>
+                  <EmailShareButton className=" shadow p-3 align-self-center text-center mx-2"
+                    onClick={() => handleShareApp(1)}
+                    style={{
+                      borderRadius: 23,
+                      border: "1px solid #FAFAFA",
+                      width: shareApp == 1 ? 54 : 59,
+                      height: shareApp == 1 ? 54 : 59,
+                      background: shareApp == 1 ? "rgb(22, 16, 92)" : "#fff",
+                    }} subject={title} body="body"  >
+                    <i
+                      className="fa fa-envelope-o" style={{
+                        fontSize: shareApp == 1 ? 23 : 27,
+                        color: shareApp == 1 ? "#fff" : "rgb(22, 16, 92)",
+                      }}
+                      aria-hidden="true"
+                    ></i>
+                  </EmailShareButton>
+                  <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>E-mail</div>
+                </div>
+                <div className='text-center'>
+                  <TelegramShareButton quote={title}
+                    className=" shadow p-3 align-self-center text-center mx-2"
+                    style={{
+                      borderRadius: 23,
+                      border: "1px solid #FAFAFA",
+                      width: shareApp == 3 ? 54 : 59,
+                      height: shareApp == 3 ? 54 : 59,
+                      background: shareApp == 3 ? "rgb(22, 16, 92)" : "#fff",
+                    }}
+                    onClick={() => handleShareApp(3)} //insta
+                  >
+                    <i
+                      className="fa fa-telegram"
+                      aria-hidden="true"
+                      style={{
+                        fontSize: shareApp == 3 ? 23 : 27,
+                        color: shareApp == 3 ? "#fff" : "rgb(22, 16, 92)",
+                      }}
+                    ></i>
+                  </TelegramShareButton>
+                  <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>Telegram</div>
+                </div>
+
+                <div className='text-center'>
+                  <TelegramShareButton quote={title}
+                    className=" shadow p-3 align-self-center text-center mx-2"
+                    style={{
+                      borderRadius: 23,
+                      border: "1px solid #FAFAFA",
+                      width: shareApp == 3 ? 54 : 59,
+                      height: shareApp == 3 ? 54 : 59,
+                      background: shareApp == 3 ? "rgb(22, 16, 92)" : "#fff",
+                    }}
+                    onClick={() => handleShareApp(3)} //insta
+                  >
+                    <i
+                      className="fa fa-weixin"
+                      aria-hidden="true"
+                      style={{
+                        fontSize: shareApp == 3 ? 23 : 27,
+                        color: shareApp == 3 ? "#fff" : "rgb(22, 16, 92)",
+                      }}
+                    ></i>
+                  </TelegramShareButton>
+                  <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>weChat</div>
+
+                </div>
+                <div className='text-center'>
+                  <LineIcon
+                    className=" p-3 shadow align-self-center text-center mx-3"
+                    style={{
+                      borderRadius: 23,
+                      border: "1px solid #FAFAFA",
+                      width: shareApp == 4 ? 54 : 59,
+                      height: shareApp == 4 ? 54 : 59,
+                      background: shareApp == 4 ? "rgb(22, 16, 92)" : "#fff",
+                    }}
+                    onClick={() => handleShareApp(4)} //telegram
+                  >
+                    <i
+                      className="fab fa-line"
+                      aria-hidden="true"
+                      style={{
+                        fontSize: shareApp == 4 ? 23 : 27,
+                        color: shareApp == 4 ? "#fff" : "rgb(22, 16, 92)",
+                      }}
+                    ></i>
+                  </LineIcon>
+                  <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>Line</div>
+
+                </div>
+              </ShareList>
+            </section>
+            {shareApp && (
+              <div
+                className="d-flex justify-content-center text-center"
+                style={{ fontSize: 14, fontWeight: 600 }}
+              >
+                <div className="col-5">
+                  Spread the world by tagging your recipient and add the hashtag
+                  #Compagin
+            </div>
+              </div>
+            )}
+
+            <div className="d-flex justify-content-center pt-5">
+              <NCIS_Button
+                text={"Back"}
+                onClick={_handleEdit}
+                className="mx-2"
+                fontSize={14}
+                buttonColor={paleViolet}
+              />
+              <NCIS_Button
+                text={"Share"}
+                onClick={_handleShare}
+                // onClick={_handleConfirm}
+                className="mx-2"
+                fontSize={14}
+              />
+            </div>
           </div>
+
         </div>
-      )}
-
-      <div className="d-flex justify-content-center pt-5">
-        <NCIS_Button
-          text={"Back"}
-          onClick={_handleEdit}
-          className="mx-2"
-          fontSize={14}
-          buttonColor={paleViolet}
-        />
-        <NCIS_Button
-          text={"Share"}
-          onClick={_handleShare}
-          // onClick={_handleConfirm}
-          className="mx-2"
-          fontSize={14}
-        />
       </div>
-    </div>
+
+    </>
   );
 };
