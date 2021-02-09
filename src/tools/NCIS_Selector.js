@@ -18,13 +18,14 @@ export const NCIS_Selector = (props) => {
           background: "#ffffff",
           cursor: "pointer",
           fontSize : media.mobile ? 12 : window.innerWidth > 1500 ? 22 : 14,
+          height: 45
         }}
       />
       <span
         style={{
           float: "right",
           position: "relative",
-          marginTop: media.mobile ? "-30px" :"-35px",
+          marginTop: media.mobile ? "-35px" :"-36px",
           // fontSize: "16px",
           marginRight: "20px",
           width: "25px",
@@ -35,7 +36,7 @@ export const NCIS_Selector = (props) => {
           cursor: "pointer",
         }}
       >
-        <i className="fa fa-chevron-down " style={{color: '#868686', fontSize : media.mobile && 12 }} onClick={onClick}></i>
+        <i className="fa fa-chevron-down align-self-center" style={{color: '#868686', fontSize : media.mobile && 12 }} onClick={onClick}></i>
       </span>
       {menuVisible ? (
         <Options
@@ -60,7 +61,7 @@ const Options = (props) => {
   };
   return (
     <ul
-      className="bg-light shadow w-100 py-2"
+      className="bg-light shadow w-100 py-1"
       style={{
         borderRadius: 20,
         listStyleType: "none",
@@ -75,8 +76,8 @@ const Options = (props) => {
     >
       {messages.map((v1, k1) => (
         <React.Fragment key={k1}>
-          <li style={{ color: orange, fontWeight: "bold", paddingLeft: 20, paddingTop: 5, paddingBottom: 5 , fontSize: window.innerWidth > 1500 ? 22 :media.mobile? 12: 14 }}>{v1.title}</li>
-          <br />
+          {/* <li style={{ color: orange, fontWeight: "bold", paddingLeft: 20, paddingTop: 5, paddingBottom: 5 , fontSize: window.innerWidth > 1500 ? 22 :media.mobile? 12: 14 }}>{v1.title}</li>
+          <br /> */}
           {v1.message.map((v2, k2) => (
             <p className='py-2'
             key={v2.id}
@@ -86,7 +87,7 @@ const Options = (props) => {
               id={v2.id + v2.text}
               onClick={() => _handleSelectOption(v2.text)}
             >
-              Message {v2.id}: {v2.text}
+             {v2.text}
             </p>
           ))}
         </React.Fragment>
