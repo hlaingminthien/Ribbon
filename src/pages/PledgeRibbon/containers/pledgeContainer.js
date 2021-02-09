@@ -9,6 +9,7 @@ import PledgeRibbonsForMobile from "../components/PledgeRibbonForMobile";
 import PledgeRibbonsForTablet from '../components/PledgeRibbonsForTablet';
 import domtoimage from 'dom-to-image-more';
 import { saveAs } from 'file-saver';
+import RibbonImages from "../../../assets/RibbonImages.json";
 
 const PledgeContainer = (props) => {
   const { media } = props;
@@ -16,6 +17,7 @@ const PledgeContainer = (props) => {
   const [step, setStep] = useState(1);
   const [recipientName, setRecipientName] = useState("");
   const [senderName, setSenderName] = useState("");
+  const [cancerName, setCancerName] = useState(null);
 
   const [message, setMessage] = useState("");
   const [imgUrl, setImgUrl] = useState(null);
@@ -89,7 +91,14 @@ const PledgeContainer = (props) => {
     (media.desktop) ?
       "/pledgeBackground.svg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
         "/PledgeBgMobo.png";
-// console.log(">>>shareImg",shareImage)
+
+
+  const min = 0;
+  const max = 10
+  const rand = parseInt(min + Math.random() * (max - min))
+      
+  let cancerDetails = RibbonImages.Ribbons.filter((c, indx) => c.name != "All Cancers" && indx == rand).map(cancer => cancer.ribbonDetails)
+      
   return (
     <div className="d-flex justify-content-center aling-self-center pt-3">
       <div id="testsvg">
@@ -107,7 +116,7 @@ const PledgeContainer = (props) => {
               className="d-flex justify-content-start col-4 align-self-start "
               style={{ textAlign: "center" }}
             >
-              <div className="pt-3 pb-1" style={{ marginTop: window.innerWidth > 1500 ? '8%' : (media.tablet) ? '15%' : '7%', marginLeft: '0%', position: (media.tablet || media.desktop) && 'fixed' }}>
+              <div className="pt-3 pb-1" style={{ marginTop: window.innerWidth > 1500 ? '4%' : (media.tablet) ? '13%' : '5%', marginLeft: '0%', position: (media.tablet || media.desktop) && 'fixed' }}>
                 <PledgeCard
                   recipientName={recipientName}
                   senderName={senderName}
@@ -133,6 +142,7 @@ const PledgeContainer = (props) => {
                 _handleSelect={_handleSelect}
                 _handleSelectOption={_handleSelectOption}
                 _handleShare={_handleShare}
+                setCancerName={setCancerName}
                 recipientName={recipientName}
                 message={message}
                 senderName={senderName}
@@ -142,6 +152,7 @@ const PledgeContainer = (props) => {
                 complete={complete}
                 _handleImage={_handleImage}
                 warning={warning}
+                cancerDetails={cancerDetails}
                 shareImage={shareImage}
               />
             </div>
@@ -171,6 +182,7 @@ const PledgeContainer = (props) => {
                 complete={complete}
                 _handleRibbonClick={_handleRibbonClick}
                 shareImage={shareImage}
+                cancerDetails={cancerDetails}
               />
             </div>
             :
@@ -200,6 +212,7 @@ const PledgeContainer = (props) => {
                     _handleRibbonClick={_handleRibbonClick}
                     shareImage={shareImage}
                     complete={complete}
+                    cancerDetails={cancerDetails}
                   />
                 </div>
               </div>

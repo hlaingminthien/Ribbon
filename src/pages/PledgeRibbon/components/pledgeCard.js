@@ -20,20 +20,20 @@ export const PledgeCard = (props) => {
     const { recipientName, senderName, message, media, step, imgUrl } = props;
 
     return (
-      <div  className=" d-flex justify-content-center text-white" id="my-node" style={{background: 'transparent'}}>
+      <div  className=" d-flex justify-content-center text-white shadow" id="my-node" style={{background: 'transparent', border: '1px soldi #fff'}}>
         <img
             className="img-responsive"
-            src={"/card.png"}
+            src={imgUrl? "cardnoText.jpg" : "/cardDefault.jpg" }
             style={{ maxWidth: 260, borderRadius: 10 }}
           />
     
           <div
-            className=" pt-4 px-3 justify-content-start text-left"
-            style={{ position: "absolute", width: 275,padding: 20, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? 20 : 18 , textAlign: 'left' }}
+            className=" pt-5 justify-content-start text-left"
+            style={{ position: "absolute", width: 265,padding: 20, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? 20 : 18 , textAlign: 'left' }}
           >
             <div
               className={`pt-3 ${step != 1 && "move-me:move-me-1"} `}
-              style={{ minHeight: 150 }}
+              style={{ minHeight: 170 }}
             >
               <span className="" style={{ fontSize: 16, fontWeight: "bold" }}>
                 {recipientName}
@@ -58,7 +58,7 @@ export const PledgeCard = (props) => {
                 <img
                   src={imgUrl}
                   alt="selected-ribbons"
-                  style={{ width:80, height:80 }}
+                  style={{ width:85, height:85 }}
                 />
               </div>
             )}

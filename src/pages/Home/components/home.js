@@ -14,6 +14,7 @@ import BackgroundMobile from "../../../assets/images/BackgroundMobile.png";
 import { Counter } from "./counter";
 import { paleViolet } from "../../../assets/colors";
 import { NCIS_Button } from "../../../tools/NCIS_Button";
+import sponsors from "../../../assets/sponsors.json"
 
 export const Home = (props) => {
   const { media } = props;
@@ -36,7 +37,12 @@ export const Home = (props) => {
             backgroundPosition: media.tablet ? "center" : "none",
           }}
         >
+          
           <HomeTitle media={media}  _handlePledge={_handlePledge}/>
+          <div className='d-flex justify-content-end col-10 mx-5' style={{ position:'absolute', marginTop:media.desktop? '38%' : '65%' }}>
+            <img src={"/floater.png"} alt='floater' style={{ width: 250 }}/>
+
+          </div>
           {media.tablet ? (
             <div className="col-12 p-0 img-fluid">
               <div className="row">
@@ -78,6 +84,7 @@ export const Home = (props) => {
   );
 };
 export default Home;
+
 const HomeTitle = (props) => {
   const { media, _handlePledge } = props;
   return (
@@ -159,20 +166,26 @@ const Highlights = () => {
 const Sponsors = () => {
   return (
     <div
-      style={{ paddingTop: "90px", paddingBottom: "90px", paddingLeft: "50px" }}
+      style={{ paddingTop: "90px", paddingBottom: "90px", paddingLeft: "30px" }}
       className="row w-50"
     >
       <div style={{ fontSize: 25, fontWeight: "bold" }}>Sponsors</div>
-      {new Array(8).fill(null).map((v,k) => (
-        <div className="w-25 py-4" key={k}>
+      {/*new Array(8).fill(null)*/sponsors.sponsors.map((v,k) => (
+        <div className="w-25" key={k}>
           <div
-            className="bg-light"
+            className="d-flex bg-light mx-2 my-3 align-items-center"
             style={{
               width: "70px",
               height: "70px",
               borderRadius: "50%",
             }}
-          ></div>
+          >
+            {
+              v.imgaeUrl &&
+            <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 55 }} />
+
+            }
+          </div>
         </div>
       ))}
     </div>
