@@ -80,10 +80,12 @@ const PledgeContainer = (props) => {
     setMenuVisible(state);
   };
 
-  const _handleImage = (img) => {
+  const _handleImage = (img, cancer) => {
     setImgUrl(img);
+    setCancerName(cancer);
   };
   const _handleShare = () => {
+    console.log('hello');
     setComplete(true);
     setStep(3);
   };
@@ -125,6 +127,7 @@ const PledgeContainer = (props) => {
                   step={step}
                   _handleImage={_handleImage}
                   imgUrl={imgUrl}
+                  cancer={cancerName}
                 />
               </div>
             </div>
