@@ -5,8 +5,8 @@ import { TermOfUse } from "../components/termOfuse";
 
 export const PrivacyContainer = () => {
   return (
-<div className="text-light" style={{background:violet}}>
-   <div className="container">
+<div className="text-light h-100" style={{background:violet, minHeight:'100vh' }}>
+   <div className="container  py-5">
      <Privacy />
  </div> 
 </div>
@@ -15,8 +15,8 @@ export const PrivacyContainer = () => {
 
 export const TermContainer = () => {
   return (
-<div className="text-light" style={{background:violet}}>
-   <div className="container">
+<div className="text-light" style={{background:violet,minHeight:'100vh'}}>
+   <div className="container py-5">
      <TermOfUse />
  </div> 
 </div>
