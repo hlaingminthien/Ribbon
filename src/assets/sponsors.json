@@ -1,0 +1,45 @@
+{
+    "sponsors": [
+        {
+            "id": 1,
+            "imgaeUrl": "./assets/images/sponsor/SingaporeCancerSociety.png", "name": "SingaporeCancerSociety"
+        },
+        {
+            "id": 2,
+            "imgaeUrl": "./assets/images/sponsor/rocheSpon.jpg", "name": ""
+        },
+        {
+            "id": 3,
+            "imgaeUrl": "./assets/images/sponsor/msdSpon.jpg", "name": ""
+        },
+        {
+            "id": 4,
+            "imgaeUrl": "./assets/images/sponsor/PfizerSpon.png", "name": ""
+        },
+        {
+            "id": 5
+        },
+        {
+            "id": 6
+        },
+        {
+            "id": 7
+        },
+        {
+            "id": 8
+        },
+        {
+            "id": 9
+        },
+        {
+            "id": 10
+        },
+        {
+            "id": 11
+        },
+        {
+            "id": 12
+        }
+        
+    ]
+}

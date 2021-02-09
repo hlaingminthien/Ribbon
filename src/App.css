@@ -63,11 +63,11 @@ div.circTxt {
 }
 @keyframes float {
   0% {
-    transform: translate(0, -100px);
-    -webkit-transform: translate(0, -100px);
-    -moz-transform: translate(0, -100px);
-    -ms-transform: translate(0, -100px);
-    -o-transform: translate(0, -100px);
+    transform: translate(0, -80px);
+    -webkit-transform: translate(0, -80px);
+    -moz-transform: translate(0, -80px);
+    -ms-transform: translate(0, -80px);
+    -o-transform: translate(0, -80px);
 }
   50% {
     transform: translate(0, 5px);
@@ -87,25 +87,25 @@ div.circTxt {
 
 @keyframes float1 {
   0% {
-    transform: translate(0, -200px);
-    -webkit-transform: translate(0, -200px);
-    -moz-transform: translate(0, -200px);
-    -ms-transform: translate(0, -200px);
-    -o-transform: translate(0, -200px);
+    transform: translate(0, -50px);
+    -webkit-transform: translate(0, -50px);
+    -moz-transform: translate(0, -50px);
+    -ms-transform: translate(0, -50px);
+    -o-transform: translate(0, -50px);
 }
   50% {
-    transform: translate(0, -50px);
-    -webkit-transform: translate(0, -50px);
-    -moz-transform: translate(0, -50px);
-    -ms-transform: translate(0, -50px);
-    -o-transform: translate(0, -50px);
+    transform: translate(0, 5px);
+    -webkit-transform: translate(0, 5px);
+    -moz-transform: translate(0, 5px);
+    -ms-transform: translate(0, 5px);
+    -o-transform: translate(0, 5px);
 }
   100% {
-    transform: translate(0, -50px);
-    -webkit-transform: translate(0, -50px);
-    -moz-transform: translate(0, -50px);
-    -ms-transform: translate(0, -50px);
-    -o-transform: translate(0, -50px);
+    transform: translate(0, 5px);
+    -webkit-transform: translate(0, 5px);
+    -moz-transform: translate(0, 5px);
+    -ms-transform: translate(0, 5px);
+    -o-transform: translate(0, 5px);
 }
 }
 
