@@ -47,7 +47,7 @@ const PledgeContainer = (props) => {
   const _handleConfirm = (e) => {
     e.preventDefault();
     const myNode = document.getElementById('my-node')
-    console.log(myNode)
+    // console.log(myNode)
     setStep(3);
     domtoimage.toJpeg(myNode)
       .then(function (blob) {

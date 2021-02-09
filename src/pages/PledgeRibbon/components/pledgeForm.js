@@ -416,18 +416,18 @@ export const ShareApp = (props) => {
                 style={{
                   borderRadius: 23,
                   border: "1px solid #FAFAFA",
-                  width: shareApp == 4 ? 54 : 59,
-                  height: shareApp == 4 ? 54 : 59,
-                  background: shareApp == 4 ? "rgb(22, 16, 92)" : "#fff",
+                  width: shareApp == 3 ? 54 : 59,
+                  height: shareApp == 3 ? 54 : 59,
+                  background: shareApp == 3 ? "rgb(22, 16, 92)" : "#fff",
                 }}
-                onClick={() => handleShareApp(4)} //telegram
+                onClick={() => handleShareApp(3)} //telegram
               >
                 <i
                   className="fa fa-instagram"
                   aria-hidden="true"
                   style={{
-                    fontSize: shareApp == 4 ? 23 : 27,
-                    color: shareApp == 4 ? "#fff" : "rgb(22, 16, 92)",
+                    fontSize: shareApp == 3 ? 23 : 27,
+                    color: shareApp == 3 ? "#fff" : "rgb(22, 16, 92)",
                   }}
                 ></i>
               </div>
@@ -440,18 +440,18 @@ export const ShareApp = (props) => {
                 style={{
                   borderRadius: 23,
                   border: "1px solid #FAFAFA",
-                  width: shareApp == 2 ? 54 : 59,
-                  height: shareApp == 2 ? 54 : 59,
-                  background: shareApp == 2 ? "rgb(22, 16, 92)" : "#fff",
+                  width: shareApp == 4 ? 54 : 59,
+                  height: shareApp == 4 ? 54 : 59,
+                  background: shareApp == 4 ? "rgb(22, 16, 92)" : "#fff",
                 }}
-                onClick={() => handleShareApp(2)} //facebook
+                onClick={() => handleShareApp(4)} //facebook
               >
                 <i
                   className="fab fa-whatsapp"
                   aria-hidden="true"
                   style={{
-                    fontSize: shareApp == 2 ? 23 : 27,
-                    color: shareApp == 2 ? "#fff" : "rgb(22, 16, 92)",
+                    fontSize: shareApp == 4 ? 23 : 27,
+                    color: shareApp == 4 ? "#fff" : "rgb(22, 16, 92)",
                   }}
                 ></i>
               </LinkedinIcon>
@@ -465,18 +465,18 @@ export const ShareApp = (props) => {
             <ShareList>
               <div className='text-center'>
                 <EmailShareButton className=" shadow p-3 align-self-center text-center mx-2"
-                  onClick={() => handleShareApp(1)}
+                  onClick={() => handleShareApp(5)}
                   style={{
                     borderRadius: 23,
                     border: "1px solid #FAFAFA",
-                    width: shareApp == 1 ? 54 : 59,
-                    height: shareApp == 1 ? 54 : 59,
-                    background: shareApp == 1 ? "rgb(22, 16, 92)" : "#fff",
+                    width: shareApp == 5 ? 54 : 59,
+                    height: shareApp == 5 ? 54 : 59,
+                    background: shareApp == 5 ? "rgb(22, 16, 92)" : "#fff",
                   }} subject={title} body="body"  >
                   <i
                     className="fa fa-envelope-o" style={{
-                      fontSize: shareApp == 1 ? 23 : 27,
-                      color: shareApp == 1 ? "#fff" : "rgb(22, 16, 92)",
+                      fontSize: shareApp == 5 ? 23 : 27,
+                      color: shareApp == 5 ? "#fff" : "rgb(22, 16, 92)",
                     }}
                     aria-hidden="true"
                   ></i>
@@ -489,18 +489,18 @@ export const ShareApp = (props) => {
                   style={{
                     borderRadius: 23,
                     border: "1px solid #FAFAFA",
-                    width: shareApp == 3 ? 54 : 59,
-                    height: shareApp == 3 ? 54 : 59,
-                    background: shareApp == 3 ? "rgb(22, 16, 92)" : "#fff",
+                    width: shareApp == 6 ? 54 : 59,
+                    height: shareApp == 6 ? 54 : 59,
+                    background: shareApp == 6 ? "rgb(22, 16, 92)" : "#fff",
                   }}
-                  onClick={() => handleShareApp(3)} //insta
+                  onClick={() => handleShareApp(6)} //insta
                 >
                   <i
                     className="fa fa-telegram"
                     aria-hidden="true"
                     style={{
-                      fontSize: shareApp == 3 ? 23 : 27,
-                      color: shareApp == 3 ? "#fff" : "rgb(22, 16, 92)",
+                      fontSize: shareApp == 6 ? 23 : 27,
+                      color: shareApp == 6 ? "#fff" : "rgb(22, 16, 92)",
                     }}
                   ></i>
                 </TelegramShareButton>
@@ -513,18 +513,18 @@ export const ShareApp = (props) => {
                   style={{
                     borderRadius: 23,
                     border: "1px solid #FAFAFA",
-                    width: shareApp == 3 ? 54 : 59,
-                    height: shareApp == 3 ? 54 : 59,
-                    background: shareApp == 3 ? "rgb(22, 16, 92)" : "#fff",
+                    width: shareApp == 7 ? 54 : 59,
+                    height: shareApp == 7 ? 54 : 59,
+                    background: shareApp == 7 ? "rgb(22, 16, 92)" : "#fff",
                   }}
-                  onClick={() => handleShareApp(3)} //insta
+                  onClick={() => handleShareApp(7)} //insta
                 >
                   <i
                     className="fa fa-weixin"
                     aria-hidden="true"
                     style={{
-                      fontSize: shareApp == 3 ? 23 : 27,
-                      color: shareApp == 3 ? "#fff" : "rgb(22, 16, 92)",
+                      fontSize: shareApp == 7 ? 23 : 27,
+                      color: shareApp == 7 ? "#fff" : "rgb(22, 16, 92)",
                     }}
                   ></i>
                 </TelegramShareButton>
@@ -537,18 +537,18 @@ export const ShareApp = (props) => {
                   style={{
                     borderRadius: 23,
                     border: "1px solid #FAFAFA",
-                    width: shareApp == 4 ? 54 : 59,
-                    height: shareApp == 4 ? 54 : 59,
-                    background: shareApp == 4 ? "rgb(22, 16, 92)" : "#fff",
+                    width: shareApp == 8 ? 54 : 59,
+                    height: shareApp == 8 ? 54 : 59,
+                    background: shareApp == 8 ? "rgb(22, 16, 92)" : "#fff",
                   }}
-                  onClick={() => handleShareApp(4)} //telegram
+                  onClick={() => handleShareApp(8)} //telegram
                 >
                   <i
                     className="fab fa-line"
                     aria-hidden="true"
                     style={{
-                      fontSize: shareApp == 4 ? 23 : 27,
-                      color: shareApp == 4 ? "#fff" : "rgb(22, 16, 92)",
+                      fontSize: shareApp == 8 ? 23 : 27,
+                      color: shareApp == 8 ? "#fff" : "rgb(22, 16, 92)",
                     }}
                   ></i>
                 </LineIcon>

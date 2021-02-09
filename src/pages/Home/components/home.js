@@ -18,7 +18,6 @@ import sponsors from "../../../assets/sponsors.json"
 
 export const Home = (props) => {
   const { media } = props;
-  console.log(media.tablet, media.desktop);
 
   const _handlePledge = () => {
     props.history.push("/pledge_a_ribbon");

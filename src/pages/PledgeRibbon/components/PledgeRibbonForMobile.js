@@ -188,7 +188,7 @@ const Ribbons = (props) => {
     // if (number == k) PopupDiv(e).style.visibility = "hidden";
     // _handleRibbonClick(true);
   };
-  console.log("???", cancerDetails)
+
   return (
     <div>
       {!nextOfStep1 && step == 1 && (
