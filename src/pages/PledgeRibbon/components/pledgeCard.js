@@ -45,13 +45,13 @@ export const PledgeCard = (props) => {
     <div className=" d-flex justify-content-center text-white shadow" id="my-node" style={{ background: 'transparent', border: '1px soldi #fff' }}>
       <img
         className="img-responsive"
-        src={imgUrl ? "Card.png" : "/Card.png"}
-        style={{ width: 300, height: 350, borderRadius: 10 }}
+        src={imgUrl ? "/cardnoText.jpg" : "/card.jpg"}
+        style={{ width: 290, height: 300, borderRadius: 10 }}
       />
 
       <div
-        className=" pt-5 justify-content-start text-left"
-        style={{ position: "absolute", width: 265, padding: 20, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? 20 : 18, textAlign: 'left' }}
+        className=" pt-4 justify-content-start text-left"
+        style={{ position: "absolute", width: 295, padding: 20, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? 20 : 18, textAlign: 'left' }}
       >
         <div
           className={`pt-3 ${step != 1 && "move-me:move-me-1"} `}
@@ -67,7 +67,7 @@ export const PledgeCard = (props) => {
             style={{ fontWeight: 500, fontSize: 14, lineHeight: 1.5 }}
           >
             {message}
-            {message ? "!" : null}
+            {/* {message ? "!" : null} */}
           </span>
           <br></br>
           <span className="pt-2" style={{ fontWeight: 600, fontSize: 14 }}>
@@ -83,17 +83,17 @@ export const PledgeCard = (props) => {
             <img
               src={imgUrl}
               alt="selected-ribbons"
-              style={{ width: 85, height: 85 }}
+              style={{ width: 100, height: 100 }}
             />
-              <svg viewBox="-3 0 105 49" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", left: -4, right: 0, top: -19, width: 88, height: 85 }} >
+              <svg viewBox="-12 2 115 56" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", left: -4, right: 0, top: -19, width: 88, height: 85 }} >
                 <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
-                  d2="M0,68 Q50,-20 100,68"
-                  d1={`M 0,100 A 32,32 0 1, 0 64,0 A 32,32 0 1, 0 -64,0`}  
+                  d2="M0,58 Q50,-20 100,58"
+                  d1={`M 0,120 A 32,32 0 1, 0 54,0 A 32,32 0 1, 0 -54,0`}  
                   // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
                   // d="M2,62 Q50,-38 104,62"
                   // d="M 100 0 A 1 1 0 0 0 -100 0"
                   // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
-                  d="M5.47387 48.2344C10.5 -16 97 -10.5 98.474 48.2344"
+                  d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
                 />
 
                 <text fontSize={10} fontWeight={600} fill="white">

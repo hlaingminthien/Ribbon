@@ -191,7 +191,7 @@ export const SocialShare = (props) => {
             </div>
           )}
 
-          <div className="d-flex justify-content-center pt-5">
+          {/* <div className="d-flex justify-content-center pt-5">
             <NCIS_Button
               text={"Back"}
               onClick={_handleEdit}
@@ -206,7 +206,7 @@ export const SocialShare = (props) => {
               className="mx-2"
               fontSize={14}
             />
-          </div>
+          </div> */}
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from 'axios';
 
 import { PledgeCard } from "../components/pledgeCard";
@@ -85,7 +85,7 @@ const PledgeContainer = (props) => {
     setCancerName(cancer);
   };
   const _handleShare = () => {
-    console.log('hello');
+    // console.log('hello');
     setComplete(true);
     setStep(3);
   };
@@ -94,13 +94,7 @@ const PledgeContainer = (props) => {
       "/pledgeBackground.svg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
         "/PledgeBgMobo.png";
 
-
-  const min = 0;
-  const max = 10
-  const rand = parseInt(min + Math.random() * (max - min))
-      
-  let cancerDetails = RibbonImages.Ribbons.filter((c, indx) => c.name != "All Cancers" && indx == rand).map(cancer => cancer.ribbonDetails)
-      
+  
   return (
     <div className="d-flex justify-content-center aling-self-center pt-3">
       <div id="testsvg">
@@ -118,7 +112,7 @@ const PledgeContainer = (props) => {
               className="d-flex justify-content-start col-4 align-self-start "
               style={{ textAlign: "center" }}
             >
-              <div className="pt-3 pb-1" style={{ marginTop: window.innerWidth > 1500 ? '4%' : (media.tablet) ? '13%' : '5%', marginLeft: '0%', position: (media.tablet || media.desktop) && 'fixed' }}>
+              <div className="pt-3 pb-1" style={{ marginTop: window.innerWidth > 1500 ? '4%' : (media.tablet) ? '13%' : '5%', marginLeft: '-1%', position: (media.tablet || media.desktop) && 'fixed' }}>
                 <PledgeCard
                   recipientName={recipientName}
                   senderName={senderName}
@@ -155,7 +149,6 @@ const PledgeContainer = (props) => {
                 complete={complete}
                 _handleImage={_handleImage}
                 warning={warning}
-                cancerDetails={cancerDetails}
                 shareImage={shareImage}
               />
             </div>
@@ -175,6 +168,7 @@ const PledgeContainer = (props) => {
                 _handleSelect={_handleSelect}
                 _handleShare={_handleShare}
                 _handleSelectOption={_handleSelectOption}
+                setImgUrl={_handleImage}
                 recipientName={recipientName}
                 message={message}
                 senderName={senderName}
@@ -185,7 +179,9 @@ const PledgeContainer = (props) => {
                 complete={complete}
                 _handleRibbonClick={_handleRibbonClick}
                 shareImage={shareImage}
-                cancerDetails={cancerDetails}
+                cancer={cancerName}
+                setCancerName={setCancerName}
+
               />
             </div>
             :
@@ -205,6 +201,9 @@ const PledgeContainer = (props) => {
                     _handleReview={_handleReview}
                     _handleSelect={_handleSelect}
                     _handleSelectOption={_handleSelectOption}
+                    setImgUrl={_handleImage}
+                    setCancerName={setCancerName}
+                    imgUrl={imgUrl}
                     recipientName={recipientName}
                     message={message}
                     senderName={senderName}
@@ -215,7 +214,8 @@ const PledgeContainer = (props) => {
                     _handleRibbonClick={_handleRibbonClick}
                     shareImage={shareImage}
                     complete={complete}
-                    cancerDetails={cancerDetails}
+                    cancer={cancerName}
+
                   />
                 </div>
               </div>

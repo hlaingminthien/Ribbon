@@ -34,8 +34,8 @@ const PledgeRibbonsForTablet = (props) => {
     _handleConfirm,
     _handleEdit,
     recipientName,
-    senderName,
-    message,shareImage
+    senderName,cancer,
+    message,shareImage,setCancerName
   } = props;
   
   const [imgUrl, setImgUrl] = useState(null);
@@ -77,7 +77,7 @@ const PledgeRibbonsForTablet = (props) => {
               className="px-3 py-0"
               style={{ fontSize: 18, fontWeight: "bold" }}
             >
-              Review Your Ribbon{" "}
+              Review Your Message{" "}
             </div>
           ) : step === 3 ? (
             <div className="px-3 py-0">
@@ -85,8 +85,7 @@ const PledgeRibbonsForTablet = (props) => {
                 Share your message
               </div>
               <div className="py-0" style={{ fontSize: 14, fontWeight: 600 }}>
-                Click Back to edit or select on the following icons to share
-                your message
+              Select the following icons to share your message
               </div>
             </div>
           ) : null}
@@ -100,11 +99,12 @@ const PledgeRibbonsForTablet = (props) => {
             step={step}
             imgUrl={imgUrl}
             _handleImage={_handleImage}
+            cancer={cancer}
           />
         </div>
       </div>
       <div className={` ${window.innerWidth > 1000 && "px-2" } `}>
-        <Ribbon {...props} _handleImage={_handleImage} />
+        <Ribbon {...props} _handleImage={_handleImage} setCancerName={setCancerName} />
 
       </div>
       {(step === 3 && !complete) && (
@@ -150,48 +150,112 @@ const PledgeRibbonsForTablet = (props) => {
 export default withRouter(PledgeRibbonsForTablet);
 
 const PledgeCardForTablet = (props) => {
-  const { recipientName, senderName, message, media, step, imgUrl } = props;
+  const { recipientName, senderName, message, media, step, imgUrl, cancer } = props;
   return (
     <div className={` d-flex pb-1 ${(window.innerWidth > 780 && media.tablet) && "pt-5"} justify-content-center text-white`} id="my-node" >
       <img
         className="shadow img-responsive"
-        src={imgUrl? "Card.png" : "/Card.png"}
-        style={{ maxWidth: (window.innerWidth > 780 && media.tablet) ? 280 : 230, borderRadius: 20, minHeight: (window.innerWidth > 780 && media.tablet) ? 300 : 250 }}
+        src={imgUrl? "/cardnoText.jpg" : "/card.jpg"}
+        style={{ maxWidth: (window.innerWidth > 780 && media.tablet) ? 310 : 260, borderRadius: 20, minHeight: (window.innerWidth > 780 && media.tablet) ? 325 : 275 }}
       />
 
       <div
         className={`d-flex flex-column ${window.innerWidth > 780 ? "pt-5" : "pt-4"} px-3 justify-content-start text-left`}
-        style={{ position: "absolute", width: (window.innerWidth > 780 && media.tablet) ? 250 : 240 }}
+        style={{ position: "absolute", width: (window.innerWidth > 780 && media.tablet) ? 320 : 275 }}
       >
         <div
-          className={`d-flex flex-column pt-4 ${step != 1 && "move-me move-me-1"} `}
-          style={{ minHeight: (window.innerWidth > 780 && media.tablet) ? 200 : 170 }}
+          className={`d-flex flex-column px-2 pt-2 ${step != 1 && "move-me move-me-1"} `}
+          style={{ minHeight: (window.innerWidth > 780 && media.tablet) ? 145 : 145, maxHeight: 145 }}
         >
           <span className="" style={{ fontSize: (window.innerWidth > 780 && media.tablet) ? 17 : 14, fontWeight: "bold" }}>
             {recipientName}
             {recipientName ? "," : null}
           </span>
           <span
-            className="text-white pt-3"
+            className="text-white pt-3 "
             style={{ fontWeight: 500, fontSize: (window.innerWidth > 780 && media.tablet) ? 14 : 13, lineHeight: 1.8 }}
           >
             {message}
-            {message ? "!" : null}
+            {/* {message ? "!" : null} */}
           </span>
-          <span className="pt-2" style={{ fontWeight: 600, fontSize: (window.innerWidth > 780 && media.tablet) ? 14 : 12 }}>
+          <span className="pt-2 " style={{ fontWeight: 600, fontSize: (window.innerWidth > 780 && media.tablet) ? 14 : 12 }}>
             {senderName ? "Love," : null} {senderName}
           </span>
         </div>
-          {
+        {imgUrl && (
+          <div className="d-flex justify-content-end align-items-start" style={{ position: "absolute", right: 10, bottom: (window.innerWidth > 780 && media.tablet) ? -120 : -100 }}>
+
+            
+            {imgUrl ? <>
+            <img
+              src={imgUrl}
+              alt="selected-ribbons"
+              style={{ width: 110, height: 110 }}
+            />
+              <svg viewBox="-20 2 128 56" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", left: -4, right: 0, top: -19, width: 88, height: 85 }} >
+                <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
+                  d2="M0,58 Q50,-20 100,58"
+                  d1={`M 0,120 A 32,32 0 1, 0 54,0 A 32,32 0 1, 0 -54,0`}  
+                  // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
+                  // d="M2,62 Q50,-38 104,62"
+                  // d="M 100 0 A 1 1 0 0 0 -100 0"
+                  // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
+                  d="M5.47387 40.2344C10.5 -16 117 -10.5 118.474 40.2344"
+                />
+
+                <text fontSize={10} fontWeight={600} fill="white">
+                  <textPath href="#curve-path" startOffset={(50 - cancer.length - 14 * 2) + "%"}>
+                    {cancer+" Cancer"}
+                  </textPath>
+                </text>
+              </svg> </> : 
+              <>
+              <img
+                src={imgUrl}
+                alt="selected-ribbons"
+                style={{ width: 85, height: 85 }}
+              />
+             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style={{ position: "absolute", left: 0, top: -8, width: 85, height: 85 }} >
+              <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
+                d="M0,48 Q50,-20 100,48" />
+
+              <text fontSize={10} fontWeight={600} fill="white">
+                <textPath href="#curve-path" startOffset={(50 - cancer.length - 10 * 2) + "%"}>
+                  Select Your Ribbon
+                </textPath>
+              </text>
+            </svg>
+          </>
+            }
+          </div>
+        )}
+          {/* {
             imgUrl &&
             <div className="d-flex justify-content-end align-items-start">
             <img
               src={imgUrl ? imgUrl : "./assets/images/ribbons/skyBlue.png"}
               alt="selected-ribbons"
-              style={{ width: (window.innerWidth > 780 && media.tablet) ? 90 : 80, height: (window.innerWidth > 780 && media.tablet) ? 90 : 80 }}
+              style={{ width: (window.innerWidth > 780 && media.tablet) ? 120 :100, height: (window.innerWidth > 780 && media.tablet) ? 120 :100 }}
             />
+            <svg viewBox="-12 2 115 56" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", left: -4, right: 0, top: -19, width: 88, height: 85 }} >
+                <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
+                  d2="M0,58 Q50,-20 100,58"
+                  d1={`M 0,120 A 32,32 0 1, 0 54,0 A 32,32 0 1, 0 -54,0`}  
+                  // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
+                  // d="M2,62 Q50,-38 104,62"
+                  // d="M 100 0 A 1 1 0 0 0 -100 0"
+                  // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
+                  d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
+                />
+
+                <text fontSize={10} fontWeight={600} fill="white">
+                  <textPath href="#curve-path" startOffset={(50 - cancer.length - 14 * 2) + "%"}>
+                    {cancer+" Cancer"}
+                  </textPath>
+                </text>
+              </svg> 
           </div>
-          }
+          } */}
           
         
       </div>
@@ -215,7 +279,7 @@ const Ribbon = (props) => {
     _handleEdit,
     _handleConfirm,
     _handleImage,
-    media,
+    media,setCancerName
   } = props;
   const [selected, setSelected] = useState(false);
   const [nextOfStep1, setNextOfStep1] = useState(selected ? true : false);
@@ -223,7 +287,7 @@ const Ribbon = (props) => {
   const [selectedId, setSelectedId] = useState(null);
   const [number, setNumber] = useState(null);
 
-  const [cancerName, setCancerName] = useState(null);
+  const [cancerDetails,setCancerDetails]=useState(["Lorem ipsum dolor sit amet, consectetur adipiscing elit.Proin vel sollicitudin sapien"]);
   const [close, setClose] = useState(true);
 
   const PopupDiv = (e) => document.getElementById(e.target.id + "popup");
@@ -247,6 +311,13 @@ const Ribbon = (props) => {
       } else {
         return;
       }
+    }
+    if(name == "All Cancers"){
+      const min = 0;
+      const max = 10
+      const rand =parseInt(min + Math.random() * (max - min));
+      let cancerDetail = RibbonImages.Ribbons.filter((c, indx) => c.name != "All Cancers" && indx == rand).map(cancer => cancer.ribbonDetails)
+      setCancerDetails(cancerDetail)
     }
 
     RibbonDiv(e).style.background = "rgba(64,64,64,0.2)";
@@ -322,18 +393,38 @@ const Ribbon = (props) => {
                         onClick={() => setClose(false)}
                       ></i>
                     </div>
-                    {v.ribbonDetails ? (
-                      <div className="px-2" id={k} style={{ fontSize: 12 }}>
-                        {v.ribbonDetails.map((c, i) => (
-                          <p key={i}>{c}</p>
-                        ))}
-                      </div>
-                    ) : (
-                        <div className="px-2" id={k} style={{ fontSize: 12 }}>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                          Proin vel sollicitudin sapien.
-                        </div>
-                      )}
+                    {
+                      (v.name == "All Cancers") ?
+                        <>
+                          {
+                            cancerDetails.length > 0 ?
+                              <div className="p-2" id={k} style={{ fontSize: 12 }}>
+                                {cancerDetails.map((c, i) => (
+                                  <p key={i}>{c}</p>
+                                ))}
+                              </div>
+                              :
+                              <div className="p-2" id={k} style={{ fontSize: 12 }}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Proin vel sollicitudin sapien.
+                              </div>
+                          }
+
+                        </> :
+                        <>
+                          {v.ribbonDetails ? (
+                            <div className="p-2" id={k} style={{ fontSize: 12 }}>
+                              {v.ribbonDetails.map((c, i) => (
+                                <p key={i}>{c}</p>
+                              ))}
+                            </div>
+                          ) : (
+                              <div className="py-2" id={k} style={{ fontSize: 12 }}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Proin vel sollicitudin sapien.
+                              </div>
+                            )}</>
+                    }
                   </div>
                 )}
               </div>

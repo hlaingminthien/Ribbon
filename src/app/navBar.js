@@ -17,7 +17,7 @@ const NavBar = (props) => {
       </a>
       <div className="d-flex flex-row justify-content-end p-2">
         <div
-          className="collapse navbar-collapse w-25 justify-content-end"
+          className="collapse navbar-collapse w-25 mx-3 justify-content-end"
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav mr-auto ">
