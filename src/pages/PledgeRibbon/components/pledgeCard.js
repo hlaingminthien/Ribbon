@@ -45,7 +45,7 @@ export const PledgeCard = (props) => {
     <div className=" d-flex justify-content-center text-white shadow" id="my-node" style={{ background: 'transparent', border: '1px soldi #fff' }}>
       <img
         className="img-responsive"
-        src={imgUrl ? "Card.png" : "/Card.png"}
+        src={imgUrl ? "card.png" : "/card.png"}
         style={{ width: 300, height: 350, borderRadius: 10 }}
       />
 
