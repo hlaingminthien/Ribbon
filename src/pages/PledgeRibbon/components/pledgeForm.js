@@ -43,7 +43,7 @@ const PledgeForm = (props) => {
     props.history.push("/");
   };
 
-  console.log('complete', complete);
+  // console.log('complete', complete);
   return (
     <div className="py-2">
       <form>
@@ -54,12 +54,12 @@ const PledgeForm = (props) => {
           {step === 1
             ? "Choose Your Ribbon and Create Your Message"
             : step === 2
-              ? "Review Your Ribbon"
+              ? "Review Your Message"
               : (step === 3) ? "Share Your Message" : ""}
         </label>
         <br />
         {(step === 3 && !complete) &&
-          "Click Back to edit or select on the following icons to share your message"}
+          "Select the following icons to share your message"}
         {step === 1 && <PledgeRibbons {...props} />}
         {/* //  _handleSelect={_handleSelect} _handleRibbonClick={_handleRibbonClick} menuVisible={menuVisible} */}
         {(step === 3 && complete) ? (
@@ -154,10 +154,11 @@ const PledgeForm = (props) => {
 export default withRouter(PledgeForm)
 
 const PledgeRibbons = (props) => {
-  const { _handleRibbonClick, menuVisible, _handleImage, setCancerName, cancerDetails } = props;
+  const { _handleRibbonClick, menuVisible, _handleImage, setCancerName } = props;
   const [selected, setSelected] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const [number, setNumber] = useState(null);
+  const [cancerDetails,setCancerDetails]=useState(["Lorem ipsum dolor sit amet, consectetur adipiscing elit.Proin vel sollicitudin sapien"]);
 
   const PopupDiv = (e) => document.getElementById(e.target.id + "popup");
   const RibbonDiv = (e) => document.getElementById(e.target.id);
@@ -194,6 +195,14 @@ const PledgeRibbons = (props) => {
         return;
       }
     }
+    if(name == "All Cancers"){
+      const min = 0;
+      const max = 10
+      const rand =parseInt(min + Math.random() * (max - min));
+      let cancerDetail = RibbonImages.Ribbons.filter((c, indx) => c.name != "All Cancers" && indx == rand).map(cancer => cancer.ribbonDetails)
+      setCancerDetails(cancerDetail)
+    }
+    
   };
   const _handleLeave = (e) => {
     if (selected === false) {

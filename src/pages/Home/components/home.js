@@ -36,10 +36,10 @@ export const Home = (props) => {
             backgroundPosition: media.tablet ? "center" : "none",
           }}
         >
-          
-          <HomeTitle media={media}  _handlePledge={_handlePledge}/>
-          <div className='d-flex justify-content-end col-10 mx-5' style={{ position:'absolute', marginTop:media.desktop? '38%' : '65%' }}>
-            <img src={"/floater.png"} alt='floater' style={{ width: 250 }}/>
+
+          <HomeTitle media={media} _handlePledge={_handlePledge} />
+          <div className='d-flex justify-content-end col-10 mx-5' style={{ position: 'absolute', marginTop: media.desktop ? '38%' : '65%' }}>
+            <img src={"/floater.png"} alt='floater' style={{ width: 250 }} />
 
           </div>
           {media.tablet ? (
@@ -74,8 +74,10 @@ export const Home = (props) => {
           backgroundRepeat: "no-repeat", height: '100vh'
         }}>
           <HomeTitle media={media} />
-          <img src={MobileRibbonBottle} style={{bottom: media.cusHeight_700 ? 20 : 50, position: 'fixed', right: -16, height: 'auto', 
-        maxWidth: media.cusHeight_800 ? '100%': media.cusHeight_700 ? '80%' : '77%'}}/>
+          <img src={MobileRibbonBottle} style={{
+            bottom: media.cusHeight_700 ? 20 : 50, position: 'fixed', right: -16, height: 'auto',
+            maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '77%'
+          }} />
           <Counter />
         </div>
       }
@@ -91,7 +93,7 @@ const HomeTitle = (props) => {
       style={{
         position: "absolute",
         paddingTop: media.tablet ? "10rem" : media.mobile ? '6rem' : "11.5rem",
-        paddingLeft: media.tablet ? "7rem" : media.mobile ? '5rem' : "11.5rem",
+        paddingLeft: media.tablet ? "7rem" : media.mobile ? '2rem' : "11.5rem",
       }}
       className="text-light col-lg-6 col-md-8"
     >
@@ -116,27 +118,32 @@ const HomeTitle = (props) => {
       </div>
       <div
         style={{
-          fontSize: media.tablet ? 35 : media.mobile ? 20 : 58,
+          fontSize: media.tablet ? 35 : media.mobile ? 18 : 58,
           fontWeight: "bold",
-          paddingBottom: media.cusHeight_600 ? "60px" : "100px",
+          paddingBottom: (media.cusHeight_600 || media.mobile) ? "40px" : "70px",
           lineHeight: 1,
         }}
       >
         Challenge 2021
       </div>
       <div
-        className={media.mobile ? "col-7 ": "col-7 py-4"}
-        style={{ fontSize: media.mobile ? 12 : 18, fontWeight: "lighter", lineHeight: 1 }}
+        className={media.mobile ? "col-10 " : media.tablet ? "col-9 pb-4" : "col-9 pb-4 pt-2"}
+        style={{ fontSize: media.mobile ? 10 : 13, fontWeight: "lighter", lineHeight: 1 }}
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        Themed “Together, we fight cancer”, the virtual NCIS Ribbon Challenge 2021 aims to increase cancer awareness, emphasise on the importance of maintaining a healthy lifestyle and going for regular health screenings. Let us spread the word among your loved ones and make a difference in the lives of those affected by cancer.
+        <br />
+        Play your part today in our fight against cancer. All you have to do is to select a ribbon, write a message of encouragement and then share it on your social media account with our hashtag #ncisribbonchallenge.
+        <br />
+        For each ribbon pledged, $3 will go towards the NCIS Cancer Fund to provide timely financial aid to our needy cancer patients.
+        <br />
+        Thank you for your generous support and together, we fight cancer! For more information, visit www.ncis.com.sg.
       </div>
       {media.mobile ?
-        <div  onClick={console.log('hello')} style={{marginTop: 20, marginLeft: media.cusHeight_600 ? -25 : -9}}>
-      <NCIS_Button text={"Pledge a Ribbon"} icon={ButtonRibbon} />
-      </div>
-       :
-      <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} />
+        <div className='text-center' onClick={console.log('hello')} style={{ marginTop: 20, marginLeft: media.cusHeight_600 ? -25 : -9 }}>
+          <NCIS_Button text={"Pledge a Ribbon"} icon={ButtonRibbon} />
+        </div>
+        :
+        <NCIS_Button className='text-left' text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} />
       }
     </div>
   );
@@ -150,13 +157,20 @@ const Highlights = () => {
     >
       <div style={{ fontSize: 25, fontWeight: "bold" }}>Highlights</div>
       <div className="w-75 py-3">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam.
-        <br />
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam.
+        <ul>
+          <li>
+            Health talks on cancer screening and prevention
+
+          </li>
+        
+        <li>
+          Mammogram screening
+        </li>
+        <li>
+          FIT (Faecal Immunochemical Test) kit distribution
+
+        </li>
+        </ul>
       </div>
     </div>
   );
@@ -169,7 +183,7 @@ const Sponsors = () => {
       className="row w-50"
     >
       <div style={{ fontSize: 25, fontWeight: "bold" }}>Sponsors</div>
-      {/*new Array(8).fill(null)*/sponsors.sponsors.map((v,k) => (
+      {/*new Array(8).fill(null)*/sponsors.sponsors.map((v, k) => (
         <div className="w-25" key={k}>
           <div
             className="d-flex bg-light mx-2 my-3 align-items-center"
@@ -181,7 +195,7 @@ const Sponsors = () => {
           >
             {
               v.imgaeUrl &&
-            <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 55 }} />
+              <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 55 }} />
 
             }
           </div>

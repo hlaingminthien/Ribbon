@@ -33,8 +33,8 @@ const PledgeRibbonsForMobile = (props) => {
     _handleConfirm,
     _handleEdit,
     recipientName,
-    senderName,
-    message, shareImage
+    senderName,setCancerName,
+    message, shareImage,cancer,setImgUrl,imgUrl
   } = props;
   const [complete, setComplete] = useState(false);
   const [shareApp, setShareApp] = useState(null);
@@ -60,7 +60,7 @@ const PledgeRibbonsForMobile = (props) => {
         </div>
       ) : step === 2 ? (
         <div className="px-2 py-0" style={{ fontSize: 14, fontWeight: "bold" }}>
-          Review Your Ribbon{" "}
+          Review Your Message{" "}
         </div>
       ) : step === 3 ? (
         <div className="px-3 py-0">
@@ -68,13 +68,12 @@ const PledgeRibbonsForMobile = (props) => {
             Share your message
           </div>
           <div className=" py-0" style={{ fontSize: 11, fontWeight: 600 }}>
-            Click Back to edit or select on the following icons to share your
-            message
+          Select the following icons to share your message
           </div>
         </div>
       ) : null}
 
-      <Ribbons {...props} complete={complete} handleShareApp={handleShareApp} shareApp={shareApp} shareImg={shareImage} />
+      <Ribbons {...props} complete={complete} handleShareApp={handleShareApp} shareApp={shareApp} shareImg={shareImage} cancer={cancer} imgUrl={imgUrl} setImgUrl={setImgUrl} setCancerName={setCancerName} />
       {step == 2 && (
         <div className="d-flex justify-content-center flex-wrap">
           <div className="py-1">
@@ -103,7 +102,7 @@ const PledgeRibbonsForMobile = (props) => {
 export default withRouter(PledgeRibbonsForMobile);
 
 const Ribbons = (props) => {
-  const { _handleRibbonClick, cancerDetails,
+  const { _handleRibbonClick,
     step,
     _handleTextChange,
     recipientName,
@@ -117,7 +116,7 @@ const Ribbons = (props) => {
     _handleEdit,
     _handleConfirm,
     handleShareApp,
-    shareApp,
+    shareApp,cancer,setCancerName,setImgUrl,imgUrl,
     media, paleViolet, _handleShare, url = "http://172.104.40.242:9898/" + shareImg,//String(window.location),
     title = "National University Cancer Institute Singapore",
     shareImage = "http://172.104.40.242:9898/" + shareImg,
@@ -135,7 +134,8 @@ const Ribbons = (props) => {
 
   const [selectedId, setSelectedId] = useState(null);
   const [number, setNumber] = useState(null);
-  const [imgUrl, setImgUrl] = useState([]);
+  const [cancerDetails,setCancerDetails]=useState(["Lorem ipsum dolor sit amet, consectetur adipiscing elit.Proin vel sollicitudin sapien"]);
+
   // const [cancerName, setCancerName] = useState(null);
   const [close, setClose] = useState(true);
 
@@ -152,7 +152,7 @@ const Ribbons = (props) => {
     setSelectedId(e.target.id);
     setNumber(k);
     setImgUrl(imgaeUrl);
-    // setCancerName(name);
+    setCancerName(name);
     setClose(number == k ? false : true);
     if (selected === false) {
       RibbonDiv(e).style.background = "#cecece";
@@ -161,6 +161,13 @@ const Ribbons = (props) => {
       } else {
         return;
       }
+    }
+    if(name == "All Cancers"){
+      const min = 0;
+      const max = 10
+      const rand =parseInt(min + Math.random() * (max - min));
+      let cancerDetail = RibbonImages.Ribbons.filter((c, indx) => c.name != "All Cancers" && indx == rand).map(cancer => cancer.ribbonDetails)
+      setCancerDetails(cancerDetail)
     }
 
     RibbonDiv(e).style.background = "rgba(64,64,64,0.2)";
@@ -295,21 +302,21 @@ const Ribbons = (props) => {
       {(step == 2 ||
         (step == 3 && !complete) ||
         (step == 1 && nextOfStep1)) && (
-          <div className=''>
+          <div className='py-2'>
             <div className=" d-flex py-3 justify-content-center text-white" id="my-node">
               <img
                 className="img-responsive"
-                src={imgUrl ? "Card.png" : "/Card.png"}
-                style={{ maxWidth: 250, borderRadius: 20, maxHeight: 280 }}
+                src={imgUrl? "/cardnoText.jpg" : "/card.jpg"}
+                style={{ maxWidth: 260, borderRadius: 20, maxHeight: 280 }}
               />
               <div
-                className="d-flex flex-column pt-4 justify-content-start text-left"
-                style={{ position: "absolute", width: 200 }}
+                className="d-flex flex-column pt-4 px-3 justify-content-start text-left"
+                style={{ position: "absolute", width: 260 }}
               >
                 <div
                   className={`d-flex flex-column pt-3 ${step != 1 && "move-me move-me-2"
                     } `}
-                  style={{ minHeight: 160 }}
+                  style={{ minHeight: 180 }}
                 >
                   <span className="" style={{ fontSize: 14, fontWeight: "bold" }}>
                     {recipientName}
@@ -320,14 +327,60 @@ const Ribbons = (props) => {
                     style={{ fontWeight: 500, fontSize: 13, lineHeight: 1.5 }}
                   >
                     {message}
-                    {message ? "!" : null}
+                    {/* {message ? "!" : null} */}
                   </span>
                   <span className="pt-3" style={{ fontSize: 13, fontWeight: 600 }}>
                     {senderName ? "Love," : null} {senderName}
                   </span>
                 </div>
-
                 {imgUrl && (
+          <div className="d-flex justify-content-end align-items-start" style={{ position: "absolute", right: 10, bottom: -50 }}>
+
+            
+            {imgUrl ? <>
+            <img
+              src={imgUrl}
+              alt="selected-ribbons"
+              style={{ width: 82, height: 82 }}
+            />
+              <svg viewBox="-3 2 105 49" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", left: -4, right: 0, top: -19, width: 88, height: 85 }} >
+                <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
+                  d2="M0,68 Q50,-20 100,68"
+                  d1={`M 0,100 A 32,32 0 1, 0 64,0 A 32,32 0 1, 0 -64,0`}  
+                  // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
+                  // d="M2,62 Q50,-38 104,62"
+                  // d="M 100 0 A 1 1 0 0 0 -100 0"
+                  // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
+                  d="M5.47387 48.2344C10.5 -16 97 -10.5 98.474 48.2344"
+                />
+
+                <text fontSize={10} fontWeight={600} fill="white">
+                  <textPath href="#curve-path" startOffset={(50 - cancer.length - 14 * 2) + "%"}>
+                    {cancer+" Cancer"}
+                  </textPath>
+                </text>
+              </svg> </> : 
+              <>
+              <img
+                src={imgUrl}
+                alt="selected-ribbons"
+                style={{ width: 85, height: 85 }}
+              />
+             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style={{ position: "absolute", left: 0, top: -8, width: 85, height: 85 }} >
+              <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
+                d="M0,48 Q50,-20 100,48" />
+
+              <text fontSize={10} fontWeight={600} fill="white">
+                <textPath href="#curve-path" startOffset={(50 - cancer.length - 10 * 2) + "%"}>
+                  Select Your Ribbon
+                </textPath>
+              </text>
+            </svg>
+          </>
+            }
+          </div>
+        )}
+                {/* {imgUrl && (
                   <div className="d-flex justify-content-end align-self-end ">
                     <img
                       src={imgUrl}
@@ -335,7 +388,7 @@ const Ribbons = (props) => {
                       style={{ width: 82, height: 82 }}
                     />
                   </div>
-                )}
+                )} */}
               </div>
             </div>
             {((selected && step === 1) || step === 2) && (
