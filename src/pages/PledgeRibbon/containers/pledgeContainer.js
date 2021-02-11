@@ -91,7 +91,7 @@ const PledgeContainer = (props) => {
   };
   let background =
     (media.desktop) ?
-      "/pledgeBackground.svg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
+      "/Desktop_PledgeARibbonPage.jpg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
         "/PledgeBgMobo.png";
 
   
