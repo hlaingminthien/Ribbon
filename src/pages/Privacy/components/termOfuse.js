@@ -2,10 +2,10 @@ import React from "react";
 
 export const TermOfUse = () => {
   return (
-    <div>
+    <div style={{lineHeight: 1.6}}>
       <h2 className="py-4">Term of Use</h2>
       <div
-        className="d-flex flex-row border-bottom justify-content-between p-2"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
         data-bs-toggle="collapse"
         data-bs-target="#no1"
         aria-expanded="false"
@@ -17,24 +17,26 @@ export const TermOfUse = () => {
         </div>
       </div>
       <div className="collapse" id="no1" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
-        <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
-          <li>Thank you for visiting the website (the "Website") of the National University Health System Pte. Ltd ("NUHS"). and its entities (collectively referred to as the "NUHS Group" and each entity within the NUHS Group to be referred to as "NUHS Entity"). The Terms of Use are applicable to the Websites of each NUHS Entity. Any reference to "NUHS" below shall mean and read as NUHS or the NUHS Entity whose Website you have accessed or both (as applicable). By accessing and using this Website, you shall be deemed to have accepted to be legally bound by these Terms of Use. If you do not agree to these Terms of Use, please do not use this Website.
+        <div className='p-2'>
+          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+            <li>Thank you for visiting the website (the "Website") of the National University Health System Pte. Ltd ("NUHS"). and its entities (collectively referred to as the "NUHS Group" and each entity within the NUHS Group to be referred to as "NUHS Entity"). The Terms of Use are applicable to the Websites of each NUHS Entity. Any reference to "NUHS" below shall mean and read as NUHS or the NUHS Entity whose Website you have accessed or both (as applicable). By accessing and using this Website, you shall be deemed to have accepted to be legally bound by these Terms of Use. If you do not agree to these Terms of Use, please do not use this Website.
           </li>
-          <li>
-            These Terms of Use may be changed from time to time. Changes will be posted on this page and your use of this Website after such changes have been posted will constitute your agreement to the modified Terms of Use and all of the changes.
+            <li>
+              These Terms of Use may be changed from time to time. Changes will be posted on this page and your use of this Website after such changes have been posted will constitute your agreement to the modified Terms of Use and all of the changes.
             </li>
-          <li>
-            Other terms of use (which will be indicated to you) may apply if you are re-directed to other websites.
+            <li>
+              Other terms of use (which will be indicated to you) may apply if you are re-directed to other websites.
           </li>
-          <br />
-          <li>
-            NUHS may modify and discontinue any information or features that form part of this Website at any time, with or without notice to you, and without liability.
+            <br />
+            <li>
+              NUHS may modify and discontinue any information or features that form part of this Website at any time, with or without notice to you, and without liability.
           </li>
-        </ol>
+          </ol>
+        </div>
 
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between p-2"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
         data-bs-toggle="collapse"
         data-bs-target="#no2"
         aria-expanded="false"
@@ -52,7 +54,7 @@ export const TermOfUse = () => {
 
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between p-2"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
         data-bs-toggle="collapse"
         data-bs-target="#no3"
         aria-expanded="false"
@@ -70,7 +72,7 @@ export const TermOfUse = () => {
 
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between p-2"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
         data-bs-toggle="collapse"
         data-bs-target="#no4"
         aria-expanded="false"
@@ -85,22 +87,24 @@ export const TermOfUse = () => {
         <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
           The Contents of this Website are provided on an "as is" basis without warranties of any kind. To the fullest extent permitted by law, NUHS does not warrant and hereby disclaims any warranty:
         </p>
-        <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
-          <li>
-            as to the accuracy, reliability, authenticity, completeness or fitness for any particular purpose of the Contents of this Website;
+        <div className='p-2'>
+          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+            <li>
+              as to the accuracy, reliability, authenticity, completeness or fitness for any particular purpose of the Contents of this Website;
           </li>
-          <li>
-            that defects will be corrected or that this Website and the server is and will be free of all viruses and/or other harmful elements.
+            <li>
+              that defects will be corrected or that this Website and the server is and will be free of all viruses and/or other harmful elements.
             </li>
-          <li>
-            Other terms of use (which will be indicated to you) may apply if you are re-directed to other websites.
+            <li>
+              Other terms of use (which will be indicated to you) may apply if you are re-directed to other websites.
           </li>
 
-        </ol>
+          </ol>
+        </div>
 
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between p-2"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
         data-bs-toggle="collapse"
         data-bs-target="#no5"
         aria-expanded="false"
@@ -118,7 +122,7 @@ export const TermOfUse = () => {
 
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between p-2"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
         data-bs-toggle="collapse"
         data-bs-target="#no6"
         aria-expanded="false"
@@ -136,7 +140,7 @@ export const TermOfUse = () => {
 
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between p-2"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
         data-bs-toggle="collapse"
         data-bs-target="#no7"
         aria-expanded="false"
@@ -148,17 +152,19 @@ export const TermOfUse = () => {
         </div>
       </div>
       <div className="collapse" id="no7" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
-        <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
-          <li>
-            This Website provides general information only. The information should not be taken as any medical advice or recommendation or considered as a replacement for consultation with a healthcare professional and does not create any patient-physician relationship, and should not be used as a substitute for professional diagnosis and treatment.
+        <div className='p-2'>
+          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+            <li>
+              This Website provides general information only. The information should not be taken as any medical advice or recommendation or considered as a replacement for consultation with a healthcare professional and does not create any patient-physician relationship, and should not be used as a substitute for professional diagnosis and treatment.
           </li>
-          <li>
-            If you have questions or concerns related to your health, physical fitness or medical conditions, you should seek the advice of your doctor or a qualified healthcare provider before starting any course of treatment.
+            <li>
+              If you have questions or concerns related to your health, physical fitness or medical conditions, you should seek the advice of your doctor or a qualified healthcare provider before starting any course of treatment.
             </li>
-        </ol>
+          </ol>
+        </div>
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between p-2"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
         data-bs-toggle="collapse"
         data-bs-target="#no8"
         aria-expanded="false"
@@ -175,7 +181,7 @@ export const TermOfUse = () => {
         </p>
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between p-2"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
         data-bs-toggle="collapse"
         data-bs-target="#no9"
         aria-expanded="false"
@@ -187,17 +193,19 @@ export const TermOfUse = () => {
         </div>
       </div>
       <div className="collapse" id="no9" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
-        <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
-          <li>
-            This Website contains hyperlinks to other websites which are not maintained by NUHS and therefore it is not responsible for the contents of those websites and shall not be liable for any damages or loss arising from access to those websites. Use of the hyperlinks and access to such websites are entirely at your own risk.
+        <div className='p-2'>
+          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+            <li>
+              This Website contains hyperlinks to other websites which are not maintained by NUHS and therefore it is not responsible for the contents of those websites and shall not be liable for any damages or loss arising from access to those websites. Use of the hyperlinks and access to such websites are entirely at your own risk.
           </li>
-          <li>
-            Hyperlinks to other websites are provided as a convenience. Under no circumstances shall NUHS be considered to be associated or affiliated with any trade or service marks, logos, insignia or other devices used or appearing on websites to which this Website is linked.
+            <li>
+              Hyperlinks to other websites are provided as a convenience. Under no circumstances shall NUHS be considered to be associated or affiliated with any trade or service marks, logos, insignia or other devices used or appearing on websites to which this Website is linked.
             </li>
-        </ol>
+          </ol>
+        </div>
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between p-2"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
         data-bs-toggle="collapse"
         data-bs-target="#no10"
         aria-expanded="false"
@@ -209,32 +217,35 @@ export const TermOfUse = () => {
         </div>
       </div>
       <div className="collapse" id="no10" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
-        <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
-          <li>
-            Except as set forth below, caching and links to, and the framing of this Website or any of the Contents are prohibited.
+        <div className='p-2'>
+          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+            <li>
+              Except as set forth below, caching and links to, and the framing of this Website or any of the Contents are prohibited.
           </li>
-          <li>
-            You must secure permission from NUHS prior to hyperlinking to or framing this Website or any of the Contents, or engaging in similar activities. NUHS reserves the right to impose conditions when permitting any hyperlinking to or framing of this Website or any of the Contents.
+            <li>
+              You must secure permission from NUHS prior to hyperlinking to or framing this Website or any of the Contents, or engaging in similar activities. NUHS reserves the right to impose conditions when permitting any hyperlinking to or framing of this Website or any of the Contents.
           </li>
-          <li>
-            Your linking to or framing any part of this Website or its Contents constitutes acceptance of these Terms of Use. This is deemed to be the case even after the posting of any changes or modifications to these Terms of Use. If you do not accept these Terms of Use, you must discontinue linking to or framing this Website or any of the Contents.
+            <li>
+              Your linking to or framing any part of this Website or its Contents constitutes acceptance of these Terms of Use. This is deemed to be the case even after the posting of any changes or modifications to these Terms of Use. If you do not accept these Terms of Use, you must discontinue linking to or framing this Website or any of the Contents.
           </li>
-          <li>
-            In no circumstances shall NUHS be considered to be associated or affiliated in any manner with any trade or service marks, logos, insignia or other devices used or appearing on websites that link to this Website or any of the Contents.
+            <li>
+              In no circumstances shall NUHS be considered to be associated or affiliated in any manner with any trade or service marks, logos, insignia or other devices used or appearing on websites that link to this Website or any of the Contents.
           </li>
-          <li>
-            NUHS reserves the right to disable any links to or frames of any site containing inappropriate, profane, defamatory, infringing, obscene, indecent or unlawful topics, names, material or information that violates any written law, any applicable intellectual property, proprietary, privacy or publicity rights.
+            <li>
+              NUHS reserves the right to disable any links to or frames of any site containing inappropriate, profane, defamatory, infringing, obscene, indecent or unlawful topics, names, material or information that violates any written law, any applicable intellectual property, proprietary, privacy or publicity rights.
           </li>
-          <li>
-            NUHS reserves the right to disable any unauthorised links or frames and disclaims any responsibility for the content available on any other site reached by links to or from this Website or any of the Contents.
+            <li>
+              NUHS reserves the right to disable any unauthorised links or frames and disclaims any responsibility for the content available on any other site reached by links to or from this Website or any of the Contents.
           </li>
-          <li>
-            NUHS reserves the right to change the URL of this Website.
+            <li>
+              NUHS reserves the right to change the URL of this Website.
           </li>
-        </ol>
+          </ol>
+        </div>
+
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between p-2"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
         data-bs-toggle="collapse"
         data-bs-target="#no11"
         aria-expanded="false"
@@ -251,7 +262,7 @@ export const TermOfUse = () => {
         </p>
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between p-2"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
         data-bs-toggle="collapse"
         data-bs-target="#no12"
         aria-expanded="false"
@@ -263,21 +274,24 @@ export const TermOfUse = () => {
         </div>
       </div>
       <div className="collapse" id="no12" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
-        <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
-          <li>
-            If you are only browsing this Website, NUHS does not capture data that allows us to identify you.
+        <div className='p-2'>
+          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+            <li>
+              If you are only browsing this Website, NUHS does not capture data that allows us to identify you.
           </li>
-          <li>
-            If you send an email, feedback form or any information to a NUHS Entity through this Website, you will be disclosing personally identifiable data; and the information you send will be collected, used, disclosed and/or retained by NUHS Entity for the purpose of processing your request or inquiry. You will also be consenting to the collection, use, disclosure and/or retention of your personal data by the NUHS Entity in accordance with prevailing Singapore laws.
+            <li>
+              If you send an email, feedback form or any information to a NUHS Entity through this Website, you will be disclosing personally identifiable data; and the information you send will be collected, used, disclosed and/or retained by NUHS Entity for the purpose of processing your request or inquiry. You will also be consenting to the collection, use, disclosure and/or retention of your personal data by the NUHS Entity in accordance with prevailing Singapore laws.
           </li>
-          <li>
-            To safeguard your personal data, all electronic storage and transmission of personal data through this Website are secured with appropriate security technologies.
+            <li>
+              To safeguard your personal data, all electronic storage and transmission of personal data through this Website are secured with appropriate security technologies.
           </li>
-          <li>
-            This Website may contain links to external sites whose data protection and privacy protection practices may differ from NUHS. We are not responsible for the content and privacy practices of those other sites. You should consult the privacy notices of those sites.
+            <li>
+              This Website may contain links to external sites whose data protection and privacy protection practices may differ from NUHS. We are not responsible for the content and privacy practices of those other sites. You should consult the privacy notices of those sites.
           </li>
 
-        </ol>
+          </ol>
+        </div>
+
       </div>
       <p className='pt-3'>
         If you require further information on our data protection policy, please

@@ -3,6 +3,7 @@ import Jar from "../../../assets/images/Jar.png";
 import Ribbon from "../../../assets/images/Ribbon.png";
 import TabletRibbonBottle from "../../../assets/images/TabletRibbonBottle.png";
 import MobileRibbonBottle from "../../../assets/images/mobileRibbonBottle.png";
+import GlassJarUpdate from "../../../assets/images/GlassJarUpdate.png"
 
 import RibbonBottle from "../../../assets/images/RibbonBottle.png";
 import ButtonRibbon from "../../../assets/images/buttonRibbon.png";
@@ -15,6 +16,7 @@ import { Counter } from "./counter";
 import { paleViolet } from "../../../assets/colors";
 import { NCIS_Button } from "../../../tools/NCIS_Button";
 import sponsors from "../../../assets/sponsors.json"
+import Logo from "../../../assets/images/logo.png"
 
 export const Home = (props) => {
   const { media } = props;
@@ -28,18 +30,19 @@ export const Home = (props) => {
       {
         (media.desktop || media.tablet) &&
         <div
-          className="row m-0 pt-3 justify-content-between image-fluid"
+          className="row m-0 pt-0 justify-content-between image-fluid"
           style={{
             backgroundImage: `url(${media.tablet ? BackgroundTablet : Background})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: media.tablet ? "center" : "none",
+            minHeight:media.mobile && '100vh'
           }}
         >
 
           <HomeTitle media={media} _handlePledge={_handlePledge} />
-          <div className='d-flex justify-content-end col-10 mx-5' style={{ position: 'absolute', marginTop: media.desktop ? '38%' : '65%' }}>
-            <img src={"/floater.png"} alt='floater' style={{ width: 250 }} />
+          <div className='d-flex justify-content-end col-10 mx-5' style={{ position: 'absolute', marginTop: media.desktop ? '23%' : '35%' }}>
+            <img src={"/floater.png"} alt='floater' style={{ width: 250, position: 'fixed' }} />
 
           </div>
           {media.tablet ? (
@@ -57,28 +60,42 @@ export const Home = (props) => {
           ) : (
               <div className="col-lg-11 col-md-12 p-0 img-fluid">
                 <img src={RibbonBottle} className="img-fluid" />
+                {/* <img src={GlassJarUpdate} className="img-fluid" /> */}
               </div>
             )}
           <Counter />
           {media.mobile || (
             <div className="row">
-              <Highlights />
-              <Sponsors />
+              <Highlights media={media} />
+              <Sponsors media={media} />
             </div>
           )}
         </div>
       }
       {
-        media.mobile && <div style={{
+        media.mobile && <div className='' style={{
           backgroundImage: `url(${BackgroundMobile})`, backgroundSize: "cover",
-          backgroundRepeat: "no-repeat", height: '100vh'
+          backgroundRepeat: "no-repeat", height: '100vh',
         }}>
+          <div className='d-flex justify-content-end col-10 mx-5' style={{ position: 'absolute', zIndex:1, paddingTop:'35%' }}>
+            <img src={"/floater.png"} alt='floater' style={{ width: 150, position: 'fixed' }} />
+
+          </div>
           <HomeTitle media={media} />
+          
+          <div className='d-flex border border-danger'>
+          <Counter />
+          
           <img src={MobileRibbonBottle} style={{
-            bottom: media.cusHeight_700 ? 20 : 50, position: 'fixed', right: -16, height: 'auto',
+            bottom: media.cusHeight_700 ? 20 : 50, right: -16, height: 'auto',position:'absolute',
             maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '77%'
           }} />
-          <Counter />
+          </div>
+          
+          <div className='border border-danger pt-5'>
+            <HighlightsForMobo media={media} />
+            
+          </div>
         </div>
       }
     </>
@@ -91,11 +108,11 @@ const HomeTitle = (props) => {
   return (
     <div
       style={{
-        position: "absolute",
-        paddingTop: media.tablet ? "10rem" : media.mobile ? '6rem' : "11.5rem",
-        paddingLeft: media.tablet ? "7rem" : media.mobile ? '2rem' : "11.5rem",
+        position:!media.mobile && "absolute",
+        paddingTop: media.tablet ? "8rem" : media.mobile ? '6rem' : "11.5rem",
+        paddingLeft: media.tablet ? "6.6rem" : media.mobile ? '2rem' : "7.5rem",
       }}
-      className="text-light col-lg-6 col-md-8"
+      className="text-light col-lg-6 col-md-8 "
     >
       <span
         style={{
@@ -104,9 +121,9 @@ const HomeTitle = (props) => {
           lineHeight: 1,
         }}
       >
-        NCIS
+        NCIS Challenge 2021
       </span>
-      <div
+      {/* <div
         style={{
           fontSize: media.tablet ? 35 : media.mobile ? 20 : 58,
           fontWeight: "bold",
@@ -115,20 +132,20 @@ const HomeTitle = (props) => {
         }}
       >
         Virtual Ribbon
-      </div>
+      </div> */}
       <div
         style={{
-          fontSize: media.tablet ? 35 : media.mobile ? 18 : 58,
+          fontSize: media.tablet ? 30 : media.mobile ? 18 : 38,
           fontWeight: "bold",
           paddingBottom: (media.cusHeight_600 || media.mobile) ? "40px" : "70px",
           lineHeight: 1,
         }}
       >
-        Challenge 2021
+        Together, We Fight Cancer
       </div>
       <div
         className={media.mobile ? "col-10 " : media.tablet ? "col-9 pb-4" : "col-9 pb-4 pt-2"}
-        style={{ fontSize: media.mobile ? 10 : 13, fontWeight: "lighter", lineHeight: 1 }}
+        style={{ fontSize: media.mobile ? 10 : 13, fontWeight: "lighter", lineHeight: 1.6 }}
       >
         Themed “Together, we fight cancer”, the virtual NCIS Ribbon Challenge 2021 aims to increase cancer awareness, emphasise on the importance of maintaining a healthy lifestyle and going for regular health screenings. Let us spread the word among your loved ones and make a difference in the lives of those affected by cancer.
         <br />
@@ -143,13 +160,17 @@ const HomeTitle = (props) => {
           <NCIS_Button text={"Pledge a Ribbon"} icon={ButtonRibbon} />
         </div>
         :
-        <NCIS_Button className='text-left' text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} />
+        <div className='' style={{ position: 'absolute', zIndex: 0.8 }}>
+          <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} />
+
+        </div>
       }
     </div>
   );
 };
 
-const Highlights = () => {
+const Highlights = props => {
+  const { media }= props
   return (
     <div
       style={{ paddingTop: "90px", paddingLeft: "100px" }}
@@ -160,14 +181,12 @@ const Highlights = () => {
         <ul>
           <li>
             Health talks on cancer screening and prevention
-
           </li>
-        
-        <li>
-          Mammogram screening
+          <li>
+            Mammogram screening
         </li>
-        <li>
-          FIT (Faecal Immunochemical Test) kit distribution
+          <li>
+            FIT (Faecal Immunochemical Test) kit distribution
 
         </li>
         </ul>
@@ -176,31 +195,184 @@ const Highlights = () => {
   );
 };
 
-const Sponsors = () => {
+const HighlightsForMobo = props => {
+  const { media }= props
   return (
     <div
-      style={{ paddingTop: "90px", paddingBottom: "90px", paddingLeft: "30px" }}
-      className="row w-50"
+  style={{ paddingTop:150, /*position:'absolute', zIndex:1 */ }}
+      className="text-light px-3"
     >
-      <div style={{ fontSize: 25, fontWeight: "bold" }}>Sponsors</div>
-      {/*new Array(8).fill(null)*/sponsors.sponsors.map((v, k) => (
-        <div className="w-25" key={k}>
+      <div className='px-2' style={{ fontSize: 20, fontWeight: "bold" }}>Highlights</div>
+      <div className=" pb-3">
+        <ul>
+          <li>
+            Health talks on cancer screening and prevention
+          </li>
+          <li>
+            Mammogram screening
+        </li>
+          <li>
+            FIT (Faecal Immunochemical Test) kit distribution
+
+        </li>
+        </ul>
+      </div>
+      <SponsorsForMobo media={media} />
+    </div>
+  );
+};
+
+const SponsorsForMobo = props => {
+  const { media } = props
+
+  return (
+    <div
+      style={{ }}
+      className="row py-2"
+    >
+      <div style={{ fontSize: 20, fontWeight: "bold" }}>Our Partners and Sponsors</div>
+      <div className='d-flex pt-3 '>
+        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600 }}>
+          Organised by:
+          </div>
+        <div className="d-flex col-10 mx-2">
           <div
-            className="d-flex bg-light mx-2 my-3 align-items-center"
+            className="d-flex bg-light mx-2 my-1 py-2 align-items-center"
             style={{
-              width: "70px",
-              height: "70px",
-              borderRadius: "50%",
+              width: 130,
+              // height: 70,
+              borderRadius: 10,
             }}
           >
-            {
-              v.imgaeUrl &&
-              <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 55 }} />
-
-            }
+            <img className='mx-2 align-self-center' src={Logo} alt="sponsor" style={{ width: 110 }} />
           </div>
         </div>
-      ))}
+
+      </div>
+      <div className='d-flex pt-3 '>
+        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600 }}>
+          Sponsors:
+          </div>
+        <div className='d-flex flex-wrap col-10 mx-2'>
+          {/*new Array(8).fill(null)*/sponsors.sponsors.map((v, k) => (
+            <div className="mx-2" key={k}>
+              <div
+                className="d-flex bg-light my-1 py-2 align-items-center"
+                style={{
+                  width: 100,
+                  height: 60,
+                  borderRadius: 10,
+                }}
+              >
+                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 90 }} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+
+      </div>
+      <div className='d-flex pt-3 '>
+        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600 }}>
+          Supporting Partners:
+          </div>
+        <div className='d-flex flex-wrap col-10 mx-2'>
+          {/*new Array(8).fill(null)*/sponsors.supportingPartners.map((v, k) => (
+            <div className="mx-2" key={k}>
+              <div
+                className="d-flex bg-light my-1 py-2 align-items-center"
+                style={{
+                  width: 100,
+                  height: 60,
+                  borderRadius: 10,
+                }}
+              >
+                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 80 }} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+     
+    </div>
+  );
+};
+
+
+const Sponsors = props => {
+  const { media } = props
+
+  return (
+    <div
+      style={{ paddingTop: "100px", paddingBottom: "90px", paddingLeft: media.desktop ? "50px" : "30px" }}
+      className="row w-50 col-lg-5  justify-content-end"
+    >
+      <div style={{ fontSize: 25, fontWeight: "bold" }}>Our Partners and Sponsors</div>
+      <div className='d-flex pt-3 '>
+        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600 }}>
+          Organised by:
+          </div>
+        <div className="d-flex col-10 mx-2">
+          <div
+            className="d-flex bg-light mx-2 my-1 py-2 align-items-center"
+            style={{
+              width: 130,
+              // height: 70,
+              borderRadius: 10,
+            }}
+          >
+            <img className='mx-2 align-self-center' src={Logo} alt="sponsor" style={{ width: 110 }} />
+          </div>
+        </div>
+
+      </div>
+      <div className='d-flex pt-3 '>
+        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600 }}>
+          Sponsors:
+          </div>
+        <div className='d-flex flex-wrap col-10 mx-2'>
+          {/*new Array(8).fill(null)*/sponsors.sponsors.map((v, k) => (
+            <div className="mx-2" key={k}>
+              <div
+                className="d-flex bg-light my-1 py-2 align-items-center"
+                style={{
+                  width: 100,
+                  height: 60,
+                  borderRadius: 10,
+                }}
+              >
+                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 90 }} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+
+      </div>
+      <div className='d-flex pt-3 '>
+        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600 }}>
+          Supporting Partners:
+          </div>
+        <div className='d-flex flex-wrap col-10 mx-2'>
+          {/*new Array(8).fill(null)*/sponsors.supportingPartners.map((v, k) => (
+            <div className="mx-2" key={k}>
+              <div
+                className="d-flex bg-light my-1 py-2 align-items-center"
+                style={{
+                  width: 100,
+                  height: 60,
+                  borderRadius: 10,
+                }}
+              >
+                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 80 }} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+     
     </div>
   );
 };
