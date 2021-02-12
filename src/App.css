@@ -54,8 +54,8 @@ div.circTxt {
   -webkit-animation:  float 4s ease-out infinite;
 }
 .move-me-2 {
-  animation: float1 4s ease-out infinite;
-  -webkit-animation: float1 4s ease-out infinite;
+  animation: float1 2s ease-out infinite;
+  -webkit-animation: float1 2s ease-out infinite;
 }
 .move-me-3 {
   animation: float2 4s ease-out infinite;
