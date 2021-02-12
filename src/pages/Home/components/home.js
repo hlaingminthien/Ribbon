@@ -42,7 +42,7 @@ export const Home = (props) => {
 
           <HomeTitle media={media} _handlePledge={_handlePledge} />
           <div className='d-flex justify-content-end col-10 mx-5' style={{ position: 'absolute', marginTop: media.desktop ? '23%' : '35%' }}>
-            <img src={"/floater.png"} alt='floater' style={{ width: 250, position: 'fixed' }} />
+            <img src={"/floater.png"} alt='floater' style={{ width: 250, position: 'fixed', opacity:0.9 }} />
 
           </div>
           {media.tablet ? (
@@ -75,15 +75,15 @@ export const Home = (props) => {
       {
         media.mobile && <div className='' style={{
           backgroundImage: `url(${BackgroundMobile})`, backgroundSize: "cover",
-          backgroundRepeat: "no-repeat", height: '100vh',
+          backgroundRepeat: "no-repeat", minHeight: '100vh',
         }}>
           <div className='d-flex justify-content-end col-10 mx-5' style={{ position: 'absolute', zIndex:1, paddingTop:'35%' }}>
-            <img src={"/floater.png"} alt='floater' style={{ width: 150, position: 'fixed' }} />
+            <img src={"/floater.png"} alt='floater' style={{ width: 150, position: 'fixed', opacity:0.9 }} />
 
           </div>
           <HomeTitle media={media} />
           
-          <div className='d-flex border border-danger'>
+          <div className='d-flex '>
           <Counter />
           
           <img src={MobileRibbonBottle} style={{
@@ -92,7 +92,7 @@ export const Home = (props) => {
           }} />
           </div>
           
-          <div className='border border-danger pt-5'>
+          <div className=' pt-5'>
             <HighlightsForMobo media={media} />
             
           </div>
@@ -199,8 +199,8 @@ const HighlightsForMobo = props => {
   const { media }= props
   return (
     <div
-  style={{ paddingTop:150, /*position:'absolute', zIndex:1 */ }}
-      className="text-light px-3"
+  style={{ paddingTop:200,color:'#271f57' /*position:'absolute', zIndex:1 */ }}
+      className=" px-3"
     >
       <div className='px-2' style={{ fontSize: 20, fontWeight: "bold" }}>Highlights</div>
       <div className=" pb-3">
@@ -228,7 +228,7 @@ const SponsorsForMobo = props => {
   return (
     <div
       style={{ }}
-      className="row py-2"
+      className="row p-2"
     >
       <div style={{ fontSize: 20, fontWeight: "bold" }}>Our Partners and Sponsors</div>
       <div className='d-flex pt-3 '>
