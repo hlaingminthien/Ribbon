@@ -60,7 +60,7 @@ import RibbonImages from "../../../assets/RibbonImages.json";
 
     let count = 0
     const delayMs = 80;
-    mInterval = setInterval(async () => {
+    const mInterval = setInterval(async () => {
       count = count + delayMs
       if (count === 4000) {
         if(mInterval) {
