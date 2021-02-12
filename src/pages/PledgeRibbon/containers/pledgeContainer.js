@@ -11,7 +11,7 @@ import domtoimage from 'dom-to-image-more';
 import { saveAs } from 'file-saver';
 import RibbonImages from "../../../assets/RibbonImages.json";
 
-const PledgeContainer = (props) => {
+ const PledgeContainer = (props) => {
   const { media } = props;
   const [menuVisible, setMenuVisible] = useState(false);
   const [step, setStep] = useState(1);
