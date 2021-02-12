@@ -15,7 +15,7 @@ import { NCIS_TextBox } from "../../../tools/NCIS_TextBox";
 import { NCIS_Button } from "../../../tools/NCIS_Button";
 import RibbonImages from "../../../assets/RibbonImages.json";
 import { violet, paleViolet } from "../../../assets/colors";
-import {SocialShare} from "./socialShareIcons";
+import { SocialShare } from "./socialShareIcons";
 
 const PledgeForm = (props) => {
   const {
@@ -43,14 +43,14 @@ const PledgeForm = (props) => {
     props.history.push("/");
   };
 
-  // console.log('complete', complete);
+
   return (
     <div className="py-2">
       <form>
-        <div>
+        <div className='pt-1'>
           <strong>{step && `Step ${step}:`}</strong>
         </div>
-        <label style={{ fontWeight: "bold", fontSize: 20 }}>
+        <label className='pb-2' style={{ fontWeight: "bold", fontSize: 20 }}>
           {step === 1
             ? "Choose Your Ribbon and Create Your Message"
             : step === 2
@@ -63,8 +63,8 @@ const PledgeForm = (props) => {
         {step === 1 && <PledgeRibbons {...props} />}
         {/* //  _handleSelect={_handleSelect} _handleRibbonClick={_handleRibbonClick} menuVisible={menuVisible} */}
         {(step === 3 && complete) ? (
-          <ThankYouCard _handlePledge={_handlePledge} />
-        ) : (step === 3 && !complete) ? (
+          <ThankYouCard _handlePledge={_handlePledge} shareApp={shareApp} />
+        ) : (step === 3 ) ? (
           <div className='d-flex justify-content-center'>
             <div className='px-2 pt-5' style={{ fontWeight: 600 }}>Share Via:</div>
             <SocialShare
@@ -158,7 +158,7 @@ const PledgeRibbons = (props) => {
   const [selected, setSelected] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const [number, setNumber] = useState(null);
-  const [cancerDetails,setCancerDetails]=useState(["Lorem ipsum dolor sit amet, consectetur adipiscing elit.Proin vel sollicitudin sapien"]);
+  const [cancerDetails, setCancerDetails] = useState(["Lorem ipsum dolor sit amet, consectetur adipiscing elit.Proin vel sollicitudin sapien"]);
 
   const PopupDiv = (e) => document.getElementById(e.target.id + "popup");
   const RibbonDiv = (e) => document.getElementById(e.target.id);
@@ -195,18 +195,18 @@ const PledgeRibbons = (props) => {
         return;
       }
     }
-    if(name == "All Cancers"){
+    if (name == "All Cancers") {
       const min = 0;
       const max = 10
-      const rand =parseInt(min + Math.random() * (max - min));
+      const rand = parseInt(min + Math.random() * (max - min));
       let cancerDetail = RibbonImages.Ribbons.filter((c, indx) => c.name != "All Cancers" && indx == rand).map(cancer => cancer.ribbonDetails)
       setCancerDetails(cancerDetail)
     }
-    
+
   };
   const _handleLeave = (e) => {
     if (selected === false) {
-      RibbonDiv(e).style.background = "white";
+      RibbonDiv(e).style.background = "#e6e0e6";
       RibbonDiv(e).style.color = "#000000";
 
       if (PopupDiv(e)) {
@@ -269,7 +269,7 @@ const PledgeRibbons = (props) => {
               onMouseOver={(e) => _handleHover(e)}
             >
               <h6 className='px-2' id={k}>{v.name}</h6>
-              {
+              {/* {
                 (v.name == "All Cancers") ?
                   <>
                     {
@@ -286,21 +286,21 @@ const PledgeRibbons = (props) => {
                     }
 
                   </>
-                  :
-                  <>
-                    {v.ribbonDetails ? (
-                      <div className="px-2" id={k} style={{ fontSize: 12 }}>
-                        {v.ribbonDetails.map((c, i) => (
-                          <p key={i}>{c}</p>
-                        ))}
-                      </div>
-                    ) : (
-                        <div className="px-2" id={k} style={{ fontSize: 12 }}>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                          Proin vel sollicitudin sapien.
-                        </div>
-                      )}</>
-              }
+                  : */}
+              <>
+                {v.ribbonDetails ? (
+                  <div className="px-2" id={k} style={{ fontSize: 12 }}>
+                    {v.ribbonDetails.map((c, i) => (
+                      <p key={i}>{c}</p>
+                    ))}
+                  </div>
+                ) : (
+                    <div className="px-2" id={k} style={{ fontSize: 12 }}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Proin vel sollicitudin sapien.
+                    </div>
+                  )}</>
+              {/* } */}
 
             </div>
           )}
@@ -311,36 +311,139 @@ const PledgeRibbons = (props) => {
 };
 
 export const ThankYouCard = (props) => {
-  const { _handleEdit, _handlePledge } = props;
+  const { _handleEdit, _handlePledge, shareApp } = props;
 
   return (
-    <div className="d-flex justify-content-center p-2 ">
+    <div className="d-flex justify-content-center px-2 " style={{ position:'absolute' }}>
       <div
-        className="bg-light p-3 col-6 my-3 mx-4 shadow"
+        className="bg-light p-3 col-8 my-3 mx-4 shadow"
         style={{ borderRadius: 10 }}
       >
         <div
           className="text-center"
           style={{ fontWeight: "bold", fontSize: 18 }}
         >
-          Thank for your Pledging
+          Thank you for your participation!
         </div>
-        <p className="p-2" style={{ fontSize: 14 }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel
-          sollicitudin sapien. Suspendisse eu ornare erat. Nullam tristique
-          augue sit amet lorem elementum hendrerit eu et nulla. Nullam in
-          posuere mauris, eu fringilla magna. Praesent a sodales leo, quis
-          feugiat eros.
+        {
+          shareApp === 2 ?
+            <div className='p-1' style={{ fontSize: 13 }}>
+              Share the message on your Facebook to spread the word to more people!<br />
+              <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+              <div className='px-2 py-1'>
+                1.Download your pledge message onto your device​<br />
+                2.Upload your pledge message onto your Facebook. (Remember to add #ncisribbonchallenge in your caption)
+
+              </div>
+
+            </div> :
+            shareApp === 1 ?
+            <div className='p-1' style={{ fontSize: 13 }}>
+              Share the message on your WhatsApp  to spread the word to more people!<br />
+              <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+              <div className='px-2 py-1'>
+                1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+                <br />
+                2.Go to your WhatsApp
+                <br />
+                3.Select your recipient and insert the GIF into your message.
+              </div>
+
+            </div> :
+            shareApp === 3 ?
+            <div className='p-1' style={{ fontSize: 13 }}>
+              Share the message on your Instagram  to spread the word to more people!<br />
+              <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+              <div className='px-2 py-1'>
+                1.Download your pledge message onto your device.
+                <br />
+                2.Upload your pledge message onto your Instagram. (Remember to add #ncisribbonchallenge in your caption)​
+              </div>
+
+            </div> :
+            shareApp === 4 ?
+            <div className='p-1' style={{ fontSize: 13 }}>
+            Share the message on your LinkIn  to spread the word to more people!<br />
+            <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+            {/* <div className='px-2 py-1'>
+              1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+              <br />
+              2.Go to your WhatsApp
+              <br />
+              3.Select your recipient and insert the GIF into your message.
+            </div> */}
+
+          </div>:
+          shareApp === 5 ?
+          <div className='p-1' style={{ fontSize: 13 }}>
+          Share the message via to spread the word to more people!<br />
+          {/* <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+          <div className='px-2 py-1'>
+            1.Download your pledge message onto your device.
+            <br />
+            2.Upload your pledge message onto your Instagram. (Remember to add #ncisribbonchallenge in your caption)​
+          </div> */}
+
+        </div> :
+        shareApp === 6 ?
+        <div className='p-1' style={{ fontSize: 13 }}>
+          Share the message on your Telegram  to spread the word to more people!<br />
+          <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+          <div className='px-2 py-1'>
+            1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+            <br />
+            2.Go to your Telegram.
+            <br />
+            3.Select your recipient and insert the GIF into your message.
+          </div>
+
+        </div>:
+        shareApp === 7 ?
+        <div className='p-1' style={{ fontSize: 13 }}>
+          Share the message on your weChat  to spread the word to more people!<br />
+          <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+          <div className='px-2 py-1'>
+            1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+            <br />
+            2.Go to your WeChat
+            <br />
+            3.Select your recipient and insert the GIF into your message.​
+          </div>
+
+        </div>:
+        shareApp === 8 ?
+        <div className='p-1' style={{ fontSize: 13 }}>
+          Share the message on your Line to spread the word to more people!<br />
+          <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+          <div className='px-2 py-1'>
+            1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+            <br />
+            2.Go to your Line
+            <br />
+            3.Select your recipient and insert the GIF into your message.
+          </div>
+
+        </div>:
+        ""
+
+        }
+
+        <p className="pt-2 px-2" style={{ fontSize: 13 }}>
+          Don’t stop here, you can do more by pledging again!
+          <br />
+          Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
+
+          Together, We Fight Cancer!
         </p>
         <div className="d-flex justify-content-center text-left mx-2">
-          <div className="py-2  d-flex justify-content-center">
+          <div className="pb-2  d-flex justify-content-center">
             <NCIS_Button
               text={"Pledge Another"}
               onClick={() => window.location.reload()}
               className="mx-1"
             />
           </div>
-          <div className="py-2 d-flex justify-content-center">
+          <div className="pb-2 d-flex justify-content-center">
             <NCIS_Button
               text={"Back To Home"}
               onClick={_handlePledge}

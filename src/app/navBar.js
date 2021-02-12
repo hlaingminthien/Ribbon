@@ -9,10 +9,10 @@ const NavBar = (props) => {
   };
   return (
     <nav
-      className="navbar navbar-expand-lg navbar-light shadow bg-light justify-content-between p-1 w-100"
+      className="navbar navbar-expand-lg navbar-light shadow bg-light justify-content-between py-1 px-3 w-100"
       style={{ position: "fixed" ,zIndex:999}}
     >
-      <a className="navbar-brand px-2" href="/">
+      <a className="navbar-brand" href="/">
         <img src={Logo} alt="logo" height='35'/>
       </a>
       <div className="d-flex flex-row justify-content-end p-2">
@@ -33,7 +33,7 @@ const NavBar = (props) => {
           </ul>
         </div>
         <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} />
-        {/* <div
+        <div
           className="navbar-toggler w-25 text-center"
           // type="button"
           style={{ border: "none" }}
@@ -44,7 +44,7 @@ const NavBar = (props) => {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
-        </div> */}
+        </div>
       </div>
     </nav>
   );

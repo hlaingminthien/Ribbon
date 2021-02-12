@@ -6,7 +6,7 @@ export const NCIS_Button = (props) => {
     const {text,icon,onClick,className,buttonColor, fontSize }=props
   return (
     <button
-      className={`btn text-light ${className} py-2`}
+      className={`btn text-light ${className} ${icon && "d-flex justify-content-between" } py-2 `}
       style={{
         background: buttonColor||orange,
         borderRadius: 50,
@@ -22,8 +22,8 @@ export const NCIS_Button = (props) => {
       aria-label="Toggle navigation"
       onClick={onClick}
     >
-              {text}
-      <img src={icon} style={{position:"absolute",width:50,marginTop: -13}}/>
+              <div className={`py-0 ${icon && " px-2" }`} >{text}</div>
+      <img src={icon} style={{position:"absolute",width:50,marginTop: -13, marginLeft: 130}}/>
     </button>
   );
 };

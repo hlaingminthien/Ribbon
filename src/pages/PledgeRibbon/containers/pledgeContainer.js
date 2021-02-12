@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 import { PledgeCard } from "../components/pledgeCard";
@@ -22,7 +22,7 @@ const PledgeContainer = (props) => {
   const [message, setMessage] = useState("");
   const [imgUrl, setImgUrl] = useState(null);
   const [warning, setWarning] = useState(false);
-  const [shareImage,setShareImage]=useState(null);
+  const [shareImage, setShareImage] = useState(null);
   const [complete, setComplete] = useState(false);
 
   const _handleEdit = () => {
@@ -54,13 +54,13 @@ const PledgeContainer = (props) => {
         var formData = new FormData();
         formData.append('ribbon', blob);
         let url = 'http://172.104.40.242:9898/api/uploadImage';
-        axios.post(url, { ribbon : blob})
+        axios.post(url, { ribbon: blob })
           .then(res => {
             const shareImg = res.data.payload;
             setShareImage(shareImg)
           })
           .catch(err => console.log(err));
-          setStep(3);
+        setStep(3);
       });
   };
 
@@ -91,10 +91,10 @@ const PledgeContainer = (props) => {
   };
   let background =
     (media.desktop) ?
-      "/pledgeBackground.svg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
+      "/Desktop_PledgeARibbonPage.jpg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
         "/PledgeBgMobo.png";
 
-  
+
   return (
     <div className="d-flex justify-content-center aling-self-center pt-3">
       <div id="testsvg">
@@ -107,7 +107,7 @@ const PledgeContainer = (props) => {
       </div>
       <div className={`${(media.tablet) ? "col-12" : "col-10"} pt-4`}>
         {(media.desktop) ? (
-          <div className="row px-0">
+          <div className="row px-0 ">
             <div
               className="d-flex justify-content-start col-4 align-self-start "
               style={{ textAlign: "center" }}
@@ -126,10 +126,16 @@ const PledgeContainer = (props) => {
               </div>
             </div>
             <div
-              className="col-8 pt-4"
+              className="col-8 pt-4 justify-content-center"
               style={{ height: "90vh" }}
             >
-              <PledgeProgress step={step} media={media} />
+              <div className='d-flex justify-content-center'>
+                <div className='col-7'>
+                  <PledgeProgress step={step} media={media} />
+
+                </div>
+              </div>
+
               <PledgeForm
                 step={step}
                 _handleConfirm={_handleConfirm}
@@ -169,6 +175,7 @@ const PledgeContainer = (props) => {
                 _handleShare={_handleShare}
                 _handleSelectOption={_handleSelectOption}
                 setImgUrl={_handleImage}
+                imgUrl={imgUrl}
                 recipientName={recipientName}
                 message={message}
                 senderName={senderName}
@@ -188,9 +195,11 @@ const PledgeContainer = (props) => {
             (
               <div className="d-flex justify-content-center">
                 <div className="">
-                  <div className='pt-2'>
-                  <PledgeProgress step={step} media={media} />
+                  <div className='d-flex pt-3 justify-content-center'>
+                    <div className='col-10'>
+                      <PledgeProgress step={step} media={media} />
 
+                    </div>
                   </div>
                   <PledgeRibbonsForMobile
                     step={step}
@@ -200,6 +209,7 @@ const PledgeContainer = (props) => {
                     _handleTextChange={_handleTextChange}
                     _handleReview={_handleReview}
                     _handleSelect={_handleSelect}
+                    _handleShare={_handleShare}
                     _handleSelectOption={_handleSelectOption}
                     setImgUrl={_handleImage}
                     setCancerName={setCancerName}

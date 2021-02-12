@@ -15,7 +15,7 @@ export const PledgeProgress = (props) => {
   return (
     <div style={{marginTop: 8}}>
       <div
-      className=''
+      className='d-flex justify-content-center'
         style={{
           height: 5,
           background: violet,

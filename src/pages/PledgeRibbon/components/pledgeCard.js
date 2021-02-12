@@ -45,7 +45,7 @@ export const PledgeCard = (props) => {
     <div className=" d-flex justify-content-center text-white shadow" id="my-node" style={{ background: 'transparent', border: '1px soldi #fff' }}>
       <img
         className="img-responsive"
-        src={imgUrl ? "/cardnoText.jpg" : "/card.jpg"}
+        src={(imgUrl || recipientName || senderName || message) ? "/cardnoText.jpg" : "/card.jpg"}
         style={{ width: 290, height: 300, borderRadius: 10 }}
       />
 
@@ -54,7 +54,7 @@ export const PledgeCard = (props) => {
         style={{ position: "absolute", width: 295, padding: 20, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? 20 : 18, textAlign: 'left' }}
       >
         <div
-          className={` pt-3 ${step != 1 && "move-me:move-me-1"} `}
+          className={` pt-3 ${step != 1 && "move-me:move-me-1"}`}
           style={{ minHeight: 165 }}
         >
           <span className="" style={{ fontSize: 16, fontWeight: "bold" }}>
@@ -75,15 +75,15 @@ export const PledgeCard = (props) => {
           </span>
         </div>
 
-        {imgUrl && (
-          <div style={{ position: "absolute", right: 10 }}>
+        {(imgUrl || recipientName || senderName || message) && (
+          <div className={`${!imgUrl && "pt-1" }`} style={{ position: "absolute", right: 10 }}>
 
             
-            {imgUrl ? <>
+            {(imgUrl || recipientName || senderName || message) ? <>
             <img
-              src={imgUrl}
+              src={imgUrl ? imgUrl : "./mysteryBallempty.png"}
               alt="selected-ribbons"
-              style={{ width: 100, height: 100 }}
+              style={{ width: imgUrl ? 100 : 99, height: imgUrl ? 100 : 99 }}
             />
               <svg viewBox="-12 2 115 56" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", left: -4, right: 0, top: -19, width: 88, height: 85 }} >
                 <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
@@ -97,8 +97,8 @@ export const PledgeCard = (props) => {
                 />
 
                 <text fontSize={10} fontWeight={600} fill="white">
-                  <textPath href="#curve-path" startOffset={(50 - cancer.length - 14 * 2) + "%"}>
-                    {cancer+" Cancer"}
+                  <textPath href="#curve-path" startOffset={(50 - (cancer ? cancer.length : 18) - 14 * 2) + "%"}>
+                    {(cancer ? cancer : "Select your Ribbon" )+ ((cancer == "All Cancers" || !cancer) ? "" : " Cancer")}
                   </textPath>
                 </text>
               </svg> </> : 
