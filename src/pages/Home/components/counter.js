@@ -51,7 +51,7 @@ export const CounterMobile = (props) => {
   return (
     <div
       className="col-5 text-center"
-      style={{ position: "absolute", top: '54%', left:'10%' }}
+      style={{ position: "absolute", top: '54%', left:'8%' }}
     >
       <div
         style={{
@@ -64,7 +64,7 @@ export const CounterMobile = (props) => {
       >
           <div class="numbers px-0 pb-3" style={{ paddingTop: "50px" }}>
             <div style={{ top: 10 }}>
-              <span class="digit-mobile">$</span>
+              {/* <span class="digit-mobile">$</span> */}
               <span class="digit-mobile">7</span>
               <span class="digit-mobile">2</span>
               <span class="digit-mobile">5</span>

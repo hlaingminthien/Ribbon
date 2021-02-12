@@ -2,10 +2,14 @@ import React, { useContext } from "react";
 import Jar from "../../../assets/images/Jar.png";
 import Ribbon from "../../../assets/images/Ribbon.png";
 import TabletRibbonBottle from "../../../assets/images/TabletRibbonBottle.png";
+import TabletRibbonBottle1 from "../../../assets/images/TabletRibbonBottle1.png";
+
 import MobileRibbonBottle from "../../../assets/images/mobileRibbonBottle.png";
+import MobileRibbonBottle1 from "../../../assets/images/mobileRibbonBottle1.png";
 import GlassJarUpdate from "../../../assets/images/GlassJarUpdate.png"
 
 import RibbonBottle from "../../../assets/images/RibbonBottle.png";
+import RibbonBottle1 from "../../../assets/images/RibbonBottle1.png";
 import ButtonRibbon from "../../../assets/images/buttonRibbon.png";
 
 import Background from "../../../assets/images/Background.png";
@@ -47,9 +51,11 @@ export const Home = (props) => {
           </div>
           {media.tablet ? (
             <div className="col-12 p-0 img-fluid">
-              <div className="row">
-                <div className="w-100">
-                  <img src={TabletRibbonBottle} className="img-fluid" />
+              <div className="d-flex flex-row">
+                <div className="w-100" style={{ marginTop: 150 }}>
+                  {/* <img src={TabletRibbonBottle} className="img-fluid" /> */}
+                  <img src={TabletRibbonBottle1} className="img-fluid" />
+
                   {/* <img src={Ribbon} className="img-fluid" />
             </div>
             <div className="w-50">
@@ -59,8 +65,8 @@ export const Home = (props) => {
             </div>
           ) : (
               <div className="col-lg-11 col-md-12 p-0 img-fluid">
-                <img src={RibbonBottle} className="img-fluid" />
-                {/* <img src={GlassJarUpdate} className="img-fluid" /> */}
+                {/* <img src={RibbonBottle} className="img-fluid" /> */}
+                <img src={RibbonBottle1} className="img-fluid" />
               </div>
             )}
           <Counter />
@@ -73,9 +79,9 @@ export const Home = (props) => {
         </div>
       }
       {
-        media.mobile && <div className='' style={{
+        media.mobile && <div className='row m-0 pt-0 justify-content-between image-fluid' style={{
           backgroundImage: `url(${BackgroundMobile})`, backgroundSize: "cover",
-          backgroundRepeat: "no-repeat", minHeight: '100vh',
+          backgroundRepeat: "no-repeat",
         }}>
           <div className='d-flex justify-content-end col-10 mx-5' style={{ position: 'absolute', zIndex:1, paddingTop:'35%' }}>
             <img src={"/floater.png"} alt='floater' style={{ width: 150, position: 'fixed', opacity:0.9 }} />
@@ -83,13 +89,16 @@ export const Home = (props) => {
           </div>
           <HomeTitle media={media} />
           
-          <div className='d-flex '>
+          <div className='d-flex ' >
           <Counter />
-          
-          <img src={MobileRibbonBottle} style={{
-            bottom: media.cusHeight_700 ? 20 : 50, right: -16, height: 'auto',position:'absolute',
-            maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '77%'
+          <img src={MobileRibbonBottle1} style={{
+            bottom: media.cusHeight_700 ? 20 : 50, right: -1, height: 'auto',position:'absolute',
+            maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '72%'
           }} />
+          {/* <img src={MobileRibbonBottle} style={{
+            bottom: media.cusHeight_700 ? 20 : 50, right: -1, height: 'auto',position:'absolute',
+            maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '77%'
+          }} /> */}
           </div>
           
           <div className=' pt-5'>
@@ -202,7 +211,7 @@ const HighlightsForMobo = props => {
   style={{ paddingTop:200,color:'#271f57' /*position:'absolute', zIndex:1 */ }}
       className=" px-3"
     >
-      <div className='px-2' style={{ fontSize: 20, fontWeight: "bold" }}>Highlights</div>
+      <div className='p-2' style={{ fontSize: 20, fontWeight: "bold" }}>Highlights</div>
       <div className=" pb-3">
         <ul>
           <li>

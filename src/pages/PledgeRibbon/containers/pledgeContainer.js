@@ -96,7 +96,7 @@ const PledgeContainer = (props) => {
 
 
   return (
-    <div className="d-flex justify-content-center aling-self-center pt-3">
+    <div className="d-flex justify-content-center align-self-center pt-3">
       <div id="testsvg">
         <img
           className="img-fluid"
