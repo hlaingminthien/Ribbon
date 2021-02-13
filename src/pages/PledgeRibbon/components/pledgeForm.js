@@ -33,7 +33,7 @@ const PledgeForm = (props) => {
     message,
     _handleShare,
     media, shareImage,
-    _handleImage, warning,winner,imgUrl
+    _handleImage, warning,winner
   } = props;
   const [shareApp, setShareApp] = useState(null);
   const handleShareApp = (app) => {
@@ -102,13 +102,13 @@ const PledgeForm = (props) => {
                 media={media}
               />
             </div>
-            {/* {
-              ((warning && (!recipientName || !senderName)) && step === 1) && (
-                <div className="d-flex text-danger justify-content-center text-center pt-2 align-self-center" style={{}}>
-                  <i className="fa fa-exclamation" aria-hidden="true" style={{ color:'red' }}></i>
+            {
+              (warning && step === 1) && (
+                <div className="d-flex text-warning justify-content-center text-center pt-2 align-self-center" style={{}}>
+                  <i className="fa fa-exclamation" aria-hidden="true"></i>
                     Please fill out of this field!
                 </div>
-              )} */}
+              )}
             <div className="col-12 pt-4">
               <NCIS_Selector
                 placeHolder={message !== "" ? message : "Select Message"}
@@ -118,16 +118,6 @@ const PledgeForm = (props) => {
                 media={media}
               />
             </div>
-            {
-              ((warning ) && step === 1) && (
-                <div className="d-flex text-danger justify-content-center text-center pt-3 align-self-center" style={{}}>
-                  
-                  {
-                    imgUrl ? "Please fill out of this field" : (!imgUrl && (!recipientName || !senderName || !message)) ? "Please Select your Ribbon and fill out of this field " : "Please Select your Ribbon" 
-                  }
-                    <i className="fa fa-exclamation px-1" aria-hidden="true" style={{ color:'red' }}></i>
-                </div>
-              )}
             {!menuVisible && step === 1 ? (
               <div className='pb-4' >
                 <div className='pt-4 d-flex justify-content-center'>
@@ -169,7 +159,7 @@ const PledgeRibbons = (props) => {
   const [selectedId, setSelectedId] = useState(null);
   const [number, setNumber] = useState(null);
   const [cancerDetails, setCancerDetails] = useState(["Lorem ipsum dolor sit amet, consectetur adipiscing elit.Proin vel sollicitudin sapien"]);
-const [ rand, setRandom ]=useState(0);
+
   const PopupDiv = (e) => document.getElementById(e.target.id + "popup");
   const RibbonDiv = (e) => document.getElementById(e.target.id);
   const prevRibbonDiv = (e) => document.getElementById(e);
@@ -212,10 +202,6 @@ const [ rand, setRandom ]=useState(0);
       let cancerDetail = RibbonImages.Ribbons.filter((c, indx) => c.name != "All Cancers" && indx == rand).map(cancer => cancer.ribbonDetails)
       setCancerDetails(cancerDetail)
     }
-    const min = 0;
-    const max = 3;
-    const rand = parseInt(min + Math.random() * (max - min)); 
-    setRandom(rand)
 
   };
   const _handleLeave = (e) => {
@@ -304,9 +290,9 @@ const [ rand, setRandom ]=useState(0);
               <>
                 {v.ribbonDetails ? (
                   <div className="px-2" id={k} style={{ fontSize: 12 }}>
-                    {
-                      v.ribbonDetails[rand]
-                    }
+                    {v.ribbonDetails.map((c, i) => (
+                      <p key={i}>{c}</p>
+                    ))}
                   </div>
                 ) : (
                     <div className="px-2" id={k} style={{ fontSize: 12 }}>

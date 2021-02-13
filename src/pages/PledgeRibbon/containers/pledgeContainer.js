@@ -80,16 +80,21 @@ const PledgeContainer = (props) => {
         imageElement.setAttribute("src", dataUrl);
         await gif.addFrame(imageElement, { delay: delayMs });
       }
-    }, delayMs)
-    axios.post(`${Base_Url}sharecount`).then(error => {
-      throw error
-    });
-    axios.post(`${Base_Url}luckydrawcount`)
-    .then(data => setWinner(data.data.lucky))
-    .then(error =>{
-      throw error
-    })
+    }, delayMs);
 
+    axios.post(`${Base_Url}sharecount`).then(data => {
+      console.log('sharecountdata =>', data);
+    }).catch(error =>{
+      console.log('error is=>', error);
+    });
+
+    axios.post(`${Base_Url}luckydrawcount`)
+    .then(data => {
+      console.log('lucky data is=>', data);
+      setWinner(data.data.lucky)
+    }).catch(error =>{
+      console.log('error is=>', error);
+    });
   }
 
   const saveGIf = (blob) => {
@@ -100,13 +105,14 @@ const PledgeContainer = (props) => {
     reader.onloadend = function () {
       const base64data = reader.result;
       const url = `${Base_Url}uploadImage`;
-      axios.post(url, { ribbon: base64data })
-        .then(res => {
-          const shareImg = res.data.payload;
-          setShareImage(shareImg);
-          setLoading(false);
-        })
-        .catch(err => console.log(err));
+      // axios.post(url, { ribbon: base64data })
+      //   .then(res => {
+      //     const shareImg = res.data.payload;
+      //     setShareImage(shareImg);
+      //     setLoading(false);
+      //   })
+      //   .catch(err => console.log(err));
+      setLoading(false);
       setStep(3);
     }
   }
@@ -115,6 +121,7 @@ const PledgeContainer = (props) => {
     setMessage(e);
     setWarning(false)
   };
+
   const _handleTextChange = (e) => {
     if (e.target.id === "recipient") {
       setRecipientName(e.target.value);
@@ -124,18 +131,21 @@ const PledgeContainer = (props) => {
       setWarning(false)
     }
   };
+
   const _handleRibbonClick = (state) => {
     setMenuVisible(state);
   };
+
   const _handleImage = (img, cancer) => {
     setImgUrl(img);
     setCancerName(cancer);
   };
+
   const _handleShare = () => {
+    console.log('hello')
     setComplete(true);
     setStep(3);
-    
-
+    console.log('step and complete is=>', step, complete);
   };
   
   let background =
