@@ -362,24 +362,24 @@ div.circTxt {
     -o-transform: translate(0, 0px);
   }
   50% {
-    transform: translate(0, 280px);
-    -webkit-transform: translate(0, 280px);
-    -moz-transform: translate(0, 280px);
-    -ms-transform: translate(0, 280px);
-    -o-transform: translate(0, 280px);
+    transform: translate(0, 260px);
+    -webkit-transform: translate(0, 260px);
+    -moz-transform: translate(0, 260px);
+    -ms-transform: translate(0, 260px);
+    -o-transform: translate(0, 260px);
   }
   75% {
-    transform: translate(10px,270px);
-    -webkit-transform: translate(10px,270px);
-    -moz-transform: translate(10px,270px);
-    -ms-transform: translate(10px,270px);
-    -o-transform: translate(10px,270px);
+    transform: translate(10px,250px);
+    -webkit-transform: translate(10px,250px);
+    -moz-transform: translate(10px,250px);
+    -ms-transform: translate(10px,250px);
+    -o-transform: translate(10px,250px);
   }
   100% {
-    transform: translate(20px, 280px);
-    -webkit-transform: translate(20px, 280px);
-    -moz-transform: translate(20px, 280px);
-    -ms-transform: translate(20px, 280px);
-    -o-transform: translate(20px, 280px);
+    transform: translate(20px, 260px);
+    -webkit-transform: translate(20px, 260px);
+    -moz-transform: translate(20px, 260px);
+    -ms-transform: translate(20px, 260px);
+    -o-transform: translate(20px, 260px);
   }
 }

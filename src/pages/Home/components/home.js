@@ -23,6 +23,7 @@ import { NCIS_Button } from "../../../tools/NCIS_Button";
 import sponsors from "../../../assets/sponsors.json"
 import Logo from "../../../assets/images/logo.png"
 import SelectedRibbons from '../../../assets/images/SelectedRibbon.json'
+
 import { Base_Url } from "../../../routes/Base_Url";
 
 export const Home = (props) => {
@@ -44,9 +45,27 @@ export const Home = (props) => {
       }
     })
       .then(res => res.json())
-      .then(data => setShareCount(parseInt(data.payload.count / 5)))
+      .then(data => {
+        // setShareCount(parseInt(data.payload.count / 5))
+        
+          const defineRibbonCount=5;
+          const ribbonCountFromServer=parseInt(data.payload.count);
+          var ribbonCountForHomeUI=0;
+          if (ribbonCountFromServer>50) {
+              var tempCount=ribbonCountFromServer/50;
+              console.log("tempCount>>", tempCount)
+              ribbonCountForHomeUI=Math.round(tempCount%1*50)/defineRibbonCount;
+              console.log("Count>>", ribbonCountForHomeUI)
+              
+          } else {
+              ribbonCountForHomeUI=ribbonCountFromServer/defineRibbonCount;
+          }
+          setShareCount(parseInt(Math.floor(ribbonCountForHomeUI)))
+      
+      })
       .catch(error => { throw error })
   }, [])
+  
 
   return (
     <>
@@ -65,11 +84,11 @@ export const Home = (props) => {
 
           <HomeTitle media={media} _handlePledge={_handlePledge} />
           <div className='d-flex justify-content-end col-10 ' style={{ position: 'absolute', marginTop: media.desktop ? '30%' : minimize ? 0 : '35%', bottom: minimize && 250  }}>
-            <div style={{ marginRight:minimize ? '-10%' : '8%'}}>
-            <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width: (window.innerWidth > 1600 && !minimize) ? 300 : minimize ?  100 : 250, position: 'fixed', zIndex: 1, opacity: 0.9 }} />
+            <div style={{ marginRight:minimize ? '-10%' : media.tablet ? '15%' : '10%'}}>
+            <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width: (window.innerWidth > 1600 && !minimize) ? 300 : minimize ?  100 : media.tablet ? 230 : 250, position: 'fixed', zIndex: 1, opacity: 0.9 }} />
             {
               !minimize &&
-            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop:250, paddingLeft:115, fontSize:30 , color:violet, zIndex:3  }}></i>
+            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop:230, paddingLeft:115, fontSize:30 , color:violet, zIndex:3  }}></i>
 
             }
             </div>
@@ -80,7 +99,7 @@ export const Home = (props) => {
               <div className="d-flex flex-row">
                 <div className="w-100" style={{ marginTop: 150 }}>
                   <div className={`d-flex justify-content-center ${(window.innerWidth > 700 && window.innerWidth < 1001) ? "move-me move-me-6" : "move-me move-me-7"} `} style={{
-                    marginLeft: (window.innerWidth > 700 && window.innerWidth < 1000) ? 270 : 310, marginTop: 100
+                    marginLeft: (window.innerWidth > 700 && window.innerWidth < 1000) ? 270 : 310, marginTop: 0
                   }} >
                     <img
                       src={"/lightViolet.png"}
@@ -88,10 +107,11 @@ export const Home = (props) => {
                       style={{ zIndex: 0, width: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 50, }}
                     />
                   </div>
-                  <img src={TabletRibbonBottle1} className="img-fluid" />
-                  {/* <img src={SelectedRibbons.SelectedRibbons.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} className="img-fluid" style={{ width: '50%' }} /> */}
+                  {/* <img src={SelectedRibbons.SelectedRibbonsForTablet.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} className="img-fluid" /> */}
+                  <img src={SelectedRibbons.SelectedRibbonsForTablet[shareCount].imgaeUrl} className="img-fluid" />
+                  
+                  {/* <img src={SelectedRibbons.SelectedRibbonsForTablet.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} className="img-fluid" style={{ width: '50%' }} /> 
 
-                  {/* <img src={Ribbon} className="img-fluid" />
             </div>
             <div className="w-50">
               <img src={Jar} className="img-fluid" /> */}
@@ -108,8 +128,8 @@ export const Home = (props) => {
                   />
                 </div>
 
-                {/* <img src={SelectedRibbons.SelectedRibbons.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} className="img-fluid" style={{ width: '50%' }} /> */}
-                <img src={RibbonBottle1} className="img-fluid" style={{ width: window.innerWidth > 1590 && '122%', zIndex: 0, position: 'relative' }} />
+                {/* <img src={} className="img-fluid" style={{ width: '50%' }} /> */}
+                <img src={SelectedRibbons.SelectedRibbons[shareCount].imgaeUrl} className="img-fluid" style={{ width: window.innerWidth > 1590 && '122%', zIndex: 0, position: 'relative' }} />
               </div>
             )}
           <Counter />
@@ -144,7 +164,7 @@ export const Home = (props) => {
           </div>
           <div className='d-flex ' style={{ position:'relative' }}>
             <Counter />
-            {/* <img src={SelectedRibbons.SelectedRibbons.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} style={{
+            {/* <img src={SelectedRibbons.SelectedRibbonsForMobile.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} style={{
               bottom: media.cusHeight_700 ? 20 : 50, right: -1, height: 'auto', position: 'absolute',
               maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '72%'
             }} /> */}
@@ -158,7 +178,7 @@ export const Home = (props) => {
                   style={{ zIndex: 0, width: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 50, }}
                 />
               </div>
-              <img src={MobileRibbonBottle} style={{
+              <img src={SelectedRibbons.SelectedRibbonsForMobile[shareCount].imgaeUrl} style={{
                 top:-130,
               bottom: media.cusHeight_700 ? 20 : 50, right: -1, height: 'auto', position: 'absolute',
               maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '77%'
@@ -267,7 +287,7 @@ const Highlights = props => {
         </li>
         </ul>
       </div>
-      <NCIS_Button text={"Learn More"} fontSize={13} onClick={()=>_handleRoute("/eventDetails")} />
+      <NCIS_Button text={"Learn More"} fontSize={13} onClick={()=>_handleRoute("/event_details")} />
     </div>
   );
 };

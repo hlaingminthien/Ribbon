@@ -33,7 +33,7 @@ const PledgeForm = (props) => {
     message,
     _handleShare,
     media, shareImage,
-    _handleImage, warning,winner
+    _handleImage, warning,winner,imgUrl
   } = props;
   const [shareApp, setShareApp] = useState(null);
   const handleShareApp = (app) => {
@@ -102,11 +102,21 @@ const PledgeForm = (props) => {
                 media={media}
               />
             </div>
-            {
+            {/* {
               (warning && step === 1) && (
                 <div className="d-flex text-warning justify-content-center text-center pt-2 align-self-center" style={{}}>
                   <i className="fa fa-exclamation" aria-hidden="true"></i>
                     Please fill out of this field!
+                </div>
+              )} */}
+              {
+              ((warning ) && step === 1) && (
+                <div className="d-flex text-danger justify-content-center text-center pt-3 align-self-center" style={{}}>
+                  
+                  {
+                    imgUrl ? "Please fill out of this field" : (!imgUrl && (!recipientName || !senderName || !message)) ? "Please Select your Ribbon and fill out of this field " : "Please Select your Ribbon" 
+                  }
+                    <i className="fa fa-exclamation px-1" aria-hidden="true" style={{ color:'red' }}></i>
                 </div>
               )}
             <div className="col-12 pt-4">
@@ -287,9 +297,12 @@ const [ rand, setRandom ]=useState(0);
               <>
                 {v.ribbonDetails ? (
                   <div className="px-2" id={k} style={{ fontSize: 12 }}>
-                    {v.ribbonDetails.map((c, i) => (
+                    {
+                                v.ribbonDetails[rand]
+                              }
+                    {/* {v.ribbonDetails.map((c, i) => (
                       <p key={i}>{c}</p>
-                    ))}
+                    ))} */}
                   </div>
                 ) : (
                     <div className="px-2" id={k} style={{ fontSize: 12 }}>
