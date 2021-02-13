@@ -7,7 +7,7 @@ import {
   TelegramShareButton,
   FacebookIcon, LineIcon,
   EmailIcon,
-  LinkedinIcon, WhatsappIcon, LinkedinShareButton
+  LinkedinIcon, WhatsappIcon, LinkedinShareButton, WhatsappShareButton, LineShareButton
 } from "react-share";
 
 import { NCIS_Selector } from "../../../tools/NCIS_Selector";
@@ -16,7 +16,14 @@ import { NCIS_Button } from "../../../tools/NCIS_Button";
 import RibbonImages from "../../../assets/RibbonImages.json";
 import { violet, paleViolet } from "../../../assets/colors";
 import ShareIcons from "./socialShareIcons";
-
+import WhatsAppLogo from "../../../assets/images/WhatsAppLogo.png";
+import FacebookLogo from "../../../assets/images/FacebookLogo.png";
+import Instagram from "../../../assets/images/Instagram.png";
+import LinkedinLogo from "../../../assets/images/LinkedinLogo.png";
+import EmailLogo from "../../../assets/images/EmailLogo.png";
+import TelegramLogo from "../../../assets/images/TelegramLogo.png";
+import WeChatLogo from "../../../assets/images/WeChatLogo.png";
+import LineLogo from "../../../assets/images/LineLogo.png";
 const PledgeForm = (props) => {
   const {
     _handleSelect,
@@ -365,7 +372,7 @@ export const ShareApp = (props) => {
         <section className="d-flex justify-content-center m-2 pt-4 p-3">
           <ShareList style={{ textAlign: "center" }}>
             <div className='text-center'>
-              <WhatsappIcon className=" shadow p-3 align-self-center text-center mx-2"
+              <WhatsappShareButton className=" shadow  align-self-center text-center mx-2"
                 onClick={() => handleShareApp(1)}
                 style={{
                   borderRadius: 23,
@@ -374,20 +381,14 @@ export const ShareApp = (props) => {
                   height: shareApp == 1 ? 54 : 59,
                   background: shareApp == 1 ? "rgb(22, 16, 92)" : "#fff",
                 }} subject={title} body="body"  >
-                <i
-                  className="fa fa-envelope-o" style={{
-                    fontSize: shareApp == 1 ? 23 : 27,
-                    color: shareApp == 1 ? "#fff" : "rgb(22, 16, 92)",
-                  }}
-                  aria-hidden="true"
-                ></i>
-              </WhatsappIcon>
-              <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>E-mail</div>
+                  <img src={WhatsAppLogo} className="" style={{width:50}}/>
+              </WhatsappShareButton>
+              <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>What App</div>
             </div>
 
             <div className='text-center'>
               <FacebookShareButton quote={title}
-                className=" shadow p-3 align-self-center text-center mx-3"
+                className="shadow align-self-center text-center mx-3"
                 style={{
                   borderRadius: 23,
                   border: "1px solid #FAFAFA",
@@ -397,14 +398,7 @@ export const ShareApp = (props) => {
                 }}
                 onClick={() => handleShareApp(2)} //facebook
               >
-                <i
-                  className="fa fa-facebook"
-                  aria-hidden="true"
-                  style={{
-                    fontSize: shareApp == 2 ? 23 : 27,
-                    color: shareApp == 2 ? "#fff" : "rgb(22, 16, 92)",
-                  }}
-                ></i>
+                <img src={FacebookLogo} className="" style={{width:50}}/>                
               </FacebookShareButton>
               <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>facebook</div>
 
@@ -412,7 +406,7 @@ export const ShareApp = (props) => {
 
             <div className='text-center'>
               <div
-                className=" p-3 shadow align-self-center text-center mx-3"
+                className="pt-1 shadow align-self-center text-center mx-3"
                 style={{
                   borderRadius: 23,
                   border: "1px solid #FAFAFA",
@@ -422,21 +416,14 @@ export const ShareApp = (props) => {
                 }}
                 onClick={() => handleShareApp(3)} //telegram
               >
-                <i
-                  className="fa fa-instagram"
-                  aria-hidden="true"
-                  style={{
-                    fontSize: shareApp == 3 ? 23 : 27,
-                    color: shareApp == 3 ? "#fff" : "rgb(22, 16, 92)",
-                  }}
-                ></i>
+                <img src={Instagram} className="" style={{width:50}}/>
               </div>
               <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>Instagram</div>
 
             </div>
             <div className='text-center'>
-              <LinkedinIcon quote={title}
-                className=" shadow p-3 align-self-center text-center mx-3"
+              <LinkedinShareButton quote={title}
+                className=" shadow  align-self-center text-center mx-3"
                 style={{
                   borderRadius: 23,
                   border: "1px solid #FAFAFA",
@@ -446,15 +433,8 @@ export const ShareApp = (props) => {
                 }}
                 onClick={() => handleShareApp(4)} //facebook
               >
-                <i
-                  className="fab fa-whatsapp"
-                  aria-hidden="true"
-                  style={{
-                    fontSize: shareApp == 4 ? 23 : 27,
-                    color: shareApp == 4 ? "#fff" : "rgb(22, 16, 92)",
-                  }}
-                ></i>
-              </LinkedinIcon>
+                <img src={LinkedinLogo} className="" style={{width:50}}/>
+              </LinkedinShareButton>
               <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>LinkIn</div>
 
             </div>
@@ -464,7 +444,7 @@ export const ShareApp = (props) => {
           <section className="d-flex justify-content-center m-2">
             <ShareList>
               <div className='text-center'>
-                <EmailShareButton className=" shadow p-3 align-self-center text-center mx-2"
+                <EmailShareButton className=" shadow align-self-center text-center mx-2"
                   onClick={() => handleShareApp(5)}
                   style={{
                     borderRadius: 23,
@@ -473,19 +453,15 @@ export const ShareApp = (props) => {
                     height: shareApp == 5 ? 54 : 59,
                     background: shareApp == 5 ? "rgb(22, 16, 92)" : "#fff",
                   }} subject={title} body="body"  >
-                  <i
-                    className="fa fa-envelope-o" style={{
-                      fontSize: shareApp == 5 ? 23 : 27,
-                      color: shareApp == 5 ? "#fff" : "rgb(22, 16, 92)",
-                    }}
-                    aria-hidden="true"
-                  ></i>
+                    <img src={EmailLogo} className="" style={{width:50}}/>
+                  
                 </EmailShareButton>
                 <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>E-mail</div>
               </div>
               <div className='text-center'>
                 <TelegramShareButton quote={title}
-                  className=" shadow p-3 align-self-center text-center mx-2"
+                  className=" shadow
+                   align-self-center text-center mx-2"
                   style={{
                     borderRadius: 23,
                     border: "1px solid #FAFAFA",
@@ -495,21 +471,15 @@ export const ShareApp = (props) => {
                   }}
                   onClick={() => handleShareApp(6)} //insta
                 >
-                  <i
-                    className="fa fa-telegram"
-                    aria-hidden="true"
-                    style={{
-                      fontSize: shareApp == 6 ? 23 : 27,
-                      color: shareApp == 6 ? "#fff" : "rgb(22, 16, 92)",
-                    }}
-                  ></i>
+                  <img src={TelegramLogo} className="" style={{width:50}}/>
+                  
                 </TelegramShareButton>
                 <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>Telegram</div>
               </div>
 
               <div className='text-center'>
                 <TelegramShareButton quote={title}
-                  className=" shadow p-3 align-self-center text-center mx-2"
+                  className=" shadow align-self-center text-center mx-2"
                   style={{
                     borderRadius: 23,
                     border: "1px solid #FAFAFA",
@@ -519,21 +489,14 @@ export const ShareApp = (props) => {
                   }}
                   onClick={() => handleShareApp(7)} //insta
                 >
-                  <i
-                    className="fa fa-weixin"
-                    aria-hidden="true"
-                    style={{
-                      fontSize: shareApp == 7 ? 23 : 27,
-                      color: shareApp == 7 ? "#fff" : "rgb(22, 16, 92)",
-                    }}
-                  ></i>
+                  <img src={WeChatLogo} className="" style={{width:50}}/>                 
                 </TelegramShareButton>
                 <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>weChat</div>
 
               </div>
               <div className='text-center'>
-                <LineIcon
-                  className=" p-3 shadow align-self-center text-center mx-3"
+                <LineShareButton
+                  className=" shadow align-self-center text-center mx-3"
                   style={{
                     borderRadius: 23,
                     border: "1px solid #FAFAFA",
@@ -543,15 +506,8 @@ export const ShareApp = (props) => {
                   }}
                   onClick={() => handleShareApp(8)} //telegram
                 >
-                  <i
-                    className="fab fa-line"
-                    aria-hidden="true"
-                    style={{
-                      fontSize: shareApp == 8 ? 23 : 27,
-                      color: shareApp == 8 ? "#fff" : "rgb(22, 16, 92)",
-                    }}
-                  ></i>
-                </LineIcon>
+                  <img src={LineLogo} className="" style={{width:50}}/>
+                </LineShareButton>
                 <div className='pt-1' style={{ fontSize: 12, fontWeight: 600 }}>Line</div>
 
               </div>

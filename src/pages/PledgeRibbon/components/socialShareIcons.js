@@ -32,23 +32,25 @@ class Icons extends Component {
           <section className="my-3">
           <ShareList style={{ textAlign: "center" }}>
             <EmailShareButton className="mx-3" subject={title} body="body"  >
-              <i
+            <img src={EmailLogo} className="img-fluid" />
+              {/* <i
                 className="fa fa-envelope-o" style={{
                   fontSize: 27,
                   color: "rgb(22, 16, 92)",
                 }}
                 aria-hidden="true"
-              ></i>
+              ></i> */}
             </EmailShareButton>
 
             <FacebookShareButton className="mx-3" quote={title}>
-              <i
+            <img src={FacebookLogo} className="img-fluid" />
+              {/* <i
                 className="fa fa-facebook" style={{
                   fontSize: 27,
                   color: "rgb(22, 16, 92)",
                 }}
                 aria-hidden="true"
-              ></i>
+              ></i> */}
             </FacebookShareButton>
 
             <TelegramShareButton className="mx-3" quote={title} >
