@@ -24,6 +24,7 @@ const PledgeContainer = (props) => {
   const [warning, setWarning] = useState(false);
   const [shareImage, setShareImage] = useState(null);
   const [complete, setComplete] = useState(false);
+  const [ winner, setWinner ]=useState(0);
 
   const _handleEdit = () => {
     setStep(step == 3 ? 2 : 1);
@@ -62,8 +63,20 @@ const PledgeContainer = (props) => {
           .catch(err => console.log(err));
         setStep(3);
       });
+      fetch('http://172.104.40.242:9898/api/sharecount', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        // body: JSON.stringify({
+        //   firstParam: 'yourValue',
+        //   secondParam: 'yourOtherValue',
+        // })
+})
+      // console.log("da",data)
   };
-
+  
   const _handleSelectOption = (e) => {
     setMessage(e);
   };
@@ -79,22 +92,54 @@ const PledgeContainer = (props) => {
   const _handleRibbonClick = (state) => {
     setMenuVisible(state);
   };
-
   const _handleImage = (img, cancer) => {
     setImgUrl(img);
     setCancerName(cancer);
   };
   const _handleShare = () => {
-    // console.log('hello');
     setComplete(true);
     setStep(3);
+    fetch("http://172.104.40.242:9898/api/luckydrawcount", {
+      headers: {
+          "Accept": "application/json",
+      }
+  })
+      .then(res => res.json())
+      .then(data => setWinner(data.payload.count))
+      .catch(error => {
+        throw error
+      })
+
+      //   fetch('http://172.104.40.242:9898/api/luckydrawcount', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Accept': 'application/json',
+      //     'Content-Type': 'application/json',
+      //   }
+      // })
+      fetch("http://172.104.40.242:9898/api/luckydrawcount", {
+        "method": "POST",
+        "headers": {
+          "content-type": "application/json",
+          "accept": "application/json"
+        },
+        // "body": []
+      })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response)
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
   };
+// console.log("winen",winner)
   let background =
     (media.desktop) ?
       "/Desktop_PledgeARibbonPage.jpg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
         "/PledgeBgMobo.png";
-
-
+  
   return (
     <div className="d-flex justify-content-center align-self-center pt-3">
       <div id="testsvg">
@@ -156,6 +201,7 @@ const PledgeContainer = (props) => {
                 _handleImage={_handleImage}
                 warning={warning}
                 shareImage={shareImage}
+                winner={winner}
               />
             </div>
 
@@ -188,6 +234,7 @@ const PledgeContainer = (props) => {
                 shareImage={shareImage}
                 cancer={cancerName}
                 setCancerName={setCancerName}
+                winner={winner}
 
               />
             </div>
@@ -225,7 +272,7 @@ const PledgeContainer = (props) => {
                     shareImage={shareImage}
                     complete={complete}
                     cancer={cancerName}
-
+                    winner={winner}
                   />
                 </div>
               </div>
