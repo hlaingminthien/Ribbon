@@ -12,7 +12,7 @@
       ["1 in 13 women will get breast cancer in their lifetime. "],
       ["Detecting breast cancer early with mammogram lowers risk of dying from breast cancer.  "]
     ] },
-    { "imgaeUrl":  "./assets/images/ribbons/blueGreen.png", "name": "Cervical","ribbonDetails":[
+    { "imgaeUrl":  "./assets/images/ribbons/cervical.png", "name": "Cervical","ribbonDetails":[
       ["Cervical cancer is the 10th most common cancer occurring among Singapore women."],
       ["Regular HPV tests or Pap Smear tests are the most effective ways to detect cervical precancer and cancer. "],
       ["HPV vaccine has been shown to be highly effective in preventing cervical pre-cancer.  "]
@@ -22,10 +22,10 @@
       ["The Faecal Immunochemical Test (FIT) is a simple and convenient test that detects microscopic blood in the stool which is not visible to the naked eye. "],
       ["Colorectal cancer is the number 1 cancer among men and number 2 cancer among women in Singapore. "]
     ] },
-    { "imgaeUrl":  "./assets/images/ribbons/orange.png", "name": "Kidney","ribbonDetails":[
-      ["Kidney cancer is the 8th most common cancer among Singaporean Males.​ "],
-      ["Late Symptoms of kidney cancer may include blood in the urine, pain in the back or side that do not go away, loss of appetite and unexplained weight loss. Early kidney cancer can develop without any symptoms.​ "],
-      ["Some risk factors of kidney cancer include smoking, obesity, high blood pressure and a family history (first-degree relative) of kidney cancer.​  "]
+    { "imgaeUrl":  "./assets/images/ribbons/pinkRed.png", "name": "Nasopharyngeal","ribbonDetails":[
+      ["Nasopharyngeal cancer begins at the nasopharynx which is the upper part of the throat, connecting with the back of the nose above the soft palate. The cells lining the nasopharynx can become cancerous and give rise to Nasopharyngeal cancer (NPC) – a form of nose cancer ."],
+      ["Epstein Barr Virus (EBV) is found to be associated with NPC ."],
+      ["Nasal endoscopy is a way to diagnose nasopharyngeal cancer. "]
     ] },
     { "imgaeUrl":  "./assets/images/ribbons/green.png", "name": "Liver","ribbonDetails":[
       ["Liver cancer is the 4th most common cancer for men in Singapore.​ "],
@@ -46,12 +46,7 @@
       ["Repeated exposure to the sun’s ultraviolet (UV) rays appears to be the major risk factor for skin cancer."],
       ["Skin cancers can be visually examined and detected even in the early stages as they generally develops in the outermost layer of the skin.  "]
     ] },
-    { "imgaeUrl":  "./assets/images/ribbons/green.png", "name": "Nasopharyngeal","ribbonDetails":[
-      ["Nasopharyngeal cancer begins at the nasopharynx which is the upper part of the throat, connecting with the back of the nose above the soft palate. The cells lining the nasopharynx can become cancerous and give rise to Nasopharyngeal cancer (NPC) – a form of nose cancer ."],
-      ["Epstein Barr Virus (EBV) is found to be associated with NPC ."],
-      ["Nasal endoscopy is a way to diagnose nasopharyngeal cancer. "]
-    ] },
-    { "imgaeUrl":  "./assets/images/ribbons/paleGreen.png", "name": "Ovarian","ribbonDetails":[
+    { "imgaeUrl":  "./assets/images/ribbons/blueGreen.png", "name": "Ovarian","ribbonDetails":[
       ["Ovarian cancer is the 5th most common cancer in Singapore women."],
       ["Ovarian cancer is known as “The Silent Killer” because it is usually detected at advanced stages of development and spread. "],
       ["Persistent distension or pain in the abdomen, pelvis, back or legs can be a symptom of ovarian cancer.  "]
@@ -65,6 +60,11 @@
       ["Stomach cancer is the 7th most common cancer among Singapore men and 9th most common among Singapore women.​ "],
       ["Helicobacter Pylori infection is a risk factor for gastric cancer.​ "],
       ["Stomach cancer can be diagnosed through an endoscopy.​  "]
+    ] },
+    { "imgaeUrl":  "./assets/images/ribbons/orange.png", "name": "Kidney","ribbonDetails":[
+      ["Kidney cancer is the 8th most common cancer among Singaporean Males.​ "],
+      ["Late Symptoms of kidney cancer may include blood in the urine, pain in the back or side that do not go away, loss of appetite and unexplained weight loss. Early kidney cancer can develop without any symptoms.​ "],
+      ["Some risk factors of kidney cancer include smoking, obesity, high blood pressure and a family history (first-degree relative) of kidney cancer.​  "]
     ] },
     { "imgaeUrl":  "./assets/images/ribbons/paleOrange.png", "name": "Uterine", "ribbonDetails":[
       ["Endometrial or uterine cancer is the 4th most common cancer in Singapore women."],

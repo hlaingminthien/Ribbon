@@ -53,91 +53,10 @@ export const SocialShare = (props) => {
   })("li");
   return (
     <div className='d-flex flex-column'>
-      <div className=''>
-        <section className="d-flex justify-content-center m-2 pt-4 p-3" >
-          <ShareList style={{ textAlign: "center" }}>
-            <WhatsappShareButton className=" shadow  align-self-center text-center mx-2"
-              onClick={() => handleShareApp(1)}
-              onShareWindowClose={_handleShare}
-              style={{
-                borderRadius: 23,
-                border: "1px solid #FAFAFA",
-                width: shareApp == 1 ? 54 : 59,
-                height: shareApp == 1 ? 54 : 59,
-                background: shareApp == 1 ? "rgb(22, 16, 92)" : "#fff",
-              }} subject={title} body="body"  >
-              <img src={shareApp == 1 ? WhatsAppLogoActive : WhatsAppLogo} className="" style={{ width: 50 }} />
-              <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>WhatsApp</div>
-            </WhatsappShareButton>
 
-            <FacebookShareButton quote={title}
-              className="shadow align-self-center text-center mx-3"
-              style={{
-                borderRadius: 23,
-                border: "1px solid #FAFAFA",
-                width: shareApp == 2 ? 54 : 59,
-                height: shareApp == 2 ? 54 : 59,
-                background: shareApp == 2 ? "rgb(22, 16, 92)" : "#fff",
-              }}
-              onClick={() => handleShareApp(2)} //facebook
-              onShareWindowClose={_handleShare}
-            >
-              <img src={shareApp == 2 ? FacebookLogoActive : FacebookLogo} className="" style={{ width: 50 }} />
-              <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Facebook</div>
-            </FacebookShareButton>
-
-            <div
-              className="pt-1 shadow align-self-center text-center mx-3"
-              style={{
-                borderRadius: 23,
-                border: "1px solid #FAFAFA",
-                width: shareApp == 3 ? 54 : 59,
-                height: shareApp == 3 ? 54 : 59,
-                background: shareApp == 3 ? "rgb(22, 16, 92)" : "#fff",
-              }}
-              onClick={() => handleShareApp(3)} //Instagram
-              onShareWindowClose={_handleShare}
-            >
-              <img src={shareApp == 3 ? InstagramActive : Instagram} className="" style={{ width: 47 }} />
-              <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Instagram</div>
-            </div>
-
-            <LinkedinShareButton quote={title}
-              className=" shadow  align-self-center text-center mx-3"
-              style={{
-                borderRadius: 23,
-                border: "1px solid #FAFAFA",
-                width: shareApp == 4 ? 54 : 59,
-                height: shareApp == 4 ? 54 : 59,
-                background: shareApp == 4 ? "rgb(22, 16, 92)" : "#fff",
-              }}
-              onClick={() => handleShareApp(4)} //Linkedin
-              onShareWindowClose={_handleShare}
-            >
-              <img src={shareApp == 4 ? LinkedinLogoActive : LinkedinLogo} className="" style={{ width: 50 }} />
-              <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>LinkIn</div>
-            </LinkedinShareButton>
-
-          </ShareList>
-        </section>
-      </div>
       <div className='pt-3'>
         <section className="d-flex justify-content-center m-2">
           <ShareList>
-            <EmailShareButton className=" shadow align-self-center text-center mx-3 "
-              onClick={() => handleShareApp(5)}
-              onShareWindowClose={_handleShare}
-              style={{
-                borderRadius: 23,
-                border: "1px solid #FAFAFA",
-                width: shareApp == 5 ? 54 : 59,
-                height: shareApp == 5 ? 54 : 59,
-                background: shareApp == 5 ? "rgb(22, 16, 92)" : "#fff",
-              }} subject={title} body="body"  >
-              <img src={shareApp == 5 ? EmailLogoActive : EmailLogo} className="" style={{ width: 50 }} />
-              <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>E-mail</div>
-            </EmailShareButton>
-
             <TelegramShareButton quote={title}
               className=" shadow
                    align-self-center text-center mx-3"
@@ -154,7 +73,19 @@ export const SocialShare = (props) => {
               <img src={shareApp == 6 ? TelegramLogoActive : TelegramLogo} className="" style={{ width: 50 }} />
               <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Telegram</div>
             </TelegramShareButton>
-
+            <WhatsappShareButton className=" shadow  align-self-center text-center mx-2"
+              onClick={() => handleShareApp(1)}
+              onShareWindowClose={_handleShare}
+              style={{
+                borderRadius: 23,
+                border: "1px solid #FAFAFA",
+                width: shareApp == 1 ? 54 : 59,
+                height: shareApp == 1 ? 54 : 59,
+                background: shareApp == 1 ? "rgb(22, 16, 92)" : "#fff",
+              }} subject={title} body="body"  >
+              <img src={shareApp == 1 ? WhatsAppLogoActive : WhatsAppLogo} className="" style={{ width: 50 }} />
+              <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>WhatsApp</div>
+            </WhatsappShareButton>
             <TelegramShareButton quote={title}
               className=" shadow align-self-center text-center mx-3"
               style={{
@@ -171,7 +102,6 @@ export const SocialShare = (props) => {
 
               <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>weChat</div>
             </TelegramShareButton>
-
             <LineShareButton
               className=" shadow align-self-center text-center mx-3"
               style={{
@@ -218,9 +148,71 @@ export const SocialShare = (props) => {
           />
         </div> */}
       </div>
+      <div className=''>
+        <section className="d-flex justify-content-center m-2 pt-4 p-3" >
+          <ShareList style={{ textAlign: "center" }}>
+            <EmailShareButton className=" shadow align-self-center text-center mx-3 "
+              onClick={() => handleShareApp(5)}
+              onShareWindowClose={_handleShare}
+              style={{
+                borderRadius: 23,
+                border: "1px solid #FAFAFA",
+                width: shareApp == 5 ? 54 : 59,
+                height: shareApp == 5 ? 54 : 59,
+                background: shareApp == 5 ? "rgb(22, 16, 92)" : "#fff",
+              }} subject={title} body="body"  >
+              <img src={shareApp == 5 ? EmailLogoActive : EmailLogo} className="" style={{ width: 50 }} />
+              <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>E-mail</div>
+            </EmailShareButton>
+            <div
+              className="pt-1 shadow align-self-center text-center mx-3"
+              style={{
+                borderRadius: 23,
+                border: "1px solid #FAFAFA",
+                width: shareApp == 3 ? 54 : 59,
+                height: shareApp == 3 ? 54 : 59,
+                background: shareApp == 3 ? "rgb(22, 16, 92)" : "#fff",
+              }}
+              onClick={() => handleShareApp(3)} //Instagram
+              onShareWindowClose={_handleShare}
+            >
+              <img src={shareApp == 3 ? InstagramActive : Instagram} className="" style={{ width: 47 }} />
+              <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Instagram</div>
+            </div>
 
-
+            <FacebookShareButton quote={title}
+              className="shadow align-self-center text-center mx-3"
+              style={{
+                borderRadius: 23,
+                border: "1px solid #FAFAFA",
+                width: shareApp == 2 ? 54 : 59,
+                height: shareApp == 2 ? 54 : 59,
+                background: shareApp == 2 ? "rgb(22, 16, 92)" : "#fff",
+              }}
+              onClick={() => handleShareApp(2)} //facebook
+              onShareWindowClose={_handleShare}
+            >
+              <img src={shareApp == 2 ? FacebookLogoActive : FacebookLogo} className="" style={{ width: 50 }} />
+              <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Facebook</div>
+            </FacebookShareButton>
+            <LinkedinShareButton quote={title}
+              className=" shadow  align-self-center text-center mx-3"
+              style={{
+                borderRadius: 23,
+                border: "1px solid #FAFAFA",
+                width: shareApp == 4 ? 54 : 59,
+                height: shareApp == 4 ? 54 : 59,
+                background: shareApp == 4 ? "rgb(22, 16, 92)" : "#fff",
+              }}
+              onClick={() => handleShareApp(4)} //Linkedin
+              onShareWindowClose={_handleShare}
+            >
+              <img src={shareApp == 4 ? LinkedinLogoActive : LinkedinLogo} className="" style={{ width: 50 }} />
+              <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>LinkIn</div>
+            </LinkedinShareButton>
+          </ShareList>
+        </section>
+      </div>
     </div>
   );
-
 }
