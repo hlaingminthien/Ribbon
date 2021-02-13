@@ -76,14 +76,14 @@ export const PledgeCard = (props) => {
         </div>
 
         {(imgUrl || recipientName || senderName || message) && (
-          <div className={`${!imgUrl && "pt-1" }`} style={{ position: "absolute", right: 10 }}>
+          <div className={`${!imgUrl && "pt-1 px-1" }`} style={{ position: "absolute", right: 10 }}>
 
             
             {(imgUrl || recipientName || senderName || message) ? <>
             <img
-              src={imgUrl ? imgUrl : "./mysteryBallempty.png"}
+              src={imgUrl ? imgUrl : "./mysteryBall.png"}
               alt="selected-ribbons"
-              style={{ width: imgUrl ? 100 : 99, height: imgUrl ? 100 : 99 }}
+              style={{ width: imgUrl ? 100 : 97, height: imgUrl ? 100 : 97 }}
             />
               <svg viewBox="-12 2 115 56" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", left: -4, right: 0, top: -19, width: 88, height: 85 }} >
                 <path id="curve-path" fill="none" stroke="red" strokeWidth={0}

@@ -168,7 +168,6 @@ const PledgeRibbons = (props) => {
   const [selected, setSelected] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const [number, setNumber] = useState(null);
-  const [cancerDetails, setCancerDetails] = useState(["Lorem ipsum dolor sit amet, consectetur adipiscing elit.Proin vel sollicitudin sapien"]);
 const [ rand, setRandom ]=useState(0);
   const PopupDiv = (e) => document.getElementById(e.target.id + "popup");
   const RibbonDiv = (e) => document.getElementById(e.target.id);
@@ -205,13 +204,7 @@ const [ rand, setRandom ]=useState(0);
         return;
       }
     }
-    if (name == "All Cancers") {
-      const min = 0;
-      const max = 10
-      const rand = parseInt(min + Math.random() * (max - min));
-      let cancerDetail = RibbonImages.Ribbons.filter((c, indx) => c.name != "All Cancers" && indx == rand).map(cancer => cancer.ribbonDetails)
-      setCancerDetails(cancerDetail)
-    }
+   
     const min = 0;
     const max = 3;
     const rand = parseInt(min + Math.random() * (max - min)); 

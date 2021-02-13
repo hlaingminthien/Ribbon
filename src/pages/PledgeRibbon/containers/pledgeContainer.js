@@ -242,7 +242,7 @@ const PledgeContainer = (props) => {
                 cancer={cancerName}
                 setCancerName={setCancerName}
                 winner={winner}
-
+                warning={warning}
               />
             </div>
             :
@@ -280,6 +280,7 @@ const PledgeContainer = (props) => {
                     complete={complete}
                     cancer={cancerName}
                     winner={winner}
+                    warning={warning}
                   />
                 </div>
               </div>

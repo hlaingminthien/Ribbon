@@ -33,7 +33,7 @@ const PledgeRibbonsForMobile = (props) => {
     _handleConfirm,
     _handleEdit,
     recipientName,
-    senderName,setCancerName,winner,
+    senderName,setCancerName,winner,warning,
     message, shareImage,cancer,setImgUrl,imgUrl,complete,_handleShare
   } = props;
   // const [complete, setComplete] = useState(false);
@@ -73,7 +73,7 @@ const PledgeRibbonsForMobile = (props) => {
         </div>
       ) : null}
 
-      <Ribbons {...props} complete={complete} _handleShare={_handleShare} handleShareApp={handleShareApp} shareApp={shareApp} shareImg={shareImage} cancer={cancer} imgUrl={imgUrl} setImgUrl={setImgUrl} setCancerName={setCancerName} />
+      <Ribbons {...props} complete={complete} _handleShare={_handleShare} handleShareApp={handleShareApp} shareApp={shareApp} shareImg={shareImage} cancer={cancer} imgUrl={imgUrl} setImgUrl={setImgUrl} setCancerName={setCancerName} warning={warning} />
       {step == 2 && (
         <div className="d-flex justify-content-center flex-wrap">
           <div className="py-1">
@@ -115,7 +115,7 @@ const Ribbons = (props) => {
     _handleReview,
     _handleEdit,
     _handleConfirm,
-    handleShareApp,
+    handleShareApp,warning,
     shareApp,cancer,setCancerName,setImgUrl,imgUrl,
     media, paleViolet, _handleShare, url = `${Base_Url}${shareImg}`,//String(window.location),
     title = "National University Cancer Institute Singapore",
@@ -134,7 +134,7 @@ const Ribbons = (props) => {
 
   const [selectedId, setSelectedId] = useState(null);
   const [number, setNumber] = useState(null);
-  const [cancerDetails,setCancerDetails]=useState(["Lorem ipsum dolor sit amet, consectetur adipiscing elit.Proin vel sollicitudin sapien"]);
+  const [rand, setRandom]=useState(0)
 
   // const [cancerName, setCancerName] = useState(null);
   const [close, setClose] = useState(true);
@@ -162,13 +162,11 @@ const Ribbons = (props) => {
         return;
       }
     }
-    if(name == "All Cancers"){
-      const min = 0;
-      const max = 10
-      const rand =parseInt(min + Math.random() * (max - min));
-      let cancerDetail = RibbonImages.Ribbons.filter((c, indx) => c.name != "All Cancers" && indx == rand).map(cancer => cancer.ribbonDetails)
-      setCancerDetails(cancerDetail)
-    }
+    const min = 0;
+    const max = 3;
+    const rand = parseInt(min + Math.random() * (max - min)); 
+    setRandom(rand)
+
 
     RibbonDiv(e).style.background = "rgba(64,64,64,0.2)";
     RibbonDiv(e).style.color = "#ffffff";
@@ -180,7 +178,6 @@ const Ribbons = (props) => {
     // if (number == k) PopupDiv(e).style.visibility = "hidden";
     // _handleRibbonClick(true);
   };
-
   return (
     <div>
       {!nextOfStep1 && step == 1 && (
@@ -262,9 +259,12 @@ const Ribbons = (props) => {
                         <>
                           {v.ribbonDetails ? (
                             <div className="p-2" id={k} style={{ fontSize: 12 }}>
-                              {v.ribbonDetails.map((c, i) => (
+                              {
+                                v.ribbonDetails[rand]
+                              }
+                              {/* {v.ribbonDetails.map((c, i) => (
                                 <p key={i}>{c}</p>
-                              ))}
+                              ))} */}
                             </div>
                           ) : (
                               <div className="py-2" id={k} style={{ fontSize: 12 }}>
@@ -407,6 +407,7 @@ const Ribbons = (props) => {
                     disabled={step === 2 && true}
                     value={recipientName}
                     media={media}
+          
                   />
                 </div>
                 <div className="col-6">
@@ -418,6 +419,7 @@ const Ribbons = (props) => {
                     value={senderName}
                     disabled={step === 2 && true}
                     media={media}
+          
                   />
                 </div>
                 <div className="col-12 pt-2 pb-3">
@@ -429,6 +431,14 @@ const Ribbons = (props) => {
                     _handleSelectOption={_handleSelectOption}
                     media={media}
                   />
+                  {
+              ((warning ) && step === 1) && (
+                <div className="d-flex text-danger justify-content-center text-center pt-3 align-self-center" style={{}}>
+                  "Please fill out of this field"  
+                
+                    <i className="fa fa-exclamation px-1" aria-hidden="true" style={{ color:'red' }}></i>
+                </div>
+              )}
                 </div>
                 {!menuVisible && step == 1 ? (
                   <NCIS_Button text={"Review"} type="submit" />

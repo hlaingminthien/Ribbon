@@ -235,11 +235,7 @@ const HomeTitle = (props) => {
 
       {/* </Scrollbars> */}
       </div>
-      {media.mobile ?
-        <div className='text-center' style={{ marginTop: 20, marginLeft: media.cusHeight_600 ? -25 : -9, position: 'absolute', zIndex: 1 }}>
-          {/* <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} /> */}
-        </div>
-        :
+      {!media.mobile &&
         <div className='' style={{ position: 'absolute', zIndex: 100 }}>
           <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} />
 
