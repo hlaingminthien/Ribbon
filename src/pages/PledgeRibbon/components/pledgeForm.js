@@ -38,6 +38,7 @@ const PledgeForm = (props) => {
   const [shareApp, setShareApp] = useState(null);
   const handleShareApp = (app) => {
     setShareApp(app == shareApp ? null : app);
+    _handleShare();
   };
   const _handlePledge = () => {
     props.history.push("/");
@@ -425,7 +426,6 @@ export const ThankYouCard = (props) => {
 
         </div>:
         ""
-
         }
         {
           winner ?

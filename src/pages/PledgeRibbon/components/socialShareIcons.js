@@ -53,7 +53,6 @@ export const SocialShare = (props) => {
   })("li");
   return (
     <div className='d-flex flex-column'>
-
       <div className='pt-3'>
         <section className="d-flex justify-content-center m-2">
           {/* <ShareList> */}
@@ -68,14 +67,14 @@ export const SocialShare = (props) => {
               background: shareApp == 6 ? "rgb(22, 16, 92)" : "#fff",
               cursor: "pointer"
             }}
-            onClick={() => _handleShare()} //insta
+            onClick={() => handleShareApp(6)}
           //
           >
             <img src={shareApp == 6 ? TelegramLogoActive : TelegramLogo} className="" style={{ width: 50 }} />
             <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Telegram</div>
           </div>
           <div className=" shadow  align-self-center text-center mx-2"
-             onClick={() => _handleShare()} 
+             onClick={() => handleShareApp(1)} 
             style={{
               borderRadius: 23,
               border: "1px solid #FAFAFA",
@@ -97,7 +96,7 @@ export const SocialShare = (props) => {
               background: shareApp == 7 ? "rgb(22, 16, 92)" : "#fff",
               cursor: "pointer"
             }}
-            onClick={() => _handleShare()}
+            onClick={() => handleShareApp(7)}
           >
             <img src={shareApp == 7 ? WeChatLogoActive : WeChatLogo} className="" style={{ width: 50 }} />
 
@@ -113,7 +112,7 @@ export const SocialShare = (props) => {
               background: shareApp == 8 ? "rgb(22, 16, 92)" : "#fff",
               cursor: "pointer"
             }}
-            onClick={() => _handleShare()} 
+            onClick={() => handleShareApp(8)} 
           >
             <img src={shareApp == 8 ? LineLogoActive : LineLogo} className="" style={{ width: 50 }} />
             <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Line</div>
@@ -153,7 +152,7 @@ export const SocialShare = (props) => {
         <section className="d-flex justify-content-center m-2 pt-4 p-3" >
           {/* <ShareList style={{ textAlign: "center" }}> */}
           <div className=" shadow align-self-center text-center mx-3 "
-             onClick={() => _handleShare()} 
+             onClick={() => handleShareApp(5)} 
             style={{
               borderRadius: 23,
               border: "1px solid #FAFAFA",
@@ -175,7 +174,7 @@ export const SocialShare = (props) => {
               background: shareApp == 3 ? "rgb(22, 16, 92)" : "#fff",
               cursor: "pointer"
             }}
-            onClick={() => _handleShare()} 
+            onClick={() => handleShareApp(3)} 
           >
             <img src={shareApp == 3 ? InstagramActive : Instagram} className="" style={{ width: 47 }} />
             <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Instagram</div>
@@ -191,7 +190,7 @@ export const SocialShare = (props) => {
               background: shareApp == 2 ? "rgb(22, 16, 92)" : "#fff",
               cursor: "pointer"
             }}
-            onClick={() => _handleShare()} 
+            onClick={() => handleShareApp(2)} 
           >
             <img src={shareApp == 2 ? FacebookLogoActive : FacebookLogo} className="" style={{ width: 50 }} />
             <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Facebook</div>
@@ -206,7 +205,7 @@ export const SocialShare = (props) => {
               background: shareApp == 4 ? "rgb(22, 16, 92)" : "#fff",
               cursor: "pointer"
             }}
-            onClick={() => _handleShare()} 
+            onClick={() => handleShareApp(4)} 
           >
             <img src={shareApp == 4 ? LinkedinLogoActive : LinkedinLogo} className="" style={{ width: 50 }} />
             <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>LinkIn</div>

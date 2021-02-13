@@ -142,10 +142,8 @@ const PledgeContainer = (props) => {
   };
 
   const _handleShare = () => {
-    console.log('hello')
     setComplete(true);
     setStep(3);
-    console.log('step and complete is=>', step, complete);
   };
   
   let background =
