@@ -49,8 +49,8 @@ const PledgeRibbonsForTablet = (props) => {
   // };
   const handleShareApp = (app) => {
     setShareApp(app == shareApp ? null : app);
+    _handleShare();
   };
-
   return (
     <div className="pt-3 px-1 container justify-content-center">
       <div className={`d-flex ${window.innerWidth > 800 ? "col-8" : "col-10"} container justify-content-center justify-content-between`}>
@@ -156,7 +156,7 @@ const PledgeCardForTablet = (props) => {
       <img
         className="shadow img-responsive"
         src={imgUrl? "/cardnoText.jpg" : "/card.jpg"}
-        style={{ maxWidth: (window.innerWidth > 780 && media.tablet) ? 310 : 260, borderRadius: 20, minHeight: (window.innerWidth > 780 && media.tablet) ? 325 : 275 }}
+        style={{ maxWidth: (window.innerWidth > 780 && media.tablet) ? 330 : 280, borderRadius: 20, minHeight: (window.innerWidth > 780 && media.tablet) ? 325 : 275 }}
       />
 
       <div
@@ -618,7 +618,21 @@ const ThankuCard = (props) => {
               media={media}
             />
           </div>
-          <div className="p-2 d-flex justify-content-center">
+          {
+            winner ?
+            <div className="p-2 d-flex justify-content-center">
+              <NCIS_Button
+                text={"Back To Home"}
+                onClick={()=>{
+                  var win = window.open("https://form.gov.sg/5fffb109fa1b62001210c2d9","_blank");
+                  win.focus();
+                }}
+                className="mx-2"
+                buttonColor={violet}
+                fontSize={11}
+              />
+            </div>:
+            <div className="p-2 d-flex justify-content-center">
             <NCIS_Button
               text={"Back To Home"}
               onClick={_handlePledge}
@@ -627,6 +641,8 @@ const ThankuCard = (props) => {
               media={media}
             />
           </div>
+          }
+          
         </div>
       </div>
     </div>
