@@ -35,12 +35,12 @@ const PledgeRibbonsForTablet = (props) => {
     _handleEdit,
     recipientName,
     senderName,cancer,
-    message,shareImage,setCancerName,winner
+    message,shareImage,setCancerName,winner,
   } = props;
   
   // const [imgUrl, setImgUrl] = useState(null);
   const [shareApp, setShareApp] = useState(null);
-  
+
   const _handlePledge = () => {
     props.history.push("/");
   };
@@ -278,7 +278,7 @@ const Ribbon = (props) => {
     _handleReview,
     _handleEdit,
     _handleConfirm,
-    setImgUrl,
+    setImgUrl,warning,
     media,setCancerName
   } = props;
   const [selected, setSelected] = useState(false);
@@ -286,9 +286,8 @@ const Ribbon = (props) => {
 
   const [selectedId, setSelectedId] = useState(null);
   const [number, setNumber] = useState(null);
-
-  const [cancerDetails,setCancerDetails]=useState(["Lorem ipsum dolor sit amet, consectetur adipiscing elit.Proin vel sollicitudin sapien"]);
   const [close, setClose] = useState(true);
+  const [rand, setRandom]=useState(0)
 
   const PopupDiv = (e) => document.getElementById(e.target.id + "popup");
   const RibbonDiv = (e) => document.getElementById(e.target.id);
@@ -296,6 +295,11 @@ const Ribbon = (props) => {
 
   const prevSelectedRef = useRef();
   const _handleClick = (e, name, k, imgaeUrl) => {
+    const min = 0;
+    const max = 3;
+    const rand = parseInt(min + Math.random() * (max - min)); 
+    setRandom(rand)
+
     prevSelectedRef.current = selectedId;
     const prevSelectedId = prevSelectedRef.current;
     setSelected(true);
@@ -312,14 +316,7 @@ const Ribbon = (props) => {
         return;
       }
     }
-    if(name == "All Cancers"){
-      const min = 0;
-      const max = 10
-      const rand =parseInt(min + Math.random() * (max - min));
-      let cancerDetail = RibbonImages.Ribbons.filter((c, indx) => c.name != "All Cancers" && indx == rand).map(cancer => cancer.ribbonDetails)
-      setCancerDetails(cancerDetail)
-    }
-
+  
     RibbonDiv(e).style.background = "rgba(64,64,64,0.2)";
     RibbonDiv(e).style.color = "#ffffff";
     if (selectedId != null) {
@@ -393,30 +390,16 @@ const Ribbon = (props) => {
                         onClick={() => setClose(false)}
                       ></i>
                     </div>
-                    {/* {
-                      (v.name == "All Cancers") ?
-                        <>
-                          {
-                            cancerDetails.length > 0 ?
-                              <div className="p-2" id={k} style={{ fontSize: 12 }}>
-                                {cancerDetails.map((c, i) => (
-                                  <p key={i}>{c}</p>
-                                ))}
-                              </div>
-                              :
-                              <div className="p-2" id={k} style={{ fontSize: 12 }}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Proin vel sollicitudin sapien.
-                              </div>
-                          }
-
-                        </> : */}
+                    
                         <>
                           {v.ribbonDetails ? (
                             <div className="p-2" id={k} style={{ fontSize: 12 }}>
-                              {v.ribbonDetails.map((c, i) => (
+                              {
+                                v.ribbonDetails[rand]
+                              }
+                              {/* {v.ribbonDetails.map((c, i) => (
                                 <p key={i}>{c}</p>
-                              ))}
+                              ))} */}
                             </div>
                           ) : (
                               <div className="py-2" id={k} style={{ fontSize: 12 }}>
@@ -467,7 +450,7 @@ const Ribbon = (props) => {
                 media={media}
               />
             </div>
-            <div className="col-12 pt-2 pb-5">
+            <div className="col-12 pt-2">
               <NCIS_Selector
                 placeHolder={message !== "" ? message : "Select Message"}
                 onClick={step != 2 ? _handleSelect : undefined}
@@ -477,8 +460,15 @@ const Ribbon = (props) => {
                 media={media}
               />
             </div>
+            {
+              ((warning ) && step === 1) && (
+                <div className="d-flex text-danger justify-content-center text-center pt-2 pb-4 align-self-center" style={{}}>
+                   "Please fill out of this field"  
+                    <i className="fa fa-exclamation px-1" aria-hidden="true" style={{ color:'red' }}></i>
+                </div>
+              )}
             {!menuVisible && step == 1 ? (
-              <div className="pt-3 d-flex justify-content-center">
+              <div className="pt-5 d-flex justify-content-center">
                 <NCIS_Button text={"Review"} type="submit" fontSize={14}  media={media} />
               </div>
             ) : null}
