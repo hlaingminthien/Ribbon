@@ -23,6 +23,7 @@ import { NCIS_Button } from "../../../tools/NCIS_Button";
 import sponsors from "../../../assets/sponsors.json"
 import Logo from "../../../assets/images/logo.png"
 import SelectedRibbons from '../../../assets/images/SelectedRibbon.json'
+import { Base_Url } from "../../../routes/Base_Url";
 
 export const Home = (props) => {
   const { media } = props;
@@ -34,7 +35,7 @@ export const Home = (props) => {
   };
 useEffect(() => {
    
-    fetch("http://172.104.40.242:9898/api/sharecount", {
+    fetch(`${Base_Url}sharecount`, {
         headers: {
             "Accept": "application/json",
         }

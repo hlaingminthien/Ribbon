@@ -42,7 +42,7 @@ export const PledgeCard = (props) => {
   const { recipientName, senderName, message, media, step, imgUrl, cancer } = props;
 
   return (
-    <div className=" d-flex justify-content-center text-white shadow" id="my-node" style={{ background: 'transparent', border: '1px soldi #fff' }}>
+    <div className=" d-flex justify-content-center text-white shadow " id="my-node" style={{ background: 'transparent', border: '1px soldi #fff' }}>
       <img
         className="img-responsive"
         src={(imgUrl || recipientName || senderName || message) ? "/cardnoText.jpg" : "/card.jpg"}
@@ -54,7 +54,7 @@ export const PledgeCard = (props) => {
         style={{ position: "absolute", width: 295, padding: 20, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? 20 : 18, textAlign: 'left' }}
       >
         <div
-          className={` pt-3 ${step != 1 && "move-me:move-me-1"}`}
+          className={` pt-3 ${step != 1 && "move-me move-me-2"}`}
           style={{ minHeight: 165 }}
         >
           <span className="" style={{ fontSize: 16, fontWeight: "bold" }}>

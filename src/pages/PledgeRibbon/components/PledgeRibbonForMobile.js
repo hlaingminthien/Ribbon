@@ -8,7 +8,7 @@ import {
   EmailIcon,LinkedinIcon,
   TelegramIcon,LineIcon,WhatsappIcon
 } from "react-share";
-
+import {Base_Url} from "../../../routes/Base_Url"
 import { NCIS_Selector } from "../../../tools/NCIS_Selector";
 import { NCIS_TextBox } from "../../../tools/NCIS_TextBox";
 import { NCIS_Button } from "../../../tools/NCIS_Button";
@@ -117,9 +117,9 @@ const Ribbons = (props) => {
     _handleConfirm,
     handleShareApp,
     shareApp,cancer,setCancerName,setImgUrl,imgUrl,
-    media, paleViolet, _handleShare, url = "http://172.104.40.242:9898/" + shareImg,//String(window.location),
+    media, paleViolet, _handleShare, url = `${Base_Url}${shareImg}`,//String(window.location),
     title = "National University Cancer Institute Singapore",
-    shareImage = "http://172.104.40.242:9898/" + shareImg,
+    shareImage = `${Base_Url}${shareImg}`,
     size = "2.5rem", } = props;
 
   const ShareList = Passers({

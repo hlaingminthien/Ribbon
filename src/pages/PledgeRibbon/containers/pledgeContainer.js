@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
+import { Base_Url } from "../../../routes/Base_Url"
+
 import { PledgeCard } from "../components/pledgeCard";
 import PledgeForm from "../components/pledgeForm";
 import { PledgeProgress } from "../components/pledgeProgressBar";
@@ -24,7 +26,7 @@ const PledgeContainer = (props) => {
   const [warning, setWarning] = useState(false);
   const [shareImage, setShareImage] = useState(null);
   const [complete, setComplete] = useState(false);
-  const [ winner, setWinner ]=useState(0);
+  const [winner, setWinner] = useState(0);
 
   const _handleEdit = () => {
     setStep(step == 3 ? 2 : 1);
@@ -48,35 +50,65 @@ const PledgeContainer = (props) => {
   const _handleConfirm = (e) => {
     e.preventDefault();
     const myNode = document.getElementById('my-node')
-    // console.log(myNode)
-    setStep(3);
-    domtoimage.toJpeg(myNode)
-      .then(function (blob) {
-        var formData = new FormData();
-        formData.append('ribbon', blob);
-        let url = 'http://172.104.40.242:9898/api/uploadImage';
-        axios.post(url, { ribbon: blob })
-          .then(res => {
-            const shareImg = res.data.payload;
-            setShareImage(shareImg)
-          })
-          .catch(err => console.log(err));
-        setStep(3);
-      });
-      fetch('http://172.104.40.242:9898/api/sharecount', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        // body: JSON.stringify({
-        //   firstParam: 'yourValue',
-        //   secondParam: 'yourOtherValue',
-        // })
-})
-      // console.log("da",data)
-  };
-  
+
+    // setup gif
+    const gif = new window.GIF({
+      workers: 1,
+      quality: 10,
+      background: "#ffffff00",
+      transparent: "#ffffff00",
+      width: 480,
+      height: 500
+    });
+
+    let count = 0
+    const delayMs = 80;
+    let mInterval = setInterval(async () => {
+      count = count + delayMs
+      if (count === 4000) {
+        if (mInterval) {
+          await clearInterval(mInterval)
+          mInterval = null
+          gif.on('finished', saveGIf);
+          gif.render();
+        }
+      } else if (count < 4000) {
+        const dataUrl = await domtoimage.toPng(myNode)
+        const imageElement = document.createElement("IMG")
+        imageElement.setAttribute("src", dataUrl);
+        await gif.addFrame(imageElement, { delay: delayMs });
+      }
+    }, delayMs)
+    let url = `${Base_Url}sharecount`
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+      })
+    }).then((data)=>console.log('akn>',data))
+
+  }
+
+  const saveGIf = (blob) => {
+    console.log("Trigger finished. Going to save to server!")
+    const reader = new FileReader();
+    reader.readAsDataURL(blob);
+    reader.onloadend = function () {
+      const base64data = reader.result;
+      const url = `${Base_Url}uploadImage`;
+      axios.post(url, { ribbon: base64data })
+        .then(res => {
+          const shareImg = res.data.payload;
+          setShareImage(shareImg);
+        })
+        .catch(err => console.log(err));
+      setStep(3);
+    }
+  }
+
   const _handleSelectOption = (e) => {
     setMessage(e);
   };
@@ -99,32 +131,25 @@ const PledgeContainer = (props) => {
   const _handleShare = () => {
     setComplete(true);
     setStep(3);
-    fetch("http://172.104.40.242:9898/api/luckydrawcount", {
+    fetch(`${Base_Url}luckydrawcount`, {
       headers: {
-          "Accept": "application/json",
+        "Accept": "application/json",
       }
-  })
+    })
       .then(res => res.json())
       .then(data => setWinner(data.payload.count))
       .catch(error => {
         throw error
       })
 
-      //   fetch('http://172.104.40.242:9898/api/luckydrawcount', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Accept': 'application/json',
-      //     'Content-Type': 'application/json',
-      //   }
-      // })
-      fetch("http://172.104.40.242:9898/api/luckydrawcount", {
-        "method": "POST",
-        "headers": {
-          "content-type": "application/json",
-          "accept": "application/json"
-        },
-        // "body": []
-      })
+    fetch(`${Base_Url}luckydrawcount`, {
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      // "body": []
+    })
       .then(response => response.json())
       .then(response => {
         console.log(response)
@@ -134,12 +159,12 @@ const PledgeContainer = (props) => {
       });
 
   };
-// console.log("winen",winner)
+  // console.log("winen",winner)
   let background =
     (media.desktop) ?
       "/Desktop_PledgeARibbonPage.jpg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
         "/PledgeBgMobo.png";
-  
+
   return (
     <div className="d-flex justify-content-center align-self-center pt-3">
       <div id="testsvg">

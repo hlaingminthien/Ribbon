@@ -31,15 +31,16 @@ import EmailLogoActive from "../../../assets/images/EmailLogoActive.png";
 import TelegramLogoActive from "../../../assets/images/TelegramLogoActive.png";
 import WeChatLogoActive from "../../../assets/images/WeChatLogoActive.png";
 import LineLogoActive from "../../../assets/images/LineLogoActive.png";
+import { Base_Url } from "../../../routes/Base_Url";
 
 const hello = () => {
   console.log('hleellllll')
 }
 export const SocialShare = (props) => {
   const { handleShareApp, shareApp, shareImg, _handleEdit, paleViolet, _handleShare,
-    url = "http://172.104.40.242:9898/" + shareImg,//String(window.location),
+    url = `${Base_Url}${shareImg}`,//String(window.location),
     title = "National University Cancer Institute Singapore",
-    shareImage = "http://172.104.40.242:9898/" + shareImg,
+    shareImage = `${Base_Url}${shareImg}`,
     // shareImage = "https://www.steadylearner.com/static/images/brand/prop-passer.png",
     size = "2.5rem", } = props;
 
