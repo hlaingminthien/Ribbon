@@ -105,13 +105,13 @@ const PledgeContainer = (props) => {
     reader.onloadend = function () {
       const base64data = reader.result;
       const url = `${Base_Url}uploadImage`;
-      // axios.post(url, { ribbon: base64data })
-      //   .then(res => {
-      //     const shareImg = res.data.payload;
-      //     setShareImage(shareImg);
-      //     setLoading(false);
-      //   })
-      //   .catch(err => console.log(err));
+      axios.post(url, { ribbon: base64data })
+        .then(res => {
+          const shareImg = res.data.payload;
+          setShareImage(shareImg);
+          setLoading(false);
+        })
+        .catch(err => console.log(err));
       setLoading(false);
       setStep(3);
     }
@@ -208,6 +208,7 @@ const PledgeContainer = (props) => {
                 recipientName={recipientName}
                 message={message}
                 senderName={senderName}
+                cancerName={cancerName}
                 menuVisible={menuVisible}
                 _handleRibbonClick={_handleRibbonClick}
                 media={media}

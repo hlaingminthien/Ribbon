@@ -33,12 +33,10 @@ import WeChatLogoActive from "../../../assets/images/WeChatLogoActive.png";
 import LineLogoActive from "../../../assets/images/LineLogoActive.png";
 import { Base_Url } from "../../../routes/Base_Url";
 
-const hello = () => {
-  console.log('hleellllll')
-}
+
 export const SocialShare = (props) => {
   const { handleShareApp, shareApp, shareImg, _handleEdit, paleViolet, _handleShare,
-    url = `${Base_Url}${shareImg}`,//String(window.location),
+    url = `172.104.40.242:9898/${shareImg}`,//String(window.location),
     title = "National University Cancer Institute Singapore",
     shareImage = `${Base_Url}${shareImg}`,
     // shareImage = "https://www.steadylearner.com/static/images/brand/prop-passer.png",
@@ -51,6 +49,12 @@ export const SocialShare = (props) => {
     className: "",
     // title: `Share ${String(window.location)}`,
   })("li");
+
+  const hello = () => {
+    console.log('Hello hello');
+    <EmailShareButton></EmailShareButton>
+  }
+
   return (
     <div className='d-flex flex-column'>
       <div className='pt-3'>
@@ -74,7 +78,7 @@ export const SocialShare = (props) => {
             <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Telegram</div>
           </div>
           <div className=" shadow  align-self-center text-center mx-2"
-             onClick={() => handleShareApp(1)} 
+            onClick={() => handleShareApp(1)}
             style={{
               borderRadius: 23,
               border: "1px solid #FAFAFA",
@@ -112,7 +116,7 @@ export const SocialShare = (props) => {
               background: shareApp == 8 ? "rgb(22, 16, 92)" : "#fff",
               cursor: "pointer"
             }}
-            onClick={() => handleShareApp(8)} 
+            onClick={() => handleShareApp(8)}
           >
             <img src={shareApp == 8 ? LineLogoActive : LineLogo} className="" style={{ width: 50 }} />
             <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Line</div>
@@ -150,20 +154,21 @@ export const SocialShare = (props) => {
       </div>
       <div className=''>
         <section className="d-flex justify-content-center m-2 pt-4 p-3" >
-          {/* <ShareList style={{ textAlign: "center" }}> */}
-          <div className=" shadow align-self-center text-center mx-3 "
-             onClick={() => handleShareApp(5)} 
-            style={{
-              borderRadius: 23,
-              border: "1px solid #FAFAFA",
-              width: shareApp == 5 ? 54 : 59,
-              height: shareApp == 5 ? 54 : 59,
-              background: shareApp == 5 ? "rgb(22, 16, 92)" : "#fff",
-              cursor: "pointer"
-            }} subject={title} body="body"  >
-            <img src={shareApp == 5 ? EmailLogoActive : EmailLogo} className="" style={{ width: 50 }} />
-            <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>E-mail</div>
-          </div>
+          <ShareList style={{ textAlign: "center" }}>
+            <EmailShareButton className=" shadow align-self-center text-center mx-3"
+              style={{
+                borderRadius: 23,
+                border: "1px solid #FAFAFA",
+                width: shareApp == 5 ? 54 : 59,
+                height: shareApp == 5 ? 54 : 59,
+                background: shareApp == 5 ? "rgb(22, 16, 92)" : "#fff",
+                cursor: "pointer"
+              }} subject={title} body="body"
+              beforeOnClick={()=>{handleShareApp(5)}}
+            >
+              <img src={shareApp == 5 ? EmailLogoActive : EmailLogo} className="" style={{ width: 50 }} />
+              <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>E-mail</div>
+            </EmailShareButton>
           <div
             className="pt-1 shadow align-self-center text-center mx-3"
             style={{
@@ -210,7 +215,7 @@ export const SocialShare = (props) => {
             <img src={shareApp == 4 ? LinkedinLogoActive : LinkedinLogo} className="" style={{ width: 50 }} />
             <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>LinkIn</div>
           </div>
-          {/* </ShareList> */}
+          </ShareList>
         </section>
       </div>
     </div>
