@@ -1,4 +1,4 @@
-import React, { useContext, useRef,useEffect,useState } from "react";
+import React, { useContext, useRef, useEffect, useState } from "react";
 import { Scrollbars } from 'react-custom-scrollbars';
 import Jar from "../../../assets/images/Jar.png";
 import Ribbon from "../../../assets/images/Ribbon.png";
@@ -18,7 +18,7 @@ import BackgroundTablet from "../../../assets/images/BackgroundTablet.png";
 import BackgroundMobile from "../../../assets/images/BackgroundMobile.png";
 
 import { Counter } from "./counter";
-import { paleViolet } from "../../../assets/colors";
+import { paleViolet, violet } from "../../../assets/colors";
 import { NCIS_Button } from "../../../tools/NCIS_Button";
 import sponsors from "../../../assets/sponsors.json"
 import Logo from "../../../assets/images/logo.png"
@@ -27,24 +27,26 @@ import { Base_Url } from "../../../routes/Base_Url";
 
 export const Home = (props) => {
   const { media } = props;
-  const [ shareCount,setShareCount ]=useState(0);
+  const [shareCount, setShareCount] = useState(0);
+  const [ minimize, setMinimize] =useState(false);
 
   const _handlePledge = () => {
-    // console.log("HI")
     props.history.push("/pledge_a_ribbon");
   };
-useEffect(() => {
-   
+  const _handleRoute = (path) => {
+    props.history.push(path);
+  };
+  useEffect(() => {
+
     fetch(`${Base_Url}sharecount`, {
-        headers: {
-            "Accept": "application/json",
-        }
+      headers: {
+        "Accept": "application/json",
+      }
     })
-        .then(res => res.json())
-        .then(data =>  setShareCount(data.payload.count))
-        .catch(error => {throw error})
+      .then(res => res.json())
+      .then(data => setShareCount(parseInt(data.payload.count / 5)))
+      .catch(error => { throw error })
   }, [])
-  // console.log("share",SelectedRibbons.SelectedRibbons.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl))
 
   return (
     <>
@@ -62,14 +64,30 @@ useEffect(() => {
         >
 
           <HomeTitle media={media} _handlePledge={_handlePledge} />
-          <div className='d-flex justify-content-end col-10 mx-5' style={{ position: 'absolute', marginTop: media.desktop ? '23%' : '35%' }}>
-            <img src={"/floater.png"} alt='floater' style={{ width:window.innerWidth > 1600 ? 300 : 250, position: 'fixed', opacity: 0.9 }} />
+          <div className='d-flex justify-content-end col-10 ' style={{ position: 'absolute', marginTop: media.desktop ? '30%' : minimize ? 0 : '35%', bottom: minimize && 250  }}>
+            <div style={{ marginRight:minimize ? '-10%' : '8%'}}>
+            <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width: (window.innerWidth > 1600 && !minimize) ? 300 : minimize ?  100 : 250, position: 'fixed', zIndex: 1, opacity: 0.9 }} />
+            {
+              !minimize &&
+            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop:250, paddingLeft:115, fontSize:30 , color:violet, zIndex:3  }}></i>
 
+            }
+            </div>
+            
           </div>
           {media.tablet ? (
             <div className="col-12 p-0 img-fluid">
               <div className="d-flex flex-row">
                 <div className="w-100" style={{ marginTop: 150 }}>
+                  <div className={`d-flex justify-content-center ${(window.innerWidth > 700 && window.innerWidth < 1001) ? "move-me move-me-6" : "move-me move-me-7"} `} style={{
+                    marginLeft: (window.innerWidth > 700 && window.innerWidth < 1000) ? 270 : 310, marginTop: 100
+                  }} >
+                    <img
+                      src={"/lightViolet.png"}
+                      alt="selected-ribbons"
+                      style={{ zIndex: 0, width: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 50, }}
+                    />
+                  </div>
                   <img src={TabletRibbonBottle1} className="img-fluid" />
                   {/* <img src={SelectedRibbons.SelectedRibbons.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} className="img-fluid" style={{ width: '50%' }} /> */}
 
@@ -81,15 +99,23 @@ useEffect(() => {
               </div>
             </div>
           ) : (
-              <div className="col-lg-11 col-xl-12 col-md-12 p-0 img-fluid" style={{ }}>
-                  {/* <img src={SelectedRibbons.SelectedRibbons.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} className="img-fluid" style={{ width: '50%' }} /> */}
-                <img src={RibbonBottle1} className="img-fluid" style={{ width: window.innerWidth > 1590 && '120%' }} />
+              <div className="col-lg-11 col-xl-12 col-md-12 p-0 img-fluid " style={{}}>
+                <div className={`d-flex justify-content-center ${(window.innerWidth > 1400 && window.innerWidth < 1700) ? "move-me move-me-4" : (window.innerWidth > 1699) ? "move-me move-me-5" : "move-me move-me-3"} `} style={{ marginLeft: (window.innerWidth > 1200 && window.innerWidth < 1400) ? 220 : (window.innerWidth > 1399 && window.innerWidth < 1700) ? 270 : (window.innerWidth > 1699) ? 370 : 220, marginTop: 100 }} >
+                  <img
+                    src={"/lightViolet.png"}
+                    alt="selected-ribbons"
+                    style={{ zIndex: 0, width: (window.innerWidth > 1600 && window.innerWidth < 1701) ? 95 : (window.innerWidth > 1700) ? 110 : (window.innerWidth < 1600) ? 80 : 90, }}
+                  />
+                </div>
+
+                {/* <img src={SelectedRibbons.SelectedRibbons.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} className="img-fluid" style={{ width: '50%' }} /> */}
+                <img src={RibbonBottle1} className="img-fluid" style={{ width: window.innerWidth > 1590 && '122%', zIndex: 0, position: 'relative' }} />
               </div>
             )}
           <Counter />
           {media.mobile || (
             <div className="row">
-              <Highlights media={media} />
+              <Highlights media={media} _handleRoute={_handleRoute} />
               <Sponsors media={media} />
             </div>
           )}
@@ -100,28 +126,49 @@ useEffect(() => {
           backgroundImage: `url(${BackgroundMobile})`, backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}>
-          <div className='d-flex justify-content-end col-10 mx-5' style={{ position: 'absolute', zIndex: 1, paddingTop: '60%' }}>
+          <div className='d-flex justify-content-end col-10 mx-5' style={{position: 'absolute', zIndex: 5, paddingTop: '60%', bottom: minimize && 100, marginTop: minimize ? 0 : '35%'}}>
+            <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width:minimize ? 50 : 150, position: 'fixed', opacity: 0.9 }} />
+            {
+              !minimize &&
+            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop:145,right: 90, fontSize:25 , color:violet, zIndex:3  }}></i>
+
+            }
+            </div>
+          {/* <div className='d-flex justify-content-end col-10 mx-5' style={{ position: 'absolute', zIndex: 1, paddingTop: '60%' }}>
             <img src={"/floater.png"} alt='floater' style={{ width: 150, position: 'fixed', opacity: 0.9 }} />
 
-          </div>
+          </div> */}
           <HomeTitle media={media} />
-          <div className='text-center px-4' style={{marginTop:20 ,zIndex:1 /* marginLeft: media.cusHeight_600 ? -25 : 20*/ }}>
+          <div className='text-center px-4' style={{ marginTop: 20, zIndex: 1 /* marginLeft: media.cusHeight_600 ? -25 : 20*/ }}>
             <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} />
           </div>
-          <div className='d-flex ' >
+          <div className='d-flex ' style={{ position:'relative' }}>
             <Counter />
             {/* <img src={SelectedRibbons.SelectedRibbons.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} style={{
               bottom: media.cusHeight_700 ? 20 : 50, right: -1, height: 'auto', position: 'absolute',
               maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '72%'
             }} /> */}
-            <img src={MobileRibbonBottle} style={{
-            bottom: media.cusHeight_700 ? 20 : 50, right: -1, height: 'auto',position:'absolute',
-            maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '77%'
-          }} />
+            
+              <div className={`d-flex justify-content-center move-me move-me-8 `} style={{
+                marginLeft: window.innerWidth > 300 && window.innerWidth < 400 ? 200 : 240
+              }} >
+                <img
+                  src={"/lightViolet.png"}
+                  alt="selected-ribbons"
+                  style={{ zIndex: 0, width: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 50, }}
+                />
+              </div>
+              <img src={MobileRibbonBottle} style={{
+                top:-130,
+              bottom: media.cusHeight_700 ? 20 : 50, right: -1, height: 'auto', position: 'absolute',
+              maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '77%'
+            }} />
+            
+            
           </div>
 
           <div className='' style={{ marginTop: '22rem', position: 'relative' }}>
-            <HighlightsForMobo media={media} />
+            <HighlightsForMobo media={media} _handleRoute={_handleRoute} />
 
           </div>
         </div>
@@ -139,7 +186,7 @@ const HomeTitle = (props) => {
       style={{
         position: !media.mobile && "absolute",
         paddingTop: media.tablet ? "8rem" : media.mobile ? '6rem' : "11.5rem",
-        paddingLeft: media.tablet ? "6.6rem" : media.mobile ? '2rem' : "7.5rem",
+        paddingLeft: media.tablet ? "6.6rem" : media.mobile ? '2rem' : "7.5rem",zIndex:2
       }}
       className="text-light col-lg-6 col-md-8 "
     >
@@ -176,7 +223,7 @@ const HomeTitle = (props) => {
         className={media.mobile ? "col-10 " : media.tablet ? "col-9 pb-4" : "col-9 pb-4 pt-2"}
         style={{ fontSize: media.mobile ? 10 : 13, fontWeight: "lighter", lineHeight: 1.6, cursor: 'pointer' }}
       >
-        <Scrollbars style={{ minHeight: media.mobile ? 100 :media.tablet ? 230 : window.innerWidth > 1590 ? 270 :  150 }} ref={scrollbar} >
+        {/* <Scrollbars style={{ minHeight: media.mobile ? 100 : media.tablet ? 230 : window.innerWidth > 1590 ? 270 : 150 }} ref={scrollbar} > */}
 
           Themed “Together, we fight cancer”, the virtual NCIS Ribbon Challenge 2021 aims to increase cancer awareness, emphasise on the importance of maintaining a healthy lifestyle and going for regular health screenings. Let us spread the word among your loved ones and make a difference in the lives of those affected by cancer.
         <br />
@@ -186,14 +233,14 @@ const HomeTitle = (props) => {
         <br />
         Thank you for your generous support and together, we fight cancer! For more information, visit www.ncis.com.sg.
 
-      </Scrollbars>
+      {/* </Scrollbars> */}
       </div>
       {media.mobile ?
         <div className='text-center' style={{ marginTop: 20, marginLeft: media.cusHeight_600 ? -25 : -9, position: 'absolute', zIndex: 1 }}>
           {/* <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} /> */}
         </div>
         :
-        <div className='' style={{ position: 'absolute', zIndex: 0.8 }}>
+        <div className='' style={{ position: 'absolute', zIndex: 100 }}>
           <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} />
 
         </div>
@@ -203,14 +250,14 @@ const HomeTitle = (props) => {
 };
 
 const Highlights = props => {
-  const { media } = props
+  const { media, _handleRoute } = props
   return (
     <div
       style={{ paddingTop: "90px", paddingLeft: "100px" }}
       className="text-light w-50"
     >
       <div style={{ fontSize: 25, fontWeight: "bold" }}>Highlights</div>
-      <div className="w-75 py-3">
+      <div className="w-75 py-3" style={{ lineHeight :1.6 }}>
         <ul>
           <li>
             Health talks on cancer screening and prevention
@@ -224,19 +271,20 @@ const Highlights = props => {
         </li>
         </ul>
       </div>
+      <NCIS_Button text={"Learn More"} fontSize={13} onClick={()=>_handleRoute("/eventDetails")} />
     </div>
   );
 };
 
 const HighlightsForMobo = props => {
-  const { media } = props
+  const { media,_handleRoute } = props
   return (
     <div
       style={{ color: '#271f57' }}
       className=" px-3"
     >
       <div className='p-2' style={{ fontSize: 20, fontWeight: "bold" }}>Highlights</div>
-      <div className=" pb-3">
+      <div className="" style={{ lineHeight :1.6 }}>
         <ul>
           <li>
             Health talks on cancer screening and prevention
@@ -249,6 +297,10 @@ const HighlightsForMobo = props => {
 
         </li>
         </ul>
+      </div>
+      <div className='pb-4 px-2'>
+      <NCIS_Button text={"Learn More"} fontSize={13} onClick={()=>_handleRoute("/eventDetails")} />
+
       </div>
       <SponsorsForMobo media={media} />
     </div>
@@ -338,11 +390,11 @@ const Sponsors = props => {
 
   return (
     <div
-      style={{ paddingTop: "100px", paddingBottom: "90px", paddingLeft: media.desktop ? "50px" : "30px" }}
-      className="row w-50 col-lg-5  justify-content-end"
+      style={{ paddingTop: "100px", paddingBottom: "90px", paddingLeft: media.desktop ? "50px" : "26px" }}
+      className="row w-50 col-lg-5 px-0 justify-content-end"
     >
       <div style={{ fontSize: 25, fontWeight: "bold" }}>Our Partners and Sponsors</div>
-      <div className='d-flex pt-3 '>
+      <div className='d-flex pt-2 '>
         <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600 }}>
           Organised by:
           </div>
@@ -350,12 +402,12 @@ const Sponsors = props => {
           <div
             className="d-flex bg-light mx-2 my-1 py-2 align-items-center"
             style={{
-              width: 130,
-              // height: 70,
-              borderRadius: 10,
+              width: 100,
+              height: 100,
+              borderRadius: '50%',
             }}
           >
-            <img className='mx-2 align-self-center' src={Logo} alt="sponsor" style={{ width: 110 }} />
+            <img className='mx-2 align-self-center' src={Logo} alt="sponsor" style={{ width: 90 }} />
           </div>
         </div>
 
@@ -371,8 +423,8 @@ const Sponsors = props => {
                 className="d-flex bg-light my-1 py-2 align-items-center"
                 style={{
                   width: 100,
-                  height: 60,
-                  borderRadius: 10,
+                  height: 100,
+                  borderRadius: '50%',
                 }}
               >
                 <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 90 }} />
@@ -394,8 +446,8 @@ const Sponsors = props => {
                 className="d-flex bg-light my-1 py-2 align-items-center"
                 style={{
                   width: 100,
-                  height: 60,
-                  borderRadius: 10,
+                  height: 100,
+                  borderRadius:'50%',
                 }}
               >
                 <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 80 }} />

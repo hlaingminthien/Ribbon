@@ -2,7 +2,7 @@
     "sponsors": [
         {
             "id": 1,
-            "imgaeUrl": "./assets/images/sponsor/rocheSpon.jpg", "name": ""
+            "imgaeUrl": "./assets/images/sponsor/PfizerSpon.png", "name": ""
         },
         {
             "id": 2,
@@ -10,17 +10,18 @@
         },
         {
             "id": 3,
-            "imgaeUrl": "./assets/images/sponsor/PfizerSpon.png", "name": ""
+            "imgaeUrl": "./assets/images/sponsor/rocheSpon.jpg", "name": ""
         }
     ],
     "supportingPartners":[
         {
             "id": 1,
-            "imgaeUrl": "./assets/images/sponsor/365CPS.jpg", "name": "365CPS"
+            "imgaeUrl": "./assets/images/sponsor/SingaporeCancerSociety.png", "name": ""
         },
         {
             "id": 2,
-            "imgaeUrl": "./assets/images/sponsor/SingaporeCancerSociety.png", "name": ""
+            "imgaeUrl": "./assets/images/sponsor/365CPS.jpg", "name": "365CPS"
+           
         }
     ]
 }

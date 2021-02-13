@@ -27,6 +27,7 @@ const PledgeContainer = (props) => {
   const [shareImage, setShareImage] = useState(null);
   const [complete, setComplete] = useState(false);
   const [winner, setWinner] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const _handleEdit = () => {
     setStep(step == 3 ? 2 : 1);
@@ -38,7 +39,7 @@ const PledgeContainer = (props) => {
   const _handleReview = (e) => {
     e.preventDefault();
 
-    if (recipientName && senderName) {
+    if (recipientName && senderName && message && imgUrl) {
       setStep(2);
       setWarning(false)
     } else {
@@ -48,6 +49,7 @@ const PledgeContainer = (props) => {
   };
 
   const _handleConfirm = (e) => {
+    setLoading(true);
     e.preventDefault();
     const myNode = document.getElementById('my-node')
 
@@ -57,8 +59,8 @@ const PledgeContainer = (props) => {
       quality: 10,
       background: "#ffffff00",
       transparent: "#ffffff00",
-      width: 480,
-      height: 500
+      width: 290,
+      height: 300
     });
 
     let count = 0
@@ -79,21 +81,20 @@ const PledgeContainer = (props) => {
         await gif.addFrame(imageElement, { delay: delayMs });
       }
     }, delayMs)
-    let url = `${Base_Url}sharecount`
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-      })
-    }).then((data)=>console.log('akn>',data))
+    axios.post(`${Base_Url}sharecount`).then(error => {
+      throw error
+    });
+    axios.post(`${Base_Url}luckydrawcount`)
+    .then(data => setWinner(data.data.lucky))
+    .then(error =>{
+      throw error
+    })
 
   }
 
   const saveGIf = (blob) => {
-    console.log("Trigger finished. Going to save to server!")
+    console.log("Trigger finished. Going to save to server!");
+    saveAs(blob, "ribbon.gif");
     const reader = new FileReader();
     reader.readAsDataURL(blob);
     reader.onloadend = function () {
@@ -103,6 +104,7 @@ const PledgeContainer = (props) => {
         .then(res => {
           const shareImg = res.data.payload;
           setShareImage(shareImg);
+          setLoading(false);
         })
         .catch(err => console.log(err));
       setStep(3);
@@ -111,6 +113,7 @@ const PledgeContainer = (props) => {
 
   const _handleSelectOption = (e) => {
     setMessage(e);
+    setWarning(false)
   };
   const _handleTextChange = (e) => {
     if (e.target.id === "recipient") {
@@ -131,41 +134,19 @@ const PledgeContainer = (props) => {
   const _handleShare = () => {
     setComplete(true);
     setStep(3);
-    fetch(`${Base_Url}luckydrawcount`, {
-      headers: {
-        "Accept": "application/json",
-      }
-    })
-      .then(res => res.json())
-      .then(data => setWinner(data.payload.count))
-      .catch(error => {
-        throw error
-      })
-
-    fetch(`${Base_Url}luckydrawcount`, {
-      "method": "POST",
-      "headers": {
-        "content-type": "application/json",
-        "accept": "application/json"
-      },
-      // "body": []
-    })
-      .then(response => response.json())
-      .then(response => {
-        console.log(response)
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    
 
   };
-  // console.log("winen",winner)
+  
   let background =
     (media.desktop) ?
       "/Desktop_PledgeARibbonPage.jpg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
         "/PledgeBgMobo.png";
 
   return (
+    <>
+    {loading && <div style={{ position: 'absolute', width: '100%', height: '100vh', zIndex: 2000}}></div>}
+     <div style={{opacity:loading ? 1 : 0}} class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     <div className="d-flex justify-content-center align-self-center pt-3">
       <div id="testsvg">
         <img
@@ -227,6 +208,7 @@ const PledgeContainer = (props) => {
                 warning={warning}
                 shareImage={shareImage}
                 winner={winner}
+                imgUrl={imgUrl}
               />
             </div>
 
@@ -304,6 +286,7 @@ const PledgeContainer = (props) => {
             )}
       </div>
     </div>
+    </>
   );
 };
 export default withMedia(PledgeContainer);

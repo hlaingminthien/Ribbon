@@ -29,7 +29,7 @@ export const Counter = () => {
         />
         <div class="numbers">
           <div style={{ top: 10 }}>
-            {/* <span class="digit">$</span> */}
+            <span class="digit">0</span>
             <span class="digit">7</span>
             <span class="digit">2</span>
             <span class="digit">5</span>
@@ -64,7 +64,7 @@ export const CounterMobile = (props) => {
       >
           <div class="numbers px-0 pb-3" style={{ paddingTop: "50px" }}>
             <div style={{ top: 10 }}>
-              {/* <span class="digit-mobile">$</span> */}
+              <span class="digit-mobile">0</span>
               <span class="digit-mobile">7</span>
               <span class="digit-mobile">2</span>
               <span class="digit-mobile">5</span>
@@ -112,7 +112,7 @@ export const CounterTablet = (props) => {
         }}> */}
           <div class="numbers px-0 pb-3" style={{ paddingTop: "90px" }}>
             <div style={{ top: 10 }}>
-              {/* <span class="digit">$</span> */}
+              <span class="digit">0</span>
               <span class="digit">7</span>
               <span class="digit">2</span>
               <span class="digit">5</span>
