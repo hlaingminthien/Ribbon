@@ -8,7 +8,7 @@ import {
   EmailIcon,LinkedinIcon,
   TelegramIcon,LineIcon,WhatsappIcon
 } from "react-share";
-
+import {Base_Url} from "../../../routes/Base_Url"
 import { NCIS_Selector } from "../../../tools/NCIS_Selector";
 import { NCIS_TextBox } from "../../../tools/NCIS_TextBox";
 import { NCIS_Button } from "../../../tools/NCIS_Button";
@@ -33,7 +33,7 @@ const PledgeRibbonsForMobile = (props) => {
     _handleConfirm,
     _handleEdit,
     recipientName,
-    senderName,setCancerName,
+    senderName,setCancerName,winner,
     message, shareImage,cancer,setImgUrl,imgUrl,complete,_handleShare
   } = props;
   // const [complete, setComplete] = useState(false);
@@ -94,7 +94,7 @@ const PledgeRibbonsForMobile = (props) => {
         </div>
       )}
       {complete && step == 3 && (
-        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge} shareApp={shareApp} />
+        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge} shareApp={shareApp} winner={winner} />
       )}
     </div>
   );
@@ -117,9 +117,9 @@ const Ribbons = (props) => {
     _handleConfirm,
     handleShareApp,
     shareApp,cancer,setCancerName,setImgUrl,imgUrl,
-    media, paleViolet, _handleShare, url = "http://172.104.40.242:9898/" + shareImg,//String(window.location),
+    media, paleViolet, _handleShare, url = `${Base_Url}${shareImg}`,//String(window.location),
     title = "National University Cancer Institute Singapore",
-    shareImage = "http://172.104.40.242:9898/" + shareImg,
+    shareImage = `${Base_Url}${shareImg}`,
     size = "2.5rem", } = props;
 
   const ShareList = Passers({
@@ -442,10 +442,10 @@ const Ribbons = (props) => {
 };
 
 const ThankuCard = (props) => {
-  const { _handleEdit, _handlePledge, shareApp } = props;
+  const { _handleEdit, _handlePledge, shareApp, winner } = props;
 
   return (
-    <div className="d-flex justify-content-center text-center" style={{  }}>
+    <div className="d-flex justify-content-center " style={{  }}>
       <div className="bg-light p-2 col-10 m-3" style={{ borderRadius: 10 }}>
       <div
           className="text-center"
@@ -543,13 +543,31 @@ const ThankuCard = (props) => {
 
         }
 
-        <p className="pt-2 px-2" style={{ fontSize: 13 }}>
+{
+          winner ?
+          <div className='d-flex flex-wrap justify-content-center'>
+            <div className='p-2 col-11'>
+              <div className='py-2' style={{ fontSize:14, fontWeight:600 }}>
+              Congratulations!
+              </div>
+              <div className='py-2' style={{ fontSize:12 }}>
+              You have won the NCIS Ribbon Challenge mystery gift!
+              <br />
+              Click on to enter your particulars and we will get in touch with you soon. Thank you for your support!
+              </div>
+            </div>
+            <div className='align-self-center'>
+              <img src={"/mysteryRibbon.jpeg"} style={{ width:100 }} />
+            </div>
+          </div>:
+          <p className="pt-2 px-2" style={{ fontSize: 13 }}>
           Don’t stop here, you can do more by pledging again!
           <br />
           Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
 
           Together, We Fight Cancer!
         </p>
+        }
 
         <div className="p-2  d-flex justify-content-center">
           <NCIS_Button

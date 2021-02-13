@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
+import { Base_Url } from "../../../routes/Base_Url"
+
 import { PledgeCard } from "../components/pledgeCard";
 import PledgeForm from "../components/pledgeForm";
 import { PledgeProgress } from "../components/pledgeProgressBar";
@@ -11,7 +13,7 @@ import domtoimage from 'dom-to-image-more';
 import { saveAs } from 'file-saver';
 import RibbonImages from "../../../assets/RibbonImages.json";
 
- const PledgeContainer = (props) => {
+const PledgeContainer = (props) => {
   const { media } = props;
   const [menuVisible, setMenuVisible] = useState(false);
   const [step, setStep] = useState(1);
@@ -24,6 +26,7 @@ import RibbonImages from "../../../assets/RibbonImages.json";
   const [warning, setWarning] = useState(false);
   const [shareImage, setShareImage] = useState(null);
   const [complete, setComplete] = useState(false);
+  const [winner, setWinner] = useState(0);
 
   const _handleEdit = () => {
     setStep(step == 3 ? 2 : 1);
@@ -60,22 +63,33 @@ import RibbonImages from "../../../assets/RibbonImages.json";
 
     let count = 0
     const delayMs = 80;
-    const mInterval = setInterval(async () => {
+    let mInterval = setInterval(async () => {
       count = count + delayMs
       if (count === 4000) {
-        if(mInterval) {
+        if (mInterval) {
           await clearInterval(mInterval)
           mInterval = null
           gif.on('finished', saveGIf);
           gif.render();
         }
-      } else if(count<4000) {
+      } else if (count < 4000) {
         const dataUrl = await domtoimage.toPng(myNode)
         const imageElement = document.createElement("IMG")
         imageElement.setAttribute("src", dataUrl);
         await gif.addFrame(imageElement, { delay: delayMs });
       }
     }, delayMs)
+    let url = `${Base_Url}sharecount`
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+      })
+    }).then((data)=>console.log('akn>',data))
+
   }
 
   const saveGIf = (blob) => {
@@ -84,7 +98,7 @@ import RibbonImages from "../../../assets/RibbonImages.json";
     reader.readAsDataURL(blob);
     reader.onloadend = function () {
       const base64data = reader.result;
-      const url = 'http://172.104.40.242:9898/api/uploadImage';
+      const url = `${Base_Url}uploadImage`;
       axios.post(url, { ribbon: base64data })
         .then(res => {
           const shareImg = res.data.payload;
@@ -110,21 +124,46 @@ import RibbonImages from "../../../assets/RibbonImages.json";
   const _handleRibbonClick = (state) => {
     setMenuVisible(state);
   };
-
   const _handleImage = (img, cancer) => {
     setImgUrl(img);
     setCancerName(cancer);
   };
   const _handleShare = () => {
-    // console.log('hello');
     setComplete(true);
     setStep(3);
+    fetch(`${Base_Url}luckydrawcount`, {
+      headers: {
+        "Accept": "application/json",
+      }
+    })
+      .then(res => res.json())
+      .then(data => setWinner(data.payload.count))
+      .catch(error => {
+        throw error
+      })
+
+    fetch(`${Base_Url}luckydrawcount`, {
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      // "body": []
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response)
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
   };
+  // console.log("winen",winner)
   let background =
     (media.desktop) ?
       "/Desktop_PledgeARibbonPage.jpg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
         "/PledgeBgMobo.png";
-
 
   return (
     <div className="d-flex justify-content-center align-self-center pt-3">
@@ -187,6 +226,7 @@ import RibbonImages from "../../../assets/RibbonImages.json";
                 _handleImage={_handleImage}
                 warning={warning}
                 shareImage={shareImage}
+                winner={winner}
               />
             </div>
 
@@ -219,6 +259,7 @@ import RibbonImages from "../../../assets/RibbonImages.json";
                 shareImage={shareImage}
                 cancer={cancerName}
                 setCancerName={setCancerName}
+                winner={winner}
 
               />
             </div>
@@ -256,7 +297,7 @@ import RibbonImages from "../../../assets/RibbonImages.json";
                     shareImage={shareImage}
                     complete={complete}
                     cancer={cancerName}
-
+                    winner={winner}
                   />
                 </div>
               </div>

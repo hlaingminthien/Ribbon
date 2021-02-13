@@ -33,7 +33,7 @@ const PledgeForm = (props) => {
     message,
     _handleShare,
     media, shareImage,
-    _handleImage, warning
+    _handleImage, warning,winner
   } = props;
   const [shareApp, setShareApp] = useState(null);
   const handleShareApp = (app) => {
@@ -63,7 +63,7 @@ const PledgeForm = (props) => {
         {step === 1 && <PledgeRibbons {...props} />}
         {/* //  _handleSelect={_handleSelect} _handleRibbonClick={_handleRibbonClick} menuVisible={menuVisible} */}
         {(step === 3 && complete) ? (
-          <ThankYouCard _handlePledge={_handlePledge} shareApp={shareApp} />
+          <ThankYouCard _handlePledge={_handlePledge} shareApp={shareApp} winner={winner} />
         ) : (step === 3 ) ? (
           <div className='d-flex justify-content-center'>
             <div className='px-2 pt-5' style={{ fontWeight: 600 }}>Share Via:</div>
@@ -311,7 +311,7 @@ const PledgeRibbons = (props) => {
 };
 
 export const ThankYouCard = (props) => {
-  const { _handleEdit, _handlePledge, shareApp } = props;
+  const { _handleEdit, _handlePledge, shareApp,winner } = props;
 
   return (
     <div className="d-flex justify-content-center px-2 " style={{ position:'absolute' }}>
@@ -427,14 +427,32 @@ export const ThankYouCard = (props) => {
         ""
 
         }
-
-        <p className="pt-2 px-2" style={{ fontSize: 13 }}>
+        {
+          winner ?
+          <div className='d-flex'>
+            <div className='p-2 col-8'>
+              <div className='py-2' style={{ fontSize:14, fontWeight:600 }}>
+              Congratulations!
+              </div>
+              <div className='py-2' style={{ fontSize:12 }}>
+              You have won the NCIS Ribbon Challenge mystery gift!
+              <br />
+              Click on to enter your particulars and we will get in touch with you soon. Thank you for your support!
+              </div>
+            </div>
+            <div className='align-self-center'>
+              <img src={"/mysteryRibbon.jpeg"} style={{ width:120 }} />
+            </div>
+          </div>:
+          <p className="pt-2 px-2" style={{ fontSize: 13 }}>
           Don’t stop here, you can do more by pledging again!
           <br />
           Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
 
           Together, We Fight Cancer!
         </p>
+        }
+        
         <div className="d-flex justify-content-center text-left mx-2">
           <div className="pb-2  d-flex justify-content-center">
             <NCIS_Button

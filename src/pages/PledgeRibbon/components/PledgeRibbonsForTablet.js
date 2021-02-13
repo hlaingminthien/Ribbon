@@ -35,7 +35,7 @@ const PledgeRibbonsForTablet = (props) => {
     _handleEdit,
     recipientName,
     senderName,cancer,
-    message,shareImage,setCancerName
+    message,shareImage,setCancerName,winner
   } = props;
   
   // const [imgUrl, setImgUrl] = useState(null);
@@ -119,7 +119,7 @@ const PledgeRibbonsForTablet = (props) => {
         // <ShareApp shareApp={shareApp} handleShareApp={handleShareApp} />
       )}
       {complete && step == 3 && (
-        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge}  media={media} shareApp={shareApp} />
+        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge}  media={media} shareApp={shareApp} winner={winner} />
       )}
       {step == 2 && (
         <div className="d-flex justify-content-center flex-wrap">
@@ -489,7 +489,7 @@ const Ribbon = (props) => {
   );
 };
 const ThankuCard = (props) => {
-  const { _handleEdit, _handlePledge, media, shareApp } = props;
+  const { _handleEdit, _handlePledge, media, shareApp, winner } = props;
 
   return (
     <div className="d-flex justify-content-center py-2 ">
@@ -592,14 +592,33 @@ const ThankuCard = (props) => {
         ""
 
         }
-
-        <p className="pt-2 px-2" style={{ fontSize: 13 }}>
+        {
+          winner ?
+          <div className='d-flex'>
+            <div className='p-2 col-8'>
+              <div className='py-2' style={{ fontSize:14, fontWeight:600 }}>
+              Congratulations!
+              </div>
+              <div className='py-2' style={{ fontSize:12 }}>
+              You have won the NCIS Ribbon Challenge mystery gift!
+              <br />
+              Click on to enter your particulars and we will get in touch with you soon. Thank you for your support!
+              </div>
+            </div>
+            <div className='align-self-center'>
+              <img src={"/mysteryRibbon.jpeg"} style={{ width:120 }} />
+            </div>
+          </div>:
+          <p className="pt-2 px-2" style={{ fontSize: 13 }}>
           Don’t stop here, you can do more by pledging again!
           <br />
           Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
 
           Together, We Fight Cancer!
         </p>
+        }
+
+        
         <div className="d-flex justify-content-center text-left">
           <div className="p-2  d-flex justify-content-center">
             <NCIS_Button
