@@ -90,7 +90,7 @@ const PledgeContainer = (props) => {
 
     axios.post(`${Base_Url}luckydrawcount`)
     .then(data => {
-      console.log('lucky data is=>', data);
+      // console.log('lucky data is=>', data);
       setWinner(data.data.lucky)
     }).catch(error =>{
       console.log('error is=>', error);
@@ -150,7 +150,6 @@ const PledgeContainer = (props) => {
     (media.desktop) ?
       "/Desktop_PledgeARibbonPage.jpg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
         "/PledgeBgMobo.png";
-
   return (
     <>
     {loading && <div style={{ position: 'absolute', width: '100%', height: '100vh', zIndex: 2000}}></div>}

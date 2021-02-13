@@ -17,7 +17,7 @@ export const NCIS_Selector = (props) => {
           // border:"red",
           background: "#ffffff",
           cursor: "pointer",
-          fontSize : media.mobile ? 12 : window.innerWidth > 1500 ? 22 : 14,
+          fontSize : media.mobile ? 12 : window.innerWidth > 1500 ? 18 : 14,
           height: 45
         }}
       />

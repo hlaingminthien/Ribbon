@@ -53,9 +53,7 @@ export const Home = (props) => {
           var ribbonCountForHomeUI=0;
           if (ribbonCountFromServer>50) {
               var tempCount=ribbonCountFromServer/50;
-              console.log("tempCount>>", tempCount)
               ribbonCountForHomeUI=Math.round(tempCount%1*50)/defineRibbonCount;
-              console.log("Count>>", ribbonCountForHomeUI)
               
           } else {
               ribbonCountForHomeUI=ribbonCountFromServer/defineRibbonCount;
@@ -83,12 +81,12 @@ export const Home = (props) => {
         >
 
           <HomeTitle media={media} _handlePledge={_handlePledge} />
-          <div className='d-flex justify-content-end col-10 ' style={{ position: 'absolute', marginTop: media.desktop ? '30%' : minimize ? 0 : '35%', bottom: minimize && 250  }}>
-            <div style={{ marginRight:minimize ? '-10%' : media.tablet ? '15%' : '10%'}}>
-            <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width: (window.innerWidth > 1600 && !minimize) ? 300 : minimize ?  100 : media.tablet ? 230 : 250, position: 'fixed', zIndex: 1, opacity: 0.9 }} />
+          <div className='d-flex justify-content-end col-10 ' style={{ position: 'absolute', marginTop: (media.desktop && window.innerWidth < 1400 ) ? '25%' : minimize ? 0 : '30%', bottom: minimize && 250  }}>
+            <div style={{ marginRight: minimize ? '-5%' : media.tablet ? '10%' : '10%'}}>
+            <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width: (window.innerWidth > 1600 && !minimize) ? 300 : minimize ?  100 : media.tablet ? 220 : 250, position: 'fixed', zIndex: 1, opacity: 0.9 }} />
             {
               !minimize &&
-            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop:230, paddingLeft:115, fontSize:30 , color:violet, zIndex:3  }}></i>
+            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop: media.tablet ? 220 : 250, paddingLeft: media.tablet ? 105 : 115, fontSize:30 , color:violet, zIndex:3  }}></i>
 
             }
             </div>
@@ -107,20 +105,14 @@ export const Home = (props) => {
                       style={{ zIndex: 0, width: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 50, }}
                     />
                   </div>
-                  {/* <img src={SelectedRibbons.SelectedRibbonsForTablet.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} className="img-fluid" /> */}
-                  <img src={SelectedRibbons.SelectedRibbonsForTablet[shareCount].imgaeUrl} className="img-fluid" />
+                  <img src={SelectedRibbons.SelectedRibbonsForTablet[shareCount].imgaeUrl} className="img-fluid" style={{  }} />
                   
-                  {/* <img src={SelectedRibbons.SelectedRibbonsForTablet.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} className="img-fluid" style={{ width: '50%' }} /> 
-
-            </div>
-            <div className="w-50">
-              <img src={Jar} className="img-fluid" /> */}
                 </div>
               </div>
             </div>
           ) : (
               <div className="col-lg-11 col-xl-12 col-md-12 p-0 img-fluid " style={{}}>
-                <div className={`d-flex justify-content-center ${(window.innerWidth > 1400 && window.innerWidth < 1700) ? "move-me move-me-4" : (window.innerWidth > 1699) ? "move-me move-me-5" : "move-me move-me-3"} `} style={{ marginLeft: (window.innerWidth > 1200 && window.innerWidth < 1400) ? 220 : (window.innerWidth > 1399 && window.innerWidth < 1700) ? 270 : (window.innerWidth > 1699) ? 370 : 220, marginTop: 100 }} >
+                <div className={`d-flex justify-content-center ${(window.innerWidth > 1400 && window.innerWidth < 1700) ? "move-me move-me-4" : (window.innerWidth > 1699) ? "move-me move-me-5" : "move-me move-me-3"} `} style={{ marginLeft: (window.innerWidth > 1200 && window.innerWidth < 1400) ? 220 : (window.innerWidth > 1399 && window.innerWidth < 1700) ? 270 : (window.innerWidth > 1699) ? 370 : 220, marginTop:window.innerWidth > 1600 ? -100 : 100 }} >
                   <img
                     src={"/lightViolet.png"}
                     alt="selected-ribbons"
@@ -128,8 +120,7 @@ export const Home = (props) => {
                   />
                 </div>
 
-                {/* <img src={} className="img-fluid" style={{ width: '50%' }} /> */}
-                <img src={SelectedRibbons.SelectedRibbons[shareCount].imgaeUrl} className="img-fluid" style={{ width: window.innerWidth > 1590 && '122%', zIndex: 0, position: 'relative' }} />
+                <img src={SelectedRibbons.SelectedRibbons[shareCount].imgaeUrl} className="img-fluid" style={{ width: window.innerWidth > 1590 && '120%', zIndex: 0, position: 'relative' }} />
               </div>
             )}
           <Counter />
@@ -146,20 +137,17 @@ export const Home = (props) => {
           backgroundImage: `url(${BackgroundMobile})`, backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}>
-          <div className='d-flex justify-content-end col-10 mx-5' style={{position: 'absolute', zIndex: 5, paddingTop: '60%', bottom: minimize && 100, marginTop: minimize ? 0 : '35%'}}>
+          <div className='d-flex justify-content-center col-10 mx-5' style={{position: 'absolute', zIndex: 5, paddingTop: '60%',right: minimize && -160, bottom: minimize && 100, marginTop: minimize ? 0 : '35%'}}>
             <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width:minimize ? 50 : 150, position: 'fixed', opacity: 0.9 }} />
             {
               !minimize &&
-            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop:145,right: 90, fontSize:25 , color:violet, zIndex:3  }}></i>
+            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop:145,/*right: (window.innerWidth > 370 && window.innerWidth < 400 )? 237 : 225,*/ fontSize:25 , color:violet, zIndex:3  }}></i>
 
             }
             </div>
-          {/* <div className='d-flex justify-content-end col-10 mx-5' style={{ position: 'absolute', zIndex: 1, paddingTop: '60%' }}>
-            <img src={"/floater.png"} alt='floater' style={{ width: 150, position: 'fixed', opacity: 0.9 }} />
-
-          </div> */}
+          
           <HomeTitle media={media} />
-          <div className='text-center px-4' style={{ marginTop: 20, zIndex: 1 /* marginLeft: media.cusHeight_600 ? -25 : 20*/ }}>
+          <div className='text-center px-4 d-flex justify-content-center' style={{ marginTop: 20, zIndex: 4 /* marginLeft: media.cusHeight_600 ? -25 : 20*/ }}>
             <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} />
           </div>
           <div className='d-flex ' style={{ position:'relative' }}>
@@ -178,11 +166,16 @@ export const Home = (props) => {
                   style={{ zIndex: 0, width: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 50, }}
                 />
               </div>
-              <img src={SelectedRibbons.SelectedRibbonsForMobile[shareCount].imgaeUrl} style={{
-                top:-130,
-              bottom: media.cusHeight_700 ? 20 : 50, right: -1, height: 'auto', position: 'absolute',
-              maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '77%'
-            }} />
+              <div >
+                <img src={"/balloon.png"} style={{ width:300, position:'absolute',right:25, top:-50 }} />
+                <img src={SelectedRibbons.SelectedRibbonsForMobile[shareCount].imgaeUrl} style={{
+                  top:-110,
+                bottom: media.cusHeight_700 ? 20 : 50, right: -50, height: 'auto', position: 'absolute',
+                maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '77%'
+              }} />
+                </div>
+
+           
             
             
           </div>

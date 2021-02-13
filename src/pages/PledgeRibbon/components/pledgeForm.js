@@ -103,13 +103,7 @@ const PledgeForm = (props) => {
                 media={media}
               />
             </div>
-            {/* {
-              (warning && step === 1) && (
-                <div className="d-flex text-warning justify-content-center text-center pt-2 align-self-center" style={{}}>
-                  <i className="fa fa-exclamation" aria-hidden="true"></i>
-                    Please fill out of this field!
-                </div>
-              )} */}
+            
               {
               ((warning ) && step === 1) && (
                 <div className="d-flex text-danger justify-content-center text-center pt-3 align-self-center" style={{}}>
@@ -277,33 +271,14 @@ const [ rand, setRandom ]=useState(0);
               onMouseOver={(e) => _handleHover(e)}
             >
               <h6 className='px-2' id={k}>{v.name}</h6>
-              {/* {
-                (v.name == "All Cancers") ?
-                  <>
-                    {
-                      cancerDetails.length >0 ?
-                        <div className="px-2" id={k} style={{ fontSize: 12 }}>
-                          {cancerDetails.map((c, i) => (
-                            <p key={i}>{c}</p>
-                          ))}
-                        </div> :
-                        <div className="px-2" id={k} style={{ fontSize: 12 }}>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                          Proin vel sollicitudin sapien.
-                    </div>
-                    }
-
-                  </>
-                  : */}
+             
               <>
                 {v.ribbonDetails ? (
                   <div className="px-2" id={k} style={{ fontSize: 12 }}>
                     {
                                 v.ribbonDetails[rand]
                               }
-                    {/* {v.ribbonDetails.map((c, i) => (
-                      <p key={i}>{c}</p>
-                    ))} */}
+                   
                   </div>
                 ) : (
                     <div className="px-2" id={k} style={{ fontSize: 12 }}>
@@ -471,14 +446,30 @@ export const ThankYouCard = (props) => {
               className="mx-1"
             />
           </div>
-          <div className="pb-2 d-flex justify-content-center">
+          {
+            winner ?
+            <div>
             <NCIS_Button
-              text={"Back To Home"}
-              onClick={_handlePledge}
+              text={ "Proceed"}
+              onClick={()=>{
+                var win = window.open("https://form.gov.sg/5fffb109fa1b62001210c2d9","_blank");
+                win.focus();
+              }}
               className="mx-1"
               buttonColor={violet}
             />
-          </div>
+          </div>:
+          <div className="pb-2 d-flex justify-content-center">
+          <NCIS_Button
+            text={ "Back To Home"}
+            onClick={_handlePledge}
+            className="mx-1"
+            buttonColor={violet}
+          />
+        </div>
+          }
+          
+
         </div>
       </div>
     </div>

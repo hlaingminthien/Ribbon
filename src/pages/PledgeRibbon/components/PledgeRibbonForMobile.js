@@ -46,6 +46,7 @@ const PledgeRibbonsForMobile = (props) => {
   };
   const handleShareApp = (app) => {
     setShareApp(app == shareApp ? null : app);
+    _handleShare();
   };
  
   return (
@@ -587,7 +588,20 @@ const ThankuCard = (props) => {
             fontSize={11}
           />
         </div>
-        <div className="p-2 d-flex justify-content-center">
+        {
+          winner ?
+          <div>
+            <NCIS_Button
+              text={ "Proceed"}
+              onClick={()=>{
+                var win = window.open("https://form.gov.sg/5fffb109fa1b62001210c2d9","_blank");
+                win.focus();
+              }}
+              className="mx-1"
+              buttonColor={violet}
+            />
+          </div>:
+          <div className="p-2 d-flex justify-content-center">
           <NCIS_Button
             text={"Back To Home"}
             onClick={_handlePledge}
@@ -596,6 +610,8 @@ const ThankuCard = (props) => {
             fontSize={11}
           />
         </div>
+        }
+        
       </div>
     </div>
   );
