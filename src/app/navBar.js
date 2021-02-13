@@ -25,7 +25,7 @@ const NavBar = (props) => {
               <Link
                 className="nav-link"
                 style={{ fontSize: 14 }}
-                to="/eventDetails"
+                to="/event_details"
               >
                 Event Details
               </Link>
