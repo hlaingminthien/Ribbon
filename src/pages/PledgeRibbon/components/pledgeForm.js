@@ -14,6 +14,7 @@ import { NCIS_Selector } from "../../../tools/NCIS_Selector";
 import { NCIS_TextBox } from "../../../tools/NCIS_TextBox";
 import { NCIS_Button } from "../../../tools/NCIS_Button";
 import RibbonImages from "../../../assets/RibbonImages.json";
+import EmailShareCard from "../../../assets/images/EmailShareCard.png";
 import { violet, paleViolet } from "../../../assets/colors";
 import { SocialShare } from "./socialShareIcons";
 
@@ -33,10 +34,11 @@ const PledgeForm = (props) => {
     message,
     _handleShare,
     media, shareImage,
-    _handleImage, warning,winner,imgUrl
+    _handleImage, warning,winner,imgUrl, cancerName
   } = props;
   const [shareApp, setShareApp] = useState(null);
   const handleShareApp = (app) => {
+    console.log('hello..........')
     setShareApp(app == shareApp ? null : app);
     _handleShare();
   };
@@ -64,7 +66,7 @@ const PledgeForm = (props) => {
         {step === 1 && <PledgeRibbons {...props} />}
         {/* //  _handleSelect={_handleSelect} _handleRibbonClick={_handleRibbonClick} menuVisible={menuVisible} */}
         {(step === 3 && complete) ? (
-          <ThankYouCard _handlePledge={_handlePledge} shareApp={shareApp} winner={winner} />
+          <ThankYouCard _handlePledge={_handlePledge} recipientName={recipientName} senderName={senderName} message={message} imgUrl={imgUrl} cancerName={cancerName} shareApp={shareApp} winner={winner} />
         ) : (step === 3 ) ? (
           <div className='d-flex justify-content-center'>
             <div className='px-2 pt-5' style={{ fontWeight: 600 }}>Share Via:</div>
@@ -297,11 +299,58 @@ const [ rand, setRandom ]=useState(0);
 };
 
 export const ThankYouCard = (props) => {
-  const { _handleEdit, _handlePledge, shareApp,winner } = props;
+  const { _handleEdit, _handlePledge, shareApp,winner, senderName, recipientName, message, imgUrl, cancerName } = props;
 
   return (
     <div className="d-flex justify-content-center px-2 " style={{ position:'absolute' }}>
-      <div
+      {shareApp === 5 ? <div className="p-3 col-8 mx-4">
+        <img
+              src={EmailShareCard}
+              alt="EmailShareCard"
+              style={{width: 280}}
+            />
+            <div style={{marginTop: -300, color: 'white', paddingTop: 10, paddingLeft: 20, paddingRight: 20, width: 280}}>
+            <div style={{fontSize: 13, marginTop: 10}}>{senderName}</div>
+            <div style={{fontSize: 13, marginTop: 10}}>{message}</div>
+            <div style={{fontSize: 13, marginTop: 10}}>Love, {recipientName}</div>
+            </div>
+            <>
+            <img
+              src={imgUrl ? imgUrl : "./mysteryBall.png"}
+              alt="selected-ribbons"
+              style={{ width: 80, height: 80, right: 20, bottom: -45, position: "absolute" }}
+            />
+              <svg viewBox="-12 2 115 56" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", right: 30, bottom: -17, width: 76, height: 60 }} >
+                <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
+                  d2="M0,58 Q50,-20 100,58"
+                  d1={`M 0,120 A 32,32 0 1, 0 54,0 A 32,32 0 1, 0 -54,0`}  
+                  // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
+                  // d="M2,62 Q50,-38 104,62"
+                  // d="M 100 0 A 1 1 0 0 0 -100 0"
+                  // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
+                  d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
+                />
+
+                <text fontSize={10} fontWeight={600} fill="white">
+                  <textPath href="#curve-path" startOffset={(50 - (cancerName ? cancerName.length : 18) - 14 * 2) + "%"}>
+                    {cancerName+" Cancer"}
+                  </textPath>
+                </text>
+              </svg> </> 
+              <button onClick={() => window.location.reload()} style={{
+                border: 1,
+                borderColor:  '#fd784f',
+                    borderRadius: 50,
+                    background: '#fd784f',
+                    color: 'white',
+                    fontSize: 12,
+                    padding: 5,
+                    position: "absolute",
+                    bottom: -133,
+                    right: 100,
+                    cursor: 'pointer'
+              }}>Pledge A Ribbon</button>
+      </div> : <div
         className="bg-light p-3 col-8 my-3 mx-4 shadow"
         style={{ borderRadius: 10 }}
       >
@@ -359,18 +408,19 @@ export const ThankYouCard = (props) => {
               3.Select your recipient and insert the GIF into your message.
             </div> */}
 
-          </div>:
-          shareApp === 5 ?
-          <div className='p-1' style={{ fontSize: 13 }}>
-          Share the message via to spread the word to more people!<br />
-          {/* <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+          </div>
+          // :
+          // shareApp === 5 ?
+          // <div className='p-1' style={{ fontSize: 13 }}>
+          // Share the message via to spread the word to more people!<br />
+          /* <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
             1.Download your pledge message onto your device.
             <br />
             2.Upload your pledge message onto your Instagram. (Remember to add #ncisribbonchallenge in your caption)​
-          </div> */}
-
-        </div> :
+          </div> */
+        // </div>
+         :
         shareApp === 6 ?
         <div className='p-1' style={{ fontSize: 13 }}>
           Share the message on your Telegram  to spread the word to more people!<br />
@@ -471,7 +521,7 @@ export const ThankYouCard = (props) => {
           
 
         </div>
-      </div>
+          </div>  }
     </div>
   );
 };
