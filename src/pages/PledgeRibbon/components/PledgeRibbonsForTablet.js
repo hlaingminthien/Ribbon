@@ -338,7 +338,7 @@ const Ribbon = (props) => {
                 // onClick={() => setImgUrl(v.imgaeUrl)}
               >
                 <div
-                  className="text-center align-self-center pb-3 pt-2"
+                  className="d-flex flex-row flex-wrap flex-lg-wrap flex-sm-wrap flex-md-wrap justify-content-center text-center  pb-3 pt-2"
                   id={k}
                   style={{ borderRadius: "10px", minHeight: 73 }}
                   onClick={(e) => _handleClick(e, v.name, k, v.imgaeUrl)}
@@ -347,8 +347,9 @@ const Ribbon = (props) => {
                 >
                   <img
                     src={v.imgaeUrl}
+                    className=''
                     alt="ribbons"
-                    style={{ width: 40 }}
+                    style={{ width: 40,height: 40 }}
                     id={k}
                   />
                   <div
@@ -356,7 +357,7 @@ const Ribbon = (props) => {
                     id={k}
                     style={{
                       textAlign: "center",
-                      marginTop: 3,
+                      marginTop: 40,
                       fontWeight: "500",
                       fontSize: 14,
                       position: "absolute",

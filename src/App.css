@@ -161,9 +161,14 @@ div.circTxt {
   -webkit-animation: float6 4s ease-out infinite;
 }
 
-.move-me-8 { /*for tablet*/
+.move-me-8 { /*for mobile*/
   animation: float7 4s ease-out infinite;
   -webkit-animation: float7 4s ease-out infinite;
+}
+
+.move-me-9 {
+  /*formobile*/animation: float8 4s ease-out infinite;
+  -webkit-animation: float8 4s ease-out infinite;
 }
 
 @keyframes float {
@@ -362,24 +367,56 @@ div.circTxt {
     -o-transform: translate(0, 0px);
   }
   50% {
-    transform: translate(0, 260px);
-    -webkit-transform: translate(0, 260px);
-    -moz-transform: translate(0, 260px);
-    -ms-transform: translate(0, 260px);
-    -o-transform: translate(0, 260px);
+    transform: translate(0, 280px);
+    -webkit-transform: translate(0, 280px);
+    -moz-transform: translate(0, 280px);
+    -ms-transform: translate(0, 280px);
+    -o-transform: translate(0, 280px);
   }
   75% {
-    transform: translate(10px,250px);
-    -webkit-transform: translate(10px,250px);
-    -moz-transform: translate(10px,250px);
-    -ms-transform: translate(10px,250px);
-    -o-transform: translate(10px,250px);
+    transform: translate(10px,270px);
+    -webkit-transform: translate(10px,270px);
+    -moz-transform: translate(10px,270px);
+    -ms-transform: translate(10px,270px);
+    -o-transform: translate(10px,270px);
   }
   100% {
-    transform: translate(20px, 260px);
-    -webkit-transform: translate(20px, 260px);
-    -moz-transform: translate(20px, 260px);
-    -ms-transform: translate(20px, 260px);
-    -o-transform: translate(20px, 260px);
+    transform: translate(20px, 280px);
+    -webkit-transform: translate(20px, 280px);
+    -moz-transform: translate(20px, 280px);
+    -ms-transform: translate(20px, 280px);
+    -o-transform: translate(20px, 280px);
+  }
+}
+
+
+@keyframes float8 {
+  0% {
+    transform: translate(0, 0px);
+    -webkit-transform: translate(0, 0px);
+    -moz-transform: translate(0, 0px);
+    -ms-transform: translate(0, 0px);
+    -o-transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 210px);
+    -webkit-transform: translate(0, 200px);
+    -moz-transform: translate(0, 200px);
+    -ms-transform: translate(0, 200px);
+    -o-transform: translate(0, 200px);
+  }
+  75% {
+    transform: translate(10px,190px);
+    -webkit-transform: translate(10px,190px);
+    -moz-transform: translate(10px,190px);
+    -ms-transform: translate(10px,190px);
+    -o-transform: translate(10px,190px);
+  }
+  100% {
+    transform: translate(20px, 200px);
+    -webkit-transform: translate(20px, 200px);
+    -moz-transform: translate(20px, 200px);
+    -ms-transform: translate(20px, 200px);
+    -o-transform: translate(20px, 200px);
   }
 }
