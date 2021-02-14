@@ -32,7 +32,7 @@ const PledgeRibbonsForMobile = (props) => {
     _handleReview,
     _handleConfirm,
     _handleEdit,
-    recipientName,
+    recipientName,setShowThankU,showThankU,
     senderName,setCancerName,winner,warning,
     message, shareImage,cancer,setImgUrl,imgUrl,complete,_handleShare
   } = props;
@@ -50,31 +50,31 @@ const PledgeRibbonsForMobile = (props) => {
   };
  
   return (
-    <div>
+    <div >
       <strong
-        className="px-3 py-0"
+        className={`${(step === 3 && !showThankU) ? "px-5" : "px-3"} py-0`}
         style={{ fontSize: 12 }}
       >{`Step ${step}:`}</strong>
       {step === 1 ? (
         <div className="px-3 py-0" style={{ fontSize: 14, fontWeight: "bold" }}>
-          Choose Your Ribbon and Create Your Message
+          Choose A Ribbon and Create Your Message
         </div>
       ) : step === 2 ? (
         <div className="px-2 py-0" style={{ fontSize: 14, fontWeight: "bold" }}>
           Review Your Message{" "}
         </div>
       ) : step === 3 ? (
-        <div className="px-3 py-0">
-          <div className="px-3" style={{ fontSize: 14, fontWeight: "bold" }}>
+        <div className={`${(step === 3 && !showThankU) ? " px-5" : "px-2" } py-0`}>
+          <div className="px-2" style={{ fontSize: 14, fontWeight: "bold" }}>
             Share your message
           </div>
-          <div className="px-3 py-0" style={{ fontSize: 11, fontWeight: 600 }}>
+          <div className="px-2 py-0" style={{ fontSize: 11, fontWeight: 600 }}>
           Select the following icons to share your message
           </div>
         </div>
       ) : null}
 
-      <Ribbons {...props} complete={complete} _handleShare={_handleShare} handleShareApp={handleShareApp} shareApp={shareApp} shareImg={shareImage} cancer={cancer} imgUrl={imgUrl} setImgUrl={setImgUrl} setCancerName={setCancerName} warning={warning} />
+      <Ribbons {...props} complete={complete} _handleShare={_handleShare}  handleShareApp={handleShareApp} showThankU={showThankU} shareApp={shareApp} shareImg={shareImage} cancer={cancer} imgUrl={imgUrl} setImgUrl={setImgUrl} setCancerName={setCancerName} warning={warning} />
       {step == 2 && (
         <div className="d-flex justify-content-center flex-wrap">
           <div className="py-1">
@@ -94,8 +94,8 @@ const PledgeRibbonsForMobile = (props) => {
           </div>
         </div>
       )}
-      {complete && step == 3 && (
-        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge} shareApp={shareApp} winner={winner} />
+      {(complete && step == 3 && showThankU )&& (
+        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge} setShowThankU={setShowThankU}  shareApp={shareApp} winner={winner} />
       )}
     </div>
   );
@@ -104,7 +104,7 @@ export default withRouter(PledgeRibbonsForMobile);
 
 const Ribbons = (props) => {
   const { _handleRibbonClick,
-    step,
+    step,showThankU,
     _handleTextChange,
     recipientName,
     complete,
@@ -287,7 +287,7 @@ const Ribbons = (props) => {
           </div>
         </>
       )}
-      {step === 3 && !complete && (
+      {(step === 3 && !showThankU ) && (
         <div className=''>
         <SocialShare
               handleShareApp={handleShareApp}
@@ -301,7 +301,7 @@ const Ribbons = (props) => {
 
       )}
       {(step == 2 ||
-        (step == 3 && !complete) ||
+        (step == 3 && !showThankU) ||
         (step == 1 && nextOfStep1)) && (
           <div className='py-2'>
             <div className=" d-flex py-3 justify-content-center text-white" id="my-node">
@@ -325,7 +325,7 @@ const Ribbons = (props) => {
                   </span>
                   <span
                     className="text-white pt-3"
-                    style={{ fontWeight: 500, fontSize: 13, lineHeight: 1.5 }}
+                    style={{ fontWeight: 500, fontSize: 13 }}
                   >
                     {message}
                     {/* {message ? "!" : null} */}
@@ -357,7 +357,7 @@ const Ribbons = (props) => {
 
                 <text fontSize={10} fontWeight={600} fill="white">
                   <textPath href="#curve-path" startOffset={(50 - cancer.length - 14 * 2) + "%"}>
-                    {cancer+" Cancer"}
+                  {(cancer )+ ((cancer == "All Cancers" || !cancer) ? "" : " Cancer")}
                   </textPath>
                 </text>
               </svg> </> : 
@@ -453,11 +453,17 @@ const Ribbons = (props) => {
 };
 
 const ThankuCard = (props) => {
-  const { _handleEdit, _handlePledge, shareApp, winner } = props;
+  const { _handleEdit, _handlePledge, shareApp, winner , setShowThankU } = props;
 
   return (
     <div className="d-flex justify-content-center " style={{  }}>
-      <div className="bg-light p-2 col-10 m-3" style={{ borderRadius: 10 }}>
+      <div className="bg-light px-2 col-10 m-3" style={{ borderRadius: 10 }}>
+        <div className='d-flex justify-content-end py-2 px-1'>
+        <i
+            className="fa fa-times align-self-start pt-1"
+            onClick={() => setShowThankU(false)}
+          ></i>
+        </div>
       <div
           className="text-center"
           style={{ fontWeight: "bold", fontSize: 18 }}

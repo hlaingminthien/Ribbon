@@ -28,6 +28,7 @@ const PledgeContainer = (props) => {
   const [complete, setComplete] = useState(false);
   const [winner, setWinner] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [ showThankU, setShowThankU ]= useState(false);
 
   const _handleEdit = () => {
     setStep(step == 3 ? 2 : 1);
@@ -157,6 +158,7 @@ const PledgeContainer = (props) => {
   const _handleShare = () => {
     setComplete(true);
     setStep(3);
+    setShowThankU(true);
   };
   
   let background =
@@ -173,7 +175,7 @@ const PledgeContainer = (props) => {
           className="img-fluid  w-100"
           src={background}
           alt="bg-svg"
-          style={{ height: media.desktop ? "96vh" : media.tablet ? "100vh" : "100vh" }}
+          style={{ minHeight: media.desktop ? "96vh" : media.tablet ? "100vh" : "100vh" }}
         />
       </div>
       <div className={`${(media.tablet) ? "col-12" : "col-10"} pt-4`}>
@@ -230,6 +232,8 @@ const PledgeContainer = (props) => {
                 shareImage={shareImage}
                 winner={winner}
                 imgUrl={imgUrl}
+                setShowThankU={setShowThankU}
+                showThankU={showThankU}
               />
             </div>
 
@@ -264,6 +268,8 @@ const PledgeContainer = (props) => {
                 setCancerName={setCancerName}
                 winner={winner}
                 warning={warning}
+                setShowThankU={setShowThankU}
+                showThankU={showThankU}
               />
             </div>
             :
@@ -271,7 +277,7 @@ const PledgeContainer = (props) => {
               <div className="d-flex justify-content-center">
                 <div className="">
                   <div className='d-flex pt-3 justify-content-center'>
-                    <div className='col-10'>
+                    <div className='col-8'>
                       <PledgeProgress step={step} media={media} />
 
                     </div>
@@ -302,6 +308,8 @@ const PledgeContainer = (props) => {
                     cancer={cancerName}
                     winner={winner}
                     warning={warning}
+                    setShowThankU={setShowThankU}
+                    showThankU={showThankU}
                   />
                 </div>
               </div>

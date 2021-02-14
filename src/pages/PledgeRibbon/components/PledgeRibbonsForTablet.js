@@ -30,7 +30,7 @@ const PledgeRibbonsForTablet = (props) => {
     _handleTextChange,
     step,setImgUrl,imgUrl,
     media,complete,_handleShare,
-    _handleReview,
+    _handleReview,showThankU,setShowThankU,
     _handleConfirm,
     _handleEdit,
     recipientName,
@@ -70,7 +70,7 @@ const PledgeRibbonsForTablet = (props) => {
               className="px-3 py-0"
               style={{ fontSize: 18, fontWeight: "bold" }}
             >
-              Choose Your Ribbon and Create Your Message
+              Choose A Ribbon and Create Your Message
             </div>
           ) : step === 2 ? (
             <div
@@ -104,10 +104,10 @@ const PledgeRibbonsForTablet = (props) => {
         </div>
       </div>
       <div className={` ${window.innerWidth > 1000 && "px-2" } `}>
-        <Ribbon {...props} setImgUrl={setImgUrl} setCancerName={setCancerName} />
+        <Ribbon {...props} setImgUrl={setImgUrl} setCancerName={setCancerName}  />
 
       </div>
-      {(step === 3 && !complete) && (
+      {(step === 3 && !showThankU ) && (
           <SocialShare
           handleShareApp={handleShareApp}
           _handleShare={_handleShare}
@@ -118,8 +118,8 @@ const PledgeRibbonsForTablet = (props) => {
         />
         // <ShareApp shareApp={shareApp} handleShareApp={handleShareApp} />
       )}
-      {complete && step == 3 && (
-        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge}  media={media} shareApp={shareApp} winner={winner} />
+      {(complete && step == 3 && showThankU ) && (
+        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge}  media={media} shareApp={shareApp} setShowThankU={setShowThankU} showThankU={showThankU} winner={winner} />
       )}
       {step == 2 && (
         <div className="d-flex justify-content-center flex-wrap">
@@ -174,7 +174,7 @@ const PledgeCardForTablet = (props) => {
           </span>
           <span
             className="text-white pt-3 "
-            style={{ fontWeight: 500, fontSize: (window.innerWidth > 780 && media.tablet) ? 14 : 13, lineHeight: 1.8 }}
+            style={{ fontWeight: 500, fontSize: (window.innerWidth > 780 && media.tablet) ? 14 : 13, }}
           >
             {message}
             {/* {message ? "!" : null} */}
@@ -206,7 +206,7 @@ const PledgeCardForTablet = (props) => {
 
                 <text fontSize={10} fontWeight={600} fill="white">
                   <textPath href="#curve-path" startOffset={(50 - cancer.length - 14 * 2) + "%"}>
-                    {cancer+" Cancer"}
+                  {(cancer )+ ((cancer == "All Cancers" || !cancer) ? "" : " Cancer")}
                   </textPath>
                 </text>
               </svg> </> : 
@@ -481,14 +481,20 @@ const Ribbon = (props) => {
   );
 };
 const ThankuCard = (props) => {
-  const { _handleEdit, _handlePledge, media, shareApp, winner } = props;
+  const { _handleEdit, _handlePledge, media, shareApp, winner, setShowThankU } = props;
 
   return (
-    <div className="d-flex justify-content-center py-2 ">
+    <div className="d-flex justify-content-center py-2 " style={{position:'absolute'}}>
       <div
-        className="bg-light p-3 col-6 m-3 shadow"
+        className="bg-light px-3 col-8 m-3 pt-0 shadow"
         style={{ borderRadius: 10 }}
       >
+        <div className='d-flex justify-content-end py-2'>
+        <i
+            className="fa fa-times align-self-start pt-1"
+            onClick={() => setShowThankU(false)}
+          ></i>
+        </div>
         <div
           className="text-center"
           style={{ fontWeight: "bold", fontSize: 18 }}

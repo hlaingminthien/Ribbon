@@ -81,7 +81,7 @@ const Options = (props) => {
           {v1.message.map((v2, k2) => (
             <p className='py-2'
             key={v2.id}
-              style={{ cursor: "pointer", paddingLeft: 10,fontWeight: 500, fontSize: window.innerWidth > 1500 ? 22 :media.mobile? 12: 14 }}
+              style={{ cursor: "pointer", paddingLeft: 10,fontWeight: 500, fontSize: window.innerWidth > 1500 ? 18 :media.mobile? 12: 14 }}
               onMouseEnter={(e) => _handleMouseEnter(e)}
               onMouseLeave={(e) => _handleMouseLeave(e)}
               id={v2.id + v2.text}
