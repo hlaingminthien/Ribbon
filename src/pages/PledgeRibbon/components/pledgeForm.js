@@ -105,16 +105,6 @@ const PledgeForm = (props) => {
               />
             </div>
             
-              {
-              ((warning ) && step === 1) && (
-                <div className="d-flex text-danger justify-content-center text-center pt-3 align-self-center" style={{}}>
-                  
-                  {
-                    imgUrl ? "Please fill out of this field" : (!imgUrl && (!recipientName || !senderName || !message)) ? "Please Select your Ribbon and fill out of this field " : "Please Select your Ribbon" 
-                  }
-                    <i className="fa fa-exclamation px-1" aria-hidden="true" style={{ color:'red' }}></i>
-                </div>
-              )}
             <div className="col-12 pt-4">
               <NCIS_Selector
                 placeHolder={message !== "" ? message : "Select Message"}
@@ -124,6 +114,17 @@ const PledgeForm = (props) => {
                 media={media}
               />
             </div>
+            
+            {
+              ((warning ) && step === 1) && (
+                <div className="d-flex text-danger justify-content-center text-center pt-3 align-self-center" style={{}}>
+                  
+                  {
+                    imgUrl ? "Please fill out of this field" : (!imgUrl && (!recipientName || !senderName || !message)) ? "Please Select your Ribbon and fill out of this field " : "Please Select your Ribbon" 
+                  }
+                    <i className="fa fa-exclamation px-1" aria-hidden="true" style={{ color:'red' }}></i>
+                </div>
+              )}
             {!menuVisible && step === 1 ? (
               <div className='pb-4' >
                 <div className='pt-4 d-flex justify-content-center'>
