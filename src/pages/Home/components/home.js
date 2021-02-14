@@ -82,9 +82,8 @@ export const Home = (props) => {
             backgroundImage: `url(${media.tablet ? BackgroundTablet : Background})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: media.tablet ? "center" : "none",
+            backgroundPosition: "center",
             minHeight:  '100vh',
-            
           }}
         >
 
@@ -188,7 +187,7 @@ export const Home = (props) => {
             
           </div>
 
-          <div className='' style={{ marginTop: '22rem', position: 'relative' }}>
+          <div className='' style={{ marginTop: '22rem', position: 'relative', marginBottom: 25}}>
             <HighlightsForMobo media={media} _handleRoute={_handleRoute} />
 
           </div>

@@ -315,8 +315,8 @@ const Ribbons = (props) => {
                 style={{ position: "absolute", width: 260 }}
               >
                 <div
-                  className={`d-flex flex-column pt-3 ${step != 1 && "move-me move-me-2"
-                    } `}
+                // ${step != 1 && "move-me move-me-2"} 
+                  className={`d-flex flex-column pt-3 `}
                   style={{ minHeight: 180 }}
                 >
                   <span className="" style={{ fontSize: 14, fontWeight: "bold" }}>

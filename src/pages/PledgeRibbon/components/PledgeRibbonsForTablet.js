@@ -164,7 +164,8 @@ const PledgeCardForTablet = (props) => {
         style={{ position: "absolute", width: (window.innerWidth > 780 && media.tablet) ? 320 : 275 }}
       >
         <div
-          className={`d-flex flex-column px-2 pt-2 ${step != 1 && "move-me move-me-1"} `}
+        // ${step != 1 && "move-me move-me-1"} 
+          className={`d-flex flex-column px-2 pt-2 `}
           style={{ minHeight: (window.innerWidth > 780 && media.tablet) ? 145 : 145, maxHeight: 145 }}
         >
           <span className="" style={{ fontSize: (window.innerWidth > 780 && media.tablet) ? 17 : 14, fontWeight: "bold" }}>
