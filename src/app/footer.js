@@ -10,9 +10,9 @@ const Footer = (props) => {
   return (
     <div className='m-0'>
     {
-      !media.mobile &&
+      // !media.mobile &&
       <div className="d-flex flex-row align-self-center justify-content-between py-1 px-3 m-0" style={{ background: "#ffffff", position: 'fixed', bottom: 0, boxShadow: '1px -1px 3px 1px #e4e4e4',
-    width: '100%', fontSize:14, zIndex:5 }}>
+    width: '100%', fontSize: media.mobile ? 8 : 14, zIndex:5 }}>
       <div className='p-2' style={{ fontWeight:500 }}>© 2021 NCIS All Rights Reserved.
       </div>
       <div className='align-self-center px-2 m-0' >
