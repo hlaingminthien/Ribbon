@@ -39,16 +39,23 @@ import React from "react";
 
 
 export const PledgeCard = (props) => {
-  const { recipientName, senderName, message, media, step, imgUrl, cancer } = props;
+  const { recipientName, senderName, message, media, step, imgUrl, cancer, finalImage } = props;
 
   return (
     <div className=" d-flex justify-content-center text-white shadow " id="my-node" style={{ background: 'transparent', border: '1px soldi #fff' }}>
+      {finalImage ? 
       <img
+      className="img-responsive"
+      src={finalImage}
+      style={{ width: 290, height: 300, borderRadius: 10 }}
+    />
+      : <img
         className="img-responsive"
         src={(imgUrl || recipientName || senderName || message) ? "/cardnoText.jpg" : "/card.jpg"}
         style={{ width: 290, height: 300, borderRadius: 10 }}
       />
-
+}
+{!finalImage && 
       <div
         className=" pt-4 justify-content-start text-left"
         style={{ position: "absolute", width: 295, padding: 20, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? 20 : 18, textAlign: 'left' }}
@@ -124,6 +131,7 @@ export const PledgeCard = (props) => {
           </div>
         )}
       </div>
+      }
     </div>
   );
 };

@@ -28,7 +28,7 @@ const PledgeContainer = (props) => {
   const [complete, setComplete] = useState(false);
   const [winner, setWinner] = useState(0);
   const [loading, setLoading] = useState(false);
-
+  const [finalImage, setFinalImage] = useState(null);
   const _handleEdit = () => {
     setStep(step == 3 ? 2 : 1);
   };
@@ -56,6 +56,7 @@ const PledgeContainer = (props) => {
     domtoimage.toPng(myNode).then(base64data=>{
       const url = `${Base_Url}uploadImage`;
       saveAs(base64data, "ribbon.png");
+      setFinalImage(base64data);
       axios.post(url, { ribbon: base64data })
         .then(res => {
           const shareImg = res.data.payload;
@@ -193,6 +194,7 @@ const PledgeContainer = (props) => {
                   _handleImage={_handleImage}
                   imgUrl={imgUrl}
                   cancer={cancerName}
+                  finalImage={finalImage}
                 />
               </div>
             </div>
