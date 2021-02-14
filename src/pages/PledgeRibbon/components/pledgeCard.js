@@ -54,7 +54,8 @@ export const PledgeCard = (props) => {
         style={{ position: "absolute", width: 295, padding: 20, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? 20 : 18, textAlign: 'left' }}
       >
         <div
-          className={` pt-3 ${step != 1 && "move-me move-me-2"}`}
+        // ${step != 1 && "move-me move-me-2"}
+          className={` pt-3 `}
           style={{ minHeight: 165 }}
         >
           <span className="" style={{ fontSize: 16, fontWeight: "bold" }}>
