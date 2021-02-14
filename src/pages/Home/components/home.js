@@ -187,7 +187,7 @@ export const Home = (props) => {
             
           </div>
 
-          <div className='' style={{ marginTop: '22rem', position: 'relative' }}>
+          <div className='' style={{ marginTop: '22rem', position: 'relative', marginBottom: 25}}>
             <HighlightsForMobo media={media} _handleRoute={_handleRoute} />
 
           </div>
