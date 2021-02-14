@@ -3,16 +3,25 @@ import moment from "moment";
 import "../../../counter.scss";
 import { MediaContext } from "react-media-query-hoc";
 
-export const Counter = () => {
+export const Counter = props => {
+  const { shareCount } = props
+
+  var splitCount=(shareCount*5).toString().split('')
+    var loopcount=5-parseInt((shareCount*5).toString().length);
+    for (let index = 0; index < loopcount; index++) {
+      splitCount.unshift('0')
+    }
+    
+
   const TodayDate = moment(Date.now()).format("dddd MMMM DD, YYYY");
   const media = useContext(MediaContext);
   return media.mobile ?
-  <CounterMobile TodayDate={TodayDate} />
+  <CounterMobile TodayDate={TodayDate} splitCount={splitCount} />
    : media.tablet ? (
-    <CounterTablet TodayDate={TodayDate} />
+    <CounterTablet TodayDate={TodayDate} splitCount={splitCount} />
   ) : (
       <div
-        className="col-3 text-center"
+        className="col-4 text-center"
         style={{ position: "absolute", right: 4, top: -34 }}
       >
         <div
@@ -27,13 +36,18 @@ export const Counter = () => {
             height: 250,
           }}
         />
-        <div class="numbers">
+        <div className="numbers">
           <div style={{ top: 10 }}>
-            <span class="digit">0</span>
-            <span class="digit">7</span>
-            <span class="digit">2</span>
-            <span class="digit">5</span>
-            <span class="digit">9</span>
+            {
+              splitCount.map((v,k)=>(
+                <span className="digit" key={k}>{v}</span>
+              ))
+            }
+            
+            {/* <span className="digit">{splitCount[1]}</span>
+            <span className="digit">{splitCount[0]}</span>
+            <span className="digit">{splitCount[0]}</span>
+            <span className="digit">{splitCount[0]}</span> */}
           </div>
         </div>
         <div style={{ fontSize: 23, fontWeight: "bolder" }}>
@@ -45,13 +59,13 @@ export const Counter = () => {
 };
 
 export const CounterMobile = (props) => {
-  const { TodayDate } = props;
+  const { TodayDate, splitCount } = props;
   const media = useContext(MediaContext);
   // const tabletAndMobileSize=
   return (
     <div
       className="col-5 text-center"
-      style={{ position: "absolute", top: '54%', left:'8%' }}
+      style={{ position: "absolute", top: '54%', left:'8%', zIndex:2 }}
     >
       <div
         style={{
@@ -62,13 +76,18 @@ export const CounterMobile = (props) => {
           boxShadow: "0 0 30px #9f9f9f",
         }}
       >
-          <div class="numbers px-0 pb-3" style={{ paddingTop: "50px" }}>
+          <div className="numbers px-0 pb-3" style={{ paddingTop: "50px" }}>
             <div style={{ top: 10 }}>
-              <span class="digit-mobile">0</span>
-              <span class="digit-mobile">7</span>
-              <span class="digit-mobile">2</span>
-              <span class="digit-mobile">5</span>
-              <span class="digit-mobile">9</span>
+            {
+              splitCount.map((v,k)=>(
+                <span className="digit-mobile" key={k}>{v}</span>
+              ))
+            }
+              {/* <span className="digit-mobile">0</span>
+              <span className="digit-mobile">7</span>
+              <span className="digit-mobile">2</span>
+              <span className="digit-mobile">5</span>
+              <span className="digit-mobile">9</span> */}
             </div>
           </div>
           <strong style={{fontSize: 12}}>Ribbons Collected</strong>
@@ -80,7 +99,7 @@ export const CounterMobile = (props) => {
 
 
 export const CounterTablet = (props) => {
-  const { TodayDate } = props;
+  const { TodayDate, splitCount } = props;
   const media = useContext(MediaContext);
   // const tabletAndMobileSize=
   return (
@@ -110,13 +129,18 @@ export const CounterTablet = (props) => {
           marginTop: 185,
           boxShadow: "0 0 30px #9f9f9f"
         }}> */}
-          <div class="numbers px-0 pb-3" style={{ paddingTop: "90px" }}>
+          <div className="numbers px-0 pb-3" style={{ paddingTop: "90px" }}>
             <div style={{ top: 10 }}>
-              <span class="digit">0</span>
-              <span class="digit">7</span>
-              <span class="digit">2</span>
-              <span class="digit">5</span>
-              <span class="digit">9</span>
+            {
+              splitCount.map((v,k)=>(
+                <span className="digit" key={k}>{v}</span>
+              ))
+            }
+              {/* <span className="digit">0</span>
+              <span className="digit">7</span>
+              <span className="digit">2</span>
+              <span className="digit">5</span>
+              <span className="digit">9</span> */}
             </div>
           </div>
           <strong>Ribbons Collected</strong>

@@ -185,9 +185,9 @@ const Ribbons = (props) => {
         <>
           <div className="d-flex flex-row flex-wrap justify-content-center px-1">
             {RibbonImages.Ribbons.map((v, k) => (
-              <div className="col-4 " style={{ cursor: "pointer" }} key={k}>
+              <div className="col-4 justify-content-center" style={{ cursor: "pointer" }} key={k}>
                 <div
-                  className="text-center"
+                  className="d-flex flex-row flex-wrap flex-sm-wrap flex-md-wrap justify-content-center text-center "
                   id={k}
                   style={{ borderRadius: "10px", minHeight: 70 }}
                   onClick={(e) => _handleClick(e, v.name, k, v.imgaeUrl)}
@@ -197,7 +197,7 @@ const Ribbons = (props) => {
                   <img
                     src={v.imgaeUrl}
                     alt="ribbons"
-                    style={{ width: 40 }}
+                    style={{ width: 40,height: 40 }}
                     id={k}
                   />
                   <div
@@ -205,7 +205,7 @@ const Ribbons = (props) => {
                     id={k}
                     style={{
                       textAlign: "center",
-                      marginTop: 3,
+                      marginTop: 40,
                       fontWeight: "500",
                       fontSize: 11,
                       position: "absolute",
@@ -394,7 +394,7 @@ const Ribbons = (props) => {
             </div>
             {((selected && step === 1) || step === 2) && (
               <form
-                className="form-group row m-auto justify-content-center py-1"
+                className="form-group row justify-content-center py-1"
                 onSubmit={_handleReview}
               >
                 <div className="col-6">

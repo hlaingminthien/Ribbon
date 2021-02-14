@@ -38,7 +38,6 @@ const PledgeForm = (props) => {
   } = props;
   const [shareApp, setShareApp] = useState(null);
   const handleShareApp = (app) => {
-    console.log('hello..........')
     setShareApp(app == shareApp ? null : app);
     _handleShare();
   };
@@ -241,7 +240,7 @@ const [ rand, setRandom ]=useState(0);
             <img
               src={v.imgaeUrl}
               alt="ribbons"
-              style={{ width: window.innerWidth > 1500 ? 50 : 40 }}
+              style={{ width: window.innerWidth > 1500 ? 50 : 40, height: window.innerWidth > 1500 ? 50 : 40 }}
               id={k}
             />
             <span

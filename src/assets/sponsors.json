@@ -2,15 +2,15 @@
     "sponsors": [
         {
             "id": 1,
-            "imgaeUrl": "./assets/images/sponsor/PfizerSpon.png", "name": ""
+            "imgaeUrl": "./assets/images/sponsor/PfizerSpon.png", "name": "PfizerSpon"
         },
         {
             "id": 2,
-            "imgaeUrl": "./assets/images/sponsor/msdSpon.jpg", "name": ""
+            "imgaeUrl": "./assets/images/sponsor/msdSpon.jpg", "name": "msdSpon"
         },
         {
             "id": 3,
-            "imgaeUrl": "./assets/images/sponsor/rocheSpon.jpg", "name": ""
+            "imgaeUrl": "./assets/images/sponsor/rocheSpon.jpg", "name": "rocheSpon"
         }
     ],
     "supportingPartners":[

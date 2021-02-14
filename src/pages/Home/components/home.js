@@ -63,10 +63,17 @@ export const Home = (props) => {
       })
       .catch(error => { throw error })
   }, [])
-  
+  let floaterMobileBottom = minimize ? 50 : 150
+  if (document.getElementById("floaterMobileId") !== null)
+      floaterMobileBottom = document.getElementById('floaterMobileId').getBoundingClientRect().bottom
+
+  if (document.getElementById("floaterMobileId") !== null)
+      var floaterMobileWidth = document.getElementById('floaterMobileId').clientWidth;
+
+    
 
   return (
-    <>
+    < div className='' style={{ overflowX:'hidden' }}>
       {
         (media.desktop || media.tablet) &&
         <div
@@ -76,17 +83,18 @@ export const Home = (props) => {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: media.tablet ? "center" : "none",
-            minHeight: media.mobile && '100vh'
+            minHeight:  '100vh',
+            
           }}
         >
 
           <HomeTitle media={media} _handlePledge={_handlePledge} />
-          <div className='d-flex justify-content-end col-10 ' style={{ position: 'absolute', marginTop: (media.desktop && window.innerWidth < 1400 ) ? '25%' : minimize ? 0 : '30%', bottom: minimize && 250  }}>
-            <div style={{ marginRight: minimize ? '-5%' : media.tablet ? '10%' : '10%'}}>
+          <div className='d-flex justify-content-end col-10 ' style={{ position: 'absolute', marginTop: (media.desktop && window.innerWidth < 1500 ) ? '23%' : minimize ? 0 : '25%', bottom: minimize && 250  }}>
+            <div style={{ marginRight: minimize ? '-5%' : media.tablet ? '10%' : '8%'}}>
             <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width: (window.innerWidth > 1600 && !minimize) ? 300 : minimize ?  100 : media.tablet ? 220 : 250, position: 'fixed', zIndex: 1, opacity: 0.9 }} />
             {
               !minimize &&
-            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop: media.tablet ? 220 : 250, paddingLeft: media.tablet ? 105 : 115, fontSize:30 , color:violet, zIndex:3  }}></i>
+            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop: media.tablet ? 220 : 250, paddingLeft: media.tablet ? 125 : 115, fontSize:30 , color:violet, zIndex:3  }}></i>
 
             }
             </div>
@@ -102,7 +110,7 @@ export const Home = (props) => {
                     <img
                       src={"/lightViolet.png"}
                       alt="selected-ribbons"
-                      style={{ zIndex: 0, width: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 50, }}
+                      style={{ zIndex: 0, width: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 50,height: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 50, }}
                     />
                   </div>
                   <img src={SelectedRibbons.SelectedRibbonsForTablet[shareCount].imgaeUrl} className="img-fluid" style={{  }} />
@@ -116,14 +124,14 @@ export const Home = (props) => {
                   <img
                     src={"/lightViolet.png"}
                     alt="selected-ribbons"
-                    style={{ zIndex: 0, width: (window.innerWidth > 1600 && window.innerWidth < 1701) ? 95 : (window.innerWidth > 1700) ? 110 : (window.innerWidth < 1600) ? 80 : 90, }}
+                    style={{ zIndex: 0, width: (window.innerWidth > 1600 && window.innerWidth < 1701) ? 95 : (window.innerWidth > 1700) ? 110 : (window.innerWidth < 1600) ? 80 : 90,height : (window.innerWidth > 1600 && window.innerWidth < 1701) ? 95 : (window.innerWidth > 1700) ? 110 : (window.innerWidth < 1600) ? 80 : 90, }}
                   />
                 </div>
 
                 <img src={SelectedRibbons.SelectedRibbons[shareCount].imgaeUrl} className="img-fluid" style={{ width: window.innerWidth > 1590 && '120%', zIndex: 0, position: 'relative' }} />
               </div>
             )}
-          <Counter />
+          <Counter shareCount={shareCount} />
           {media.mobile || (
             <div className="row">
               <Highlights media={media} _handleRoute={_handleRoute} />
@@ -137,11 +145,11 @@ export const Home = (props) => {
           backgroundImage: `url(${BackgroundMobile})`, backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}>
-          <div className='d-flex justify-content-center col-10 mx-5' style={{position: 'absolute', zIndex: 5, paddingTop: '60%',right: minimize && -160, bottom: minimize && 100, marginTop: minimize ? 0 : '35%'}}>
-            <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width:minimize ? 50 : 150, position: 'fixed', opacity: 0.9 }} />
+          <div className='d-flex justify-content-end col-10 mx-5' style={{position: 'absolute', zIndex: 5, paddingTop: '50%',right: minimize && -20, bottom: minimize && 100, marginTop: minimize ? 0 : '35%'}}>
+            <img src={"/floater.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width:minimize ? 50 : 150, position: 'fixed', opacity: 0.9 }} />
             {
               !minimize &&
-            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop:145,/*right: (window.innerWidth > 370 && window.innerWidth < 400 )? 237 : 225,*/ fontSize:25 , color:violet, zIndex:3  }}></i>
+            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop:145,right: (window.innerWidth > 370 && window.innerWidth < 400 )? 90 : window.innerWidth < 370 ? 85 :  100, fontSize:25 , color:violet, zIndex:3  }}></i>
 
             }
             </div>
@@ -151,27 +159,27 @@ export const Home = (props) => {
             <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} />
           </div>
           <div className='d-flex ' style={{ position:'relative' }}>
-            <Counter />
+            <Counter shareCount={shareCount} />
             {/* <img src={SelectedRibbons.SelectedRibbonsForMobile.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} style={{
               bottom: media.cusHeight_700 ? 20 : 50, right: -1, height: 'auto', position: 'absolute',
               maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '72%'
             }} /> */}
             
-              <div className={`d-flex justify-content-center move-me move-me-8 `} style={{
+              <div className={`d-flex justify-content-center ${window.innerWidth > 360 ? "move-me move-me-8" : (window.innerWidth< 360 && window.innerWidth > 310) ? "move-me move-me-9" : "move-me move-me-9" }  `} style={{
                 marginLeft: window.innerWidth > 300 && window.innerWidth < 400 ? 200 : 240
               }} >
                 <img
                   src={"/lightViolet.png"}
                   alt="selected-ribbons"
-                  style={{ zIndex: 0, width: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 50, }}
+                  style={{ zIndex: 0, width: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 47, }}
                 />
               </div>
               <div >
                 <img src={"/balloon.png"} style={{ width:300, position:'absolute',right:25, top:-50 }} />
                 <img src={SelectedRibbons.SelectedRibbonsForMobile[shareCount].imgaeUrl} style={{
                   top:-110,
-                bottom: media.cusHeight_700 ? 20 : 50, right: -50, height: 'auto', position: 'absolute',
-                maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '77%'
+                bottom: media.cusHeight_700 ? 20 : 50, right: -30, height: 'auto', position: 'absolute',
+                maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '79%'
               }} />
                 </div>
 
@@ -186,7 +194,7 @@ export const Home = (props) => {
           </div>
         </div>
       }
-    </>
+    </ div>
   );
 };
 export default Home;
@@ -308,7 +316,7 @@ const HighlightsForMobo = props => {
         </ul>
       </div>
       <div className='pb-4 px-2'>
-      <NCIS_Button text={"Learn More"} fontSize={13} onClick={()=>_handleRoute("/eventDetails")} />
+      <NCIS_Button text={"Learn More"} fontSize={13} onClick={()=>_handleRoute("/event_details")} />
 
       </div>
       <SponsorsForMobo media={media} />
@@ -322,43 +330,46 @@ const SponsorsForMobo = props => {
   return (
     <div
       style={{}}
-      className="row p-2"
+      className="row py-2"
     >
       <div style={{ fontSize: 20, fontWeight: "bold" }}>Our Partners and Sponsors</div>
       <div className='d-flex pt-3 '>
-        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600 }}>
+        <div className='align-self-center col-3 ' style={{ fontWeight: 600, fontSize : 13 }}>
           Organised by:
           </div>
-        <div className="d-flex col-10 mx-2">
+        <div className="d-flex mx-2">
           <div
-            className="d-flex bg-light mx-2 my-1 py-2 align-items-center"
+            className="d-flex mx-2 my-1 py-2 align-items-center"
             style={{
-              width: 130,
-              // height: 70,
+              width: 150,
+              height: 70,
               borderRadius: 10,
+              backgroundColor:'#fff'
             }}
           >
-            <img className='mx-2 align-self-center' src={Logo} alt="sponsor" style={{ width: 110 }} />
+            <img className='mx-2 align-self-center' src={Logo} alt="sponsor" style={{ width: 120 }} />
           </div>
         </div>
 
       </div>
       <div className='d-flex pt-3 '>
-        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600 }}>
+        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600, fontSize : 13 }}>
           Sponsors:
           </div>
-        <div className='d-flex flex-wrap col-10 mx-2'>
+        <div className='d-flex flex-wrap mx-1'>
           {/*new Array(8).fill(null)*/sponsors.sponsors.map((v, k) => (
             <div className="mx-2" key={k}>
               <div
-                className="d-flex bg-light my-1 py-2 align-items-center"
+                className="d-flex my-1 py-2 align-items-center"
                 style={{
-                  width: 100,
-                  height: 60,
+                  width: v.name === "rocheSpon" ? (window.innerWidth > 360 ? 70 : 60) : (window.innerWidth > 360 ? 80 : 70),
+                  height: v.name === "rocheSpon" ? 50 : 60,
                   borderRadius: 10,
+                  backgroundColor:'#fff'
                 }}
               >
-                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 90 }} />
+                
+                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? ( window.innerWidth > 360 ? 60 : 50) : ( window.innerWidth > 360 ? 70 : 60) }} />
               </div>
             </div>
           ))}
@@ -367,21 +378,22 @@ const SponsorsForMobo = props => {
 
       </div>
       <div className='d-flex pt-3 '>
-        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600 }}>
+        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600, fontSize : 13 }}>
           Supporting Partners:
           </div>
-        <div className='d-flex flex-wrap col-10 mx-2'>
+        <div className='d-flex flex-wrap mx-1'>
           {/*new Array(8).fill(null)*/sponsors.supportingPartners.map((v, k) => (
             <div className="mx-2" key={k}>
               <div
-                className="d-flex bg-light my-1 py-2 align-items-center"
+                className="d-flex my-1 py-2 align-items-center"
                 style={{
-                  width: 100,
+                  width: 90,
                   height: 60,
                   borderRadius: 10,
+                  backgroundColor:'#fff'
                 }}
               >
-                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 80 }} />
+                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 70 }} />
               </div>
             </div>
           ))}
@@ -407,16 +419,18 @@ const Sponsors = props => {
         <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600 }}>
           Organised by:
           </div>
-        <div className="d-flex col-10 mx-2">
+        <div className="d-flex col-6 mx-2">
           <div
-            className="d-flex bg-light mx-2 my-1 py-2 align-items-center"
+            className="d-flex mx-2 my-1 py-2 align-items-center"
             style={{
-              width: 100,
-              height: 100,
-              borderRadius: '50%',
+              width: 150,
+              height: 80,
+              borderRadius:10,
+              backgroundColor:'#fff'
+              // borderRadius: '50%',
             }}
           >
-            <img className='mx-2 align-self-center' src={Logo} alt="sponsor" style={{ width: 90 }} />
+            <img className='mx-2 align-self-center' src={Logo} alt="sponsor" style={{ width: 120 }} />
           </div>
         </div>
 
@@ -425,18 +439,20 @@ const Sponsors = props => {
         <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600 }}>
           Sponsors:
           </div>
-        <div className='d-flex flex-wrap col-10 mx-2'>
+        <div className='d-flex flex-wrap mx-2'>
           {/*new Array(8).fill(null)*/sponsors.sponsors.map((v, k) => (
             <div className="mx-2" key={k}>
               <div
-                className="d-flex bg-light my-1 py-2 align-items-center"
+                className="d-flex my-1 py-2 align-self-center"
                 style={{
-                  width: 100,
-                  height: 100,
-                  borderRadius: '50%',
+                  width: (v.name === "rocheSpon" ) ? (media.desktop ? 90 : 80) : (media.tablet ? 100 : 110),
+                  height:v.name === "rocheSpon" ? 60 : 70,
+                  // borderRadius: '50%',
+                  borderRadius:10,
+                  backgroundColor:'#fff'
                 }}
               >
-                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 90 }} />
+                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? (media.desktop ? 80 : 70) : (media.tablet ? 80 : 90) }} />
               </div>
             </div>
           ))}
@@ -448,15 +464,17 @@ const Sponsors = props => {
         <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600 }}>
           Supporting Partners:
           </div>
-        <div className='d-flex flex-wrap col-10 mx-2'>
+        <div className='d-flex flex-wrap mx-2'>
           {/*new Array(8).fill(null)*/sponsors.supportingPartners.map((v, k) => (
             <div className="mx-2" key={k}>
               <div
-                className="d-flex bg-light my-1 py-2 align-items-center"
+                className="d-flex my-1 py-2 align-items-center"
                 style={{
                   width: 100,
-                  height: 100,
-                  borderRadius:'50%',
+                  height: 70,
+                  // borderRadius:'50%',
+                  borderRadius:10,
+                  backgroundColor:'#fff'
                 }}
               >
                 <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 80 }} />
