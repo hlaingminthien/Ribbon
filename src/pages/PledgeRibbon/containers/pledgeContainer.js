@@ -59,8 +59,8 @@ const PledgeContainer = (props) => {
       quality: 10,
       background: "#ffffff00",
       transparent: "#ffffff00",
-      width: 290,
-      height: 300
+      width: media.desktop ? 290 : media.tablet ? 110 : 260,
+      height: media.desktop ? 300 : media.tablet ? 120 : 270
     });
 
     let count = 0

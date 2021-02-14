@@ -4,49 +4,53 @@ import { orange } from "../assets/colors";
 import Logo from "../assets/images/logo.png"
 import { NCIS_Button } from "../tools/NCIS_Button";
 const NavBar = (props) => {
-  const _handlePledge = () => {
-    props.history.push("/pledge_a_ribbon");
-  };
-  return (
-    <nav
-      className="navbar navbar-expand-lg navbar-light shadow bg-light justify-content-between py-1 px-3 w-100"
-      style={{ position: "fixed" ,zIndex:999}}
-    >
-      <a className="navbar-brand" href="/">
-        <img src={Logo} alt="logo" height='35'/>
-      </a>
-      <div className="d-flex flex-row justify-content-end p-2">
-        <div
-          className="collapse navbar-collapse w-25 mx-3 justify-content-end"
-          id="navbarSupportedContent"
-        >
-          <ul className="navbar-nav mr-auto ">
-            <li className="nav-item" style={{ whiteSpace:'nowrap' }}>
-              <Link
-                className="nav-link"
-                style={{ fontSize: 14 }}
-                to="/event_details"
-              >
-                Event Details
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} />
-        <div
-          className="navbar-toggler w-25 text-center"
-          // type="button"
-          style={{ border: "none" }}
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </div>
-      </div>
-    </nav>
-  );
+	const _handlePledge = () => {
+		props.history.push("/pledge_a_ribbon");
+	};
+
+	return (
+		<div
+			className="navbar navbar-expand-lg navbar-light shadow bg-light justify-content-between py-1 px-2 w-100"
+			style={{ position: "fixed", zIndex: 999 }}>
+			<div className="d-flex justify-content-between align-items-start flex-fill">
+				<div style={{ zIndex: 2 }}>
+					<a className="navbar-brand" href="/">
+						<img src={Logo} alt="logo" height='35' />
+					</a>
+				</div>	
+				<div className="d-flex flex-wrap flex-lg-nowrap justify-content-end" style={{ position: "absolute", left: 0, right: 0}}>
+					<div className="d-flex justify-content-end order-lg-2">
+						<div className="d-flex justify-content-end align-items-center" style={{ whiteSpace: 'nowrap' }}>
+							<NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} />
+						</div>
+						<div
+							className="navbar-toggler" 
+							type="button" 
+							data-bs-toggle="collapse" 
+							data-bs-target="#navbarSupportedContent" 
+							aria-controls="navbarSupportedContent" 
+							aria-expanded="false"
+							aria-label="Toggle navigation"
+							style={{ border: "none" }} >
+							<span class="navbar-toggler-icon"></span>
+						</div>
+					</div>
+					<div className="collapse navbar-collapse px-2 justify-content-end order-lg-1 bg-light" style={{borderTop: '1 solid #e0e0e0'}} id="navbarSupportedContent">
+						<div className="navbar-nav">
+							<div className="nav-item text-start" style={{ whiteSpace: 'nowrap' }}>
+								<Link
+									className="nav-link"
+									style={{ fontSize: 14 }}
+									to="/event_details">
+									<span class="new-link">Event Details</span>
+								</Link>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	);
 };
 export default withRouter(NavBar);
