@@ -166,10 +166,10 @@ const PledgeContainer = (props) => {
     <>
     {loading && <div style={{ position: 'absolute', width: '100%', height: '100vh', zIndex: 2000}}></div>}
      <div style={{opacity:loading ? 1 : 0}} class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-    <div className="d-flex justify-content-center align-self-center pt-3">
+    <div className="d-flex justify-content-center align-self-center pt-3 ">
       <div id="testsvg">
         <img
-          className="img-fluid"
+          className="img-fluid  w-100"
           src={background}
           alt="bg-svg"
           style={{ height: media.desktop ? "96vh" : media.tablet ? "100vh" : "100vh" }}
