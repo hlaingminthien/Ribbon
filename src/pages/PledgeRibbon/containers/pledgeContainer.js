@@ -53,34 +53,46 @@ const PledgeContainer = (props) => {
     e.preventDefault();
     const myNode = document.getElementById('my-node')
 
+    domtoimage.toPng(myNode).then(base64data=>{
+      const url = `${Base_Url}uploadImage`;
+      axios.post(url, { ribbon: base64data })
+        .then(res => {
+          const shareImg = res.data.payload;
+          setShareImage(shareImg);
+          setLoading(false);
+        })
+        .catch(err => console.log(err));
+      setLoading(false);
+      setStep(3);
+    })
     // setup gif
-    const gif = new window.GIF({
-      workers: 1,
-      quality: 10,
-      background: "#ffffff00",
-      transparent: "#ffffff00",
-      width: media.desktop ? 290 : media.tablet ? 110 : 260,
-      height: media.desktop ? 300 : media.tablet ? 120 : 270
-    });
+    // const gif = new window.GIF({
+    //   workers: 1,
+    //   quality: 10,
+    //   background: "#ffffff00",
+    //   transparent: "#ffffff00",
+    //   width: media.desktop ? 290 : media.tablet ? 110 : 260,
+    //   height: media.desktop ? 300 : media.tablet ? 120 : 270
+    // });
 
-    let count = 0
-    const delayMs = 80;
-    let mInterval = setInterval(async () => {
-      count = count + delayMs
-      if (count === 4000) {
-        if (mInterval) {
-          await clearInterval(mInterval)
-          mInterval = null
-          gif.on('finished', saveGIf);
-          gif.render();
-        }
-      } else if (count < 4000) {
-        const dataUrl = await domtoimage.toPng(myNode)
-        const imageElement = document.createElement("IMG")
-        imageElement.setAttribute("src", dataUrl);
-        await gif.addFrame(imageElement, { delay: delayMs });
-      }
-    }, delayMs);
+    // let count = 0
+    // const delayMs = 80;
+    // let mInterval = setInterval(async () => {
+    //   count = count + delayMs
+    //   if (count === 4000) {
+    //     if (mInterval) {
+    //       await clearInterval(mInterval)
+    //       mInterval = null
+    //       gif.on('finished', saveGIf);
+    //       gif.render();
+    //     }
+    //   } else if (count < 4000) {
+    //     const dataUrl = await domtoimage.toPng(myNode)
+    //     const imageElement = document.createElement("IMG")
+    //     imageElement.setAttribute("src", dataUrl);
+    //     await gif.addFrame(imageElement, { delay: delayMs });
+    //   }
+    // }, delayMs);
 
     axios.post(`${Base_Url}sharecount`).then(data => {
       console.log('sharecountdata =>', data);
@@ -97,25 +109,25 @@ const PledgeContainer = (props) => {
     });
   }
 
-  const saveGIf = (blob) => {
-    console.log("Trigger finished. Going to save to server!");
-    saveAs(blob, "ribbon.gif");
-    const reader = new FileReader();
-    reader.readAsDataURL(blob);
-    reader.onloadend = function () {
-      const base64data = reader.result;
-      const url = `${Base_Url}uploadImage`;
-      axios.post(url, { ribbon: base64data })
-        .then(res => {
-          const shareImg = res.data.payload;
-          setShareImage(shareImg);
-          setLoading(false);
-        })
-        .catch(err => console.log(err));
-      setLoading(false);
-      setStep(3);
-    }
-  }
+  // const saveGIf = (blob) => {
+  //   console.log("Trigger finished. Going to save to server!");
+  //   saveAs(blob, "ribbon.gif");
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(blob);
+  //   reader.onloadend = function () {
+  //     const base64data = reader.result;
+  //     const url = `${Base_Url}uploadImage`;
+  //     axios.post(url, { ribbon: base64data })
+  //       .then(res => {
+  //         const shareImg = res.data.payload;
+  //         setShareImage(shareImg);
+  //         setLoading(false);
+  //       })
+  //       .catch(err => console.log(err));
+  //     setLoading(false);
+  //     setStep(3);
+  //   }
+  // }
 
   const _handleSelectOption = (e) => {
     setMessage(e);

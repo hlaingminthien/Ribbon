@@ -82,9 +82,8 @@ export const Home = (props) => {
             backgroundImage: `url(${media.tablet ? BackgroundTablet : Background})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: media.tablet ? "center" : "none",
+            backgroundPosition: media.tablet ? "center" : "center center'",
             minHeight:  '100vh',
-            
           }}
         >
 
