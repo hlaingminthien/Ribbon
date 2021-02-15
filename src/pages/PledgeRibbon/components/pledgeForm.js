@@ -39,14 +39,14 @@ const PledgeForm = (props) => {
   const [shareApp, setShareApp] = useState(null);
   
   const handleShareApp = (app) => {
-    setShareApp(app == shareApp ? null : app);
+    // setShareApp(app == shareApp ? null : app);
+    setShareApp(app)
     _handleShare();
     
   };
   const _handlePledge = () => {
     props.history.push("/");
   };
-
 
   return (
     <div className="py-2">
@@ -306,7 +306,27 @@ export const ThankYouCard = (props) => {
 
   return (
     <div className="d-flex justify-content-center px-2 " style={{ position:'absolute' }}>
-      {shareApp === 5 ? <div className="p-3 col-8 mx-4">
+      {false && shareApp === 5 ? 
+      <div className="bg-light p-3 col-8 my-3 mx-4 shadow py-2 border " style={{ borderRadius: 10 }}>
+        <div className='d-flex justify-content-end px-2'>
+          <i className="fa fa-times align-self-start pt-1" onClick={() => setShowThankU(false)} ></i>
+        </div>
+        <div className="text-center" style={{ fontWeight: "bold", fontSize: 18 }} >
+          Thank you for your participation!
+        </div>
+        <div className='p-1' style={{ fontSize: 13 }}>
+          Share the message to your friends to spread the word to more people!<br />
+          <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+          <div className='px-2 py-1'>
+            {"1. Download the image by Right Click -> Save Image As and then download the image file."}
+            <br />
+            {"2. Go to your email app and insert the image in message area."}
+            <br />
+            {"3. Get your recipient to join you in pledging ribbon for good, by sending ribbons of their own!"}
+          </div>
+        </div>
+      </div>
+      /*<div className="p-3 col-8 mx-4">
         <img
               src={EmailShareCard}
               alt="EmailShareCard"
@@ -353,7 +373,8 @@ export const ThankYouCard = (props) => {
                     right: 100,
                     cursor: 'pointer'
               }}>Pledge A Ribbon</button>
-      </div> : <div
+      </div>*/ 
+      : <div
         className="bg-light p-3 col-8 my-3 mx-4 shadow pt-2 "
         style={{ borderRadius: 10 }}
       >
@@ -370,7 +391,19 @@ export const ThankYouCard = (props) => {
           Thank you for your participation!
         </div>
         {
-          shareApp === 2 ?
+          shareApp === 5 ? 
+            <div className='p-1 py-2' style={{ fontSize: 13 }}>
+              Share the message to your friends to spread the word to more people!<br />
+              <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+              <div className='px-2 py-1'>
+                {"1. Download the image by Right Click -> Save Image As and then download the image file."}
+                <br />
+                {"2. Go to your email app and insert the image in message area."}
+                <br />
+                {"3. Get your recipient to join you in pledging ribbon for good, by sending ribbons of their own!"}
+              </div>
+            </div>
+          : shareApp === 2 ?
             <div className='p-1' style={{ fontSize: 13 }}>
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
@@ -487,14 +520,16 @@ export const ThankYouCard = (props) => {
             <div className='align-self-center'>
               <img src={"/mysteryRibbon.jpeg"} style={{ width:120 }} />
             </div>
-          </div>:
-          <p className="pt-2 px-2" style={{ fontSize: 13 }}>
-          Don’t stop here, you can do more by pledging again!
-          <br />
-          Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
+          </div> 
+          : shareApp !== 5 ?
+            <p className="pt-2 px-2" style={{ fontSize: 13 }}>
+              Don’t stop here, you can do more by pledging again!
+              <br />
+              Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
 
-          Together, We Fight Cancer!
-        </p>
+              Together, We Fight Cancer!
+            </p>
+          : null
         }
         
         <div className="d-flex justify-content-center text-left mx-2">
