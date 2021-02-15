@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import moment from "moment";
 import "../../../counter.scss";
 import { MediaContext } from "react-media-query-hoc";
+import DumblesIcon from "../../../assets/images/dumbles.png";
 
 export const Counter = props => {
   const { shareCount } = props
@@ -40,7 +41,10 @@ export const Counter = props => {
           <div style={{ top: 10 }}>
             {
               splitCount.map((v,k)=>(
-                <span className="digit" key={k}>{v}</span>
+                <span className="digit" key={k}>{v}
+                  <img src={DumblesIcon} style={{  position:'absolute',right:-3.4, top:25, width:45 }} />
+                </span>
+                
               ))
             }
             

@@ -290,6 +290,7 @@ export const Event = (props) => {
                         </div>                                            
                         </div>
                             <div className='pt-4 d-flex justify-content-start'>
+                            <a href="https://tinyurl.com/yyu5do5m" target="_blank">
                                 <NCIS_Button
                                     text={"现在就报名"}
                                     onClick={""}
@@ -298,6 +299,7 @@ export const Event = (props) => {
                                     className="mx-2"    
                                     width={220}                                                                                   
                                 />
+                            </a>
                             </div>   
                             </div>                          
                         </div>                                                                      
