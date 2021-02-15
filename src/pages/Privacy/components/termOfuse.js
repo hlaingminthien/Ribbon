@@ -2,7 +2,7 @@ import React from "react";
 
 export const TermOfUse = () => {
   return (
-    <div style={{lineHeight: 26 }}>
+    <div style={{lineHeight: 2 }}>
       <h2 className="py-4">Term of Use</h2>
       <div
         className="d-flex flex-row border-bottom justify-content-between px-2 py-3"

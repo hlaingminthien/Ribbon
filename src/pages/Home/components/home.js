@@ -410,8 +410,8 @@ const Sponsors = props => {
 
   return (
     <div
-      style={{ paddingTop: "100px", paddingBottom: "90px", paddingLeft: media.desktop ? "50px" : "26px" }}
-      className="row w-50 col-lg-5 px-0 justify-content-end"
+      style={{ paddingTop: "100px", paddingBottom: "90px", paddingLeft: media.desktop ? "100px" : "26px" }}
+      className="row w-50 col-lg-5 justify-content-end"
     >
       <div style={{ fontSize: 25, fontWeight: "bold" }}>Our Partners and Sponsors</div>
       <div className='d-flex pt-2 '>

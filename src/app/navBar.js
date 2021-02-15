@@ -12,13 +12,13 @@ const NavBar = (props) => {
 		<div
 			className="navbar navbar-expand-lg navbar-light shadow bg-light justify-content-between py-1 px-2 w-100"
 			style={{ position: "fixed", zIndex: 999 }}>
-			<div className="d-flex justify-content-between align-items-start flex-fill">
+			<div className="d-flex justify-content-between align-items-start flex-fill" style={{ paddingTop: '.5em', paddingBottom: '1em'}}>
 				<div style={{ zIndex: 2 }}>
 					<a className="navbar-brand" href="/">
 						<img src={Logo} alt="logo" height='35' />
 					</a>
 				</div>	
-				<div className="d-flex flex-wrap flex-lg-nowrap justify-content-end" style={{ position: "absolute", left: 0, right: 0}}>
+				<div className="d-flex flex-wrap flex-lg-nowrap justify-content-end" style={{ position: "absolute", left: '10px', right: '10px'}}>
 					<div className="d-flex justify-content-end order-lg-2">
 						<div className="d-flex justify-content-end align-items-center" style={{ whiteSpace: 'nowrap' }}>
 							<NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} />
@@ -35,7 +35,7 @@ const NavBar = (props) => {
 							<span class="navbar-toggler-icon"></span>
 						</div>
 					</div>
-					<div className="collapse navbar-collapse px-2 justify-content-end order-lg-1 bg-light" style={{borderTop: '1 solid #e0e0e0'}} id="navbarSupportedContent">
+					<div className="collapse navbar-collapse px-2 justify-content-end order-lg-1 bg-light" style={{borderTop: '1 solid #e0e0e0', paddingTop: '.5em', paddingBottom: '.5em'}} id="navbarSupportedContent">
 						<div className="navbar-nav">
 							<div className="nav-item text-start" style={{ whiteSpace: 'nowrap' }}>
 								<Link
