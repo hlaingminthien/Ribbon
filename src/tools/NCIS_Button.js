@@ -12,7 +12,7 @@ export const NCIS_Button = (props) => {
         background: buttonColor||orange,
         borderRadius: 50,
         fontSize : fontSize ? fontSize : font.button,
-        width:width ? width : icon?"190px":"140px",
+        width:width ? width : icon? "190px":"140px",
         whiteSpace:'nowrap'
         // textAlign:icon&&"left"
       }}
@@ -24,7 +24,7 @@ export const NCIS_Button = (props) => {
       onClick={onClick}
     >
               <div className={`py-0 ${icon && " px-3" }`} >{text}</div>
-      <img src={icon} style={{position:"absolute",width:50,marginTop: -13, marginLeft: 135}}/>
+      <img src={icon} style={{position:"absolute", width:50, marginTop: -13, marginLeft: window.innerWidth < 600 ? 165 : 135}}/>
     </button>
   );
 };
