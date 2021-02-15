@@ -93,7 +93,7 @@ export const Home = (props) => {
             <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width: (window.innerWidth > 1600 && !minimize) ? 300 : minimize ?  100 : media.tablet ? 220 : 250, position: 'fixed', zIndex: 1, opacity: 0.9 }} />
             {
               !minimize &&
-            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop: media.tablet ? 220 : 250, paddingLeft: media.tablet ? 125 : 115, fontSize:30 , color:violet, zIndex:3  }}></i>
+            <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop: media.tablet ? 220 : 250, paddingLeft: media.tablet ? 100 : 115, fontSize:30 , color:violet, zIndex:3  }}></i>
 
             }
             </div>
@@ -119,11 +119,11 @@ export const Home = (props) => {
             </div>
           ) : (
               <div className="col-lg-11 col-xl-12 col-md-12 p-0 img-fluid " style={{}}>
-                <div className={`d-flex justify-content-center ${(window.innerWidth > 1400 && window.innerWidth < 1700) ? "move-me move-me-4" : (window.innerWidth > 1699) ? "move-me move-me-5" : "move-me move-me-3"} `} style={{ marginLeft: (window.innerWidth > 1200 && window.innerWidth < 1400) ? 220 : (window.innerWidth > 1399 && window.innerWidth < 1700) ? 270 : (window.innerWidth > 1699) ? 370 : 220, marginTop:window.innerWidth > 1600 ? -100 : 100 }} >
+                <div className={`d-flex justify-content-center ${/*(window.innerWidth > 1200 && window.innerWidth < 1399) ? "move-me move-me-10" :*/ (window.innerWidth > 1400 && window.innerWidth < 1700) ? "move-me move-me-4" : (window.innerWidth > 1699) ? "move-me move-me-5" : "move-me move-me-3"} `} style={{ marginLeft: (window.innerWidth > 1200 && window.innerWidth < 1400) ? 220 : (window.innerWidth > 1399 && window.innerWidth < 1700) ? 270 : (window.innerWidth > 1699) ? 370 : 220, marginTop:window.innerWidth > 1600 ? -100 : 100 }} >
                   <img
                     src={"/lightViolet.png"}
                     alt="selected-ribbons"
-                    style={{ zIndex: 0, width: (window.innerWidth > 1600 && window.innerWidth < 1701) ? 95 : (window.innerWidth > 1700) ? 110 : (window.innerWidth < 1600) ? 80 : 90,height : (window.innerWidth > 1600 && window.innerWidth < 1701) ? 95 : (window.innerWidth > 1700) ? 110 : (window.innerWidth < 1600) ? 80 : 90, }}
+                    style={{ zIndex: 0, width:(window.innerWidth < 1200) ? 60 : (window.innerWidth > 1600 && window.innerWidth < 1701) ? 95 : (window.innerWidth > 1700) ? 110 : (window.innerWidth < 1600) ? 80 : 90,height :(window.innerWidth < 1200) ? 60 : (window.innerWidth > 1600 && window.innerWidth < 1701) ? 95 : (window.innerWidth > 1700) ? 110 : (window.innerWidth < 1600) ? 80 : 90 }}
                   />
                 </div>
 
@@ -214,7 +214,7 @@ const HomeTitle = (props) => {
         style={{
           fontSize: media.tablet ? 20 : media.mobile ? 10 : 30,
           fontWeight: "bold",
-          lineHeight: 1,
+          // lineHeight: 1,
         }}
       >
         NCIS Challenge 2021
@@ -234,14 +234,14 @@ const HomeTitle = (props) => {
           fontSize: media.tablet ? 30 : media.mobile ? 18 : 38,
           fontWeight: "bold",
           paddingBottom: (media.cusHeight_600 || media.mobile) ? "40px" : "70px",
-          lineHeight: 1,
+          // lineHeight: 1,
         }}
       >
         Together, We Fight Cancer
       </div>
       <div
         className={media.mobile ? "col-10 " : media.tablet ? "col-9 pb-4" : "col-9 pb-4 pt-2"}
-        style={{ fontSize: media.mobile ? 10 : 13, fontWeight: "lighter", lineHeight: 1.6, cursor: 'pointer' }}
+        style={{ fontSize: media.mobile ? 10 : 13, fontWeight: "lighter", lineHeight: 1.6 }}
       >
         {/* <Scrollbars style={{ minHeight: media.mobile ? 100 : media.tablet ? 230 : window.innerWidth > 1590 ? 270 : 150 }} ref={scrollbar} > */}
 
@@ -273,7 +273,7 @@ const Highlights = props => {
       className="text-light w-50"
     >
       <div style={{ fontSize: 25, fontWeight: "bold" }}>Highlights</div>
-      <div className="w-75 py-3" style={{ lineHeight :1.6 }}>
+      <div className="w-75 py-3" style={{  }}>
         <ul>
           <li>
             Health talks on cancer screening and prevention

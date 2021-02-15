@@ -72,7 +72,7 @@ export const PledgeCard = (props) => {
           <br></br>
           <span
             className="text-white pt-2"
-            style={{ fontWeight: 500, fontSize: 14, lineHeight: 1.5 }}
+            style={{ fontWeight: 500, fontSize: 14, }}
           >
             {message}
             {/* {message ? "!" : null} */}

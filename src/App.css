@@ -171,6 +171,8 @@ div.circTxt {
   -webkit-animation: float8 4s ease-out infinite;
 }
 
+
+
 @keyframes float {
   0% {
     transform: translate(0, -80px);
@@ -225,13 +227,21 @@ div.circTxt {
     
   }
   50% {
-    transform: translate(0, 640px);
-  }
+    transform: translate(0, 520px);
+    -webkit-transform: translate(0, 520px);
+    -moz-transform: translate(0, 520px);
+    -ms-transform: translate(0, 520px);
+    -o-transform: translate(0, 520px);
+}
   75% {
-    transform: translate(10px,630px);
-  }
+    transform: translate(10px,510px);
+    -webkit-transform: translate(10px,510px);
+    -moz-transform: translate(10px,510px);
+    -ms-transform: translate(10px,510px);
+    -o-transform: translate(10px,510px);
+}
   100% {
-    transform: translate(20px, 640px);
+    transform: translate(20px, 520px);
   }
 }
 @keyframes float3 {
@@ -420,3 +430,4 @@ div.circTxt {
     -o-transform: translate(20px, 200px);
   }
 }
+

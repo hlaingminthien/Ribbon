@@ -32,14 +32,16 @@ const PledgeForm = (props) => {
     recipientName,
     senderName,
     message,
-    _handleShare,
-    media, shareImage,
+    _handleShare,showThankU,
+    media, shareImage,setShowThankU,
     _handleImage, warning,winner,imgUrl, cancerName
   } = props;
   const [shareApp, setShareApp] = useState(null);
+  
   const handleShareApp = (app) => {
     setShareApp(app == shareApp ? null : app);
     _handleShare();
+    
   };
   const _handlePledge = () => {
     props.history.push("/");
@@ -54,7 +56,7 @@ const PledgeForm = (props) => {
         </div>
         <label className='pb-2' style={{ fontWeight: "bold", fontSize: 20 }}>
           {step === 1
-            ? "Choose Your Ribbon and Create Your Message"
+            ? "Choose A Ribbon and Create Your Message"
             : step === 2
               ? "Review Your Message"
               : (step === 3) ? "Share Your Message" : ""}
@@ -64,9 +66,9 @@ const PledgeForm = (props) => {
           "Select the following icons to share your message"}
         {step === 1 && <PledgeRibbons {...props} />}
         {/* //  _handleSelect={_handleSelect} _handleRibbonClick={_handleRibbonClick} menuVisible={menuVisible} */}
-        {(step === 3 && complete) ? (
-          <ThankYouCard _handlePledge={_handlePledge} recipientName={recipientName} senderName={senderName} message={message} imgUrl={imgUrl} cancerName={cancerName} shareApp={shareApp} winner={winner} />
-        ) : (step === 3 ) ? (
+        {(step === 3 && complete && showThankU) ? (
+          <ThankYouCard _handlePledge={_handlePledge} setShowThankU={setShowThankU} showThankU={showThankU} recipientName={recipientName} senderName={senderName} message={message} imgUrl={imgUrl} cancerName={cancerName} shareApp={shareApp} winner={winner} />
+        ) : (step === 3 || showThankU ) ? (
           <div className='d-flex justify-content-center'>
             <div className='px-2 pt-5' style={{ fontWeight: 600 }}>Share Via:</div>
             <SocialShare
@@ -143,6 +145,7 @@ const PledgeForm = (props) => {
                   onClick={_handleEdit}
                   fontSize={window.innerWidth > 1500 ? 16 : 14}
                   className="mx-2"
+                  buttonColor={paleViolet}
                 />
                 <NCIS_Button
                   text={"Confirm"}
@@ -245,7 +248,7 @@ const [ rand, setRandom ]=useState(0);
               id={k}
             />
             <span
-              className="pt-1"
+              className="pt-1 align-self-center"
               id={k}
               style={{
                 marginTop: 3,
@@ -299,7 +302,7 @@ const [ rand, setRandom ]=useState(0);
 };
 
 export const ThankYouCard = (props) => {
-  const { _handleEdit, _handlePledge, shareApp,winner, senderName, recipientName, message, imgUrl, cancerName } = props;
+  const { _handleEdit, _handlePledge, shareApp,winner, senderName, recipientName, message, imgUrl, cancerName,setShowThankU,showThankU } = props;
 
   return (
     <div className="d-flex justify-content-center px-2 " style={{ position:'absolute' }}>
@@ -351,9 +354,15 @@ export const ThankYouCard = (props) => {
                     cursor: 'pointer'
               }}>Pledge A Ribbon</button>
       </div> : <div
-        className="bg-light p-3 col-8 my-3 mx-4 shadow"
+        className="bg-light p-3 col-8 my-3 mx-4 shadow pt-2 "
         style={{ borderRadius: 10 }}
       >
+        <div className='d-flex justify-content-end px-2'>
+        <i
+            className="fa fa-times align-self-start pt-1"
+            onClick={() => setShowThankU(false)}
+          ></i>
+        </div>
         <div
           className="text-center"
           style={{ fontWeight: "bold", fontSize: 18 }}
