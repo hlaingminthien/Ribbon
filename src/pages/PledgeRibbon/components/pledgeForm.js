@@ -443,13 +443,13 @@ export const ThankYouCard = (props) => {
             <div className='p-1' style={{ fontSize: Font.desktopBody }}>
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-            {/* <div className='px-2 py-1'>
-              1.Right click on the Image and select "Save Image As" to save the Image on your device.
+            <div className='px-2 py-1'>
+              1. Download your pledge message onto your device.
               <br />
-              2.Go to your WhatsApp
+              2. Click "Start a Post" on Linkedin.
               <br />
-              3.Select your recipient and insert the Image into your message.
-            </div> */}
+              3. Upload your pledge message onto your Linkedin (Remember to add #ncisribbonchallenge in your caption)
+            </div>
 
           </div>
           // :

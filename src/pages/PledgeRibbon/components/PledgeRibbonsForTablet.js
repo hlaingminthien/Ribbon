@@ -555,7 +555,13 @@ const ThankuCard = (props) => {
             <div className='p-1' style={{ fontSize: font.tabletBody }}>
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-
+            <div className='px-2 py-1'>
+              1. Download your pledge message onto your device.
+              <br />
+              2. Click "Start a Post" on Linkedin.
+              <br />
+              3. Upload your pledge message onto your Linkedin (Remember to add #ncisribbonchallenge in your caption)
+            </div>
           </div>:
           shareApp === 5 ?
           <div className='p-1' style={{ fontSize: font.tabletBody }}>
