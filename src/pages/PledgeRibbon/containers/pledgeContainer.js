@@ -9,7 +9,8 @@ import { PledgeProgress } from "../components/pledgeProgressBar";
 import { withMedia } from "react-media-query-hoc";
 import PledgeRibbonsForMobile from "../components/PledgeRibbonForMobile";
 import PledgeRibbonsForTablet from '../components/PledgeRibbonsForTablet';
-import domtoimage from 'dom-to-image-more';
+// import domtoimage from 'dom-to-image-more';
+import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 import RibbonImages from "../../../assets/RibbonImages.json";
 

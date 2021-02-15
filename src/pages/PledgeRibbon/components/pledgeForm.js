@@ -419,11 +419,11 @@ export const ThankYouCard = (props) => {
               Share the message on your WhatsApp  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
-                1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+                1.Right click on the Image and select "Save Image As" to save the Image on your device.
                 <br />
                 2.Go to your WhatsApp
                 <br />
-                3.Select your recipient and insert the GIF into your message.
+                3.Select your recipient and insert the Image into your message.
               </div>
 
             </div> :
@@ -443,11 +443,11 @@ export const ThankYouCard = (props) => {
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
             {/* <div className='px-2 py-1'>
-              1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+              1.Right click on the Image and select "Save Image As" to save the Image on your device.
               <br />
               2.Go to your WhatsApp
               <br />
-              3.Select your recipient and insert the GIF into your message.
+              3.Select your recipient and insert the Image into your message.
             </div> */}
 
           </div>
@@ -468,11 +468,11 @@ export const ThankYouCard = (props) => {
           Share the message on your Telegram  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+            1.Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
             2.Go to your Telegram.
             <br />
-            3.Select your recipient and insert the GIF into your message.
+            3.Select your recipient and insert the Image into your message.
           </div>
 
         </div>:
@@ -481,11 +481,11 @@ export const ThankYouCard = (props) => {
           Share the message on your weChat  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+            1.Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
             2.Go to your WeChat
             <br />
-            3.Select your recipient and insert the GIF into your message.​
+            3.Select your recipient and insert the Image into your message.​
           </div>
 
         </div>:
@@ -494,11 +494,11 @@ export const ThankYouCard = (props) => {
           Share the message on your Line to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+            1.Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
             2.Go to your Line
             <br />
-            3.Select your recipient and insert the GIF into your message.
+            3.Select your recipient and insert the Image into your message.
           </div>
 
         </div>:
@@ -512,7 +512,7 @@ export const ThankYouCard = (props) => {
               Congratulations!
               </div>
               <div className='py-2' style={{ fontSize:12 }}>
-              You have won the NCIS Ribbon Challenge mystery gift!
+              You have won the NCIS Ribbon Challenge mystery Imaget!
               <br />
               Click on to enter your particulars and we will get in touch with you soon. Thank you for your support!
               </div>
