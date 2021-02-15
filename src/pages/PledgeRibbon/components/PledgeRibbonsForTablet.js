@@ -207,7 +207,8 @@ const PledgeCardForTablet = (props) => {
               alt="selected-ribbons"
               style={{ width: 110, height: 110 }}
             />
-              <svg viewBox="-20 2 128 56" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", left: -4, right: 0, top: -19, width: 88, height: 85 }} >
+              <svg viewBox="-20 2 128 56" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: 'absolute',
+                left: -11, right: 3, top: -13, width: 100, height: 80}} >
                 <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
                   d2="M0,58 Q50,-20 100,58"
                   d1={`M 0,120 A 32,32 0 1, 0 54,0 A 32,32 0 1, 0 -54,0`}  
@@ -219,7 +220,7 @@ const PledgeCardForTablet = (props) => {
                 />
 
                 <text fontSize={10} fontWeight={600} fill="white">
-                  <textPath href="#curve-path" startOffset={(50 - cancer.length - 14 * 2) + "%"}>
+                  <textPath href="#curve-path" startOffset={(50 - cancer.length - 15 * 2) + "%"}>
                   {(cancer )+ ((cancer == "All Cancers" || !cancer) ? "" : " Cancer")}
                   </textPath>
                 </text>
