@@ -440,7 +440,7 @@ export const ThankYouCard = (props) => {
             </div> :
             shareApp === 4 ?
             <div className='p-1' style={{ fontSize: 13 }}>
-            Share the message on your LinkIn  to spread the word to more people!<br />
+            Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
             {/* <div className='px-2 py-1'>
               1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
