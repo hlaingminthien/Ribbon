@@ -42,7 +42,7 @@ export const Counter = props => {
             {
               splitCount.map((v,k)=>(
                 <span className="digit" key={k}>{v}
-                  <img src={DumblesIcon} style={{  position:'absolute',right:-3.4, top:25, width:45 }} />
+                  <img className="overlayImage"  src={DumblesIcon} />
                 </span>
                 
               ))
@@ -84,7 +84,9 @@ export const CounterMobile = (props) => {
             <div style={{ top: 10 }}>
             {
               splitCount.map((v,k)=>(
-                <span className="digit-mobile" key={k}>{v}</span>
+                <span className="digit-mobile" key={k}>{v}
+                <img className="overlayImage"  src={DumblesIcon} />
+                </span>
               ))
             }
               {/* <span className="digit-mobile">0</span>
@@ -137,7 +139,9 @@ export const CounterTablet = (props) => {
             <div style={{ top: 10 }}>
             {
               splitCount.map((v,k)=>(
-                <span className="digit" key={k}>{v}</span>
+                <span className="digit" key={k}>{v}
+                <img className="overlayImage"  src={DumblesIcon} />
+                </span>
               ))
             }
               {/* <span className="digit">0</span>
