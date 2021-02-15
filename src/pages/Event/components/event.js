@@ -40,6 +40,7 @@ export const Event = () => {
                 paddingTop: sSize==="xxl" ? w*0.33 /*660*/ : sSize==="xl" ? 500 : sSize==="lg" ? 460 : sSize==="md" ? 450 : 200+w*0.1,
                 overflow: "auto",
                 fontSize: 15,
+                lineHeight: 1.5,
                 paddingLeft: sSize==="xxl" ?  w*0.1 : sSize==="xl" ? 160 : sSize==="lg" ? 140 : sSize==="md" ? 100 : 10,
                 paddingRight: 10,
             }}> 
@@ -52,7 +53,7 @@ export const Event = () => {
                             <div>we fight Cancer!</div>
                         </b>     
                     </div>                   
-                    <div className="my-4 text-left px-3" style={{ textShadow: "0px 0px 4px #464646", maxWidth: 400 }}>
+                    <div className="my-4 text-left px-3" style={{ textShadow: "0px 0px 4px #464646", maxWidth: 400}}>
                         The NCIS Ribbon Challenge was started in 2018 to promote public awareness and education on cancer. Come join us at our event to build your knowledge and awareness about cancer, and what you can do to fight it!
                     </div>
                 </div>
