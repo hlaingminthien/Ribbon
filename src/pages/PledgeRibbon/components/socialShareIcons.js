@@ -155,7 +155,7 @@ export const SocialShare = (props) => {
       <div className=''>
         <section className="d-flex justify-content-center m-2 pt-4 p-3" >
           <ShareList style={{ textAlign: "center" }}>
-            <EmailShareButton className=" shadow align-self-center text-center mx-3"
+            <div className=" shadow align-self-center text-center mx-3"
               style={{
                 borderRadius: 23,
                 border: "1px solid #FAFAFA",
@@ -164,11 +164,11 @@ export const SocialShare = (props) => {
                 background: shareApp == 5 ? "rgb(22, 16, 92)" : "#fff",
                 cursor: "pointer"
               }} subject={title} body="body"
-              beforeOnClick={()=>{handleShareApp(5)}}
+              onClick={()=>handleShareApp(5)}
             >
               <img src={shareApp == 5 ? EmailLogoActive : EmailLogo} className="" style={{ width: 50 }} />
               <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>E-mail</div>
-            </EmailShareButton>
+            </div>
           <div
             className="pt-1 shadow align-self-center text-center mx-3"
             style={{
