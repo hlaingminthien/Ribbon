@@ -287,8 +287,8 @@ const Highlights = props => {
       style={{ paddingTop: "90px", paddingLeft: "100px" }}
       className="text-light w-50"
     >
-      <div style={{ fontSize: 25, fontWeight: "bold" }}>Highlights</div>
-      <div className="w-75 py-3" style={{  }}>
+      <div style={{ fontSize: 18, fontWeight: "bold", fontFamily: "Montserrat"}}>Event Highlights</div>
+      <div className="w-75 py-3" style={{ fontFamily: "Montserrat", fontSize: 18 }}>
         <ul>
           <li>
             Health talks on cancer screening and prevention
@@ -302,7 +302,7 @@ const Highlights = props => {
         </li>
         </ul>
       </div>
-      <NCIS_Button text={"Learn More"} fontSize={13} onClick={()=>_handleRoute("/event_details")} />
+      <NCIS_Button text={"Learn More"} fontSize={16} onClick={()=>_handleRoute("/event_details")} />
     </div>
   );
 };
@@ -314,7 +314,7 @@ const HighlightsForMobo = props => {
       style={{ color: '#271f57' }}
       className=" px-3"
     >
-      <div className='p-2' style={{ fontSize: 20, fontWeight: "bold" }}>Highlights</div>
+      <div className='p-2' style={{ fontSize: 18, fontWeight: "bold",  fontFamily: "Montserrat" }}>Event Highlights</div>
       <div className="" style={{ lineHeight :1.6 }}>
         <ul>
           <li>
@@ -376,14 +376,14 @@ const SponsorsForMobo = props => {
               <div
                 className="d-flex my-1 py-2 align-items-center"
                 style={{
-                  width: v.name === "rocheSpon" ? (window.innerWidth > 360 ? 70 : 60) : (window.innerWidth > 360 ? 80 : 70),
-                  height: v.name === "rocheSpon" ? 50 : 60,
+                  width: v.name === "rocheSpon" ? (window.innerWidth > 360 ? 70 : 70) : (window.innerWidth > 360 ? 80 : 80),
+                  height: v.name === "rocheSpon" ? 60 : 60,
                   borderRadius: 10,
                   backgroundColor:'#fff'
                 }}
               >
                 
-                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? ( window.innerWidth > 360 ? 60 : 50) : ( window.innerWidth > 360 ? 70 : 60) }} />
+                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? ( window.innerWidth > 360 ? 50 : 40) : ( window.innerWidth > 360 ? 60 : 50) }} />
               </div>
             </div>
           ))}
@@ -459,14 +459,14 @@ const Sponsors = props => {
               <div
                 className="d-flex my-1 py-2 align-self-center"
                 style={{
-                  width: (v.name === "rocheSpon" ) ? (media.desktop ? 90 : 80) : (media.tablet ? 100 : 110),
-                  height:v.name === "rocheSpon" ? 60 : 70,
+                  width: (v.name === "rocheSpon" ) ? (media.desktop ? 90 : 90) : (media.tablet ? 100 : 100),
+                  height:v.name === "rocheSpon" ? 70 : 70,
                   // borderRadius: '50%',
                   borderRadius:10,
                   backgroundColor:'#fff'
                 }}
               >
-                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? (media.desktop ? 80 : 70) : (media.tablet ? 80 : 90) }} />
+                &nbsp;&nbsp;&nbsp;<img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? (media.desktop ? 50 : 40) : (media.tablet ? 60 : 70)}} />
               </div>
             </div>
           ))}
