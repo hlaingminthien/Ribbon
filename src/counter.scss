@@ -33,6 +33,11 @@ body {
     width: 45px;
 	top: -10px;
 
+	@media screen and (min-width: 768px) {
+		display: inline-block;
+    	width: 43px;
+		top: -10px;
+	}
 	
 	&:before {
 		content: '';
@@ -58,6 +63,27 @@ body {
 		left: 0;
 		border-bottom-left-radius: 0.8rem;
 		border-bottom-right-radius: 0.8rem;
+	}
+}
+
+.overlayImage {
+	position:absolute;
+	right:-3.4px;
+	top:25px;
+	width:45px;
+
+	@media screen and (max-width: 768px) {
+		display: inline-block;
+    	width: 22px;
+		top: 15px;
+		left: -1px;
+	}
+
+	@media screen and (min-width: 768px) {
+		display: inline-block;
+    	width: 40px;
+		top: 25px;
+		left: -1px;
 	}
 }
 

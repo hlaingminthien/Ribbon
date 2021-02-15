@@ -645,6 +645,8 @@ const ThankuCard = (props) => {
               onClick={() => window.location.reload()}
               className="mx-2"
               media={media}
+              width={200}
+              fontSize={font.button}
             />
           </div>
           {
@@ -658,6 +660,7 @@ const ThankuCard = (props) => {
                 }}
                 className="mx-2"
                 buttonColor={violet}
+                width={200}
                 fontSize={font.button}
               />
             </div>:
@@ -668,6 +671,8 @@ const ThankuCard = (props) => {
               className="mx-2"
               buttonColor={violet}
               media={media}
+              width={200}
+                fontSize={font.button}
             />
           </div>
           }
