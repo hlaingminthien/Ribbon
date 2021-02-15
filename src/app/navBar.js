@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { orange } from "../assets/colors";
 import Logo from "../assets/images/logo.png"
 import { NCIS_Button } from "../tools/NCIS_Button";
+import font from "./config/font";
 const NavBar = (props) => {
 	const _handlePledge = () => {
 		props.history.push("/pledge_a_ribbon");
@@ -15,7 +16,7 @@ const NavBar = (props) => {
 			<div className="d-flex justify-content-between align-items-center flex-fill" style={{/* paddingTop: '.5em', paddingBottom: '1em'*/}}>
 				<div className='px-lg-3 pl-xl-3 px-md-3'  style={{ zIndex: 2 }}>
 					<a className="navbar-brand" href="/">
-						<img src={Logo} alt="logo" height='60' />
+						<img src={Logo} alt="logo" height={window.innerWidth > 500 ? '60' : 40} />
 					</a>
 				</div>	
 				<div className="d-flex flex-wrap flex-lg-nowrap justify-content-end" style={{ position: "absolute", left: '10px', right: window.innerWidth > 700 ? '15px' : '0px'}}>
@@ -40,7 +41,7 @@ const NavBar = (props) => {
 							<div className="nav-item text-start" style={{ whiteSpace: 'nowrap' }}>
 								<Link
 									className="nav-link"
-									style={{ fontSize: 14 }}
+									style={{ fontSize: font.mobileBody }}
 									to="/event_details">
 									<span class="new-link">Event Details</span>
 								</Link>

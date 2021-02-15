@@ -1,5 +1,6 @@
 import React from "react";
 import mediaQueryProvider from "react-media-query-hoc/dist/media-query-provider";
+import font from "../app/config/font";
 import { orange } from "../assets/colors";
 
 export const NCIS_Button = (props) => {
@@ -10,7 +11,7 @@ export const NCIS_Button = (props) => {
       style={{
         background: buttonColor||orange,
         borderRadius: 50,
-        fontSize : fontSize ? fontSize : 13,
+        fontSize : fontSize ? fontSize : font.button,
         width:width ? width : icon?"190px":"140px",
         whiteSpace:'nowrap'
         // textAlign:icon&&"left"

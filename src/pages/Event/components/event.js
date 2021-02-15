@@ -11,6 +11,7 @@ import drHuangYiQing from "../../../assets/PeopleImage/drHuangYiQing.png"
 import { NCIS_Button } from "../../../tools/NCIS_Button";
 
 import moment from 'moment';
+import font from "../../../app/config/font";
 export const Event = (props) => {
     const { media } = props;
     const [w, setW] = React.useState(null)
@@ -41,7 +42,7 @@ export const Event = (props) => {
                 backgroundSize: "100%",
                 paddingTop: sSize==="xxl" ? w* 0.15/**0.33*/ /*660*/ : sSize==="xl" ? 300 : sSize==="lg" ? 220 : sSize==="md" ? 160 : 30+w*0.1,
                 overflow: "auto",
-                fontSize: 15,
+                fontSize: font.mobileBody,
                 lineHeight: 1.5,
                 paddingLeft: sSize==="xxl" ?  w*0.1 : sSize==="xl" ? 160 : sSize==="lg" ? 140 : sSize==="md" ? 120 : 60,
                 paddingRight: 10,
@@ -62,7 +63,7 @@ export const Event = (props) => {
             {/* <div style={{ position: "absolute", left: 50, top: 150, color: "white", padding: 20, background: "green", fontSize: "2em"}}>{w } {sSize}</div> */}
             <div className="d-flex " style={{ paddingTop :media.mobile ? 30 : media.tablet ? 50 : 100 }}>            
                 <div className="pt-3 text-left" >
-                    <div className="px-3 " style={{ fontSize: 25 }}>                        
+                    <div className="px-3 " style={{ fontSize: font.tabletHeading2 }}>                        
                         <b>
                             <div>Together,</div>
                             <div>we fight Cancer!</div>
@@ -87,7 +88,7 @@ export const Event = (props) => {
             <div className=" pt-3 text-left ">
                 <div className="d-flex px-1 justify-content-between text-left">
                     <div className=""> 
-                        <div style={{ fontSize: 20, letterSpacing: 1.3 }}>
+                        <div style={{ fontSize: font.desktopBody, letterSpacing: 1.3 }}>
                             <b>Event Highlights:</b>
                         </div>
                         <div className="py-3 d-flex flex-wrap flex-md-nowrap" style={{ maxWidth: 1200 }}>
@@ -131,7 +132,7 @@ export const Event = (props) => {
                                             onClick={""}
                                             fontSize={w > 1000 ? 16 : 14}
                                             className=""
-                                            fontSize={12}         
+                                            fontSize={16}         
                                             width={220}                                   
                                         />
                                     </div>
@@ -159,7 +160,7 @@ export const Event = (props) => {
                                             Speaker
                                         </div>
                                     </div>
-                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: 14 }}>
+                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: font.tabletBody }}>
                                         <div className="px-4 w-50">
                                             <div>Understanding Cancer,</div>
                                             <div>its Myths and Prevention</div>
@@ -174,7 +175,7 @@ export const Event = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: 14 }}>
+                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: font.tabletBody }}>
                                         <div className="px-4 w-50">
                                             The battle against female cancers: Prevention and Early intervention   
                                         </div>
@@ -188,7 +189,7 @@ export const Event = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: 14 }}>
+                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: font.tabletBody }}>
                                         <div className="px-4 w-50">
                                             The relationship between cancer and diet  
                                         </div>
@@ -212,7 +213,7 @@ export const Event = (props) => {
                                     text={"Register here for a slot"}
                                     onClick={""}
                                     fontSize={w > 1000 ? 16 : 14}
-                                    fontSize={11} 
+                                    fontSize={16} 
                                     className="px-2" 
                                     width={220}                                                                                      
                                 />
@@ -288,7 +289,7 @@ export const Event = (props) => {
                                     text={"现在就报名"}
                                     onClick={""}
                                     fontSize={w > 1000 ? 16 : 14}
-                                    fontSize={14} 
+                                    fontSize={16} 
                                     className="mx-2"    
                                     width={220}                                                                                   
                                 />

@@ -1,5 +1,5 @@
 import React from "react";
-
+import Font from "../../../app/config/font";
 
 // export const PledgeCard = (props) => {
 //     const { recipientName, senderName, message, media, step, imgUrl } = props;
@@ -58,27 +58,27 @@ export const PledgeCard = (props) => {
 {!finalImage && 
       <div
         className=" pt-4 justify-content-start text-left"
-        style={{ position: "absolute", width: 295, padding: 20, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? 20 : 18, textAlign: 'left' }}
+        style={{ position: "absolute", width: 295, padding: 20, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? Font.desktopBody : Font.tabletBody, textAlign: 'left' }}
       >
         <div
         // ${step != 1 && "move-me move-me-2"}
           className={` pt-3 `}
           style={{ minHeight: 165 }}
         >
-          <span className="" style={{ fontSize: 16, fontWeight: "bold" }}>
+          <span className="" style={{ fontSize: Font.desktopBody, fontWeight: "bold" }}>
             {recipientName}
             {recipientName ? "," : null}
           </span>
           <br></br>
           <span
             className="text-white pt-2"
-            style={{ fontWeight: 500, fontSize: 14, }}
+            style={{ fontWeight: 500, fontSize: Font.desktopBody, }}
           >
             {message}
             {/* {message ? "!" : null} */}
           </span>
           <br></br>
-          <span className="pt-2" style={{ fontWeight: 600, fontSize: 14 }}>
+          <span className="pt-2" style={{ fontWeight: 600, fontSize: Font.desktopBody }}>
             {senderName ? "Love," : null} {senderName}
           </span>
         </div>

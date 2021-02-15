@@ -23,6 +23,7 @@ import { NCIS_Button } from "../../../tools/NCIS_Button";
 import sponsors from "../../../assets/sponsors.json"
 import Logo from "../../../assets/images/logo.png"
 import SelectedRibbons from '../../../assets/images/SelectedRibbon.json'
+import Font from "../../../app/config/font.js";
 
 import { Base_Url } from "../../../routes/Base_Url";
 
@@ -70,7 +71,7 @@ export const Home = (props) => {
   if (document.getElementById("floaterMobileId") !== null)
       var floaterMobileWidth = document.getElementById('floaterMobileId').clientWidth;
 
-    
+
 
   return (
     < div className='' style={{ overflowX:'hidden' }}>
@@ -135,7 +136,7 @@ export const Home = (props) => {
             )}
           <Counter shareCount={shareCount} />
           {media.mobile || (
-            <div className="row" style={{ marginTop: '10rem', position: 'relative', }}>
+            <div className="row" style={{ marginTop:media.tablet ? "15rem" : '15rem', position: 'relative', }}>
               <Highlights media={media} _handleRoute={_handleRoute} />
               <Sponsors media={media} />
             </div>
@@ -261,7 +262,7 @@ const HomeTitle = (props) => {
       </div>
       <div
         className={media.mobile ? "col-10 " : media.tablet ? "col-9 pb-4" : "col-9 pb-4 pt-2"}
-        style={{ fontSize: media.mobile ? 15 : 18, fontWeight: "lighter", lineHeight: "25px" }}
+        style={{ fontSize: (media.mobile || media.tablet) ? Font.mobileBody : Font.desktopBody, fontWeight: "lighter", lineHeight: "25px" }}
       >
         {/* <Scrollbars style={{ minHeight: media.mobile ? 100 : media.tablet ? 230 : window.innerWidth > 1590 ? 270 : 150 }} ref={scrollbar} > */}
 
@@ -293,7 +294,7 @@ const Highlights = props => {
       className="text-light w-50"
     >
       <div style={{ fontSize: 20, fontWeight: "bold", fontFamily: "Montserrat"}}>Event Highlights</div>
-      <div className="w-75 py-3" style={{ fontFamily: "Montserrat", fontSize: 17, lineHeight: 1.5 }}>
+      <div className="w-75 py-3" style={{ fontFamily: "Montserrat", fontSize: media.tablet ?  Font.tabletBody : Font.desktopBody , lineHeight: "26px" }}>
         <ul>
           <li>
             Health talks on cancer screening and prevention
@@ -307,7 +308,7 @@ const Highlights = props => {
         </li>
         </ul>
       </div>
-      <NCIS_Button text={"Learn More"} fontSize={16} onClick={()=>_handleRoute("/event_details")} />
+      <NCIS_Button text={"Learn More"} fontSize={Font.button} onClick={()=>_handleRoute("/event_details")} />
     </div>
   );
 };
@@ -320,7 +321,7 @@ const HighlightsForMobo = props => {
       className=" px-3"
     >
       <div className='p-2' style={{ fontSize: 20, fontWeight: "bold",  fontFamily: "Montserrat" }}>Event Highlights</div>
-      <div className="" style={{fontSize: 17, lineHeight :1.6 }}>
+      <div className="" style={{fontSize: Font.mobileBody, lineHeight :"26px"}}>
         <ul>
           <li>
             Health talks on cancer screening and prevention
@@ -335,7 +336,7 @@ const HighlightsForMobo = props => {
         </ul>
       </div>
       <div className='pb-4 px-2'>
-      <NCIS_Button text={"Learn More"} fontSize={13} onClick={()=>_handleRoute("/event_details")} />
+      <NCIS_Button text={"Learn More"} fontSize={Font.button} onClick={()=>_handleRoute("/event_details")} />
 
       </div>
       <SponsorsForMobo media={media} />
@@ -353,7 +354,7 @@ const SponsorsForMobo = props => {
     >
       <div style={{ fontSize: 20, fontWeight: "bold" }}>Our Partners and Sponsors</div>
       <div className='d-flex pt-3 '>
-        <div className='align-self-center col-3 ' style={{ fontWeight: 600, fontSize : 13 }}>
+        <div className='align-self-center col-3 ' style={{ fontWeight: 600, fontSize : Font.mobileBody }}>
           Organised by:
           </div>
         <div className="d-flex mx-2">
@@ -372,7 +373,7 @@ const SponsorsForMobo = props => {
 
       </div>
       <div className='d-flex pt-3 '>
-        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600, fontSize : 13 }}>
+        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600, fontSize : Font.mobileBody }}>
           Sponsors:
           </div>
         <div className='d-flex flex-wrap mx-1'>
@@ -397,7 +398,7 @@ const SponsorsForMobo = props => {
 
       </div>
       <div className='d-flex pt-3 '>
-        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600, fontSize : 13 }}>
+        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600, fontSize : Font.mobileBody }}>
           Supporting Partners:
           </div>
         <div className='d-flex flex-wrap mx-1'>
@@ -435,7 +436,7 @@ const Sponsors = props => {
     >
       <div style={{ fontSize: 25, fontWeight: "bold" }}>Our Partners and Sponsors</div>
       <div className='d-flex pt-2 '>
-        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600 }}>
+        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600, fontSize : media.tablet ? Font.tabletBody : Font.desktopBody }}>
           Organised by:
           </div>
         <div className="d-flex col-6 mx-2">
@@ -455,7 +456,7 @@ const Sponsors = props => {
 
       </div>
       <div className='d-flex pt-3 '>
-        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600 }}>
+        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600,fontSize : media.tablet ? Font.tabletBody : Font.desktopBody }}>
           Sponsors:
           </div>
         <div className='d-flex flex-wrap mx-2'>
@@ -480,7 +481,7 @@ const Sponsors = props => {
 
       </div>
       <div className='d-flex pt-3 '>
-        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600 }}>
+        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600,fontSize : media.tablet ? Font.tabletBody : Font.desktopBody }}>
           Supporting Partners:
           </div>
         <div className='d-flex flex-wrap mx-2'>
