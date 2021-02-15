@@ -213,7 +213,7 @@ export const SocialShare = (props) => {
             onClick={() => handleShareApp(4)} 
           >
             <img src={shareApp == 4 ? LinkedinLogoActive : LinkedinLogo} className="" style={{ width: 50 }} />
-            <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>LinkIn</div>
+            <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>LinkedIn</div>
           </div>
           </ShareList>
         </section>

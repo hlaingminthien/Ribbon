@@ -90,7 +90,10 @@ export const Home = (props) => {
           <HomeTitle media={media} _handlePledge={_handlePledge} />
           <div className='d-flex justify-content-end col-10 ' style={{ position: 'absolute', marginTop: (media.desktop && window.innerWidth < 1500 ) ? '23%' : minimize ? 0 : '25%', bottom: minimize && 250  }}>
             <div style={{ marginRight: minimize ? '-5%' : media.tablet ? '10%' : '8%'}}>
-            <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width: (window.innerWidth > 1600 && !minimize) ? 300 : minimize ?  100 : media.tablet ? 220 : 250, position: 'fixed', zIndex: 1, opacity: 0.9 }} />
+            {minimize ?  
+            <img src={"/floatMini.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 50, position: 'fixed', opacity: 0.9 }} />
+             :
+              <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width: (window.innerWidth > 1600 && !minimize) ? 300 :  media.tablet ? 220 : 250, position: 'fixed', zIndex: 1, opacity: 0.9 }} />}
             {
               !minimize &&
             <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop: media.tablet ? 220 : 250, paddingLeft: media.tablet ? 100 : 115, fontSize:30 , color:violet, zIndex:3  }}></i>
@@ -145,7 +148,9 @@ export const Home = (props) => {
           backgroundRepeat: "no-repeat",
         }}>
           <div className='d-flex justify-content-end col-10 mx-5' style={{position: 'absolute', zIndex: 5, paddingTop: '50%',right: minimize && -20, bottom: minimize && 100, marginTop: minimize ? 0 : '35%'}}>
-            <img src={"/floater.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width:minimize ? 50 : 150, position: 'fixed', opacity: 0.9 }} />
+            {minimize ? 
+            <img src={"/floatMini.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 50, position: 'fixed', opacity: 0.9 }} />
+            : <img src={"/floater.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 150, position: 'fixed', opacity: 0.9 }} />}
             {
               !minimize &&
             <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop:145,right: (window.innerWidth > 370 && window.innerWidth < 400 )? 90 : window.innerWidth < 370 ? 85 :  100, fontSize:25 , color:violet, zIndex:3  }}></i>
@@ -287,22 +292,22 @@ const Highlights = props => {
       style={{ paddingTop: "90px", paddingLeft: "100px" }}
       className="text-light w-50"
     >
-      <div style={{ fontSize: 25, fontWeight: "bold" }}>Highlights</div>
-      <div className="w-75 py-3" style={{  }}>
+      <div style={{ fontSize: 20, fontWeight: "bold", fontFamily: "Montserrat"}}>Event Highlights</div>
+      <div className="w-75 py-3" style={{ fontFamily: "Montserrat", fontSize: 17, lineHeight: 1.5 }}>
         <ul>
           <li>
             Health talks on cancer screening and prevention
           </li>
           <li>
             Mammogram screening
-        </li>
+          </li>
           <li>
             FIT (Faecal Immunochemical Test) kit distribution
 
         </li>
         </ul>
       </div>
-      <NCIS_Button text={"Learn More"} fontSize={13} onClick={()=>_handleRoute("/event_details")} />
+      <NCIS_Button text={"Learn More"} fontSize={16} onClick={()=>_handleRoute("/event_details")} />
     </div>
   );
 };
@@ -314,8 +319,8 @@ const HighlightsForMobo = props => {
       style={{ color: '#271f57', }}
       className=" px-3"
     >
-      <div className='p-2' style={{ fontSize: 20, fontWeight: "bold" }}>Highlights</div>
-      <div className="" style={{ lineHeight :1.6 }}>
+      <div className='p-2' style={{ fontSize: 20, fontWeight: "bold",  fontFamily: "Montserrat" }}>Event Highlights</div>
+      <div className="" style={{fontSize: 17, lineHeight :1.6 }}>
         <ul>
           <li>
             Health talks on cancer screening and prevention
@@ -376,14 +381,14 @@ const SponsorsForMobo = props => {
               <div
                 className="d-flex my-1 py-2 align-items-center"
                 style={{
-                  width: v.name === "rocheSpon" ? (window.innerWidth > 360 ? 70 : 60) : (window.innerWidth > 360 ? 80 : 70),
-                  height: v.name === "rocheSpon" ? 50 : 60,
+                  width: v.name === "rocheSpon" ? (window.innerWidth > 360 ? 70 : 70) : (window.innerWidth > 360 ? 80 : 80),
+                  height: v.name === "rocheSpon" ? 60 : 60,
                   borderRadius: 10,
                   backgroundColor:'#fff'
                 }}
               >
                 
-                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? ( window.innerWidth > 360 ? 60 : 50) : ( window.innerWidth > 360 ? 70 : 60) }} />
+                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? ( window.innerWidth > 360 ? 50 : 40) : ( window.innerWidth > 360 ? 60 : 50) }} />
               </div>
             </div>
           ))}
@@ -459,14 +464,14 @@ const Sponsors = props => {
               <div
                 className="d-flex my-1 py-2 align-self-center"
                 style={{
-                  width: (v.name === "rocheSpon" ) ? (media.desktop ? 90 : 80) : (media.tablet ? 100 : 110),
-                  height:v.name === "rocheSpon" ? 60 : 70,
+                  width: (v.name === "rocheSpon" ) ? (media.desktop ? 90 : 90) : (media.tablet ? 100 : 100),
+                  height:v.name === "rocheSpon" ? 70 : 70,
                   // borderRadius: '50%',
                   borderRadius:10,
                   backgroundColor:'#fff'
                 }}
               >
-                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? (media.desktop ? 80 : 70) : (media.tablet ? 80 : 90) }} />
+                &nbsp;&nbsp;&nbsp;<img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? (media.desktop ? 50 : 40) : (media.tablet ? 60 : 70)}} />
               </div>
             </div>
           ))}
