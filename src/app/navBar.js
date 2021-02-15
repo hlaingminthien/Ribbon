@@ -22,7 +22,7 @@ const NavBar = (props) => {
 				<div className="d-flex flex-wrap flex-lg-nowrap justify-content-end" style={{ position: "absolute", left: '10px', right: window.innerWidth > 700 ? '15px' : '0px'}}>
 					<div className="d-flex justify-content-end order-lg-2">
 						<div className="d-flex justify-content-end align-items-center" style={{ whiteSpace: 'nowrap' }}>
-							<NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} fontSize={ 15 } width={160} />
+							<NCIS_Button text={"Pledge A Ribbon"} onClick={_handlePledge} fontSize={ 15 } width={160} />
 						</div>
 						<div
 							className="navbar-toggler" 
