@@ -226,7 +226,7 @@ const [ rand, setRandom ]=useState(0);
   };
 
   return (
-    <div className="d-flex flex-row flex-wrap">
+    <div className="d-flex flex-row flex-wrap m-0">
       {RibbonImages.Ribbons.map((v, k) => (
         <div
           key={k}
@@ -235,7 +235,7 @@ const [ rand, setRandom ]=useState(0);
         // onClick={() => _handleImage(v.imgaeUrl)}
         >
           <div
-            className="d-flex py-1"
+            className="d-flex py-1 "
             id={k}
             style={{ borderRadius: "50px" }}
             onClick={(e) => _handleClick(e, v.imgaeUrl, v.name)}
@@ -255,7 +255,7 @@ const [ rand, setRandom ]=useState(0);
                 marginTop: 3,
                 marginLeft: 3,
                 fontWeight: "500",
-                fontSize: Font.desktopBody,
+                fontSize: Font.tabletBody,
               }}
             >
               {v.name}

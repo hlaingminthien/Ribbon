@@ -184,7 +184,7 @@ const PledgeContainer = (props) => {
                   className="img-fluid  w-100"
                   src={media.desktop ? "/Desktop_PledgeARibbonPage.png" : "/PledgeBgMobo.png"}
                   alt="bg-svg"
-                  style={{  }}
+                  style={{ minHeight:'100vh' }}
                 />
           </div>
         
@@ -216,9 +216,9 @@ const PledgeContainer = (props) => {
                     position:'absolute',
                     fontSize: media.tablet ? 24 : media.mobile ?  22 : 26,
                     fontWeight: "bold",
-                    bottom : 85,
+                    bottom : 105,
                     lineHeight: 1,
-                    color: '#d8cad8'
+                    color: '#d8cad8',
                   }}
                 >
                   NCIS Ribbon Challenge 2021
@@ -226,11 +226,11 @@ const PledgeContainer = (props) => {
                 </div>
             </div>
             <div
-              className="col-8 pt-4 justify-content-center"
+              className="col-8 pt-4 justify-content-center mx-0 px-0"
               style={{ height: "90vh" }}
             >
-              <div className='d-flex justify-content-center'>
-                <div className='col-7'>
+              <div className='d-flex justify-content-center mx-0 px-0'>
+                <div className='col-7 px-0'>
                   <PledgeProgress step={step} media={media} />
 
                 </div>
