@@ -315,7 +315,7 @@ export const ThankYouCard = (props) => {
         <div className="text-center" style={{ fontWeight: "bold", fontSize: 20 }} >
           Thank you for your participation!
         </div>
-        <div className='p-1' style={{ fontSize: Font.desktopBody }}>
+        <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px' }}>
           Share the message to your friends to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
@@ -393,7 +393,7 @@ export const ThankYouCard = (props) => {
         </div>
         {
           shareApp === 5 ? 
-            <div className='p-1 py-2' style={{ fontSize: Font.desktopBody }}>
+            <div className='p-1 py-2' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
               Share the message to your friends to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -405,7 +405,7 @@ export const ThankYouCard = (props) => {
               </div>
             </div>
           : shareApp === 2 ?
-            <div className='p-1' style={{ fontSize: Font.desktopBody }}>
+            <div className='p-1' style={{ fontSize: Font.desktopBody,  lineHeight :'24px'  }}>
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -416,7 +416,7 @@ export const ThankYouCard = (props) => {
 
             </div> :
             shareApp === 1 ?
-            <div className='p-1' style={{ fontSize: Font.desktopBody }}>
+            <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
               Share the message on your WhatsApp  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -429,7 +429,7 @@ export const ThankYouCard = (props) => {
 
             </div> :
             shareApp === 3 ?
-            <div className='p-1' style={{ fontSize: Font.desktopBody }}>
+            <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
               Share the message on your Instagram  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -440,7 +440,7 @@ export const ThankYouCard = (props) => {
 
             </div> :
             shareApp === 4 ?
-            <div className='p-1' style={{ fontSize: Font.desktopBody }}>
+            <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
             <div className='px-2 py-1'>
@@ -465,7 +465,7 @@ export const ThankYouCard = (props) => {
         // </div>
          :
         shareApp === 6 ?
-        <div className='p-1' style={{ fontSize: Font.desktopBody }}>
+        <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
           Share the message on your Telegram  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
@@ -478,7 +478,7 @@ export const ThankYouCard = (props) => {
 
         </div>:
         shareApp === 7 ?
-        <div className='p-1' style={{ fontSize: Font.desktopBody }}>
+        <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
           Share the message on your weChat  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
@@ -491,7 +491,7 @@ export const ThankYouCard = (props) => {
 
         </div>:
         shareApp === 8 ?
-        <div className='p-1' style={{ fontSize: Font.desktopBody }}>
+        <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
           Share the message on your Line to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
@@ -512,7 +512,7 @@ export const ThankYouCard = (props) => {
               <div className='py-2' style={{ fontSize:Font.desktopBody, fontWeight:600 }}>
               Congratulations!
               </div>
-              <div className='py-2' style={{ fontSize:Font.tabletBody }}>
+              <div className='py-2' style={{ fontSize:Font.tabletBody, lineHeight :'24px'  }}>
               You have won the NCIS Ribbon Challenge mystery Image!
               <br />
               Click on to enter your particulars and we will get in touch with you soon. Thank you for your support!
@@ -523,7 +523,7 @@ export const ThankYouCard = (props) => {
             </div>
           </div> 
           : shareApp !== 5 ?
-            <p className="pt-2 px-2" style={{ fontSize: Font.tabletBody }}>
+            <p className="pt-2 px-2" style={{ fontSize: Font.tabletBody, lineHeight :'24px'  }}>
               Don’t stop here, you can do more by pledging again!
               <br />
               Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .

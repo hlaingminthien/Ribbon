@@ -478,7 +478,7 @@ const ThankuCard = (props) => {
         </div>
         {
           shareApp === 2 ?
-            <div className='p-1' style={{ fontSize: font.mobileBody }}>
+            <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px'  }}>
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -489,7 +489,7 @@ const ThankuCard = (props) => {
 
             </div> :
             shareApp === 1 ?
-            <div className='p-1' style={{ fontSize: font.mobileBody }}>
+            <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px'  }}>
               Share the message on your WhatsApp  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -502,7 +502,7 @@ const ThankuCard = (props) => {
 
             </div> :
             shareApp === 3 ?
-            <div className='p-1' style={{ fontSize: font.mobileBody }}>
+            <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
               Share the message on your Instagram  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -513,7 +513,7 @@ const ThankuCard = (props) => {
 
             </div> :
             shareApp === 4 ?
-            <div className='p-1' style={{ fontSize: font.mobileBody }}>
+            <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
             <div className='px-2 py-1'>
@@ -525,12 +525,12 @@ const ThankuCard = (props) => {
             </div>
           </div>:
           shareApp === 5 ?
-          <div className='p-1' style={{ fontSize: font.mobileBody }}>
+          <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Share the message via to spread the word to more people!<br />
 
         </div> :
         shareApp === 6 ?
-        <div className='p-1' style={{ fontSize: font.mobileBody }}>
+        <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Share the message on your Telegram  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
@@ -543,7 +543,7 @@ const ThankuCard = (props) => {
 
         </div>:
         shareApp === 7 ?
-        <div className='p-1' style={{ fontSize: font.mobileBody }}>
+        <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Share the message on your weChat  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
@@ -556,7 +556,7 @@ const ThankuCard = (props) => {
 
         </div>:
         shareApp === 8 ?
-        <div className='p-1' style={{ fontSize: font.mobileBody }}>
+        <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Share the message on your Line to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
@@ -579,7 +579,7 @@ const ThankuCard = (props) => {
               <div className='py-2' style={{ fontSize:18, fontWeight:600 }}>
               Congratulations!
               </div>
-              <div className='py-2' style={{ fontSize:font.mobileBody }}>
+              <div className='py-2' style={{ fontSize:font.mobileBody, lineHeight :'22px' }}>
               You have won the NCIS Ribbon Challenge mystery gift!
               <br />
               Click on to enter your particulars and we will get in touch with you soon. Thank you for your support!
@@ -589,7 +589,7 @@ const ThankuCard = (props) => {
               <img src={"/mysteryRibbon.jpeg"} style={{ width:100 }} />
             </div>
           </div>:
-          <p className="pt-2 px-2" style={{ fontSize: font.mobileBody }}>
+          <p className="pt-2 px-2" style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Don’t stop here, you can do more by pledging again!
           <br />
           Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
