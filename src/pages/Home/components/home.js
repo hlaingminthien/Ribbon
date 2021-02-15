@@ -226,6 +226,7 @@ const HomeTitle = (props) => {
           fontWeight: "bold",
           // paddingBottom: (media.cusHeight_600 || media.mobile) ? "40px" : "70px",
           lineHeight: 1,
+          color: '#d8cad8'
         }}
       >
         NCIS Ribbon 
