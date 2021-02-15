@@ -9,8 +9,10 @@ import drOuGuanWei from "../../../assets/PeopleImage/drOuGuanWei.png"
 import drLingSiJing from "../../../assets/PeopleImage/drLingSiJing.png"
 import drHuangYiQing from "../../../assets/PeopleImage/drHuangYiQing.png"
 import { NCIS_Button } from "../../../tools/NCIS_Button";
+
 import moment from 'moment';
-export const Event = () => {
+export const Event = (props) => {
+    const { media } = props;
     const [w, setW] = React.useState(null)
     React.useEffect(() => {
         setW(window.innerWidth)
@@ -37,15 +39,28 @@ export const Event = () => {
                 backgroundImage: "url(/assets/images/EventDesktop.svg)",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "100%",
-                paddingTop: sSize==="xxl" ? w*0.33 /*660*/ : sSize==="xl" ? 500 : sSize==="lg" ? 460 : sSize==="md" ? 450 : 200+w*0.1,
+                paddingTop: sSize==="xxl" ? w* 0.15/**0.33*/ /*660*/ : sSize==="xl" ? 300 : sSize==="lg" ? 220 : sSize==="md" ? 160 : 30+w*0.1,
                 overflow: "auto",
                 fontSize: 15,
                 lineHeight: 1.5,
-                paddingLeft: sSize==="xxl" ?  w*0.1 : sSize==="xl" ? 160 : sSize==="lg" ? 140 : sSize==="md" ? 100 : 10,
+                paddingLeft: sSize==="xxl" ?  w*0.1 : sSize==="xl" ? 160 : sSize==="lg" ? 140 : sSize==="md" ? 120 : 60,
                 paddingRight: 10,
             }}> 
+            <div
+        style={{
+          fontSize: media.tablet ? 40 : media.mobile ? 33 : 52,
+          fontWeight: "bold",
+          // paddingBottom: (media.cusHeight_600 || media.mobile) ? "40px" : "70px",
+          lineHeight: 1,
+          color: '#d8cad8'
+        }}
+      >
+        NCIS Ribbon 
+        <br />
+        Challenge 2021
+      </div>
             {/* <div style={{ position: "absolute", left: 50, top: 150, color: "white", padding: 20, background: "green", fontSize: "2em"}}>{w } {sSize}</div> */}
-            <div className="d-flex " >            
+            <div className="d-flex " style={{ paddingTop :media.mobile ? 30 : media.tablet ? 50 : 100 }}>            
                 <div className="pt-3 text-left" >
                     <div className="px-3 " style={{ fontSize: 25 }}>                        
                         <b>
@@ -62,7 +77,8 @@ export const Event = () => {
                     left: "55%", 
                     top: sSize==="xxl" ? 700+(w-1920)*0.5 :  sSize==="xl" ? 600+(w-1600)*0.5 : sSize==="lg" ? 480+(w-1366)*0.5 : sSize==="md" ? 340+(w-1000)*0.5 : 200+(w-520)*0.5}}>
                     <div className="" > 
-                        <span className="" style={{ fontSize: ["md", "sm"].includes(sSize) ? "1.2em" : "2em", color: "#271f57", fontWeight:"bold", textShadow: "0px 0px 2px #271f57"}}>{moment(Date.now()).format("DD MMMM  YYYY")}</span>
+                        <span className="" style={{ fontSize: ["md", "sm"].includes(sSize) ? "1.2em" : "2em", color: "#271f57", fontWeight:"bold", textShadow: "0px 0px 2px #271f57"}}>6 March 2021</span>
+                        {/* {moment(Date.now()).format("DD MMMM  YYYY")} */}
                         <span className="d-block" style={{ fontSize: ["md", "sm"].includes(sSize) ? "1em" : "1.8em", color: "#271f57", fontWeight:"bold", textShadow: "0px 0px 2px #271f57" }}>10am - 4pm</span>
                     </div>
                                         
@@ -131,7 +147,7 @@ export const Event = () => {
                                     </div><br/>
                                     <div className="pt-2">
                                         <div>English sessions</div>
-                                        <div style={{ color: "#d5d5d5"}}>{moment(Date.now()).format("DD MMMM  YYYY")}</div>                           
+                                        <div style={{ color: "#d5d5d5"}}>6 March 2021</div>                           
                                         <div style={{ color: "#d5d5d5"}}>10am -11.30am</div>   
                                     </div>
                                     <div className="mt-3 pt-2 " style={{ border:"1px solid #ffffff55",borderRadius: 10 }}>
