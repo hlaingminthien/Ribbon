@@ -12,13 +12,13 @@ const NavBar = (props) => {
 		<div
 			className="navbar navbar-expand-lg navbar-light shadow bg-light justify-content-between py-1 px-2 w-100"
 			style={{ position: "fixed", zIndex: 999 }}>
-			<div className="d-flex justify-content-between align-items-start flex-fill" style={{ paddingTop: '.5em', paddingBottom: '1em'}}>
-				<div style={{ zIndex: 2 }}>
+			<div className="d-flex justify-content-between align-items-center flex-fill" style={{/* paddingTop: '.5em', paddingBottom: '1em'*/}}>
+				<div className='px-lg-3 pl-xl-3 px-md-3'  style={{ zIndex: 2 }}>
 					<a className="navbar-brand" href="/">
-						<img src={Logo} alt="logo" height='35' />
+						<img src={Logo} alt="logo" height='60' />
 					</a>
 				</div>	
-				<div className="d-flex flex-wrap flex-lg-nowrap justify-content-end" style={{ position: "absolute", left: '10px', right: '10px'}}>
+				<div className="d-flex flex-wrap flex-lg-nowrap justify-content-end" style={{ position: "absolute", left: '10px', right: window.innerWidth > 700 ? '15px' : '0px'}}>
 					<div className="d-flex justify-content-end order-lg-2">
 						<div className="d-flex justify-content-end align-items-center" style={{ whiteSpace: 'nowrap' }}>
 							<NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} />

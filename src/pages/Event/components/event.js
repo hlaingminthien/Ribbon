@@ -79,7 +79,7 @@ export const Event = () => {
                                 <img src={Mamogram} className="pe-3 pb-2" style={{ height: 60 }} />
                             </div>
                             <div className="flex-grow-1" style={{  }}>            
-                                <b>Mammogram screening </b>
+                                <b style={{ fontSize:20,lineHeight : '30px' }}>Mammogram screening </b>
                                 <div className="pt-3" style={{ textShadow: "0px 0px 2px gray" }}>
                                     Ladies, if you above 50 years old, and have not done a mammogram screening, register for one now and have a peace of mind.<br/>
                                 </div>
@@ -89,6 +89,7 @@ export const Event = () => {
                                 <div className='pt-4 d-flex justify-content-start'>
                                     <NCIS_Button
                                         text={"Book your slot"}
+                                        width={220}
                                         onClick={""}
                                         fontSize={w > 1500 ? 16 : 14}
                                         className=""
@@ -101,7 +102,7 @@ export const Event = () => {
                         <div className="py-3 d-flex flex-wrap flex-md-nowrap"  style={{ maxWidth: 1200 }}>     
                             <img src={FIT} className="pe-3 pb-2" style={{ height: 60 }} />
                                 <div className="flex-grow-1" style={{  }}>  
-                                    <b>FIT (Faecal Immunochemical Test) kit </b>
+                                    <b style={{ fontSize:20,lineHeight : '30px' }}>FIT (Faecal Immunochemical Test) kit </b>
                                     <div className="pt-3" style={{ textShadow: "0px 0px 2px gray" }}>
                                         The Faecal Immunochemical Test (FIT) is a preliminary test that detects the presence of small amounts of blood in faeces. Colorectal polyps and cancers can be detected by the traces of blood that are bled into the colon.  
                                     </div>
@@ -114,7 +115,8 @@ export const Event = () => {
                                             onClick={""}
                                             fontSize={w > 1000 ? 16 : 14}
                                             className=""
-                                            fontSize={12}                                            
+                                            fontSize={12}         
+                                            width={220}                                   
                                         />
                                     </div>
                                 </div>                                
@@ -123,7 +125,7 @@ export const Event = () => {
                         <div className="py-3 d-flex flex-wrap flex-md-nowrap"  style={{ maxWidth: 1200 }}>
                             <img src={CancerEducationTalks} className="pe-3 pb-2" style={{ height: 60 }} />
                                 <div className="flex-grow-1" >
-                                    <span><b>Cancer Education talks in English and Mandarin</b></span>                                                                              
+                                    <span><b style={{ fontSize:20,lineHeight : '30px' }}>Cancer Education talks in English and Mandarin</b></span>                                                                              
                                     <div className="pt-3">
                                         Join our cancer specialists as they share with you information on the cancers that affects men and women and the diet & exercise for cancer prevention.
                                     </div><br/>
@@ -149,7 +151,7 @@ export const Event = () => {
                                         <div className="d-flex flex-wrap w-50 ">
                                             <div className="mt-2"><img src={drKumarakulasinghe} className="pe-3 pb-2" style={{ height: 60 }} />  </div>
                                             <div className="px-2 flex-grow-1">
-                                                <div>Dr Kumarakulasinghe Barr Nesaretnam</div>
+                                                <div style={{ fontWeight:'bold' }} >Dr Kumarakulasinghe Barr Nesaretnam</div>
                                                 <div style={{ color: "#d5d5d5"}}>Associate Consultant</div>
                                                 <div style={{ color: "#d5d5d5"}}>Department of Haematology-Oncology</div>
                                                 <div style={{ color: "#d5d5d5"}}>National University Cancer Institute, Singapore</div>
@@ -163,7 +165,7 @@ export const Event = () => {
                                         <div className="d-flex flex-wrap w-50 ">
                                             <div className="mt-2"><img src={drLimYiWan} className="pe-3 pb-2" style={{ height: 60 }} /></div>
                                             <div className="px-2 flex-grow-1">                                                    
-                                                    <div>Dr Lim Yi Wan</div>
+                                                    <div style={{ fontWeight:'bold' }}>Dr Lim Yi Wan</div>
                                                     <div style={{ color: "#d5d5d5" }}>Senior Consultant</div>
                                                     <div style={{ color: "#d5d5d5" }}>Department of Haematology-Oncology</div>
                                                     <div style={{ color: "#d5d5d5" }}>National University Cancer Institute, Singapore</div>
@@ -177,7 +179,7 @@ export const Event = () => {
                                         <div className="d-flex flex-wrap w-50 ">
                                             <div className="mt-2"><img src={drLimSiewEng} className="pe-3 pb-2" style={{ height: 60 }} /></div>
                                             <div className="px-2 flex-grow-1">                                                 
-                                                <div>Dr Lim Siew Eng</div>
+                                                <div style={{ fontWeight:'bold' }}>Dr Lim Siew Eng</div>
                                                 <div style={{ color: "#d5d5d5" }}>Senior Consultant</div>
                                                 <div style={{ color: "#d5d5d5" }}>Department of Haematology-Oncology</div>
                                                 <div style={{ color: "#d5d5d5" }}>National University Cancer Institute, Singapore</div>
@@ -189,13 +191,14 @@ export const Event = () => {
                                     </div>                                        
                             </div>
                             
-                            <div className='pt-4 d-flex justify-content-start'>
+                            <div className='pt-3 pb-5 mx-0 d-flex justify-content-start '>
                                 <   NCIS_Button
                                     text={"Register here for a slot"}
                                     onClick={""}
                                     fontSize={w > 1000 ? 16 : 14}
                                     fontSize={11} 
-                                    className="mx-2"                                                                                       
+                                    className="px-2" 
+                                    width={220}                                                                                      
                                 />
                             </div>
                                 <div className="pt-3 w-50">
@@ -270,7 +273,8 @@ export const Event = () => {
                                     onClick={""}
                                     fontSize={w > 1000 ? 16 : 14}
                                     fontSize={14} 
-                                    className="mx-2"                                                                                       
+                                    className="mx-2"    
+                                    width={220}                                                                                   
                                 />
                             </div>   
                             </div>                          
