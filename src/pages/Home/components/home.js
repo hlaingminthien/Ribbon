@@ -106,7 +106,7 @@ export const Home = (props) => {
             <div className="col-12 p-0 img-fluid">
               <div className="d-flex flex-row">
                 <div className="w-100" style={{ marginTop: 150 }}>
-                  <div className={`d-flex justify-content-center ${(window.innerWidth > 700 && window.innerWidth < 1001) ? "move-me move-me-6" : "move-me move-me-7"} `} style={{
+                  {/* <div className={`d-flex justify-content-center ${(window.innerWidth > 700 && window.innerWidth < 1001) ? "move-me move-me-6" : "move-me move-me-7"} `} style={{
                     marginLeft: (window.innerWidth > 700 && window.innerWidth < 1000) ? 270 : 310, marginTop: 0
                   }} >
                     <img
@@ -114,7 +114,7 @@ export const Home = (props) => {
                       alt="selected-ribbons"
                       style={{ zIndex: 0, width: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 50,height: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 50, }}
                     />
-                  </div>
+                  </div> */}
                   <img src={SelectedRibbons.SelectedRibbonsForTablet[shareCount].imgaeUrl} className="img-fluid" style={{  }} />
                   
                 </div>
@@ -122,20 +122,20 @@ export const Home = (props) => {
             </div>
           ) : (
               <div className="col-lg-11 col-xl-12 col-md-12 p-0 img-fluid " style={{}}>
-                <div className={`d-flex justify-content-center ${/*(window.innerWidth > 1200 && window.innerWidth < 1399) ? "move-me move-me-10" :*/ (window.innerWidth > 1400 && window.innerWidth < 1700) ? "move-me move-me-4" : (window.innerWidth > 1699) ? "move-me move-me-5" : "move-me move-me-3"} `} style={{ marginLeft: (window.innerWidth > 1200 && window.innerWidth < 1400) ? 220 : (window.innerWidth > 1399 && window.innerWidth < 1700) ? 270 : (window.innerWidth > 1699) ? 370 : 220, marginTop:window.innerWidth > 1600 ? -100 : 100 }} >
+                {/* <div className={`d-flex justify-content-center ${ (window.innerWidth > 1400 && window.innerWidth < 1700) ? "move-me move-me-4" : (window.innerWidth > 1699) ? "move-me move-me-5" : "move-me move-me-3"} `} style={{ marginLeft: (window.innerWidth > 1200 && window.innerWidth < 1400) ? 220 : (window.innerWidth > 1399 && window.innerWidth < 1700) ? 270 : (window.innerWidth > 1699) ? 370 : 220, marginTop:window.innerWidth > 1600 ? -100 : 100 }} >
                   <img
                     src={"/lightViolet.png"}
                     alt="selected-ribbons"
                     style={{ zIndex: 0, width:(window.innerWidth < 1200) ? 60 : (window.innerWidth > 1600 && window.innerWidth < 1701) ? 95 : (window.innerWidth > 1700) ? 110 : (window.innerWidth < 1600) ? 80 : 90,height :(window.innerWidth < 1200) ? 60 : (window.innerWidth > 1600 && window.innerWidth < 1701) ? 95 : (window.innerWidth > 1700) ? 110 : (window.innerWidth < 1600) ? 80 : 90 }}
                   />
-                </div>
+                </div> */}
 
                 <img src={SelectedRibbons.SelectedRibbons[shareCount].imgaeUrl} className="img-fluid" style={{ width: window.innerWidth > 1590 && '120%', zIndex: 0, position: 'relative' }} />
               </div>
             )}
           <Counter shareCount={shareCount} />
           {media.mobile || (
-            <div className="row">
+            <div className="row" style={{ marginTop: '10rem', position: 'relative', }}>
               <Highlights media={media} _handleRoute={_handleRoute} />
               <Sponsors media={media} />
             </div>
@@ -169,7 +169,7 @@ export const Home = (props) => {
               maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '72%'
             }} /> */}
             
-              <div className={`d-flex justify-content-center ${window.innerWidth > 360 ? "move-me move-me-8" : (window.innerWidth< 360 && window.innerWidth > 310) ? "move-me move-me-9" : "move-me move-me-9" }  `} style={{
+              {/* <div className={`d-flex justify-content-center ${window.innerWidth > 360 ? "move-me move-me-8" : (window.innerWidth< 360 && window.innerWidth > 310) ? "move-me move-me-9" : "move-me move-me-9" }  `} style={{
                 marginLeft: window.innerWidth > 300 && window.innerWidth < 400 ? 200 : 240
               }} >
                 <img
@@ -177,7 +177,7 @@ export const Home = (props) => {
                   alt="selected-ribbons"
                   style={{ zIndex: 0, width: (window.innerWidth > 700 && window.innerWidth < 1001) ? 60 : (window.innerWidth > 1000 && window.innerWidth < 1200) ? 70 : 47, }}
                 />
-              </div>
+              </div> */}
               <div >
                 <img src={"/balloon.png"} style={{ width:300, position:'absolute',right:25, top:-50 }} />
                 <img src={SelectedRibbons.SelectedRibbonsForMobile[shareCount].imgaeUrl} style={{
@@ -192,7 +192,7 @@ export const Home = (props) => {
             
           </div>
 
-          <div className='' style={{ marginTop: '22rem', position: 'relative', marginBottom: 25}}>
+          <div className='' style={{ marginTop: '27rem', position: 'relative', marginBottom: 25}}>
             <HighlightsForMobo media={media} _handleRoute={_handleRoute} />
 
           </div>
@@ -261,7 +261,7 @@ const HomeTitle = (props) => {
       </div>
       <div
         className={media.mobile ? "col-10 " : media.tablet ? "col-9 pb-4" : "col-9 pb-4 pt-2"}
-        style={{ fontSize: media.mobile ? 16 : 18, fontWeight: "lighter", lineHeight: "26px" }}
+        style={{ fontSize: media.mobile ? 15 : 18, fontWeight: "lighter", lineHeight: "25px" }}
       >
         {/* <Scrollbars style={{ minHeight: media.mobile ? 100 : media.tablet ? 230 : window.innerWidth > 1590 ? 270 : 150 }} ref={scrollbar} > */}
 
@@ -316,7 +316,7 @@ const HighlightsForMobo = props => {
   const { media,_handleRoute } = props
   return (
     <div
-      style={{ color: '#271f57' }}
+      style={{ color: '#271f57', }}
       className=" px-3"
     >
       <div className='p-2' style={{ fontSize: 20, fontWeight: "bold",  fontFamily: "Montserrat" }}>Event Highlights</div>
