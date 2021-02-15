@@ -57,7 +57,7 @@ const PledgeContainer = (props) => {
 
     domtoimage.toPng(myNode).then(base64data=>{
       const url = `${Base_Url}uploadImage`;
-      saveAs(base64data, "ribbon.png");
+      // saveAs(base64data, "ribbon.png");
       setFinalImage(base64data);
       axios.post(url, { ribbon: base64data })
         .then(res => {
