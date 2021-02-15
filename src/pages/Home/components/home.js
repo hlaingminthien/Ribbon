@@ -210,7 +210,7 @@ const HomeTitle = (props) => {
       }}
       className="text-light col-lg-6 col-md-8 "
     >
-      <span
+      {/* <span
         style={{
           fontSize: media.tablet ? 20 : media.mobile ? 10 : 30,
           fontWeight: "bold",
@@ -219,29 +219,43 @@ const HomeTitle = (props) => {
       >
         NCIS Challenge 2021
       </span>
-      {/* <div
+      */}
+      <div
         style={{
-          fontSize: media.tablet ? 35 : media.mobile ? 20 : 58,
+          fontSize: media.tablet ? 40 : media.mobile ? 33 : 52,
           fontWeight: "bold",
-          color: paleViolet,
+          // paddingBottom: (media.cusHeight_600 || media.mobile) ? "40px" : "70px",
           lineHeight: 1,
         }}
       >
-        Virtual Ribbon
-      </div> */}
-      <div
+        NCIS Ribbon 
+        <br />
+        Challenge 2021
+      </div>
+      
+      {/* <span
         style={{
-          fontSize: media.tablet ? 30 : media.mobile ? 18 : 38,
+          fontSize: media.tablet ? 20 : media.mobile ? 10 : 30,
           fontWeight: "bold",
-          paddingBottom: (media.cusHeight_600 || media.mobile) ? "40px" : "70px",
           // lineHeight: 1,
+        }}
+      >
+        Together, We Fight Cancer
+      </span> */}
+     
+      <div className='pt-3'
+        style={{
+          fontSize: media.tablet ? 20 : media.mobile ? 18 : 28,
+          fontWeight: 600,
+          paddingBottom: (media.cusHeight_600 || media.mobile) ? "40px" : "60px",
+          lineHeight: "26px",
         }}
       >
         Together, We Fight Cancer
       </div>
       <div
         className={media.mobile ? "col-10 " : media.tablet ? "col-9 pb-4" : "col-9 pb-4 pt-2"}
-        style={{ fontSize: media.mobile ? 10 : 13, fontWeight: "lighter", lineHeight: 1.6 }}
+        style={{ fontSize: media.mobile ? 16 : 18, fontWeight: "lighter", lineHeight: "26px" }}
       >
         {/* <Scrollbars style={{ minHeight: media.mobile ? 100 : media.tablet ? 230 : window.innerWidth > 1590 ? 270 : 150 }} ref={scrollbar} > */}
 
