@@ -110,8 +110,8 @@ export const Event = (props) => {
                                         width={220}
                                         onClick={""}
                                         fontSize={w > 1500 ? 16 : 14}
-                                        className=""
-                                        fontSize={14}
+                                        fontSize={16}         
+                                            width={220}  
                                     /></a>
                                 </div>                                
                             </div>                            
