@@ -90,7 +90,10 @@ export const Home = (props) => {
           <HomeTitle media={media} _handlePledge={_handlePledge} />
           <div className='d-flex justify-content-end col-10 ' style={{ position: 'absolute', marginTop: (media.desktop && window.innerWidth < 1500 ) ? '23%' : minimize ? 0 : '25%', bottom: minimize && 250  }}>
             <div style={{ marginRight: minimize ? '-5%' : media.tablet ? '10%' : '8%'}}>
-            <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width: (window.innerWidth > 1600 && !minimize) ? 300 : minimize ?  100 : media.tablet ? 220 : 250, position: 'fixed', zIndex: 1, opacity: 0.9 }} />
+            {minimize ?  
+            <img src={"/floatMini.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 50, position: 'fixed', opacity: 0.9 }} />
+             :
+              <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width: (window.innerWidth > 1600 && !minimize) ? 300 :  media.tablet ? 220 : 250, position: 'fixed', zIndex: 1, opacity: 0.9 }} />}
             {
               !minimize &&
             <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop: media.tablet ? 220 : 250, paddingLeft: media.tablet ? 100 : 115, fontSize:30 , color:violet, zIndex:3  }}></i>
@@ -145,7 +148,9 @@ export const Home = (props) => {
           backgroundRepeat: "no-repeat",
         }}>
           <div className='d-flex justify-content-end col-10 mx-5' style={{position: 'absolute', zIndex: 5, paddingTop: '50%',right: minimize && -20, bottom: minimize && 100, marginTop: minimize ? 0 : '35%'}}>
-            <img src={"/floater.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width:minimize ? 50 : 150, position: 'fixed', opacity: 0.9 }} />
+            {minimize ? 
+            <img src={"/floatMini.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 50, position: 'fixed', opacity: 0.9 }} />
+            : <img src={"/floater.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 150, position: 'fixed', opacity: 0.9 }} />}
             {
               !minimize &&
             <i className="fa fa-times-circle " onClick={()=>setMinimize(true)} style={{ position:'fixed',paddingTop:145,right: (window.innerWidth > 370 && window.innerWidth < 400 )? 90 : window.innerWidth < 370 ? 85 :  100, fontSize:25 , color:violet, zIndex:3  }}></i>
