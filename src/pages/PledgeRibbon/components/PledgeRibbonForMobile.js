@@ -508,7 +508,7 @@ const ThankuCard = (props) => {
             </div> :
             shareApp === 4 ?
             <div className='p-1' style={{ fontSize: 13 }}>
-            Share the message on your LinkIn  to spread the word to more people!<br />
+            Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
 
           </div>:
