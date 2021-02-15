@@ -104,6 +104,7 @@ export const Event = (props) => {
                                     The mammobus will be at NUH Main Building Lobby B to carry out mammogram screening. Pre-registration is required. Please call 6773 7888 or click on the button below to book your slots. Terms apply.
                                 </div>                                
                                 <div className='pt-4 d-flex justify-content-start'>
+                                    <a href="mailto:cancerscreening@nuhs.edu.sg">
                                     <NCIS_Button
                                         text={"Book your slot"}
                                         width={220}
@@ -111,7 +112,7 @@ export const Event = (props) => {
                                         fontSize={w > 1500 ? 16 : 14}
                                         className=""
                                         fontSize={14}
-                                    />
+                                    /></a>
                                 </div>                                
                             </div>                            
                         </div>
@@ -127,6 +128,7 @@ export const Event = (props) => {
                                         If you are a Singaporean or PR aged 50 years and above, you can request for a FIT kit at no cost.
                                     </div>
                                     <div className='pt-4 d-flex justify-content-start'>
+                                        <a href="https://bit.ly/3aNzFzF" target="_blank">
                                         <NCIS_Button
                                             text={"Request for a FIT kit"}
                                             onClick={""}
@@ -135,6 +137,7 @@ export const Event = (props) => {
                                             fontSize={16}         
                                             width={220}                                   
                                         />
+                                        </a>
                                     </div>
                                 </div>                                
                         </div>   
@@ -209,6 +212,7 @@ export const Event = (props) => {
                             </div>
                             
                             <div className='pt-3 pb-5 mx-0 d-flex justify-content-start '>
+                            <a href="https://tinyurl.com/y36vf922" target="_blank">
                                 <   NCIS_Button
                                     text={"Register here for a slot"}
                                     onClick={""}
@@ -217,6 +221,7 @@ export const Event = (props) => {
                                     className="px-2" 
                                     width={220}                                                                                      
                                 />
+                            </a>
                             </div>
                                 <div className="pt-3 w-50">
                                     <div>华语讲座</div>

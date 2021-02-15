@@ -39,7 +39,7 @@ export const Home = (props) => {
     props.history.push(path);
   };
   useEffect(() => {
-
+    console.log("work!......");
     fetch(`${Base_Url}sharecount`, {
       headers: {
         "Accept": "application/json",
@@ -63,7 +63,7 @@ export const Home = (props) => {
       
       })
       .catch(error => { throw error })
-  }, [])
+  })
   let floaterMobileBottom = minimize ? 50 : 150
   if (document.getElementById("floaterMobileId") !== null)
       floaterMobileBottom = document.getElementById('floaterMobileId').getBoundingClientRect().bottom
@@ -92,7 +92,8 @@ export const Home = (props) => {
           <div className='d-flex justify-content-end col-10 ' style={{ position: 'absolute', marginTop: (media.desktop && window.innerWidth < 1500 ) ? '23%' : minimize ? 0 : '25%', bottom: minimize && 250  }}>
             <div style={{ marginRight: minimize ? '-5%' : media.tablet ? '10%' : '8%'}}>
             {minimize ?  
-            <img src={"/floatMini.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 50, position: 'fixed', opacity: 0.9, zIndex: 2000 }} />
+            <img src={"/floatMini.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 70, position: 'fixed', opacity: 0.9, zIndex: 2000, right: 20,
+            bottom: 50 }} />
              :
               <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width: (window.innerWidth > 1600 && !minimize) ? 300 :  media.tablet ? 220 : 250, position: 'fixed', zIndex: 1, opacity: 0.9 }} />}
             {
@@ -150,7 +151,7 @@ export const Home = (props) => {
         }}>
           <div className='d-flex justify-content-end col-10 mx-5' style={{position: 'absolute', zIndex: 5, paddingTop: '50%',right: minimize && -20, bottom: minimize && 100, marginTop: minimize ? 0 : '35%'}}>
             {minimize ? 
-            <img src={"/floatMini.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ zIndex: 2000,width: 50, position: 'fixed', opacity: 0.9 }} />
+            <img src={"/floatMini.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ zIndex: 2000,width: 70, position: 'fixed', opacity: 0.9, right: 20, bottom: 50 }} />
             : <img src={"/floater.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 150, position: 'fixed', opacity: 0.9 }} />}
             {
               !minimize &&
@@ -272,7 +273,7 @@ const HomeTitle = (props) => {
         <br />
         For each ribbon pledged, $3 will go towards the NCIS Cancer Fund to provide timely financial aid to our needy cancer patients.
         <br />
-        Thank you for your generous support and together, we fight cancer! For more information, visit www.ncis.com.sg.
+        Thank you for your generous support and together, we fight cancer! For more information, visit <a href="https://www.ncis.com.sg" style={{textDecoration: 'none', color: 'white'}} target="_blank">www.ncis.com.sg</a>.
 
       {/* </Scrollbars> */}
       </div>
@@ -362,7 +363,7 @@ const SponsorsForMobo = props => {
             className="d-flex mx-2 my-1 py-2 align-items-center"
             style={{
               width: 150,
-              height: 70,
+              height: 50,
               borderRadius: 10,
               backgroundColor:'#fff'
             }}
@@ -383,7 +384,7 @@ const SponsorsForMobo = props => {
                 className="d-flex my-1 py-2 align-items-center"
                 style={{
                   width: v.name === "rocheSpon" ? (window.innerWidth > 360 ? 70 : 70) : (window.innerWidth > 360 ? 80 : 80),
-                  height: v.name === "rocheSpon" ? 60 : 60,
+                  height: v.name === "rocheSpon" ? 50 : 50,
                   borderRadius: 10,
                   backgroundColor:'#fff'
                 }}
@@ -408,7 +409,7 @@ const SponsorsForMobo = props => {
                 className="d-flex my-1 py-2 align-items-center"
                 style={{
                   width: 90,
-                  height: 60,
+                  height: 50,
                   borderRadius: 10,
                   backgroundColor:'#fff'
                 }}
@@ -444,7 +445,7 @@ const Sponsors = props => {
             className="d-flex mx-2 my-1 py-2 align-items-center"
             style={{
               width: 150,
-              height: 80,
+              height: 50,
               borderRadius:10,
               backgroundColor:'#fff'
               // borderRadius: '50%',
@@ -466,7 +467,7 @@ const Sponsors = props => {
                 className="d-flex my-1 py-2 align-self-center"
                 style={{
                   width: (v.name === "rocheSpon" ) ? (media.desktop ? 90 : 90) : (media.tablet ? 100 : 100),
-                  height:v.name === "rocheSpon" ? 70 : 70,
+                  height:v.name === "rocheSpon" ? 50 : 50,
                   // borderRadius: '50%',
                   borderRadius:10,
                   backgroundColor:'#fff'
@@ -491,13 +492,13 @@ const Sponsors = props => {
                 className="d-flex my-1 py-2 align-items-center"
                 style={{
                   width: 100,
-                  height: 70,
+                  height: 50,
                   // borderRadius:'50%',
                   borderRadius:10,
                   backgroundColor:'#fff'
                 }}
               >
-                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 80 }} />
+                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 55 }} />
               </div>
             </div>
           ))}
