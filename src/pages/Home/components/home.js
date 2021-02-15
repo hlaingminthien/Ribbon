@@ -162,7 +162,7 @@ export const Home = (props) => {
           
           <HomeTitle media={media} />
           <div className='text-center px-4 d-flex justify-content-center' style={{ marginTop: 20, zIndex: 4 /* marginLeft: media.cusHeight_600 ? -25 : 20*/ }}>
-            <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} width={220} />
+            <NCIS_Button text={"Pledge A Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} width={220} />
           </div>
           <div className='d-flex ' style={{ position:'relative' }}>
             <Counter shareCount={shareCount} />
@@ -279,7 +279,7 @@ const HomeTitle = (props) => {
       </div>
       {!media.mobile &&
         <div className='' style={{ position: 'absolute', zIndex: 100, fontSize: '14px' }}>
-          <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} fontSize={14} />
+          <NCIS_Button text={"Pledge A Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} fontSize={14} />
 
         </div>
       }
