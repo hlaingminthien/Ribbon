@@ -287,15 +287,15 @@ const Highlights = props => {
       style={{ paddingTop: "90px", paddingLeft: "100px" }}
       className="text-light w-50"
     >
-      <div style={{ fontSize: 18, fontWeight: "bold", fontFamily: "Montserrat"}}>Event Highlights</div>
-      <div className="w-75 py-3" style={{ fontFamily: "Montserrat", fontSize: 18 }}>
+      <div style={{ fontSize: 20, fontWeight: "bold", fontFamily: "Montserrat"}}>Event Highlights</div>
+      <div className="w-75 py-3" style={{ fontFamily: "Montserrat", fontSize: 17, lineHeight: 1.5 }}>
         <ul>
           <li>
             Health talks on cancer screening and prevention
           </li>
           <li>
             Mammogram screening
-        </li>
+          </li>
           <li>
             FIT (Faecal Immunochemical Test) kit distribution
 
@@ -314,7 +314,7 @@ const HighlightsForMobo = props => {
       style={{ color: '#271f57' }}
       className=" px-3"
     >
-      <div className='p-2' style={{ fontSize: 18, fontWeight: "bold",  fontFamily: "Montserrat" }}>Event Highlights</div>
+      <div className='p-2' style={{ fontSize: 20, fontWeight: "bold",  fontFamily: "Montserrat" }}>Event Highlights</div>
       <div className="" style={{ lineHeight :1.6 }}>
         <ul>
           <li>
