@@ -537,6 +537,8 @@ export const ThankYouCard = (props) => {
           <div className="pb-2  d-flex justify-content-center">
             <NCIS_Button
               text={"Pledge Another"}
+              width={220}
+              fontSize={Font.button}
               onClick={() => window.location.reload()}
               className="mx-1"
             />
@@ -560,6 +562,8 @@ export const ThankYouCard = (props) => {
             onClick={_handlePledge}
             className="mx-1"
             buttonColor={violet}
+            width={220}
+            fontSize={Font.button}
           />
         </div>
           }

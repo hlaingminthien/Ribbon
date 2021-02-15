@@ -89,7 +89,7 @@ export const Home = (props) => {
         >
 
           <HomeTitle media={media} _handlePledge={_handlePledge} />
-          <div className='d-flex justify-content-end col-10 ' style={{ position: 'absolute', marginTop: (media.desktop && window.innerWidth < 1500 ) ? '23%' : minimize ? 0 : '25%', bottom: minimize && 250  }}>
+          <div className='d-flex justify-content-end col-10 ' style={{ position: 'absolute', marginTop: (media.desktop && window.innerWidth < 1500 ) ? '21%' : minimize ? 0 : '23%', bottom: minimize && 250  }}>
             <div style={{ marginRight: minimize ? '-5%' : media.tablet ? '10%' : '8%'}}>
             {minimize ?  
             <img src={"/floatMini.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 70, position: 'fixed', opacity: 0.9, zIndex: 2000, right: 20,
