@@ -315,7 +315,7 @@ const HighlightsForMobo = props => {
       className=" px-3"
     >
       <div className='p-2' style={{ fontSize: 20, fontWeight: "bold",  fontFamily: "Montserrat" }}>Event Highlights</div>
-      <div className="" style={{ lineHeight :1.6 }}>
+      <div className="" style={{fontSize: 17, lineHeight :1.6 }}>
         <ul>
           <li>
             Health talks on cancer screening and prevention
