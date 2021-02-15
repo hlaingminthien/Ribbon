@@ -280,7 +280,7 @@ const [ rand, setRandom ]=useState(0);
              
               <>
                 {v.ribbonDetails ? (
-                  <div className="px-2" id={k} style={{ fontSize: Font.tabletBody }}>
+                  <div className="px-2" id={k} style={{ fontSize: Font.tabletBody, lineHeight :"22px" }}>
                     {
                                 v.ribbonDetails[rand]
                               }

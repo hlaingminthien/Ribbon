@@ -409,7 +409,7 @@ const Ribbon = (props) => {
                     
                         <>
                           {v.ribbonDetails ? (
-                            <div className="p-2" id={k} style={{ fontSize: font.mobileBody  }}>
+                            <div className="p-2" id={k} style={{ fontSize: font.mobileBody, lineHeight :"22px"  }}>
                               {
                                 v.ribbonDetails[rand]
                               }
