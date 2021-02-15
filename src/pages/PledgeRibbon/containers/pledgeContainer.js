@@ -179,12 +179,12 @@ const PledgeContainer = (props) => {
       {
         (media.mobile || media.desktop ) &&
       <div id="testsvg" style={{ width:'100%', background:'#e6dfe6' }}>
-          <div className='' style={{ /*width:media.desktop && '60%' */ }}>
+          <div className='' style={{ width:media.desktop && '83%'  }}>
               <img
                   className="img-fluid  w-100"
                   src={media.desktop ? "/Desktop_PledgeARibbonPage.png" : "/PledgeBgMobo.png"}
                   alt="bg-svg"
-                  style={{ minHeight: media.desktop ? "96vh" : media.tablet ? "100vh" : "100vh", }}
+                  style={{  }}
                 />
           </div>
         
@@ -195,7 +195,7 @@ const PledgeContainer = (props) => {
         {(media.desktop) ? (
           <div className="row px-0 ">
             <div
-              className="d-flex justify-content-start col-4 align-self-start"
+              className="d-flex justify-content-start col-4 align-self-start px-0"
               style={{ textAlign: "center" }}
             >
               <div className="pt-3 pb-1 px-2" style={{ marginTop: window.innerWidth > 1500 ? '4%' : (media.tablet) ? '13%' : '5%', marginLeft: '-1%', position: (media.tablet || media.desktop) && 'fixed' }}>
