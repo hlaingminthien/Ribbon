@@ -518,7 +518,7 @@ const ThankuCard = (props) => {
         </div>
         {
           shareApp === 2 ?
-            <div className='p-1' style={{ fontSize: font.tabletBody }}>
+            <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -529,7 +529,7 @@ const ThankuCard = (props) => {
 
             </div> :
             shareApp === 1 ?
-            <div className='p-1' style={{ fontSize: font.tabletBody }}>
+            <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
               Share the message on your WhatsApp  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -542,7 +542,7 @@ const ThankuCard = (props) => {
 
             </div> :
             shareApp === 3 ?
-            <div className='p-1' style={{ fontSize: font.tabletBody }}>
+            <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
               Share the message on your Instagram  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -553,7 +553,7 @@ const ThankuCard = (props) => {
 
             </div> :
             shareApp === 4 ?
-            <div className='p-1' style={{ fontSize: font.tabletBody }}>
+            <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
             <div className='px-2 py-1'>
@@ -565,12 +565,12 @@ const ThankuCard = (props) => {
             </div>
           </div>:
           shareApp === 5 ?
-          <div className='p-1' style={{ fontSize: font.tabletBody }}>
+          <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
           Share the message via to spread the word to more people!<br />
 
         </div> :
         shareApp === 6 ?
-        <div className='p-1' style={{ fontSize: font.tabletBody }}>
+        <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
           Share the message on your Telegram  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
@@ -583,7 +583,7 @@ const ThankuCard = (props) => {
 
         </div>:
         shareApp === 7 ?
-        <div className='p-1' style={{ fontSize: font.tabletBody }}>
+        <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
           Share the message on your weChat  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
@@ -596,7 +596,7 @@ const ThankuCard = (props) => {
 
         </div>:
         shareApp === 8 ?
-        <div className='p-1' style={{ fontSize: font.tabletBody }}>
+        <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
           Share the message on your Line to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
@@ -615,7 +615,7 @@ const ThankuCard = (props) => {
           winner ?
           <div className='d-flex'>
             <div className='p-2 col-8'>
-              <div className='py-2' style={{ fontSize:18, fontWeight:600 }}>
+              <div className='py-2' style={{ fontSize:18, fontWeight:600, lineHeight :'24px'  }}>
               Congratulations!
               </div>
               <div className='py-2' style={{ fontSize:font.tabletBody }}>
@@ -628,7 +628,7 @@ const ThankuCard = (props) => {
               <img src={"/mysteryRibbon.jpeg"} style={{ width:120 }} />
             </div>
           </div>:
-          <p className="pt-2 px-2" style={{ fontSize: font.tabletBody }}>
+          <p className="pt-2 px-2" style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
           Don’t stop here, you can do more by pledging again!
           <br />
           Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
