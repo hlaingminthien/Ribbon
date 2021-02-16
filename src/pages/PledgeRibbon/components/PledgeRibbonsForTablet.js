@@ -98,7 +98,7 @@ const PledgeRibbonsForTablet = (props) => {
               <div className="" style={{ fontSize: 18, fontWeight: "bold" }}>
                 Share your message
               </div>
-              <div className="py-0" style={{ fontSize: 14, fontWeight: 600 }}>
+              <div className="py-0" style={{ fontSize: font.tabletBody, fontWeight: 600 }}>
               Select the following icons to share your message
               </div>
             </div>
