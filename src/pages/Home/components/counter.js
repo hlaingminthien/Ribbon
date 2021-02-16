@@ -5,10 +5,10 @@ import { MediaContext } from "react-media-query-hoc";
 import DumblesIcon from "../../../assets/images/dumbles.png";
 
 export const Counter = props => {
-  const { shareCount } = props
+  const { count } = props
 
-  var splitCount=(shareCount*5).toString().split('')
-    var loopcount=5-parseInt((shareCount*5).toString().length);
+  var splitCount=(count).toString().split('')
+    var loopcount=5-parseInt((count).toString().length);
     for (let index = 0; index < loopcount; index++) {
       splitCount.unshift('0')
     }

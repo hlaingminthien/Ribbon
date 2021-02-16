@@ -31,6 +31,7 @@ export const Home = (props) => {
   const { media } = props;
   const [shareCount, setShareCount] = useState(0);
   const [ minimize, setMinimize] =useState(false);
+  const [ count, setCount ]=useState(0);
 
   const _handlePledge = () => {
     props.history.push("/pledge_a_ribbon");
@@ -48,7 +49,7 @@ export const Home = (props) => {
       .then(res => res.json())
       .then(data => {
         // setShareCount(parseInt(data.payload.count / 5))
-        
+          setCount(data.payload.count)
           const defineRibbonCount=5;
           const ribbonCountFromServer=parseInt(data.payload.count);
           var ribbonCountForHomeUI=0;
@@ -135,7 +136,7 @@ export const Home = (props) => {
                 <img src={SelectedRibbons.SelectedRibbons[shareCount].imgaeUrl} className="img-fluid" style={{ width: window.innerWidth > 1590 && '120%', zIndex: 0, position: 'relative' }} />
               </div>
             )}
-          <Counter shareCount={shareCount} />
+          <Counter count={count}  />
           {media.mobile || (
             <div className="row" style={{ marginTop:media.tablet ? "15rem" : ((window.innerWidth <1300 && window.innerWidth> 1100) && media.desktop )? "22rem" : '15rem', position: 'relative', }}>
               <Highlights media={media} _handleRoute={_handleRoute} />
@@ -165,7 +166,7 @@ export const Home = (props) => {
             <NCIS_Button text={"Pledge A Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} width={220} />
           </div>
           <div className='d-flex ' style={{ position:'relative' }}>
-            <Counter shareCount={shareCount} />
+            <Counter count={count} />
             {/* <img src={SelectedRibbons.SelectedRibbonsForMobile.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} style={{
               bottom: media.cusHeight_700 ? 20 : 50, right: -1, height: 'auto', position: 'absolute',
               maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '72%'
