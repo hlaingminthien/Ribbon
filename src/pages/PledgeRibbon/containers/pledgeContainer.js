@@ -169,8 +169,8 @@ const PledgeContainer = (props) => {
     <>
     {loading && <div style={{ position: 'absolute', width: '100%', height: '100vh', zIndex: 2000}}></div>}
      <div style={{opacity:loading ? 1 : 0}} class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-    <div className="d-flex justify-content-center align-self-center pt-3 " style={{backgroundImage:media.tablet ? "url(/PledgeRibbonTablet.svg)" : 'none' ,backgroundRepeat: "no-repeat",
-                backgroundSize: "100%", minHeight:'100vh' }}>
+    <div className="d-flex justify-content-center align-self-center " style={{backgroundImage:media.tablet ? "url(/PledgeRibbonTablet.svg)" : 'none' ,backgroundRepeat: "no-repeat",
+                backgroundSize: "100%", minHeight:'100vh', paddingTop: 58 }}>
       
       {
         (media.mobile || media.desktop ) &&
@@ -192,7 +192,7 @@ const PledgeContainer = (props) => {
           <div className="row px-0 ">
             <div
               className="d-flex justify-content-start col-4 align-self-start px-0"
-              style={{ textAlign: "center" }}
+              style={{ textAlign: "center", width: 380 }}
             >
               <div className="pt-3 pb-1 px-2" style={{ marginTop: window.innerWidth > 1500 ? '4%' : (media.tablet) ? '13%' : '5%', marginLeft: '-1%', position: (media.tablet || media.desktop) && 'fixed' }}>
                 <PledgeCard
@@ -215,6 +215,7 @@ const PledgeContainer = (props) => {
                     bottom : 105,
                     lineHeight: 1,
                     color: '#d8cad8',
+                    zIndex: -1
                   }}
                 >
                   NCIS Ribbon Challenge 2021
@@ -222,8 +223,8 @@ const PledgeContainer = (props) => {
                 </div>
             </div>
             <div
-              className="col-8 pt-4 justify-content-center mx-0 px-0"
-              style={{ height: "90vh" }}
+              className="col-8 pt-4 justify-content-center mx-0"
+              style={{ height: "90vh", flex: 1 }}
             >
               <div className='d-flex justify-content-center mx-0 px-0'>
                 <div className='col-7 px-0'>

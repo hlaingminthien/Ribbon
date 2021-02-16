@@ -14,7 +14,7 @@ const NavBar = (props) => {
 
 	return (
 		<div
-			className="navbar navbar-expand-lg navbar-light shadow bg-light justify-content-between py-2 px-2 w-100"
+			className="navbar navbar-expand-lg navbar-light shadow bg-white justify-content-between py-2 px-2 w-100"
 			style={{ position: "fixed", zIndex: 999 }}>
 			<div className="d-flex justify-content-between align-items-center flex-fill" style={{/* paddingTop: '.5em', paddingBottom: '1em'*/}}>
 				<div className='px-lg-3 pl-xl-3 px-md-3'  style={{ zIndex: 2 }}>
@@ -39,7 +39,7 @@ const NavBar = (props) => {
 							<span class="navbar-toggler-icon"></span>
 						</div>
 					</div>
-				{media.mobile && <div className="collapse navbar-collapse px-2 justify-content-end order-lg-1 bg-light" style={{borderTop: '1 solid #e0e0e0', paddingTop: '.5em', paddingBottom: '.5em'}} id="navbarSupportedContent">
+				{media.mobile && <div className="collapse navbar-collapse px-2 justify-content-end order-lg-1 bg-white" style={{borderTop: '1 solid #e0e0e0', paddingTop: '.5em', paddingBottom: '.5em'}} id="navbarSupportedContent">
 					<div className="navbar-nav">
 						<div className="nav-item text-start" style={{ whiteSpace: 'nowrap' }}>
 							<Link
@@ -51,7 +51,7 @@ const NavBar = (props) => {
 						</div>
 					</div>
 				</div>}
-				{!media.mobile && <div className="collapse navbar-collapse px-2 justify-content-end order-lg-1 bg-light" style={{borderTop: '1 solid #e0e0e0'}} id="navbarSupportedContent">
+				{!media.mobile && <div className="collapse navbar-collapse px-2 justify-content-end order-lg-1 bg-white" style={{borderTop: '1 solid #e0e0e0'}} id="navbarSupportedContent">
 						<div className="navbar-nav">
 							<div className="mt-sm-4" style={{ height: 1, background: "lightgray"}} />
 							<div className="nav-item text-start" style={{ whiteSpace: 'nowrap' }}>

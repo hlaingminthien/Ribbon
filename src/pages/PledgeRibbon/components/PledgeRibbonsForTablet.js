@@ -208,7 +208,7 @@ const PledgeCardForTablet = (props) => {
               style={{ width: 110, height: 110 }}
             />
               <svg viewBox="-20 2 128 56" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: 'absolute',
-                left: -11, right: 3, top: -13, width: 100, height: 80}} >
+                left: -11, right: 3, top: -13, width: 110, height: 80}} >
                 <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
                   d2="M0,58 Q50,-20 100,58"
                   d1={`M 0,120 A 32,32 0 1, 0 54,0 A 32,32 0 1, 0 -54,0`}  
@@ -219,7 +219,7 @@ const PledgeCardForTablet = (props) => {
                   d="M5.47387 40.2344C10.5 -16 117 -10.5 118.474 40.2344"
                 />
 
-                <text fontSize={10} fontWeight={600} fill="white">
+                <text fontSize={9} fontWeight={600} fill="white">
                   <textPath href="#curve-path" startOffset={(50 - cancer.length - 15 * 2) + "%"}>
                   {(cancer )+ ((cancer == "All Cancers" || !cancer) ? "" : " Cancer")}
                   </textPath>
@@ -499,7 +499,7 @@ const ThankuCard = (props) => {
   const { _handleEdit, _handlePledge, media, shareApp, winner, setShowThankU } = props;
 
   return (
-    <div className="d-flex justify-content-center py-2 " style={{position:'absolute'}}>
+    <div className="d-flex justify-content-center py-2 " /*style={{position:'absolute'}}*/>
       <div
         className="bg-light px-3 col-8 m-3 pt-0 shadow"
         style={{ borderRadius: 10 }}

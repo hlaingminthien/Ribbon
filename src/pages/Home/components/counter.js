@@ -37,7 +37,7 @@ export const Counter = props => {
             height: 250,
           }}
         />
-        <div className="numbers">
+        <div className="numbers pb-2">
           <div style={{ top: 10 }}>
             {
               splitCount.map((v,k)=>(
@@ -57,7 +57,7 @@ export const Counter = props => {
         <div style={{ fontSize: 23, fontWeight: "bolder" }}>
           Ribbons Collected
       </div>
-        {TodayDate}
+        <span style={{ fontSize: 14 }}>{TodayDate}</span>
       </div>
     );
 };

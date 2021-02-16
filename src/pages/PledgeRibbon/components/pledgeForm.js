@@ -363,7 +363,7 @@ const [ rand, setRandom ]=useState(0);
       {RibbonImages.Ribbons.map((v, k) => (
         <div
           key={k}
-          className="w-25  align-items-center py-1"
+          className="w-25  align-items-center py-1 pe-3"
           style={{ cursor: "pointer" }}
         // onClick={() => _handleImage(v.imgaeUrl)}
         >

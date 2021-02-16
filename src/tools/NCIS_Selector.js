@@ -26,7 +26,7 @@ export const NCIS_Selector = (props) => {
         style={{
           float: "right",
           position: "relative",
-          marginTop: media.mobile ? "-35px" :"-36px",
+          marginTop: media.mobile ? "-35px" :"-34px",
           // fontSize: "16px",
           marginRight: "20px",
           width: "25px",

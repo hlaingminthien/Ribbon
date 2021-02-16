@@ -124,7 +124,7 @@ export const Home = (props) => {
               </div>
             </div>
           ) : (
-              <div className="col-lg-11 col-xl-12 col-md-12 p-0 img-fluid " style={{}}>
+              <div className="col-lg-11 col-xl-11 col-md-12 p-0 img-fluid " style={{}}>
                 {/* <div className={`d-flex justify-content-center ${ (window.innerWidth > 1400 && window.innerWidth < 1700) ? "move-me move-me-4" : (window.innerWidth > 1699) ? "move-me move-me-5" : "move-me move-me-3"} `} style={{ marginLeft: (window.innerWidth > 1200 && window.innerWidth < 1400) ? 220 : (window.innerWidth > 1399 && window.innerWidth < 1700) ? 270 : (window.innerWidth > 1699) ? 370 : 220, marginTop:window.innerWidth > 1600 ? -100 : 100 }} >
                   <img
                     src={"/lightViolet.png"}
@@ -138,7 +138,7 @@ export const Home = (props) => {
             )}
           <Counter count={count}  />
           {media.mobile || (
-            <div className="row" style={{ marginTop:media.tablet ? "15rem" : ((window.innerWidth <1300 && window.innerWidth> 1100) && media.desktop )? "22rem" : '15rem', position: 'relative', }}>
+            <div className="row pb-5" style={{ marginTop:media.tablet ? "15rem" : ((window.innerWidth <1300 && window.innerWidth> 1100) && media.desktop )? "22rem" : '15rem', position: 'relative', }}>
               <Highlights media={media} _handleRoute={_handleRoute} />
               <Sponsors media={media} />
             </div>
@@ -292,7 +292,7 @@ const Highlights = props => {
   const { media, _handleRoute } = props
   return (
     <div
-      style={{ paddingTop: "90px", paddingLeft: "100px" }}
+      style={{ paddingTop: "90px", paddingLeft: "7.5rem" }}
       className="text-light w-50"
     >
       <div style={{ fontSize: 20, fontWeight: "bold", fontFamily: "Montserrat"}}>Event Highlights</div>
@@ -433,7 +433,7 @@ const Sponsors = props => {
 
   return (
     <div
-      style={{ paddingTop: "100px", paddingBottom: "90px", paddingLeft: media.desktop ? "100px" : "26px" }}
+      style={{ paddingBottom: "90px", paddingLeft: media.desktop ? "100px" : "26px", marginTop: -75 }}
       className="row w-50 col-lg-5 justify-content-end"
     >
       <div style={{ fontSize: 25, fontWeight: "bold" }}>Our Partners and Sponsors</div>

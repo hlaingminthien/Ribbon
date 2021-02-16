@@ -362,7 +362,7 @@ const Ribbons = (props) => {
                   d="M5.47387 48.2344C10.5 -16 97 -10.5 98.474 48.2344"
                 />
 
-                <text fontSize={10} fontWeight={600} fill="white">
+                <text fontSize={8.5} fontWeight={600} fill="white">
                   <textPath href="#curve-path" startOffset={(50 - cancer.length - 15 * 2) + "%"}>
                   {(cancer )+ ((cancer == "All Cancers" || !cancer) ? "" : " Cancer")}
                   </textPath>

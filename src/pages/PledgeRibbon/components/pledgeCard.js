@@ -105,8 +105,8 @@ export const PledgeCard = (props) => {
                   d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
                 />
 
-                <text fontSize={12} fontWeight={600} fill="white">
-                <textPath href="#curve-path" startOffset={(55 - (cancer ? cancer.length : 18) - 15 * 2) + "%"}>
+                <text fontSize={11} fontWeight={600} fill="white">
+                <textPath href="#curve-path" startOffset={(55 - (cancer ? cancer.length+(cancer.length/3) : 18) - 15 * 2) + "%"}>
                     {(cancer ? cancer : "Select your Ribbon" )+ ((cancer == "All Cancers" || !cancer) ? "" : " Cancer")}
                   </textPath>
                 </text>
