@@ -474,7 +474,7 @@ const Sponsors = props => {
                   backgroundColor:'#fff'
                 }}
               >
-                &nbsp;&nbsp;&nbsp;<img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? (media.desktop ? 50 : 40) : (media.tablet ? 60 : 70)}} />
+                &nbsp;&nbsp;&nbsp;<img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? (media.desktop ? 50 : 40) : (media.tablet ? 60 : 60)}} />
               </div>
             </div>
           ))}
@@ -499,7 +499,7 @@ const Sponsors = props => {
                   backgroundColor:'#fff'
                 }}
               >
-                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 55 }} />
+                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 55, position: 'relative', right: -18 }} />
               </div>
             </div>
           ))}

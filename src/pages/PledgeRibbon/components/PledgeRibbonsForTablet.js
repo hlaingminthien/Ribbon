@@ -518,10 +518,10 @@ const ThankuCard = (props) => {
         </div>
         {
           shareApp === 2 ?
-            <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
+            <div className='p-3' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-              <div className='px-2 py-1'>
+              <div className='p-3'>
                 1.Download your pledge message onto your device​<br />
                 2.Upload your pledge message onto your Facebook. (Remember to add #ncisribbonchallenge in your caption)
 
@@ -529,10 +529,10 @@ const ThankuCard = (props) => {
 
             </div> :
             shareApp === 1 ?
-            <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
+            <div className='p-3' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
               Share the message on your WhatsApp  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-              <div className='px-2 py-1'>
+              <div className='p-3'>
                 1.Right click on the Image and select "Save Image As" to save the Image on your device.
                 <br />
                 2.Go to your WhatsApp
@@ -542,10 +542,10 @@ const ThankuCard = (props) => {
 
             </div> :
             shareApp === 3 ?
-            <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
+            <div className='p-3' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
               Share the message on your Instagram  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-              <div className='px-2 py-1'>
+              <div className='p-3'>
                 1.Download your pledge message onto your device.
                 <br />
                 2.Upload your pledge message onto your Instagram. (Remember to add #ncisribbonchallenge in your caption)​
@@ -553,10 +553,10 @@ const ThankuCard = (props) => {
 
             </div> :
             shareApp === 4 ?
-            <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
+            <div className='p-3' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-            <div className='px-2 py-1'>
+            <div className='p-3'>
               1. Download your pledge message onto your device.
               <br />
               2. Click "Start a Post" on Linkedin.
@@ -565,15 +565,15 @@ const ThankuCard = (props) => {
             </div>
           </div>:
           shareApp === 5 ?
-          <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
+          <div className='p-3' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
           Share the message via to spread the word to more people!<br />
 
         </div> :
         shareApp === 6 ?
-        <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
+        <div className='p-3' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
           Share the message on your Telegram  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-          <div className='px-2 py-1'>
+          <div className='p-3'>
             1.Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
             2.Go to your Telegram.
@@ -583,10 +583,10 @@ const ThankuCard = (props) => {
 
         </div>:
         shareApp === 7 ?
-        <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
+        <div className='p-3' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
           Share the message on your weChat  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-          <div className='px-2 py-1'>
+          <div className='p-3'>
             1.Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
             2.Go to your WeChat
@@ -596,10 +596,10 @@ const ThankuCard = (props) => {
 
         </div>:
         shareApp === 8 ?
-        <div className='p-1' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
+        <div className='p-3' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
           Share the message on your Line to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-          <div className='px-2 py-1'>
+          <div className='p-3'>
             1.Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
             2.Go to your Line
@@ -628,7 +628,7 @@ const ThankuCard = (props) => {
               <img src={"/mysteryRibbon.jpeg"} style={{ width:120 }} />
             </div>
           </div>:
-          <p className="pt-2 px-2" style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
+          <p className="p-3" style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
           Don’t stop here, you can do more by pledging again!
           <br />
           Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .

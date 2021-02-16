@@ -209,7 +209,7 @@ const PledgeContainer = (props) => {
               </div>
               <div className='px-0 mx-0'
                   style={{
-                    position:'absolute',
+                    position:'fixed',
                     fontSize: media.tablet ? 24 : media.mobile ?  22 : 26,
                     fontWeight: "bold",
                     bottom : 105,

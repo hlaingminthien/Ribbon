@@ -478,34 +478,34 @@ const ThankuCard = (props) => {
         </div>
         {
           shareApp === 2 ?
-            <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px'  }}>
+            <div className='p-3' style={{ fontSize: font.mobileBody, lineHeight :'22px'  }}>
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-              <div className='px-2 py-1'>
-                1.Download your pledge message onto your device​<br />
-                2.Upload your pledge message onto your Facebook. (Remember to add #ncisribbonchallenge in your caption)
+              <div className='p-3'>
+                1. Download your pledge message onto your device​<br />
+                2. Upload your pledge message onto your Facebook. (Remember to add #ncisribbonchallenge in your caption)
 
               </div>
 
             </div> :
             shareApp === 1 ?
-            <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px'  }}>
+            <div className='p-3' style={{ fontSize: font.mobileBody, lineHeight :'22px'  }}>
               Share the message on your WhatsApp  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-              <div className='px-2 py-1'>
-                1.Right click on the Image and select "Save Image As" to save the Image on your device.
+              <div className='p-3'>
+                1. Right click on the Image and select "Save Image As" to save the Image on your device.
                 <br />
-                2.Go to your WhatsApp
+                2. Go to your WhatsApp
                 <br />
-                3.Select your recipient and insert the Image into your message.
+                3. Select your recipient and insert the Image into your message.
               </div>
 
             </div> :
             shareApp === 3 ?
-            <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
+            <div className='p-3' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
               Share the message on your Instagram  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-              <div className='px-2 py-1'>
+              <div className='p-3'>
                 1.Download your pledge message onto your device.
                 <br />
                 2.Upload your pledge message onto your Instagram. (Remember to add #ncisribbonchallenge in your caption)​
@@ -513,10 +513,10 @@ const ThankuCard = (props) => {
 
             </div> :
             shareApp === 4 ?
-            <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
+            <div className='p-3' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-            <div className='px-2 py-1'>
+            <div className='p-3'>
               1. Download your pledge message onto your device.
               <br />
               2. Click "Start a Post" on Linkedin.
@@ -525,46 +525,46 @@ const ThankuCard = (props) => {
             </div>
           </div>:
           shareApp === 5 ?
-          <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
+          <div className='p-3' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Share the message via to spread the word to more people!<br />
 
         </div> :
         shareApp === 6 ?
-        <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
+        <div className='p-3' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Share the message on your Telegram  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-          <div className='px-2 py-1'>
-            1.Right click on the Image and select "Save Image As" to save the Image on your device.
+          <div className='p-3'>
+            1. Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
-            2.Go to your Telegram.
+            2. Go to your Telegram.
             <br />
-            3.Select your recipient and insert the Image into your message.
+            3. Select your recipient and insert the Image into your message.
           </div>
 
         </div>:
         shareApp === 7 ?
-        <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
+        <div className='p-3' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Share the message on your weChat  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-          <div className='px-2 py-1'>
-            1.Right click on the Image and select "Save Image As" to save the Image on your device.
+          <div className='p-3'>
+            1. Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
-            2.Go to your WeChat
+            2. Go to your WeChat
             <br />
-            3.Select your recipient and insert the Image into your message.​
+            3. Select your recipient and insert the Image into your message.​
           </div>
 
         </div>:
         shareApp === 8 ?
-        <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
+        <div className='p-3' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Share the message on your Line to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-          <div className='px-2 py-1'>
-            1.Right click on the Image and select "Save Image As" to save the Image on your device.
+          <div className='p-3'>
+            1. Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
-            2.Go to your Line
+            2. Go to your Line
             <br />
-            3.Select your recipient and insert the Image into your message.
+            3. Select your recipient and insert the Image into your message.
           </div>
 
         </div>:
@@ -589,7 +589,7 @@ const ThankuCard = (props) => {
               <img src={"/mysteryRibbon.jpeg"} style={{ width:100 }} />
             </div>
           </div>:
-          <p className="pt-2 px-2" style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
+          <p className="p-3" style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Don’t stop here, you can do more by pledging again!
           <br />
           Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .

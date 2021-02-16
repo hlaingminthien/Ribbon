@@ -85,7 +85,7 @@ export const Event = (props) => {
                                         
                 </div>
             </div>
-            <div className=" pt-3 text-left d-flex flex-column justify-content-center px-2">
+            <div className="text-left d-flex flex-column justify-content-center px-2" style={{paddingTop: '2rem'}}>
                 <div className="d-flex px-1 justify-content-between text-left">
                     <div className=""> 
                         <div className="px-2" style={{ fontSize: font.desktopBody, letterSpacing: 1.3 }}>
