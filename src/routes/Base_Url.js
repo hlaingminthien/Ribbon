@@ -9,5 +9,3 @@ export const webHostUi = "https://ncisstaging.martersolutions.com/" // only this
 
 // export const Base_Url = "http://172.104.40.242:9898/api/";
 export const Base_Url = "https://ncisstagingapi.martersolutions.com/api/" // this should be api server address too
-
-export const Base_Url = "https://ncisstagingapi.martersolutions.com/api/";
