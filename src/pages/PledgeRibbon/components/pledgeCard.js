@@ -47,12 +47,12 @@ export const PledgeCard = (props) => {
       <img
       className="img-responsive"
       src={finalImage}
-      style={{ width: 380, height: 380, borderRadius: 10 }}
+      style={{ width: 300, height: 300, borderRadius: 10}}
     />
       : <img
         className="img-responsive"
         src={(imgUrl || recipientName || senderName || message) ? "/cardnoText.jpg" : "/card.jpg"}
-        style={{ width: 380, height: 380, borderRadius: 10 }}
+        style={{ width: 300, height: 300, borderRadius: 10 }}
       />
 }
 {!finalImage && 
