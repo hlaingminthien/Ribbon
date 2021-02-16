@@ -1,5 +1,5 @@
 import React from "react";
-
+import Font from "../../../app/config/font";
 
 // export const PledgeCard = (props) => {
 //     const { recipientName, senderName, message, media, step, imgUrl } = props;
@@ -47,56 +47,57 @@ export const PledgeCard = (props) => {
       <img
       className="img-responsive"
       src={finalImage}
-      style={{ width: 290, height: 300, borderRadius: 10 }}
+      style={{ width: 380, height: 380, borderRadius: 10 }}
     />
       : <img
         className="img-responsive"
         src={(imgUrl || recipientName || senderName || message) ? "/cardnoText.jpg" : "/card.jpg"}
-        style={{ width: 290, height: 300, borderRadius: 10 }}
+        style={{ width: 380, height: 380, borderRadius: 10 }}
       />
 }
 {!finalImage && 
       <div
         className=" pt-4 justify-content-start text-left"
-        style={{ position: "absolute", width: 295, padding: 20, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? 20 : 18, textAlign: 'left' }}
+        style={{ position: "absolute", top:50, width: 295, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? Font.desktopBody : Font.tabletBody, textAlign: 'left' }}
       >
         <div
         // ${step != 1 && "move-me move-me-2"}
           className={` pt-3 `}
           style={{ minHeight: 165 }}
         >
-          <span className="" style={{ fontSize: 16, fontWeight: "bold" }}>
+          <span className="" style={{ fontSize: Font.desktopBody, fontWeight: "bold" }}>
             {recipientName}
             {recipientName ? "," : null}
           </span>
           <br></br>
           <span
             className="text-white pt-2"
-            style={{ fontWeight: 500, fontSize: 14, }}
+            style={{ fontWeight: 500, fontSize: Font.desktopBody, }}
           >
             {message}
             {/* {message ? "!" : null} */}
           </span>
           <br></br>
-          <span className="pt-2" style={{ fontWeight: 600, fontSize: 14 }}>
+          <span className="pt-2" style={{ fontWeight: 600, fontSize: Font.desktopBody }}>
             {senderName ? "Love," : null} {senderName}
           </span>
         </div>
 
         {(imgUrl || recipientName || senderName || message) && (
-          <div className={`${!imgUrl && "pt-1 px-1" }`} style={{ position: "absolute", right: 10 }}>
+          <div className={`${!imgUrl && "pt-1 px-1" }`} style={{ position: "absolute", right: -40, top:180 }}>
 
             
             {(imgUrl || recipientName || senderName || message) ? <>
             <img
               src={imgUrl ? imgUrl : "./mysteryBall.png"}
               alt="selected-ribbons"
-              style={{ width: imgUrl ? 100 : 97, height: imgUrl ? 100 : 97 }}
+              style={{ width: 150, height: 150 }}
             />
-              <svg viewBox="-12 2 115 56" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", left: -4, right: 0, top: -19, width: 88, height: 85 }} >
+            
+              <svg viewBox="0 0 150 130" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: 'absolute',
+                width: 150, right: -18,top: -10,height: 150,}} >
                 <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
-                  d2="M0,58 Q50,-20 100,58"
-                  d1={`M 0,120 A 32,32 0 1, 0 54,0 A 32,32 0 1, 0 -54,0`}  
+                  
                   // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
                   // d="M2,62 Q50,-38 104,62"
                   // d="M 100 0 A 1 1 0 0 0 -100 0"
@@ -104,8 +105,8 @@ export const PledgeCard = (props) => {
                   d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
                 />
 
-                <text fontSize={10} fontWeight={600} fill="white">
-                  <textPath href="#curve-path" startOffset={(50 - (cancer ? cancer.length : 18) - 14 * 2) + "%"}>
+                <text fontSize={12} fontWeight={600} fill="white">
+                <textPath href="#curve-path" startOffset={(55 - (cancer ? cancer.length : 18) - 15 * 2) + "%"}>
                     {(cancer ? cancer : "Select your Ribbon" )+ ((cancer == "All Cancers" || !cancer) ? "" : " Cancer")}
                   </textPath>
                 </text>

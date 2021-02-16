@@ -1,5 +1,6 @@
 import React from "react";
 import mediaQueryProvider from "react-media-query-hoc/dist/media-query-provider";
+import font from "../app/config/font";
 import { orange } from "../assets/colors";
 
 export const NCIS_Button = (props) => {
@@ -10,8 +11,8 @@ export const NCIS_Button = (props) => {
       style={{
         background: buttonColor||orange,
         borderRadius: 50,
-        fontSize : fontSize ? fontSize : 13,
-        width:width ? width : icon?"190px":"140px",
+        fontSize : fontSize ? fontSize : font.button,
+        width:width ? width : icon? "190px":"140px",
         whiteSpace:'nowrap'
         // textAlign:icon&&"left"
       }}
@@ -23,7 +24,7 @@ export const NCIS_Button = (props) => {
       onClick={onClick}
     >
               <div className={`py-0 ${icon && " px-3" }`} >{text}</div>
-      <img src={icon} style={{position:"absolute",width:50,marginTop: -13, marginLeft: 135}}/>
+      <img src={icon} style={{position:"absolute", width:50, marginTop: -13, marginLeft: window.innerWidth < 600 ? 165 : 135}}/>
     </button>
   );
 };

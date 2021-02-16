@@ -19,6 +19,7 @@ import { PledgeCard } from "../components/pledgeCard";
 import { ShareForms } from "../components/pledgeForm";
 import { withRouter } from "react-router-dom";
 import {SocialShare} from "./socialShareIcons";
+import font from "../../../app/config/font";
 
 const PledgeRibbonsForMobile = (props) => {
   const {
@@ -50,25 +51,25 @@ const PledgeRibbonsForMobile = (props) => {
   };
  
   return (
-    <div >
+    <div className='pb-4'>
       <strong
         className={`${(step === 3 && !showThankU) ? "px-5" : "px-3"} py-0`}
-        style={{ fontSize: 12 }}
+        style={{ fontSize: 14 }}
       >{`Step ${step}:`}</strong>
       {step === 1 ? (
-        <div className="px-3 py-0" style={{ fontSize: 14, fontWeight: "bold" }}>
+        <div className="px-3 py-0" style={{ fontSize: font.mobileBody, fontWeight: "bold" }}>
           Choose A Ribbon and Create Your Message
         </div>
       ) : step === 2 ? (
-        <div className="px-2 py-0" style={{ fontSize: 14, fontWeight: "bold" }}>
+        <div className="px-2 py-0" style={{ fontSize: font.mobileBody, fontWeight: "bold" }}>
           Review Your Message{" "}
         </div>
       ) : step === 3 ? (
         <div className={`${(step === 3 && !showThankU) ? " px-5" : "px-2" } py-0`}>
-          <div className="px-2" style={{ fontSize: 14, fontWeight: "bold" }}>
+          <div className="px-2" style={{ fontSize: font.mobileBody, fontWeight: "bold" }}>
             Share your message
           </div>
-          <div className="px-2 py-0" style={{ fontSize: 11, fontWeight: 600 }}>
+          <div className="px-2 py-0" style={{ fontSize: font.mobileBody, fontWeight: 600 }}>
           Select the following icons to share your message
           </div>
         </div>
@@ -83,6 +84,8 @@ const PledgeRibbonsForMobile = (props) => {
               onClick={_handleEdit}
               className="mx-2"
               buttonColor={paleViolet}
+              fontSize={font.button}
+              width={220}
             />
           </div>
           <div className="py-1">
@@ -90,6 +93,8 @@ const PledgeRibbonsForMobile = (props) => {
               text={"Confirm"}
               onClick={_handleConfirm}
               className="mx-2"
+              fontSize={font.button}
+              width={220}
             />
           </div>
         </div>
@@ -180,7 +185,7 @@ const Ribbons = (props) => {
     // _handleRibbonClick(true);
   };
   return (
-    <div>
+    <div className='py-3'>
       {!nextOfStep1 && step == 1 && (
         <>
           <div className="d-flex flex-row flex-wrap justify-content-center px-1">
@@ -207,7 +212,7 @@ const Ribbons = (props) => {
                       textAlign: "center",
                       marginTop: 40,
                       fontWeight: "500",
-                      fontSize: 11,
+                      fontSize: font.mobileBody,
                       position: "absolute",
                       width: 100,
                     }}
@@ -259,7 +264,7 @@ const Ribbons = (props) => {
                         </> : */}
                         <>
                           {v.ribbonDetails ? (
-                            <div className="p-2" id={k} style={{ fontSize: 12 }}>
+                            <div className="p-2" id={k} style={{ fontSize: font.mobileBody, lineHeight : "20px" }}>
                               {
                                 v.ribbonDetails[rand]
                               }
@@ -268,7 +273,7 @@ const Ribbons = (props) => {
                               ))} */}
                             </div>
                           ) : (
-                              <div className="py-2" id={k} style={{ fontSize: 12 }}>
+                              <div className="py-2" id={k} style={{ fontSize: font.mobileBody }}>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Proin vel sollicitudin sapien.
                               </div>
@@ -281,7 +286,7 @@ const Ribbons = (props) => {
           </div>
           <div className="d-flex justify-content-center pt-3">
             <NCIS_Button
-              text={"Next"}
+              text={"Next"} fontSize={font.button} width={220}
               onClick={() => setNextOfStep1(selected ? true : false)}
             />
           </div>
@@ -319,18 +324,18 @@ const Ribbons = (props) => {
                   className={`d-flex flex-column pt-3 `}
                   style={{ minHeight: 180 }}
                 >
-                  <span className="" style={{ fontSize: 14, fontWeight: "bold" }}>
+                  <span className="" style={{ fontSize: font.mobileBody, fontWeight: "bold" }}>
                     {recipientName}
                     {recipientName ? "," : null}
                   </span>
                   <span
                     className="text-white pt-3"
-                    style={{ fontWeight: 500, fontSize: 13 }}
+                    style={{ fontWeight: 500, fontSize: font.mobileBody }}
                   >
                     {message}
                     {/* {message ? "!" : null} */}
                   </span>
-                  <span className="pt-3" style={{ fontSize: 13, fontWeight: 600 }}>
+                  <span className="pt-3" style={{ fontSize: font.mobileBody, fontWeight: 600 }}>
                     {senderName ? "Love," : null} {senderName}
                   </span>
                 </div>
@@ -344,7 +349,8 @@ const Ribbons = (props) => {
               alt="selected-ribbons"
               style={{ width: 82, height: 82 }}
             />
-              <svg viewBox="-3 2 105 49" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", left: -4, right: 0, top: -19, width: 88, height: 85 }} >
+              <svg viewBox="-3 2 105 49" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: 'absolute',
+                left: -11, right: 3, top: -13, width: 100, height: 80}} >
                 <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
                   d2="M0,68 Q50,-20 100,68"
                   d1={`M 0,100 A 32,32 0 1, 0 64,0 A 32,32 0 1, 0 -64,0`}  
@@ -356,7 +362,7 @@ const Ribbons = (props) => {
                 />
 
                 <text fontSize={10} fontWeight={600} fill="white">
-                  <textPath href="#curve-path" startOffset={(50 - cancer.length - 14 * 2) + "%"}>
+                  <textPath href="#curve-path" startOffset={(50 - cancer.length - 15 * 2) + "%"}>
                   {(cancer )+ ((cancer == "All Cancers" || !cancer) ? "" : " Cancer")}
                   </textPath>
                 </text>
@@ -442,7 +448,7 @@ const Ribbons = (props) => {
               )}
                 </div>
                 {!menuVisible && step == 1 ? (
-                  <NCIS_Button text={"Review"} type="submit" />
+                  <NCIS_Button text={"Review"} type="submit" fontSize={font.button} width={220} />
                 ) : null}
               </form>
             )}
@@ -472,7 +478,7 @@ const ThankuCard = (props) => {
         </div>
         {
           shareApp === 2 ?
-            <div className='p-1' style={{ fontSize: 13 }}>
+            <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px'  }}>
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -483,20 +489,20 @@ const ThankuCard = (props) => {
 
             </div> :
             shareApp === 1 ?
-            <div className='p-1' style={{ fontSize: 13 }}>
+            <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px'  }}>
               Share the message on your WhatsApp  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
-                1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+                1.Right click on the Image and select "Save Image As" to save the Image on your device.
                 <br />
                 2.Go to your WhatsApp
                 <br />
-                3.Select your recipient and insert the GIF into your message.
+                3.Select your recipient and insert the Image into your message.
               </div>
 
             </div> :
             shareApp === 3 ?
-            <div className='p-1' style={{ fontSize: 13 }}>
+            <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
               Share the message on your Instagram  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -507,52 +513,58 @@ const ThankuCard = (props) => {
 
             </div> :
             shareApp === 4 ?
-            <div className='p-1' style={{ fontSize: 13 }}>
+            <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-
+            <div className='px-2 py-1'>
+              1. Download your pledge message onto your device.
+              <br />
+              2. Click "Start a Post" on Linkedin.
+              <br />
+              3. Upload your pledge message onto your Linkedin (Remember to add #ncisribbonchallenge in your caption)
+            </div>
           </div>:
           shareApp === 5 ?
-          <div className='p-1' style={{ fontSize: 13 }}>
+          <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Share the message via to spread the word to more people!<br />
 
         </div> :
         shareApp === 6 ?
-        <div className='p-1' style={{ fontSize: 13 }}>
+        <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Share the message on your Telegram  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+            1.Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
             2.Go to your Telegram.
             <br />
-            3.Select your recipient and insert the GIF into your message.
+            3.Select your recipient and insert the Image into your message.
           </div>
 
         </div>:
         shareApp === 7 ?
-        <div className='p-1' style={{ fontSize: 13 }}>
+        <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Share the message on your weChat  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+            1.Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
             2.Go to your WeChat
             <br />
-            3.Select your recipient and insert the GIF into your message.​
+            3.Select your recipient and insert the Image into your message.​
           </div>
 
         </div>:
         shareApp === 8 ?
-        <div className='p-1' style={{ fontSize: 13 }}>
+        <div className='p-1' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Share the message on your Line to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+            1.Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
             2.Go to your Line
             <br />
-            3.Select your recipient and insert the GIF into your message.
+            3.Select your recipient and insert the Image into your message.
           </div>
 
         </div>:
@@ -564,10 +576,10 @@ const ThankuCard = (props) => {
           winner ?
           <div className='d-flex flex-wrap justify-content-center'>
             <div className='p-2 col-11'>
-              <div className='py-2' style={{ fontSize:14, fontWeight:600 }}>
+              <div className='py-2' style={{ fontSize:18, fontWeight:600 }}>
               Congratulations!
               </div>
-              <div className='py-2' style={{ fontSize:12 }}>
+              <div className='py-2' style={{ fontSize:font.mobileBody, lineHeight :'22px' }}>
               You have won the NCIS Ribbon Challenge mystery gift!
               <br />
               Click on to enter your particulars and we will get in touch with you soon. Thank you for your support!
@@ -577,7 +589,7 @@ const ThankuCard = (props) => {
               <img src={"/mysteryRibbon.jpeg"} style={{ width:100 }} />
             </div>
           </div>:
-          <p className="pt-2 px-2" style={{ fontSize: 13 }}>
+          <p className="pt-2 px-2" style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Don’t stop here, you can do more by pledging again!
           <br />
           Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
@@ -591,7 +603,8 @@ const ThankuCard = (props) => {
             text={"Pledge Another"}
             onClick={() => window.location.reload()}
             className="mx-2"
-            fontSize={11}
+            fontSize={font.button}
+            width={220}
           />
         </div>
         {
@@ -605,6 +618,8 @@ const ThankuCard = (props) => {
               }}
               className="mx-1"
               buttonColor={violet}
+              fontSize={font.button}
+              width={220}
             />
           </div>:
           <div className="p-2 d-flex justify-content-center">
@@ -613,7 +628,8 @@ const ThankuCard = (props) => {
             onClick={_handlePledge}
             className="mx-2"
             buttonColor={violet}
-            fontSize={11}
+            fontSize={font.button}
+            width={220}
           />
         </div>
         }

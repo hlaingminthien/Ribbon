@@ -10,7 +10,7 @@ export const PledgeProgress = (props) => {
     lineHeight: 2,
     textAlign: "center",
     fontSize: media.mobile ? 12 : (media.tablet) ? 13 : 17,
-    color: "#ffffff",
+    color: "#ffffff",zIndex:1
   };
   return (
     <div style={{marginTop: 8}}>
@@ -22,7 +22,7 @@ export const PledgeProgress = (props) => {
           opacity: 0.2,
           position: "relative",
           top: 22,
-          zIndex: -1,
+          zIndex: 0,
         }}
       />
 

@@ -1,4 +1,5 @@
 import React from "react";
+import font from "../app/config/font";
 import { orange, violet } from "../assets/colors";
 import Messages from "../assets/Messages.json";
 
@@ -17,7 +18,7 @@ export const NCIS_Selector = (props) => {
           // border:"red",
           background: "#ffffff",
           cursor: "pointer",
-          fontSize : media.mobile ? 12 : window.innerWidth > 1500 ? 18 : 14,
+          fontSize : media.mobile ? font.mobileBody : window.innerWidth > 1500 ? font.desktopBody : font.mobileBody,
           height: 45
         }}
       />
@@ -36,7 +37,7 @@ export const NCIS_Selector = (props) => {
           cursor: "pointer",
         }}
       >
-        <i className="fa fa-chevron-down align-self-center" style={{color: '#868686', fontSize : media.mobile && 12 }} onClick={onClick}></i>
+        <i className="fa fa-chevron-down align-self-center" style={{color: '#868686', fontSize : media.mobile && font.mobileBody }} onClick={onClick}></i>
       </span>
       {menuVisible ? (
         <Options
@@ -81,7 +82,7 @@ const Options = (props) => {
           {v1.message.map((v2, k2) => (
             <p className='py-2'
             key={v2.id}
-              style={{ cursor: "pointer", paddingLeft: 10,fontWeight: 500, fontSize: window.innerWidth > 1500 ? 18 :media.mobile? 12: 14 }}
+              style={{ cursor: "pointer", paddingLeft: 10,fontWeight: 500, fontSize: window.innerWidth > 1500 ? font.desktopBody :media.mobile? font.mobileBody : font.mobileBody }}
               onMouseEnter={(e) => _handleMouseEnter(e)}
               onMouseLeave={(e) => _handleMouseLeave(e)}
               id={v2.id + v2.text}

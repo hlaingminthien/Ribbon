@@ -1,11 +1,12 @@
 import React from "react";
+import font from "../../../app/config/font";
 
 export const TermOfUse = () => {
   return (
-    <div style={{lineHeight: 2 }}>
+    <div style={{lineHeight: "26px" }}>
       <h2 className="py-4">Term of Use</h2>
       <div
-        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-2"
         data-bs-toggle="collapse"
         data-bs-target="#no1"
         aria-expanded="false"
@@ -16,9 +17,9 @@ export const TermOfUse = () => {
           <i className="fa fa-chevron-down" />
         </div>
       </div>
-      <div className="collapse" id="no1" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
+      <div className="collapse" id="no1" style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.desktopBody : font.tabletBody }}>
         <div className='p-2'>
-          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? font.tabletBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.tabletBody : 12 }}>
             <li>Thank you for visiting the website (the "Website") of the National University Health System Pte. Ltd ("NUHS"). and its entities (collectively referred to as the "NUHS Group" and each entity within the NUHS Group to be referred to as "NUHS Entity"). The Terms of Use are applicable to the Websites of each NUHS Entity. Any reference to "NUHS" below shall mean and read as NUHS or the NUHS Entity whose Website you have accessed or both (as applicable). By accessing and using this Website, you shall be deemed to have accepted to be legally bound by these Terms of Use. If you do not agree to these Terms of Use, please do not use this Website.
           </li>
             <li>
@@ -36,7 +37,7 @@ export const TermOfUse = () => {
 
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-2"
         data-bs-toggle="collapse"
         data-bs-target="#no2"
         aria-expanded="false"
@@ -47,14 +48,14 @@ export const TermOfUse = () => {
           <i className="fa fa-chevron-down" />
         </div>
       </div>
-      <div className="collapse" id="no2" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
-        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+      <div className="collapse" id="no2" style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.desktopBody : font.tabletBody }}>
+        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? font.tabletBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.tabletBody : 12 }}>
           This Website is maintained by NUHS. The materials located on this Website including the information and software programmes (the "Contents"), are protected by copyright, trademark and other forms of proprietary rights. All rights, title and interest in the Contents are owned by, licensed to or contpled by NUHS.
         </p>
 
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-2"
         data-bs-toggle="collapse"
         data-bs-target="#no3"
         aria-expanded="false"
@@ -65,14 +66,14 @@ export const TermOfUse = () => {
           <i className="fa fa-chevron-down" />
         </div>
       </div>
-      <div className="collapse" id="no3" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
-        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+      <div className="collapse" id="no3" style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.desktopBody : font.tabletBody }}>
+        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? font.tabletBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.tabletBody : 12 }}>
           Except as otherwise provided, the Contents of this Website shall not be reproduced, re-published, uploaded, posted, transmitted or otherwise distributed in any way, without the prior written permission of NUHS. Modification of any of the Contents or use of the Contents for any other purpose will be a violation of NUHS's copyright and other intellectual property rights. Graphics and images on this Website are protected by copyright and may not be reproduced or appropriated in any manner without the prior written permission of NUHS.
       </p>
 
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-2"
         data-bs-toggle="collapse"
         data-bs-target="#no4"
         aria-expanded="false"
@@ -83,12 +84,12 @@ export const TermOfUse = () => {
           <i className="fa fa-chevron-down" />
         </div>
       </div>
-      <div className="collapse" id="no4" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
-        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+      <div className="collapse" id="no4" style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.desktopBody : font.tabletBody }}>
+        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? font.tabletBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.tabletBody : 12 }}>
           The Contents of this Website are provided on an "as is" basis without warranties of any kind. To the fullest extent permitted by law, NUHS does not warrant and hereby disclaims any warranty:
         </p>
         <div className='p-2'>
-          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? font.tabletBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.tabletBody : 12 }}>
             <li>
               as to the accuracy, reliability, authenticity, completeness or fitness for any particular purpose of the Contents of this Website;
           </li>
@@ -104,7 +105,7 @@ export const TermOfUse = () => {
 
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-2"
         data-bs-toggle="collapse"
         data-bs-target="#no5"
         aria-expanded="false"
@@ -115,14 +116,14 @@ export const TermOfUse = () => {
           <i className="fa fa-chevron-down" />
         </div>
       </div>
-      <div className="collapse" id="no5" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
-        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+      <div className="collapse" id="no5" style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.desktopBody : font.tabletBody }}>
+        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? font.tabletBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.tabletBody : 12 }}>
           NUHS shall not be liable for any damage or loss of any kind caused as a result (direct or indirect) of the use of the Website, including but not limited to any damage or loss suffered as a result of reliance on the Contents contained in or available from the Website. Your sole remedy for dissatisfaction with this Website is to stop using this Website.
         </p>
 
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-2"
         data-bs-toggle="collapse"
         data-bs-target="#no6"
         aria-expanded="false"
@@ -133,14 +134,14 @@ export const TermOfUse = () => {
           <i className="fa fa-chevron-down" />
         </div>
       </div>
-      <div className="collapse" id="no6" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
-        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+      <div className="collapse" id="no6" style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.desktopBody : font.tabletBody }}>
+        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? font.tabletBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.tabletBody : 12 }}>
           You agree to indemnify, defend and hold NUHS their directors, officers and employees harmless from and against any loss, liability, claim, demand, damages, costs and expenses, including reasonable legal fees, arising out of or in connection with your use of or connection to this Website or any violation of these Terms of Use or of any law or the rights of any third party.
         </p>
 
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-2"
         data-bs-toggle="collapse"
         data-bs-target="#no7"
         aria-expanded="false"
@@ -151,9 +152,9 @@ export const TermOfUse = () => {
           <i className="fa fa-chevron-down" />
         </div>
       </div>
-      <div className="collapse" id="no7" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
+      <div className="collapse" id="no7" style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.desktopBody : font.tabletBody }}>
         <div className='p-2'>
-          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? font.tabletBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.tabletBody : 12 }}>
             <li>
               This Website provides general information only. The information should not be taken as any medical advice or recommendation or considered as a replacement for consultation with a healthcare professional and does not create any patient-physician relationship, and should not be used as a substitute for professional diagnosis and treatment.
           </li>
@@ -164,7 +165,7 @@ export const TermOfUse = () => {
         </div>
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-2"
         data-bs-toggle="collapse"
         data-bs-target="#no8"
         aria-expanded="false"
@@ -175,13 +176,13 @@ export const TermOfUse = () => {
           <i className="fa fa-chevron-down" />
         </div>
       </div>
-      <div className="collapse" id="no8" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
-        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+      <div className="collapse" id="no8" style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.desktopBody : font.tabletBody }}>
+        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? font.tabletBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.tabletBody : 12 }}>
           NUHS reserves all rights to deny or restrict access to this Website to any particular person, or to block access from a particular Internet address to this Website, or to disable any unauthorised link or frames at any time, without ascribing any reasons whatsoever.
         </p>
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-2"
         data-bs-toggle="collapse"
         data-bs-target="#no9"
         aria-expanded="false"
@@ -192,9 +193,9 @@ export const TermOfUse = () => {
           <i className="fa fa-chevron-down" />
         </div>
       </div>
-      <div className="collapse" id="no9" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
+      <div className="collapse" id="no9" style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.desktopBody : font.tabletBody }}>
         <div className='p-2'>
-          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? font.tabletBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.tabletBody : 12 }}>
             <li>
               This Website contains hyperlinks to other websites which are not maintained by NUHS and therefore it is not responsible for the contents of those websites and shall not be liable for any damages or loss arising from access to those websites. Use of the hyperlinks and access to such websites are entirely at your own risk.
           </li>
@@ -205,7 +206,7 @@ export const TermOfUse = () => {
         </div>
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-2"
         data-bs-toggle="collapse"
         data-bs-target="#no10"
         aria-expanded="false"
@@ -216,9 +217,9 @@ export const TermOfUse = () => {
           <i className="fa fa-chevron-down" />
         </div>
       </div>
-      <div className="collapse" id="no10" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
+      <div className="collapse" id="no10" style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.desktopBody : font.tabletBody }}>
         <div className='p-2'>
-          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? font.tabletBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.tabletBody : 12 }}>
             <li>
               Except as set forth below, caching and links to, and the framing of this Website or any of the Contents are prohibited.
           </li>
@@ -245,7 +246,7 @@ export const TermOfUse = () => {
 
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-2"
         data-bs-toggle="collapse"
         data-bs-target="#no11"
         aria-expanded="false"
@@ -256,13 +257,13 @@ export const TermOfUse = () => {
           <i className="fa fa-chevron-down" />
         </div>
       </div>
-      <div className="collapse" id="no11" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
-        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+      <div className="collapse" id="no11" style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.desktopBody : font.tabletBody }}>
+        <p className="p-2" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? font.tabletBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.tabletBody : 12 }}>
           If any part of these Terms of Use is determined to be invalid or unenforceable by a court of law, it will not affect any other part of these Terms of Use which shall remain in full force and effect. These Terms of Use shall be governed and construed in accordance with laws of the Republic of Singapore and all disputes relating to these Terms of Use shall be resolved in a court in Singapore.
         </p>
       </div>
       <div
-        className="d-flex flex-row border-bottom justify-content-between px-2 py-3"
+        className="d-flex flex-row border-bottom justify-content-between px-2 py-2"
         data-bs-toggle="collapse"
         data-bs-target="#no12"
         aria-expanded="false"
@@ -273,9 +274,9 @@ export const TermOfUse = () => {
           <i className="fa fa-chevron-down" />
         </div>
       </div>
-      <div className="collapse" id="no12" style={{ fontSize: window.innerWidth > 1600 ? 20 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 18 : 16 }}>
+      <div className="collapse" id="no12" style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.desktopBody : font.tabletBody }}>
         <div className='p-2'>
-          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? 17 : (window.innerWidth > 1200 && window.innerWidth < 1601) ? 15 : 13 }}>
+          <ol className="" style={{ listStyleType: 'lower-alpha', fontSize: window.innerWidth > 1600 ? font.tabletBody : (window.innerWidth > 1200 && window.innerWidth < 1601) ? font.tabletBody : 12 }}>
             <li>
               If you are only browsing this Website, NUHS does not capture data that allows us to identify you.
           </li>

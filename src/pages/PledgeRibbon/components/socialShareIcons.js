@@ -64,12 +64,12 @@ export const SocialShare = (props) => {
             className=" shadow
                    align-self-center text-center mx-3"
             style={{
-              borderRadius: 23,
+              borderRadius: '50%',
               border: "1px solid #FAFAFA",
               width: shareApp == 6 ? 54 : 59,
               height: shareApp == 6 ? 54 : 59,
               background: shareApp == 6 ? "rgb(22, 16, 92)" : "#fff",
-              cursor: "pointer"
+              cursor: "pointer",
             }}
             onClick={() => handleShareApp(6)}
           //
@@ -80,7 +80,7 @@ export const SocialShare = (props) => {
           <div className=" shadow  align-self-center text-center mx-2"
             onClick={() => handleShareApp(1)}
             style={{
-              borderRadius: 23,
+              borderRadius: '50%',
               border: "1px solid #FAFAFA",
               width: shareApp == 1 ? 54 : 59,
               height: shareApp == 1 ? 54 : 59,
@@ -93,7 +93,7 @@ export const SocialShare = (props) => {
           <div quote={title}
             className=" shadow align-self-center text-center mx-3"
             style={{
-              borderRadius: 23,
+              borderRadius: '50%',
               border: "1px solid #FAFAFA",
               width: shareApp == 7 ? 54 : 59,
               height: shareApp == 7 ? 54 : 59,
@@ -109,7 +109,7 @@ export const SocialShare = (props) => {
           <div
             className=" shadow align-self-center text-center mx-3"
             style={{
-              borderRadius: 23,
+              borderRadius: '50%',
               border: "1px solid #FAFAFA",
               width: shareApp == 8 ? 54 : 59,
               height: shareApp == 8 ? 54 : 59,
@@ -155,10 +155,11 @@ export const SocialShare = (props) => {
       <div className=''>
         <section className="d-flex justify-content-center m-2 pt-4 p-3" >
           <ShareList style={{ textAlign: "center" }}>
+
             <EmailShareButton 
               className=" shadow align-self-center text-center mx-3"
               style={{
-                borderRadius: 23,
+                borderRadius: '50%',
                 border: "1px solid #FAFAFA",
                 width: shareApp == 5 ? 54 : 59,
                 height: shareApp == 5 ? 54 : 59,
@@ -185,6 +186,7 @@ export const SocialShare = (props) => {
               }}
               onClick={() => handleShareApp(3)} 
             >
+
             <img src={shareApp == 3 ? InstagramActive : Instagram} className="" style={{ width: 47 }} />
             <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Instagram</div>
           </div>
@@ -192,7 +194,7 @@ export const SocialShare = (props) => {
           <div quote={title}
             className="shadow align-self-center text-center mx-3"
             style={{
-              borderRadius: 23,
+              borderRadius: '50%',
               border: "1px solid #FAFAFA",
               width: shareApp == 2 ? 54 : 59,
               height: shareApp == 2 ? 54 : 59,
@@ -207,7 +209,7 @@ export const SocialShare = (props) => {
           <div quote={title}
             className=" shadow  align-self-center text-center mx-3"
             style={{
-              borderRadius: 23,
+              borderRadius: '50%',
               border: "1px solid #FAFAFA",
               width: shareApp == 4 ? 54 : 59,
               height: shareApp == 4 ? 54 : 59,

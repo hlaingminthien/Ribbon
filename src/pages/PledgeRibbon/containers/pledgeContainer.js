@@ -9,9 +9,8 @@ import { PledgeProgress } from "../components/pledgeProgressBar";
 import { withMedia } from "react-media-query-hoc";
 import PledgeRibbonsForMobile from "../components/PledgeRibbonForMobile";
 import PledgeRibbonsForTablet from '../components/PledgeRibbonsForTablet';
-import domtoimage from 'dom-to-image-more';
-import { saveAs } from 'file-saver';
-import RibbonImages from "../../../assets/RibbonImages.json";
+import domtoimage from 'retina-dom-to-image';
+
 
 const PledgeContainer = (props) => {
   const { media } = props;
@@ -57,7 +56,6 @@ const PledgeContainer = (props) => {
 
     domtoimage.toPng(myNode).then(base64data=>{
       const url = `${Base_Url}uploadImage`;
-      // saveAs(base64data, "ribbon.png");
       setFinalImage(base64data);
       axios.post(url, { ribbon: base64data })
         .then(res => {
@@ -165,29 +163,38 @@ const PledgeContainer = (props) => {
   
   let background =
     (media.desktop) ?
-      "/Desktop_PledgeARibbonPage.jpg" : (media.tablet) ? "PledgeRibbonTablet.jpeg" :
+      "/Desktop_PledgeARibbonPage.jpg" : (media.tablet) ? "url(/PledgeRibbonTablet.svg)" :
         "/PledgeBgMobo.png";
   return (
     <>
     {loading && <div style={{ position: 'absolute', width: '100%', height: '100vh', zIndex: 2000}}></div>}
      <div style={{opacity:loading ? 1 : 0}} class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-    <div className="d-flex justify-content-center align-self-center pt-3 ">
-      <div id="testsvg">
-        <img
-          className="img-fluid  w-100"
-          src={background}
-          alt="bg-svg"
-          style={{ minHeight: media.desktop ? "96vh" : media.tablet ? "100vh" : "100vh" }}
-        />
+    <div className="d-flex justify-content-center align-self-center pt-3 " style={{backgroundImage:media.tablet ? "url(/PledgeRibbonTablet.svg)" : 'none' ,backgroundRepeat: "no-repeat",
+                backgroundSize: "100%", minHeight:'100vh' }}>
+      
+      {
+        (media.mobile || media.desktop ) &&
+      <div id="testsvg" style={{ width:'100%', background:'#e6dfe6' }}>
+          <div className='' style={{ width:media.desktop && '83%'  }}>
+              <img
+                  className="img-fluid  w-100"
+                  src={media.desktop ? "/Desktop_PledgeARibbonPage.png" : "/PledgeBgMobo.png"}
+                  alt="bg-svg"
+                  style={{ minHeight:'100vh' }}
+                />
+          </div>
+        
       </div>
+      }
+      
       <div className={`${(media.tablet) ? "col-12" : "col-10"} pt-4`}>
         {(media.desktop) ? (
           <div className="row px-0 ">
             <div
-              className="d-flex justify-content-start col-4 align-self-start "
+              className="d-flex justify-content-start col-4 align-self-start px-0"
               style={{ textAlign: "center" }}
             >
-              <div className="pt-3 pb-1" style={{ marginTop: window.innerWidth > 1500 ? '4%' : (media.tablet) ? '13%' : '5%', marginLeft: '-1%', position: (media.tablet || media.desktop) && 'fixed' }}>
+              <div className="pt-3 pb-1 px-2" style={{ marginTop: window.innerWidth > 1500 ? '4%' : (media.tablet) ? '13%' : '5%', marginLeft: '-1%', position: (media.tablet || media.desktop) && 'fixed' }}>
                 <PledgeCard
                   recipientName={recipientName}
                   senderName={senderName}
@@ -200,13 +207,26 @@ const PledgeContainer = (props) => {
                   finalImage={finalImage}
                 />
               </div>
+              <div className='px-0 mx-0'
+                  style={{
+                    position:'absolute',
+                    fontSize: media.tablet ? 24 : media.mobile ?  22 : 26,
+                    fontWeight: "bold",
+                    bottom : 105,
+                    lineHeight: 1,
+                    color: '#d8cad8',
+                  }}
+                >
+                  NCIS Ribbon Challenge 2021
+                  <p className='py-2' style={{ marginLeft: -78, fontSize: media.tablet ? 20 : media.mobile ?  18 : 22, }}>Together, We Fight Cancer</p>
+                </div>
             </div>
             <div
-              className="col-8 pt-4 justify-content-center"
+              className="col-8 pt-4 justify-content-center mx-0 px-0"
               style={{ height: "90vh" }}
             >
-              <div className='d-flex justify-content-center'>
-                <div className='col-7'>
+              <div className='d-flex justify-content-center mx-0 px-0'>
+                <div className='col-7 px-0'>
                   <PledgeProgress step={step} media={media} />
 
                 </div>

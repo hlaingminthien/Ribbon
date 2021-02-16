@@ -23,6 +23,7 @@ import { NCIS_Button } from "../../../tools/NCIS_Button";
 import sponsors from "../../../assets/sponsors.json"
 import Logo from "../../../assets/images/logo.png"
 import SelectedRibbons from '../../../assets/images/SelectedRibbon.json'
+import Font from "../../../app/config/font.js";
 
 import { Base_Url } from "../../../routes/Base_Url";
 
@@ -30,6 +31,7 @@ export const Home = (props) => {
   const { media } = props;
   const [shareCount, setShareCount] = useState(0);
   const [ minimize, setMinimize] =useState(false);
+  const [ count, setCount ]=useState(0);
 
   const _handlePledge = () => {
     props.history.push("/pledge_a_ribbon");
@@ -38,7 +40,7 @@ export const Home = (props) => {
     props.history.push(path);
   };
   useEffect(() => {
-
+    console.log("work!......");
     fetch(`${Base_Url}sharecount`, {
       headers: {
         "Accept": "application/json",
@@ -47,7 +49,7 @@ export const Home = (props) => {
       .then(res => res.json())
       .then(data => {
         // setShareCount(parseInt(data.payload.count / 5))
-        
+          setCount(data.payload.count)
           const defineRibbonCount=5;
           const ribbonCountFromServer=parseInt(data.payload.count);
           var ribbonCountForHomeUI=0;
@@ -62,7 +64,7 @@ export const Home = (props) => {
       
       })
       .catch(error => { throw error })
-  }, [])
+  })
   let floaterMobileBottom = minimize ? 50 : 150
   if (document.getElementById("floaterMobileId") !== null)
       floaterMobileBottom = document.getElementById('floaterMobileId').getBoundingClientRect().bottom
@@ -70,7 +72,7 @@ export const Home = (props) => {
   if (document.getElementById("floaterMobileId") !== null)
       var floaterMobileWidth = document.getElementById('floaterMobileId').clientWidth;
 
-    
+
 
   return (
     < div className='' style={{ overflowX:'hidden' }}>
@@ -88,10 +90,11 @@ export const Home = (props) => {
         >
 
           <HomeTitle media={media} _handlePledge={_handlePledge} />
-          <div className='d-flex justify-content-end col-10 ' style={{ position: 'absolute', marginTop: (media.desktop && window.innerWidth < 1500 ) ? '23%' : minimize ? 0 : '25%', bottom: minimize && 250  }}>
+          <div className='d-flex justify-content-end col-10 ' style={{ position: 'absolute', marginTop: (media.desktop && window.innerWidth < 1500 ) ? '21%' : minimize ? 0 : '23%', bottom: minimize && 250  }}>
             <div style={{ marginRight: minimize ? '-5%' : media.tablet ? '10%' : '8%'}}>
             {minimize ?  
-            <img src={"/floatMini.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 50, position: 'fixed', opacity: 0.9 }} />
+            <img src={"/floatMini.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 70, position: 'fixed', opacity: 0.9, zIndex: 2000, right: 20,
+            bottom: 50 }} />
              :
               <img src={"/floater.png"} alt='floater' onClick={()=>setMinimize(false)} style={{ width: (window.innerWidth > 1600 && !minimize) ? 300 :  media.tablet ? 220 : 250, position: 'fixed', zIndex: 1, opacity: 0.9 }} />}
             {
@@ -133,9 +136,9 @@ export const Home = (props) => {
                 <img src={SelectedRibbons.SelectedRibbons[shareCount].imgaeUrl} className="img-fluid" style={{ width: window.innerWidth > 1590 && '120%', zIndex: 0, position: 'relative' }} />
               </div>
             )}
-          <Counter shareCount={shareCount} />
+          <Counter count={count}  />
           {media.mobile || (
-            <div className="row" style={{ marginTop: '10rem', position: 'relative', }}>
+            <div className="row" style={{ marginTop:media.tablet ? "15rem" : ((window.innerWidth <1300 && window.innerWidth> 1100) && media.desktop )? "22rem" : '15rem', position: 'relative', }}>
               <Highlights media={media} _handleRoute={_handleRoute} />
               <Sponsors media={media} />
             </div>
@@ -149,7 +152,7 @@ export const Home = (props) => {
         }}>
           <div className='d-flex justify-content-end col-10 mx-5' style={{position: 'absolute', zIndex: 5, paddingTop: '50%',right: minimize && -20, bottom: minimize && 100, marginTop: minimize ? 0 : '35%'}}>
             {minimize ? 
-            <img src={"/floatMini.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 50, position: 'fixed', opacity: 0.9 }} />
+            <img src={"/floatMini.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ zIndex: 2000,width: 70, position: 'fixed', opacity: 0.9, right: 20, bottom: 50 }} />
             : <img src={"/floater.png"} alt='floater' id="floaterMobileId" onClick={()=>setMinimize(false)} style={{ width: 150, position: 'fixed', opacity: 0.9 }} />}
             {
               !minimize &&
@@ -160,10 +163,10 @@ export const Home = (props) => {
           
           <HomeTitle media={media} />
           <div className='text-center px-4 d-flex justify-content-center' style={{ marginTop: 20, zIndex: 4 /* marginLeft: media.cusHeight_600 ? -25 : 20*/ }}>
-            <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} />
+            <NCIS_Button text={"Pledge A Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} width={220} />
           </div>
           <div className='d-flex ' style={{ position:'relative' }}>
-            <Counter shareCount={shareCount} />
+            <Counter count={count} />
             {/* <img src={SelectedRibbons.SelectedRibbonsForMobile.filter(v=>v.id == shareCount).map(img=>img.imgaeUrl)} style={{
               bottom: media.cusHeight_700 ? 20 : 50, right: -1, height: 'auto', position: 'absolute',
               maxWidth: media.cusHeight_800 ? '100%' : media.cusHeight_700 ? '80%' : '72%'
@@ -261,7 +264,7 @@ const HomeTitle = (props) => {
       </div>
       <div
         className={media.mobile ? "col-10 " : media.tablet ? "col-9 pb-4" : "col-9 pb-4 pt-2"}
-        style={{ fontSize: media.mobile ? 15 : 18, fontWeight: "lighter", lineHeight: "25px" }}
+        style={{ fontSize: (media.mobile || media.tablet) ? Font.mobileBody : Font.desktopBody, fontWeight: "lighter", lineHeight: "25px" }}
       >
         {/* <Scrollbars style={{ minHeight: media.mobile ? 100 : media.tablet ? 230 : window.innerWidth > 1590 ? 270 : 150 }} ref={scrollbar} > */}
 
@@ -271,13 +274,13 @@ const HomeTitle = (props) => {
         <br />
         For each ribbon pledged, $3 will go towards the NCIS Cancer Fund to provide timely financial aid to our needy cancer patients.
         <br />
-        Thank you for your generous support and together, we fight cancer! For more information, visit www.ncis.com.sg.
+        Thank you for your generous support and together, we fight cancer! For more information, visit <a href="https://www.ncis.com.sg" style={{textDecoration: 'none', color: 'white'}} target="_blank">www.ncis.com.sg</a>.
 
       {/* </Scrollbars> */}
       </div>
       {!media.mobile &&
-        <div className='' style={{ position: 'absolute', zIndex: 100 }}>
-          <NCIS_Button text={"Pledge a Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} />
+        <div className='' style={{ position: 'absolute', zIndex: 100, fontSize: '14px' }}>
+          <NCIS_Button text={"Pledge A Ribbon"} onClick={_handlePledge} icon={ButtonRibbon} fontSize={14} />
 
         </div>
       }
@@ -293,7 +296,7 @@ const Highlights = props => {
       className="text-light w-50"
     >
       <div style={{ fontSize: 20, fontWeight: "bold", fontFamily: "Montserrat"}}>Event Highlights</div>
-      <div className="w-75 py-3" style={{ fontFamily: "Montserrat", fontSize: 17, lineHeight: 1.5 }}>
+      <div className="w-75 py-3" style={{ fontFamily: "Montserrat", fontSize: media.tablet ?  Font.tabletBody : Font.desktopBody , lineHeight: "26px" }}>
         <ul>
           <li>
             Health talks on cancer screening and prevention
@@ -307,7 +310,7 @@ const Highlights = props => {
         </li>
         </ul>
       </div>
-      <NCIS_Button text={"Learn More"} fontSize={16} onClick={()=>_handleRoute("/event_details")} />
+      <NCIS_Button text={"Learn More"} fontSize={Font.button} onClick={()=>_handleRoute("/event_details")} />
     </div>
   );
 };
@@ -320,7 +323,7 @@ const HighlightsForMobo = props => {
       className=" px-3"
     >
       <div className='p-2' style={{ fontSize: 20, fontWeight: "bold",  fontFamily: "Montserrat" }}>Event Highlights</div>
-      <div className="" style={{fontSize: 17, lineHeight :1.6 }}>
+      <div className="" style={{fontSize: Font.mobileBody, lineHeight :"26px"}}>
         <ul>
           <li>
             Health talks on cancer screening and prevention
@@ -335,7 +338,7 @@ const HighlightsForMobo = props => {
         </ul>
       </div>
       <div className='pb-4 px-2'>
-      <NCIS_Button text={"Learn More"} fontSize={13} onClick={()=>_handleRoute("/event_details")} />
+      <NCIS_Button text={"Learn More"} fontSize={Font.button} onClick={()=>_handleRoute("/event_details")} />
 
       </div>
       <SponsorsForMobo media={media} />
@@ -353,7 +356,7 @@ const SponsorsForMobo = props => {
     >
       <div style={{ fontSize: 20, fontWeight: "bold" }}>Our Partners and Sponsors</div>
       <div className='d-flex pt-3 '>
-        <div className='align-self-center col-3 ' style={{ fontWeight: 600, fontSize : 13 }}>
+        <div className='align-self-center col-3 ' style={{ fontWeight: 600, fontSize : Font.mobileBody }}>
           Organised by:
           </div>
         <div className="d-flex mx-2">
@@ -361,7 +364,7 @@ const SponsorsForMobo = props => {
             className="d-flex mx-2 my-1 py-2 align-items-center"
             style={{
               width: 150,
-              height: 70,
+              height: 50,
               borderRadius: 10,
               backgroundColor:'#fff'
             }}
@@ -372,7 +375,7 @@ const SponsorsForMobo = props => {
 
       </div>
       <div className='d-flex pt-3 '>
-        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600, fontSize : 13 }}>
+        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600, fontSize : Font.mobileBody }}>
           Sponsors:
           </div>
         <div className='d-flex flex-wrap mx-1'>
@@ -382,7 +385,7 @@ const SponsorsForMobo = props => {
                 className="d-flex my-1 py-2 align-items-center"
                 style={{
                   width: v.name === "rocheSpon" ? (window.innerWidth > 360 ? 70 : 70) : (window.innerWidth > 360 ? 80 : 80),
-                  height: v.name === "rocheSpon" ? 60 : 60,
+                  height: v.name === "rocheSpon" ? 50 : 50,
                   borderRadius: 10,
                   backgroundColor:'#fff'
                 }}
@@ -397,7 +400,7 @@ const SponsorsForMobo = props => {
 
       </div>
       <div className='d-flex pt-3 '>
-        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600, fontSize : 13 }}>
+        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600, fontSize : Font.mobileBody }}>
           Supporting Partners:
           </div>
         <div className='d-flex flex-wrap mx-1'>
@@ -407,7 +410,7 @@ const SponsorsForMobo = props => {
                 className="d-flex my-1 py-2 align-items-center"
                 style={{
                   width: 90,
-                  height: 60,
+                  height: 50,
                   borderRadius: 10,
                   backgroundColor:'#fff'
                 }}
@@ -435,7 +438,7 @@ const Sponsors = props => {
     >
       <div style={{ fontSize: 25, fontWeight: "bold" }}>Our Partners and Sponsors</div>
       <div className='d-flex pt-2 '>
-        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600 }}>
+        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600, fontSize : media.tablet ? Font.tabletBody : Font.desktopBody }}>
           Organised by:
           </div>
         <div className="d-flex col-6 mx-2">
@@ -443,7 +446,7 @@ const Sponsors = props => {
             className="d-flex mx-2 my-1 py-2 align-items-center"
             style={{
               width: 150,
-              height: 80,
+              height: 50,
               borderRadius:10,
               backgroundColor:'#fff'
               // borderRadius: '50%',
@@ -455,7 +458,7 @@ const Sponsors = props => {
 
       </div>
       <div className='d-flex pt-3 '>
-        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600 }}>
+        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600,fontSize : media.tablet ? Font.tabletBody : Font.desktopBody }}>
           Sponsors:
           </div>
         <div className='d-flex flex-wrap mx-2'>
@@ -465,7 +468,7 @@ const Sponsors = props => {
                 className="d-flex my-1 py-2 align-self-center"
                 style={{
                   width: (v.name === "rocheSpon" ) ? (media.desktop ? 90 : 90) : (media.tablet ? 100 : 100),
-                  height:v.name === "rocheSpon" ? 70 : 70,
+                  height:v.name === "rocheSpon" ? 50 : 50,
                   // borderRadius: '50%',
                   borderRadius:10,
                   backgroundColor:'#fff'
@@ -480,7 +483,7 @@ const Sponsors = props => {
 
       </div>
       <div className='d-flex pt-3 '>
-        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600 }}>
+        <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600,fontSize : media.tablet ? Font.tabletBody : Font.desktopBody }}>
           Supporting Partners:
           </div>
         <div className='d-flex flex-wrap mx-2'>
@@ -490,13 +493,13 @@ const Sponsors = props => {
                 className="d-flex my-1 py-2 align-items-center"
                 style={{
                   width: 100,
-                  height: 70,
+                  height: 50,
                   // borderRadius:'50%',
                   borderRadius:10,
                   backgroundColor:'#fff'
                 }}
               >
-                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 80 }} />
+                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 55 }} />
               </div>
             </div>
           ))}

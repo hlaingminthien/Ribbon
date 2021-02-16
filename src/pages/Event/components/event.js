@@ -11,6 +11,7 @@ import drHuangYiQing from "../../../assets/PeopleImage/drHuangYiQing.png"
 import { NCIS_Button } from "../../../tools/NCIS_Button";
 
 import moment from 'moment';
+import font from "../../../app/config/font";
 export const Event = (props) => {
     const { media } = props;
     const [w, setW] = React.useState(null)
@@ -39,19 +40,19 @@ export const Event = (props) => {
                 backgroundImage: "url(/assets/images/EventDesktop.svg)",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "100%",
-                paddingTop: sSize==="xxl" ? w* 0.15/**0.33*/ /*660*/ : sSize==="xl" ? 300 : sSize==="lg" ? 220 : sSize==="md" ? 160 : 30+w*0.1,
+                paddingTop: sSize==="xxl" ? w* 0.15/**0.33*/ /*660*/ : sSize==="xl" ? 300 : sSize==="lg" ? 220 : sSize==="md" ? 160 : 20+w*0.1,
                 overflow: "auto",
-                fontSize: 15,
+                fontSize: font.mobileBody,
                 lineHeight: 1.5,
-                paddingLeft: sSize==="xxl" ?  w*0.1 : sSize==="xl" ? 160 : sSize==="lg" ? 140 : sSize==="md" ? 120 : 60,
+                paddingLeft: sSize==="xxl" ?  w*0.1 : sSize==="xl" ? 160 : sSize==="lg" ? 140 : sSize==="md" ? 120 : media.mobile ? "" : 25,
                 paddingRight: 10,
             }}> 
-            <div
+            <div className={`${media.mobile ? "px-4" : "px-3"}`}
         style={{
-          fontSize: media.tablet ? 40 : media.mobile ? 33 : 52,
+          fontSize: media.tablet ? font.tabletHeading2 : media.mobile ? font.tabletHeading2 : 52,
           fontWeight: "bold",
           // paddingBottom: (media.cusHeight_600 || media.mobile) ? "40px" : "70px",
-          lineHeight: 1,
+          lineHeight:media.mobile ? "20px" : "47px",
           color: '#d8cad8'
         }}
       >
@@ -60,9 +61,9 @@ export const Event = (props) => {
         Challenge 2021
       </div>
             {/* <div style={{ position: "absolute", left: 50, top: 150, color: "white", padding: 20, background: "green", fontSize: "2em"}}>{w } {sSize}</div> */}
-            <div className="d-flex " style={{ paddingTop :media.mobile ? 30 : media.tablet ? 50 : 100 }}>            
+            <div className="d-flex px-2" style={{ paddingTop :media.mobile ? 30 : media.tablet ? 50 : 100 }}>            
                 <div className="pt-3 text-left" >
-                    <div className="px-3 " style={{ fontSize: 25 }}>                        
+                    <div className="px-3 " style={{ fontSize: font.tabletHeading2 }}>                        
                         <b>
                             <div>Together,</div>
                             <div>we fight Cancer!</div>
@@ -77,20 +78,20 @@ export const Event = (props) => {
                     left: "55%", 
                     top: sSize==="xxl" ? 700+(w-1920)*0.5 :  sSize==="xl" ? 600+(w-1600)*0.5 : sSize==="lg" ? 480+(w-1366)*0.5 : sSize==="md" ? 340+(w-1000)*0.5 : 200+(w-520)*0.5}}>
                     <div className="" > 
-                        <span className="" style={{ fontSize: ["md", "sm"].includes(sSize) ? "1.2em" : "2em", color: "#271f57", fontWeight:"bold", textShadow: "0px 0px 2px #271f57"}}>6 March 2021</span>
+                        <span className="" style={{ fontSize: ["md", "sm"].includes(sSize) ? "1.2em" : "2em", color: "#271f57", fontWeight:"bold", textShadow: "0px 0px 1px #271f57"}}>6 March 2021</span>
                         {/* {moment(Date.now()).format("DD MMMM  YYYY")} */}
-                        <span className="d-block" style={{ fontSize: ["md", "sm"].includes(sSize) ? "1em" : "1.8em", color: "#271f57", fontWeight:"bold", textShadow: "0px 0px 2px #271f57" }}>10am - 4pm</span>
+                        <span className="d-block" style={{ fontSize: ["md", "sm"].includes(sSize) ? "1em" : "1.8em", color: "#271f57", fontWeight:"bold", textShadow: "0px 0px 1px #271f57" }}>10am - 4pm</span>
                     </div>
                                         
                 </div>
             </div>
-            <div className=" pt-3 text-left ">
+            <div className=" pt-3 text-left d-flex flex-column justify-content-center px-2">
                 <div className="d-flex px-1 justify-content-between text-left">
                     <div className=""> 
-                        <div style={{ fontSize: 20, letterSpacing: 1.3 }}>
+                        <div className="px-2" style={{ fontSize: font.desktopBody, letterSpacing: 1.3 }}>
                             <b>Event Highlights:</b>
                         </div>
-                        <div className="py-3 d-flex flex-wrap flex-md-nowrap" style={{ maxWidth: 1200 }}>
+                        <div className="py-3 px-2 d-flex flex-wrap flex-md-nowrap" style={{ maxWidth: 1200 }}>
                             <div className="">
                                 <img src={Mamogram} className="pe-3 pb-2" style={{ height: 60 }} />
                             </div>
@@ -103,19 +104,20 @@ export const Event = (props) => {
                                     The mammobus will be at NUH Main Building Lobby B to carry out mammogram screening. Pre-registration is required. Please call 6773 7888 or click on the button below to book your slots. Terms apply.
                                 </div>                                
                                 <div className='pt-4 d-flex justify-content-start'>
+                                    <a href="mailto:cancerscreening@nuhs.edu.sg">
                                     <NCIS_Button
                                         text={"Book your slot"}
                                         width={220}
                                         onClick={""}
                                         fontSize={w > 1500 ? 16 : 14}
-                                        className=""
-                                        fontSize={14}
-                                    />
+                                        fontSize={16}         
+                                            width={220}  
+                                    /></a>
                                 </div>                                
                             </div>                            
                         </div>
                         <hr />
-                        <div className="py-3 d-flex flex-wrap flex-md-nowrap"  style={{ maxWidth: 1200 }}>     
+                        <div className="py-3 d-flex flex-wrap flex-md-nowrap px-2"  style={{ maxWidth: 1200 }}>     
                             <img src={FIT} className="pe-3 pb-2" style={{ height: 60 }} />
                                 <div className="flex-grow-1" style={{  }}>  
                                     <b style={{ fontSize:20,lineHeight : '30px' }}>FIT (Faecal Immunochemical Test) kit </b>
@@ -126,26 +128,28 @@ export const Event = (props) => {
                                         If you are a Singaporean or PR aged 50 years and above, you can request for a FIT kit at no cost.
                                     </div>
                                     <div className='pt-4 d-flex justify-content-start'>
+                                        <a href="https://bit.ly/3aNzFzF" target="_blank">
                                         <NCIS_Button
                                             text={"Request for a FIT kit"}
                                             onClick={""}
                                             fontSize={w > 1000 ? 16 : 14}
                                             className=""
-                                            fontSize={12}         
+                                            fontSize={16}         
                                             width={220}                                   
                                         />
+                                        </a>
                                     </div>
                                 </div>                                
                         </div>   
                         <hr />                         
-                        <div className="py-3 d-flex flex-wrap flex-md-nowrap"  style={{ maxWidth: 1200 }}>
-                            <img src={CancerEducationTalks} className="pe-3 pb-2" style={{ height: 60 }} />
-                                <div className="flex-grow-1" >
-                                    <span><b style={{ fontSize:20,lineHeight : '30px' }}>Cancer Education talks in English and Mandarin</b></span>                                                                              
-                                    <div className="pt-3">
+                        <div className="py-3 d-flex flex-wrap flex-md-nowrap "  style={{ maxWidth: 1200 }}>
+                            <img src={CancerEducationTalks} className="pe-3 pb-2 px-2" style={{ height: 60 }} />
+                                <div className="flex-grow-1 px-1" >
+                                    <span className='mx-2 text-center'><b style={{ fontSize:20,lineHeight : '30px' }}>Cancer Education talks in English and Mandarin</b></span>                                                                              
+                                    <div className="pt-3 px-2">
                                         Join our cancer specialists as they share with you information on the cancers that affects men and women and the diet & exercise for cancer prevention.
                                     </div><br/>
-                                    <div className="pt-2">
+                                    <div className="pt-2 px-2">
                                         <div>English sessions</div>
                                         <div style={{ color: "#d5d5d5"}}>6 March 2021</div>                           
                                         <div style={{ color: "#d5d5d5"}}>10am -11.30am</div>   
@@ -159,7 +163,7 @@ export const Event = (props) => {
                                             Speaker
                                         </div>
                                     </div>
-                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: 14 }}>
+                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: font.tabletBody }}>
                                         <div className="px-4 w-50">
                                             <div>Understanding Cancer,</div>
                                             <div>its Myths and Prevention</div>
@@ -174,7 +178,7 @@ export const Event = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: 14 }}>
+                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: font.tabletBody }}>
                                         <div className="px-4 w-50">
                                             The battle against female cancers: Prevention and Early intervention   
                                         </div>
@@ -188,7 +192,7 @@ export const Event = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: 14 }}>
+                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: font.tabletBody }}>
                                         <div className="px-4 w-50">
                                             The relationship between cancer and diet  
                                         </div>
@@ -208,22 +212,24 @@ export const Event = (props) => {
                             </div>
                             
                             <div className='pt-3 pb-5 mx-0 d-flex justify-content-start '>
+                            <a href="https://tinyurl.com/y36vf922" target="_blank">
                                 <   NCIS_Button
                                     text={"Register here for a slot"}
                                     onClick={""}
                                     fontSize={w > 1000 ? 16 : 14}
-                                    fontSize={11} 
+                                    fontSize={16} 
                                     className="px-2" 
                                     width={220}                                                                                      
                                 />
+                            </a>
                             </div>
-                                <div className="pt-3 w-50">
+                                <div className="pt-3 w-50 px-2">
                                     <div>华语讲座</div>
                                     <div style={{ color: "#e5e5e5 "}}>三月六日, 星期六</div> 
                                     <div style={{ color: "#e5e5e5 "}}>下午2点至3点30分</div>
                                 </div><br/>
                                 <div className="mt-3 pt-2 " style={{border:"1px solid #ffffff55",borderRadius: 10}}>
-                        <div className="d-flex">
+                        <div className="d-flex px-2">
                             <div className="px-4 w-50 " style={{fontWeight:"bold"}}>
                                 Topic
                             </div>
@@ -231,7 +237,7 @@ export const Event = (props) => {
                                 Speaker
                             </div>
                         </div>
-                        <div className="mt-2 d-flex justify-content-between pt-1" style={{borderTop:"1px solid #ffffff55"}}>
+                        <div className="mt-2 d-flex px-2 justify-content-between pt-1" style={{borderTop:"1px solid #ffffff55"}}>
                             <div className="px-4 w-50">
                                 <div>洞察癌症的误解以及如何预防</div>
                             </div>
@@ -247,7 +253,7 @@ export const Event = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-2 d-flex justify-content-between pt-1" style={{borderTop:"1px solid #ffffff55"}}>
+                        <div className="mt-2 d-flex px-2 justify-content-between pt-1" style={{borderTop:"1px solid #ffffff55"}}>
                             <div className="px-4 w-50">
                                 <dvi>妇科癌症；预防胜于治疗</dvi>   
                             </div>
@@ -263,7 +269,7 @@ export const Event = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-2 d-flex justify-content-between pt-1" style={{borderTop:"1px solid #ffffff55",borderBottom:"1px solid #ffffff55"}}>
+                        <div className="mt-2 px-2 d-flex justify-content-between pt-1" style={{borderTop:"1px solid #ffffff55",borderBottom:"1px solid #ffffff55"}}>
                             <div className="px-4 w-50">
                                 <div>妇科癌症；预防胜于治疗</div>  
                             </div>
@@ -284,14 +290,16 @@ export const Event = (props) => {
                         </div>                                            
                         </div>
                             <div className='pt-4 d-flex justify-content-start'>
+                            <a href="https://tinyurl.com/yyu5do5m" target="_blank">
                                 <NCIS_Button
                                     text={"现在就报名"}
                                     onClick={""}
                                     fontSize={w > 1000 ? 16 : 14}
-                                    fontSize={14} 
+                                    fontSize={16} 
                                     className="mx-2"    
                                     width={220}                                                                                   
                                 />
+                            </a>
                             </div>   
                             </div>                          
                         </div>                                                                      

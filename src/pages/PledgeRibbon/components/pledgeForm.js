@@ -21,6 +21,7 @@ import { violet, paleViolet } from "../../../assets/colors";
 import { SocialShare } from "./socialShareIcons";
 import axios from 'axios';
 import { Base_Url, webHost, webHostUi } from "../../../routes/Base_Url";
+import Font from "../../../app/config/font";
 
 const PledgeForm = (props) => {
   const {
@@ -185,7 +186,7 @@ const PledgeForm = (props) => {
                   <NCIS_Button
                     text={"Review"}
                     onClick={_handleReview}
-                    fontSize={window.innerWidth > 1500 ? 16 : 14}
+                    fontSize={Font.button}
                   />
                 </div>
 
@@ -195,14 +196,14 @@ const PledgeForm = (props) => {
                 <NCIS_Button
                   text={"Edit"}
                   onClick={_handleEdit}
-                  fontSize={window.innerWidth > 1500 ? 16 : 14}
+                  fontSize={Font.button}
                   className="mx-2"
                   buttonColor={paleViolet}
                 />
                 <NCIS_Button
                   text={"Confirm"}
                   onClick={_handleConfirm}
-                  fontSize={window.innerWidth > 1500 ? 16 : 14}
+                  fontSize={Font.button}
                   className="mx-2"
                 />
               </div>
@@ -354,7 +355,7 @@ const [ rand, setRandom ]=useState(0);
   };
 
   return (
-    <div className="d-flex flex-row flex-wrap">
+    <div className="d-flex flex-row flex-wrap m-0">
       {RibbonImages.Ribbons.map((v, k) => (
         <div
           key={k}
@@ -363,7 +364,7 @@ const [ rand, setRandom ]=useState(0);
         // onClick={() => _handleImage(v.imgaeUrl)}
         >
           <div
-            className="d-flex py-1"
+            className="d-flex py-1 "
             id={k}
             style={{ borderRadius: "50px" }}
             onClick={(e) => _handleClick(e, v.imgaeUrl, v.name)}
@@ -383,7 +384,7 @@ const [ rand, setRandom ]=useState(0);
                 marginTop: 3,
                 marginLeft: 3,
                 fontWeight: "500",
-                fontSize: window.innerWidth > 1500 ? 18 : 15,
+                fontSize: Font.tabletBody,
               }}
             >
               {v.name}
@@ -408,14 +409,14 @@ const [ rand, setRandom ]=useState(0);
              
               <>
                 {v.ribbonDetails ? (
-                  <div className="px-2" id={k} style={{ fontSize: 12 }}>
+                  <div className="px-2" id={k} style={{ fontSize: Font.tabletBody, lineHeight :"22px" }}>
                     {
                                 v.ribbonDetails[rand]
                               }
                    
                   </div>
                 ) : (
-                    <div className="px-2" id={k} style={{ fontSize: 12 }}>
+                    <div className="px-2" id={k} style={{ fontSize: Font.tabletBody }}>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Proin vel sollicitudin sapien.
                     </div>
@@ -435,6 +436,7 @@ export const ThankYouCard = (props) => {
 
   return (
     <div className="d-flex justify-content-center px-2 " style={{ position:'absolute' }}>
+
       {false && shareApp === 5 &&      
         <div className="p-3 col-8 mx-4" id="cardDivId">
           <img
@@ -463,7 +465,6 @@ export const ThankYouCard = (props) => {
                     // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
                     d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
                   />
-
                   <text fontSize={10} fontWeight={600} fill="white">
                     <textPath href="#curve-path" startOffset={(50 - (cancerName ? cancerName.length : 18) - 14 * 2) + "%"}>
                       {cancerName+" Cancer"}
@@ -496,13 +497,13 @@ export const ThankYouCard = (props) => {
         </div>
         <div
           className="text-center"
-          style={{ fontWeight: "bold", fontSize: 18 }}
+          style={{ fontWeight: "bold", fontSize: 20 }}
         >
           Thank you for your participation!
         </div>
         {
           shareApp === 5 ? 
-            <div className='p-1 py-2' style={{ fontSize: 13 }}>
+            <div className='p-1 py-2' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
               Share the message to your friends to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -514,7 +515,7 @@ export const ThankYouCard = (props) => {
               </div>
             </div>
           : shareApp === 2 ?
-            <div className='p-1' style={{ fontSize: 13 }}>
+            <div className='p-1' style={{ fontSize: Font.desktopBody,  lineHeight :'24px'  }}>
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -525,20 +526,20 @@ export const ThankYouCard = (props) => {
 
             </div> :
             shareApp === 1 ?
-            <div className='p-1' style={{ fontSize: 13 }}>
+            <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
               Share the message on your WhatsApp  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
-                1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+                1.Right click on the Image and select "Save Image As" to save the Image on your device.
                 <br />
                 2.Go to your WhatsApp
                 <br />
-                3.Select your recipient and insert the GIF into your message.
+                3.Select your recipient and insert the Image into your message.
               </div>
 
             </div> :
             shareApp === 3 ?
-            <div className='p-1' style={{ fontSize: 13 }}>
+            <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
               Share the message on your Instagram  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -549,21 +550,21 @@ export const ThankYouCard = (props) => {
 
             </div> :
             shareApp === 4 ?
-            <div className='p-1' style={{ fontSize: 13 }}>
+            <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-            {/* <div className='px-2 py-1'>
-              1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+            <div className='px-2 py-1'>
+              1. Download your pledge message onto your device.
               <br />
-              2.Go to your WhatsApp
+              2. Click "Start a Post" on Linkedin.
               <br />
-              3.Select your recipient and insert the GIF into your message.
-            </div> */}
+              3. Upload your pledge message onto your Linkedin (Remember to add #ncisribbonchallenge in your caption)
+            </div>
 
           </div>
           // :
           // shareApp === 5 ?
-          // <div className='p-1' style={{ fontSize: 13 }}>
+          // <div className='p-1' style={{ fontSize: Font.desktopBody }}>
           // Share the message via to spread the word to more people!<br />
           /* <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
@@ -574,41 +575,41 @@ export const ThankYouCard = (props) => {
         // </div>
          :
         shareApp === 6 ?
-        <div className='p-1' style={{ fontSize: 13 }}>
+        <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
           Share the message on your Telegram  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+            1.Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
             2.Go to your Telegram.
             <br />
-            3.Select your recipient and insert the GIF into your message.
+            3.Select your recipient and insert the Image into your message.
           </div>
 
         </div>:
         shareApp === 7 ?
-        <div className='p-1' style={{ fontSize: 13 }}>
+        <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
           Share the message on your weChat  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+            1.Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
             2.Go to your WeChat
             <br />
-            3.Select your recipient and insert the GIF into your message.​
+            3.Select your recipient and insert the Image into your message.​
           </div>
 
         </div>:
         shareApp === 8 ?
-        <div className='p-1' style={{ fontSize: 13 }}>
+        <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
           Share the message on your Line to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1.Right click on the GIF and select "Save Image As" to save the GIF on your device.
+            1.Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
             2.Go to your Line
             <br />
-            3.Select your recipient and insert the GIF into your message.
+            3.Select your recipient and insert the Image into your message.
           </div>
 
         </div>:
@@ -618,11 +619,11 @@ export const ThankYouCard = (props) => {
           winner ?
           <div className='d-flex'>
             <div className='p-2 col-8'>
-              <div className='py-2' style={{ fontSize:14, fontWeight:600 }}>
+              <div className='py-2' style={{ fontSize:Font.desktopBody, fontWeight:600 }}>
               Congratulations!
               </div>
-              <div className='py-2' style={{ fontSize:12 }}>
-              You have won the NCIS Ribbon Challenge mystery gift!
+              <div className='py-2' style={{ fontSize:Font.tabletBody, lineHeight :'24px'  }}>
+              You have won the NCIS Ribbon Challenge mystery Image!
               <br />
               Click on to enter your particulars and we will get in touch with you soon. Thank you for your support!
               </div>
@@ -632,7 +633,7 @@ export const ThankYouCard = (props) => {
             </div>
           </div> 
           : shareApp !== 5 ?
-            <p className="pt-2 px-2" style={{ fontSize: 13 }}>
+            <p className="pt-2 px-2" style={{ fontSize: Font.tabletBody, lineHeight :'24px'  }}>
               Don’t stop here, you can do more by pledging again!
               <br />
               Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
@@ -646,6 +647,8 @@ export const ThankYouCard = (props) => {
           <div className="pb-2  d-flex justify-content-center">
             <NCIS_Button
               text={"Pledge Another"}
+              width={220}
+              fontSize={Font.button}
               onClick={() => window.location.reload()}
               className="mx-1"
             />
@@ -669,6 +672,8 @@ export const ThankYouCard = (props) => {
             onClick={_handlePledge}
             className="mx-1"
             buttonColor={violet}
+            width={220}
+            fontSize={Font.button}
           />
         </div>
           }
