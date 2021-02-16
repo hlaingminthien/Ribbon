@@ -215,6 +215,7 @@ const Ribbons = (props) => {
                       fontSize: font.mobileBody,
                       position: "absolute",
                       width: 100,
+                      lineHeight:'22px'
                     }}
                   >
                     {v.name}
@@ -264,7 +265,7 @@ const Ribbons = (props) => {
                         </> : */}
                         <>
                           {v.ribbonDetails ? (
-                            <div className="p-2" id={k} style={{ fontSize: font.mobileBody, lineHeight : "20px" }}>
+                            <div className="p-2" id={k} style={{ fontSize: font.mobileBody, lineHeight : "22px" }}>
                               {
                                 v.ribbonDetails[rand]
                               }
@@ -322,7 +323,7 @@ const Ribbons = (props) => {
                 <div
                 // ${step != 1 && "move-me move-me-2"} 
                   className={`d-flex flex-column pt-3 `}
-                  style={{ minHeight: 180 }}
+                  style={{ minHeight: 180,lineHeight:'22px' }}
                 >
                   <span className="" style={{ fontSize: font.mobileBody, fontWeight: "bold" }}>
                     {recipientName}

@@ -5,7 +5,7 @@ export const Privacy = () => {
   return (
     <div className="py-4 px-2">
       <h2 className="py-4">Privacy Policy</h2>
-      <p style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601 ) ? font.desktopBody : font.tabletBody, lineHeight: "26px"}}>
+      <p style={{ fontSize: window.innerWidth > 1600 ? font.desktopBody : (window.innerWidth > 1200 && window.innerWidth < 1601 ) ? font.desktopBody : window.innerWidth < 600 ? font.mobileBody : font.tabletBody, lineHeight: window.innerWidth < 600 ? "22px" : "26px"}}>
         The National University Cancer Institute, Singapore (NCIS) values your privacy and the confidentiality of the information you choose to share with us. We want you to visit our web sites without being concerned that others will have access to your confidential information. This statement pertains only to our web sites.
         <br />
 

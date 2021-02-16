@@ -14,7 +14,7 @@ const NavBar = (props) => {
 
 	return (
 		<div
-			className="navbar navbar-expand-lg navbar-light shadow bg-light justify-content-between py-1 px-2 w-100"
+			className="navbar navbar-expand-lg navbar-light shadow bg-light justify-content-between py-2 px-2 w-100"
 			style={{ position: "fixed", zIndex: 999 }}>
 			<div className="d-flex justify-content-between align-items-center flex-fill" style={{/* paddingTop: '.5em', paddingBottom: '1em'*/}}>
 				<div className='px-lg-3 pl-xl-3 px-md-3'  style={{ zIndex: 2 }}>
