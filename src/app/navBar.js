@@ -15,7 +15,7 @@ const NavBar = (props) => {
 			<div className="d-flex justify-content-between align-items-start flex-fill" style={{ paddingTop: '.5em', paddingBottom: '1em'}}>
 				<div style={{ zIndex: 2 }}>
 					<a className="navbar-brand" href="/">
-						<img src={Logo} alt="logo" height='35' />
+						<img src={Logo} alt="logo" height={window.innerWidth>500 ? '60px' : "40px"} />
 					</a>
 				</div>	
 				<div className="d-flex flex-wrap flex-lg-nowrap justify-content-end" style={{ position: "absolute", left: '10px', right: '10px'}}>
@@ -37,6 +37,7 @@ const NavBar = (props) => {
 					</div>
 					<div className="collapse navbar-collapse px-2 justify-content-end order-lg-1 bg-light" style={{borderTop: '1 solid #e0e0e0', paddingTop: '.5em', paddingBottom: '.5em'}} id="navbarSupportedContent">
 						<div className="navbar-nav">
+							<div className="mt-sm-4" style={{ height: 1, background: "lightgray"}} />
 							<div className="nav-item text-start" style={{ whiteSpace: 'nowrap' }}>
 								<Link
 									className="nav-link"

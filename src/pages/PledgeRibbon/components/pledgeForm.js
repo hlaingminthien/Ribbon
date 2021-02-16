@@ -10,6 +10,8 @@ import {
   LinkedinIcon, WhatsappIcon, LinkedinShareButton
 } from "react-share";
 
+import domtoimage from 'dom-to-image-more';
+
 import { NCIS_Selector } from "../../../tools/NCIS_Selector";
 import { NCIS_TextBox } from "../../../tools/NCIS_TextBox";
 import { NCIS_Button } from "../../../tools/NCIS_Button";
@@ -17,6 +19,8 @@ import RibbonImages from "../../../assets/RibbonImages.json";
 import EmailShareCard from "../../../assets/images/EmailShareCard.png";
 import { violet, paleViolet } from "../../../assets/colors";
 import { SocialShare } from "./socialShareIcons";
+import axios from 'axios';
+import { Base_Url, webHost, webHostUi } from "../../../routes/Base_Url";
 
 const PledgeForm = (props) => {
   const {
@@ -37,19 +41,68 @@ const PledgeForm = (props) => {
     _handleImage, warning,winner,imgUrl, cancerName
   } = props;
   const [shareApp, setShareApp] = useState(null);
+
+  const ribbonName = imgUrl ? imgUrl.split("/")[imgUrl.split("/").length-1] : "ribbonname"
   
   const handleShareApp = (app) => {
-    // setShareApp(app == shareApp ? null : app);
-    setShareApp(app)
-    _handleShare();
-    
+    // setShareApp(app == shareApp ? null : app);    
+    if(app===5) {
+      setShareApp(app)
+      _handleShare();
+
+      var receiveEmail = prompt("Please enter email to share", "");
+
+      if (receiveEmail != null && receiveEmail != "") {
+        
+        const url = `${Base_Url}uploadImage`;
+        const myNode = document.getElementById('cardDivId')
+        domtoimage.toPng(myNode).then(base64data=>{
+          axios.post(url, { ribbon: base64data })
+          .then(res => {
+            const shareImg = res.data.payload;
+            console.log("shareImg: ", shareImg)
+            const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px"> 
+            <div style='position:relative;padding-top: 560px;' align='center'>
+                <a href='${webHostUi}' style='font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f;text-align-center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
+                  Pledge A Ribbon
+                </a>
+              </div>       
+            </div>`
+
+            const bodyData = {
+              receiveEmail: receiveEmail, 
+              subjectText: "National University Cancer Institute Singapore",
+              contentHtml: contentHtml1.replace(/\s+/g, ' ').trim()
+            }
+            fetch(Base_Url+"share-email", {
+              method: "post",
+              headers: {
+                "Accept": "application/json",
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(bodyData)
+            })
+            .then(res => res.json())
+            .then(d => console.log("data: ", d))
+            .catch(error => console.error(error))
+
+          })
+        })
+    } else {
+      alert("Cancelled sharing!")
+    }
+
+    } else {
+      setShareApp(app)
+      _handleShare();
+    }
   };
   const _handlePledge = () => {
     props.history.push("/");
   };
 
   return (
-    <div className="py-2">
+    <div className="py-2" id="testIdd">
       <form>
         <div className='pt-1'>
           <strong>{step && `Step ${step}:`}</strong>
@@ -77,7 +130,6 @@ const PledgeForm = (props) => {
               shareApp={shareApp}
               paleViolet={paleViolet}
               shareImg={shareImage}
-
             />
           </div>
 
@@ -158,6 +210,83 @@ const PledgeForm = (props) => {
           </div>
         )}
       </form>
+      {/* <img width="400" height="500" id="testImg" /> */}
+      
+        <div id="cardDivId" style={{ zIndex: -10, marginBottom: 80, boxShadow: '0px 0px 8px 0px #a5a5a5', fontSize: "16px", position: 'relative', width: '400px', height: '650px', 
+          backgroundImage: `url(/static/media/EmailShareCard.1fbbb251.png)`, backgroundSize: '100% 100%' }} >
+            <div style={{ position:"absolute", top:"27%", left:"60px", right: "40px", textAlign: "start", color: "white" }}>
+              <div style={{ paddingBottom:"16px" }}>Dear {recipientName},</div>
+              <div style={{ paddingBottom: "16px" }}>{message}</div>
+              <div>Love {senderName}</div>
+            </div>
+            <img
+              src={`/assets/images/ribbons/${ribbonName}`}
+              alt='selected-ribbons'
+              style={{ position:"absolute", width: "130px", height: "130px", right:"20px", top: "47%"}}
+            />
+            <svg viewBox='-9 10 115 56' xmlns='http://www.w3.org/2000/svg' style={{ position:"absolute", width:"120px", height: "120px", right: "34px", top: "45%", transform: "rotate(0deg)" }} >
+              <path id='curve-path' 
+                fill='none' stroke='red' stroke-width='0' 
+                d='M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344'
+              />
+              <text font-size='10' font-weight='600' fill='white'>
+                <textPath href='#curve-path' startOffset='30'>
+                  {cancerName} Cancer
+                </textPath>
+              </text>
+            </svg>
+            
+        </div>
+
+    {/* <div className="p-3 col-8 mx-4" id="cardDivId1">
+    <img
+          src={EmailShareCard}
+          alt="EmailShareCard"
+          style={{width: 280}}
+        />
+        <div style={{marginTop: -300, color: 'white', paddingTop: 10, paddingLeft: 20, paddingRight: 20, width: 280}}>
+        <div style={{fontSize: 13, marginTop: 10}}>{senderName}</div>
+        <div style={{fontSize: 13, marginTop: 10}}>{message}</div>
+        <div style={{fontSize: 13, marginTop: 10}}>Love, {recipientName}</div>
+        </div>
+        <>
+        <img
+          src={imgUrl ? imgUrl : "./mysteryBall.png"}
+          alt="selected-ribbons"
+          style={{ width: 80, height: 80, right: 20, bottom: -45, position: "absolute" }}
+        />
+          <svg viewBox="-12 2 115 56" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", right: 30, bottom: -17, width: 76, height: 60 }} >
+            <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
+              d2="M0,58 Q50,-20 100,58"
+              d1={`M 0,120 A 32,32 0 1, 0 54,0 A 32,32 0 1, 0 -54,0`}  
+              // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
+              // d="M2,62 Q50,-38 104,62"
+              // d="M 100 0 A 1 1 0 0 0 -100 0"
+              // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
+              d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
+            />
+
+            <text fontSize={10} fontWeight={600} fill="white">
+              <textPath href="#curve-path" startOffset={(50 - (cancerName ? cancerName.length : 18) - 14 * 2) + "%"}>
+                {cancerName+" Cancer"}
+              </textPath>
+            </text>
+          </svg> </> 
+          <button onClick={() => window.location.reload()} style={{
+            border: 1,
+            borderColor:  '#fd784f',
+                borderRadius: 50,
+                background: '#fd784f',
+                color: 'white',
+                fontSize: 12,
+                padding: 5,
+                position: "absolute",
+                bottom: -133,
+                right: 100,
+                cursor: 'pointer'
+          }}>Pledge A Ribbon</button>
+        </div> */}
+
     </div>
   );
 };
@@ -306,75 +435,56 @@ export const ThankYouCard = (props) => {
 
   return (
     <div className="d-flex justify-content-center px-2 " style={{ position:'absolute' }}>
-      {false && shareApp === 5 ? 
-      <div className="bg-light p-3 col-8 my-3 mx-4 shadow py-2 border " style={{ borderRadius: 10 }}>
-        <div className='d-flex justify-content-end px-2'>
-          <i className="fa fa-times align-self-start pt-1" onClick={() => setShowThankU(false)} ></i>
-        </div>
-        <div className="text-center" style={{ fontWeight: "bold", fontSize: 18 }} >
-          Thank you for your participation!
-        </div>
-        <div className='p-1' style={{ fontSize: 13 }}>
-          Share the message to your friends to spread the word to more people!<br />
-          <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-          <div className='px-2 py-1'>
-            {"1. Download the image by Right Click -> Save Image As and then download the image file."}
-            <br />
-            {"2. Go to your email app and insert the image in message area."}
-            <br />
-            {"3. Get your recipient to join you in pledging ribbon for good, by sending ribbons of their own!"}
-          </div>
-        </div>
-      </div>
-      /*<div className="p-3 col-8 mx-4">
-        <img
-              src={EmailShareCard}
-              alt="EmailShareCard"
-              style={{width: 280}}
-            />
-            <div style={{marginTop: -300, color: 'white', paddingTop: 10, paddingLeft: 20, paddingRight: 20, width: 280}}>
-            <div style={{fontSize: 13, marginTop: 10}}>{senderName}</div>
-            <div style={{fontSize: 13, marginTop: 10}}>{message}</div>
-            <div style={{fontSize: 13, marginTop: 10}}>Love, {recipientName}</div>
-            </div>
-            <>
-            <img
-              src={imgUrl ? imgUrl : "./mysteryBall.png"}
-              alt="selected-ribbons"
-              style={{ width: 80, height: 80, right: 20, bottom: -45, position: "absolute" }}
-            />
-              <svg viewBox="-12 2 115 56" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", right: 30, bottom: -17, width: 76, height: 60 }} >
-                <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
-                  d2="M0,58 Q50,-20 100,58"
-                  d1={`M 0,120 A 32,32 0 1, 0 54,0 A 32,32 0 1, 0 -54,0`}  
-                  // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
-                  // d="M2,62 Q50,-38 104,62"
-                  // d="M 100 0 A 1 1 0 0 0 -100 0"
-                  // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
-                  d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
-                />
+      {false && shareApp === 5 &&      
+        <div className="p-3 col-8 mx-4" id="cardDivId">
+          <img
+                src={EmailShareCard}
+                alt="EmailShareCard"
+                style={{width: 280}}
+              />
+              <div style={{marginTop: -300, color: 'white', paddingTop: 10, paddingLeft: 20, paddingRight: 20, width: 280}}>
+              <div style={{fontSize: 13, marginTop: 10}}>{senderName}</div>
+              <div style={{fontSize: 13, marginTop: 10}}>{message}</div>
+              <div style={{fontSize: 13, marginTop: 10}}>Love, {recipientName}</div>
+              </div>
+              <>
+              <img
+                src={imgUrl ? imgUrl : "./mysteryBall.png"}
+                alt="selected-ribbons"
+                style={{ width: 80, height: 80, right: 20, bottom: -45, position: "absolute" }}
+              />
+                <svg viewBox="-12 2 115 56" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: "absolute", right: 30, bottom: -17, width: 76, height: 60 }} >
+                  <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
+                    d2="M0,58 Q50,-20 100,58"
+                    d1={`M 0,120 A 32,32 0 1, 0 54,0 A 32,32 0 1, 0 -54,0`}  
+                    // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
+                    // d="M2,62 Q50,-38 104,62"
+                    // d="M 100 0 A 1 1 0 0 0 -100 0"
+                    // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
+                    d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
+                  />
 
-                <text fontSize={10} fontWeight={600} fill="white">
-                  <textPath href="#curve-path" startOffset={(50 - (cancerName ? cancerName.length : 18) - 14 * 2) + "%"}>
-                    {cancerName+" Cancer"}
-                  </textPath>
-                </text>
-              </svg> </> 
-              <button onClick={() => window.location.reload()} style={{
-                border: 1,
-                borderColor:  '#fd784f',
-                    borderRadius: 50,
-                    background: '#fd784f',
-                    color: 'white',
-                    fontSize: 12,
-                    padding: 5,
-                    position: "absolute",
-                    bottom: -133,
-                    right: 100,
-                    cursor: 'pointer'
-              }}>Pledge A Ribbon</button>
-      </div>*/ 
-      : <div
+                  <text fontSize={10} fontWeight={600} fill="white">
+                    <textPath href="#curve-path" startOffset={(50 - (cancerName ? cancerName.length : 18) - 14 * 2) + "%"}>
+                      {cancerName+" Cancer"}
+                    </textPath>
+                  </text>
+                </svg> </> 
+                <button onClick={() => window.location.reload()} style={{
+                  border: 1,
+                  borderColor:  '#fd784f',
+                      borderRadius: 50,
+                      background: '#fd784f',
+                      color: 'white',
+                      fontSize: 12,
+                      padding: 5,
+                      position: "absolute",
+                      bottom: -133,
+                      right: 100,
+                      cursor: 'pointer'
+                }}>Pledge A Ribbon</button>
+        </div> }
+      <div
         className="bg-light p-3 col-8 my-3 mx-4 shadow pt-2 "
         style={{ borderRadius: 10 }}
       >
@@ -565,7 +675,7 @@ export const ThankYouCard = (props) => {
           
 
         </div>
-          </div>  }
+          </div> 
     </div>
   );
 };
