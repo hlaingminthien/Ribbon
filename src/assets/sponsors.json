@@ -7,11 +7,8 @@
         {
             "id": 2,
             "imgaeUrl": "./assets/images/sponsor/msdSpon.jpg", "name": "msdSpon"
-        },
-        {
-            "id": 3,
-            "imgaeUrl": "./assets/images/sponsor/rocheSpon.jpg", "name": "rocheSpon"
         }
+       
     ],
     "supportingPartners":[
         {
@@ -20,8 +17,9 @@
         },
         {
             "id": 2,
-            "imgaeUrl": "./assets/images/sponsor/365CPS.jpg", "name": "365CPS"
+            "imgaeUrl": "./assets/images/sponsor/365CPS.png", "name": "365CPS"
            
         }
     ]
 }
+

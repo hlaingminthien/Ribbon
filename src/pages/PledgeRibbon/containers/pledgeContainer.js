@@ -166,7 +166,7 @@ const PledgeContainer = (props) => {
       "/Desktop_PledgeARibbonPage.jpg" : (media.tablet) ? "url(/PledgeRibbonTablet.svg)" :
         "/PledgeBgMobo.png";
   return (
-    <>
+    <div style={{ overflowY:'hidden' }}>
     {loading && <div style={{ position: 'absolute', width: '100%', height: '100vh', zIndex: 2000}}></div>}
      <div style={{opacity:loading ? 1 : 0}} class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     <div className="d-flex justify-content-center align-self-center " style={{backgroundImage:media.tablet ? "url(/PledgeRibbonTablet.svg)" : 'none' ,backgroundRepeat: "no-repeat",
@@ -187,7 +187,7 @@ const PledgeContainer = (props) => {
       </div>
       }
       
-      <div className={`${(media.tablet) ? "col-12" : "col-10"} pt-4`}>
+      <div className={`${(media.tablet) ? "col-12" : "col-10"} pt-4`} style={{ overflowY:'hidden', overflowX:'hidden'}}>
         {(media.desktop) ? (
           <div className="row px-0 ">
             <div
@@ -340,7 +340,7 @@ const PledgeContainer = (props) => {
             )}
       </div>
     </div>
-    </>
+    </div>
   );
 };
 export default withMedia(PledgeContainer);

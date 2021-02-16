@@ -65,12 +65,12 @@ export const Event = (props) => {
                 <div className="pt-3 text-left" >
                     <div className="px-3 " style={{ fontSize: font.tabletHeading2 }}>                        
                         <b>
-                            <div>Together,</div>
-                            <div>we fight Cancer!</div>
+                            <div>Together, We Fight Cancer!</div>
                         </b>     
                     </div>                   
                     <div className="my-4 text-left px-3" style={{ textShadow: "0px 0px 4px #464646", maxWidth: 400 , fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px"}}>
-                        The NCIS Ribbon Challenge was started in 2018 to promote public awareness and education on cancer. Come join us at our event to build your knowledge and awareness about cancer, and what you can do to fight it!
+                    Themed “Together, We Fight Cancer!”, the NCIS Ribbon Challenge 2021 aims to increase cancer awareness, emphasise on the importance of maintaining a healthy lifestyle and going for regular health screenings. Join our cancer specialists as they share with you information on the top cancers that affects men and women in Singapore. <b>Join us in the fight against cancer! </b>
+                        {/* The NCIS Ribbon Challenge was started in 2018 to promote public awareness and education on cancer. Come join us at our event to build your knowledge and awareness about cancer, and what you can do to fight it! */}
                     </div>
                 </div>
                 <div className="px-3 text-dark" 
@@ -80,7 +80,9 @@ export const Event = (props) => {
                     <div className="" > 
                         <span className="" style={{ fontSize: ["md", "sm"].includes(sSize) ? "1.2em" : "2em", color: "#271f57", fontWeight:"bold"}}>6 March 2021</span>
                         {/* {moment(Date.now()).format("DD MMMM  YYYY")} */}
-                        <span className="d-block" style={{ fontSize: ["md", "sm"].includes(sSize) ? "1em" : "1.8em", color: "#271f57", fontWeight:"bold" }}>10am - 4pm</span>
+                        <span className="d-block" style={{ fontSize: ["md", "sm"].includes(sSize) ? "0.9em" : "1.8em", color: "#271f57", fontWeight:"bold" }}>10am - 11.30pm (English)</span>
+                        <span className="d-block" style={{ fontSize: ["md", "sm"].includes(sSize) ? "0.9em" : "1.8em", color: "#271f57", fontWeight:"bold" }}>2pm - 3.30pm (Chinese)</span>
+
                     </div>
                                         
                 </div>
@@ -91,67 +93,17 @@ export const Event = (props) => {
                         <div className="px-2" style={{ fontSize: font.eventTitle, letterSpacing: 1.3 }}>
                             <b>Event Highlights:</b>
                         </div>
-                        <div className="py-3 px-2 d-flex flex-wrap flex-md-nowrap" style={{ maxWidth: 1200 }}>
-                            <div className="">
-                                <img src={Mamogram} className="pe-3 pb-2" style={{ height: 60 }} />
-                            </div>
-                            <div className="flex-grow-1" style={{  }}>            
-                                <b style={{ fontSize: font.eventSubTitle,lineHeight : '30px' }}>Mammogram screening </b>
-                                <div className="pt-3" style={{ textShadow: "0px 0px 2px gray" }}>
-                                    Ladies, if you above 50 years old, and have not done a mammogram screening, register for one now and have a peace of mind.<br/>
-                                </div>
-                                <div className="pt-2" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
-                                    The mammobus will be at NUH Main Building Lobby B to carry out mammogram screening. Pre-registration is required. Please call 6773 7888 or click on the button below to book your slots. Terms apply.
-                                </div>                                
-                                <div className='pt-4 d-flex justify-content-start'>
-                                    <a href="mailto:cancerscreening@nuhs.edu.sg">
-                                    <NCIS_Button
-                                        text={"Book your slot"}
-                                        width={220}
-                                        onClick={""}
-                                        fontSize={w > 1500 ? 16 : 14}
-                                        fontSize={16}         
-                                            width={220}  
-                                    /></a>
-                                </div>                                
-                            </div>                            
-                        </div>
-                        <hr />
-                        <div className="py-3 d-flex flex-wrap flex-md-nowrap px-2"  style={{ maxWidth: 1200 }}>     
-                            <img src={FIT} className="pe-3 pb-2" style={{ height: 60 }} />
-                                <div className="flex-grow-1" style={{  }}>  
-                                    <b style={{ fontSize:20,lineHeight : '26px' }}>FIT (Faecal Immunochemical Test) kit </b>
-                                    <div className="pt-3" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
-                                        The Faecal Immunochemical Test (FIT) is a preliminary test that detects the presence of small amounts of blood in faeces. Colorectal polyps and cancers can be detected by the traces of blood that are bled into the colon.  
-                                    </div>
-                                    <div className="pt-2" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
-                                        If you are a Singaporean or PR aged 50 years and above, you can request for a FIT kit at no cost.
-                                    </div>
-                                    <div className='pt-4 d-flex justify-content-start'>
-                                        <a href="https://bit.ly/3aNzFzF" target="_blank">
-                                        <NCIS_Button
-                                            text={"Request for a FIT kit"}
-                                            onClick={""}
-                                            fontSize={w > 1000 ? 16 : 14}
-                                            className=""
-                                            fontSize={16}         
-                                            width={220}                                   
-                                        />
-                                        </a>
-                                    </div>
-                                </div>                                
-                        </div>   
-                        <hr />                         
                         <div className="py-3 d-flex flex-wrap flex-md-nowrap "  style={{ maxWidth: 1200 }}>
                             <img src={CancerEducationTalks} className="pe-3 pb-2 px-2" style={{ height: 60 }} />
                                 <div className="flex-grow-1 px-1" style={{lineHeight : media.desktop ? "26px" : "22px"}} >
-                                    <b style={{ fontSize:20,lineHeight : '26px' }}>Cancer Education talks in English and Mandarin </b>                                                                            
+                                    <b style={{ fontSize:20,lineHeight : '26px' }}>Cancer Education Talks in English and Mandarin </b>                                                                            
                                     <div className="pt-3 px-2" style={{fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px"}}>
                                         Join our cancer specialists as they share with you information on the cancers that affects men and women and the diet & exercise for cancer prevention.
                                     </div><br/>
                                     <div className="pt-2 px-2" style={{ fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
                                         <div>English sessions</div>
-                                        <div style={{ color: "#d5d5d5"}}>6 March 2021</div>                           
+                                        <div style={{ color: "#d5d5d5"}}>6 March 2021</div>        
+                                        {/* <div style={{ color: "#d5d5d5"}}>10am - 4pm</div>                      */}
                                         <div style={{ color: "#d5d5d5"}}>10am -11.30am</div>   
                                     </div>
                                     <div className="mt-3 pt-2 " style={{ border:"1px solid #ffffff55",borderRadius: 10 }}>
@@ -180,7 +132,7 @@ export const Event = (props) => {
                                     </div>
                                     <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
                                         <div className="px-4 w-50">
-                                            The battle against female cancers: Prevention and Early intervention   
+                                            The Battle Against Female Cancers: Prevention and Early intervention   
                                         </div>
                                         <div className="d-flex flex-wrap w-50 ">
                                             <div className="mt-2"><img src={drLimYiWan} className="pe-3 pb-2" style={{ height: 60 }} /></div>
@@ -194,7 +146,7 @@ export const Event = (props) => {
                                     </div>
                                     <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
                                         <div className="px-4 w-50">
-                                            The relationship between cancer and diet  
+                                            The Relationship between Cancer and Diet  
                                         </div>
                                         <div className="d-flex flex-wrap w-50 ">
                                             <div className="mt-2"><img src={drLimSiewEng} className="pe-3 pb-2" style={{ height: 60 }} /></div>
@@ -226,6 +178,7 @@ export const Event = (props) => {
                                 <div className="pt-3 w-50 px-2" style={{ fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
                                     <div>华语讲座</div>
                                     <div style={{ color: "#e5e5e5 "}}>三月六日, 星期六</div> 
+                                    {/* <div style={{ color: "#e5e5e5 "}}>下午2点至3点</div> */}
                                     <div style={{ color: "#e5e5e5 "}}>下午2点至3点30分</div>
                                 </div><br/>
                                 <div className="mt-3 pt-2 " style={{border:"1px solid #ffffff55",borderRadius: 10}}>
@@ -292,7 +245,8 @@ export const Event = (props) => {
                             <div className='pt-4 d-flex justify-content-start'>
                             <a href="https://tinyurl.com/yyu5do5m" target="_blank">
                                 <NCIS_Button
-                                    text={"现在就报名"}
+                                    // text={"现在就报名"}
+                                    text={"立即报名"}
                                     onClick={""}
                                     fontSize={w > 1000 ? 16 : 14}
                                     fontSize={16} 
@@ -300,9 +254,72 @@ export const Event = (props) => {
                                     width={220}                                                                                   
                                 />
                             </a>
+                            </div>  
+                            <div className='pt-4' style={{ fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}
+                            onClick={()=>{
+                                var win = window.open("https://www.ncis.com.sg/events/Pages/NCIS-Ribbon-Challenge.aspx","_blank");
+                                win.focus();
+                              }}
+                            >
+                                For more information about this event, please click <a href="" target="_blank">here. </a>
+                            {/* <hyperlink to https://www.ncis.com.sg/events/Pages/NCIS-Ribbon-Challenge.aspx> */}
+                            </div>  
                             </div>   
-                            </div>                          
-                        </div>                                                                      
+                                             
+                        </div>   
+                        <div className="py-3 px-2 d-flex flex-wrap flex-md-nowrap" style={{ maxWidth: 1200 }}>
+                            <div className="">
+                                <img src={Mamogram} className="pe-3 pb-2" style={{ height: 60 }} />
+                            </div>
+                            <div className="flex-grow-1" style={{  }}>            
+                                <b style={{ fontSize: 20,lineHeight : '26px' }}>Mammogram screening </b>
+                                <div className="pt-3" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
+                                    Ladies, if you above 50 years old, and have not done a mammogram screening, register for one now and have a peace of mind.<br/>
+                                </div>
+                                <div className="pt-2" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
+                                    The mammobus will be at NUH Main Building Lobby B to carry out mammogram screening. Pre-registration is required. Please call 6773 7888 or click on the button below to book your slots. Terms apply.
+                                </div>                                
+                                <div className='pt-4 d-flex justify-content-start'>
+                                    <a href="mailto:cancerscreening@nuhs.edu.sg">
+                                    <NCIS_Button
+                                        text={"Book your slot"}
+                                        width={220}
+                                        onClick={""}
+                                        fontSize={w > 1500 ? 16 : 14}
+                                        fontSize={16}         
+                                            width={220}  
+                                    /></a>
+                                </div>                                
+                            </div>                            
+                        </div>
+                        <hr />
+                        <div className="py-3 d-flex flex-wrap flex-md-nowrap px-2"  style={{ maxWidth: 1200 }}>     
+                            <img src={FIT} className="pe-3 pb-2" style={{ height: 60 }} />
+                                <div className="flex-grow-1" style={{  }}>  
+                                    <b style={{ fontSize:20,lineHeight : '26px' }}>FIT (Faecal Immunochemical Test) kit </b>
+                                    <div className="pt-3" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
+                                        The Faecal Immunochemical Test (FIT) is a preliminary test that detects the presence of small amounts of blood in faeces. 
+                                        {/* Colorectal polyps and cancers can be detected by the traces of blood that are bled into the colon.   */}
+                                    </div>
+                                    <div className="pt-2" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
+                                        If you are a Singaporean or PR aged 50 years and above, you can request for a FIT kit at no cost.
+                                    </div>
+                                    <div className='pt-4 d-flex justify-content-start'>
+                                        <a href="https://bit.ly/3aNzFzF" target="_blank">
+                                        <NCIS_Button
+                                            text={"Request for a FIT kit"}
+                                            onClick={""}
+                                            fontSize={w > 1000 ? 16 : 14}
+                                            className=""
+                                            fontSize={16}         
+                                            width={220}                                   
+                                        />
+                                        </a>
+                                    </div>
+                                </div>                                
+                        </div>   
+                        <hr />                         
+                                                                                           
                     </div>                                        
                 </div>                                                                            
             </div>

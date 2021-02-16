@@ -64,11 +64,7 @@ const PledgeForm = (props) => {
             console.log("shareImg: ", shareImg)
             const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px"> 
             <div style='position:relative;padding-top: 560px;' align='center'>
-<<<<<<< HEAD
-                <a href='${webHostUi}' style='font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f;text-align-center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
-=======
                 <a href='${webHostUi}' style='text-decoration:none;font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
->>>>>>> a03c61832e9cae66ef64c6b34208ec02e2448861
                   Pledge A Ribbon
                 </a>
               </div>       
@@ -125,7 +121,7 @@ const PledgeForm = (props) => {
         {step === 1 && <PledgeRibbons {...props} />}
         {/* //  _handleSelect={_handleSelect} _handleRibbonClick={_handleRibbonClick} menuVisible={menuVisible} */}
         {(step === 3 && complete && showThankU) ? (
-          <ThankYouCard _handlePledge={_handlePledge} setShowThankU={setShowThankU} showThankU={showThankU} recipientName={recipientName} senderName={senderName} message={message} imgUrl={imgUrl} cancerName={cancerName} shareApp={shareApp} winner={winner} />
+          <ThankYouCard _handlePledge={_handlePledge} setShareApp={setShareApp} setShowThankU={setShowThankU} showThankU={showThankU} recipientName={recipientName} senderName={senderName} message={message} imgUrl={imgUrl} cancerName={cancerName} shareApp={shareApp} winner={winner} />
         ) : (step === 3 || showThankU ) ? (
           <div className='d-flex justify-content-center'>
             <div className='px-2 pt-5' style={{ fontWeight: 600 }}>Share Via:</div>
@@ -496,7 +492,7 @@ export const ThankYouCard = (props) => {
         <div className='d-flex justify-content-end px-2'>
         <i
             className="fa fa-times align-self-start pt-1"
-            onClick={() => setShowThankU(false)}
+            onClick={() => {setShowThankU(false); props.setShareApp(null) }}
           ></i>
         </div>
         <div

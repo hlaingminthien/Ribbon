@@ -47,23 +47,23 @@ export const PledgeCard = (props) => {
       <img
       className="img-responsive"
       src={finalImage}
-      style={{ width: 380, height: 380, borderRadius: 10 }}
+      style={{ width: 300, height: 300, borderRadius: 10}}
     />
       : <img
         className="img-responsive"
         src={(imgUrl || recipientName || senderName || message) ? "/cardnoText.jpg" : "/card.jpg"}
-        style={{ width: 380, height: 380, borderRadius: 10 }}
+        style={{ width: 300, height: 300, borderRadius: 10 }}
       />
 }
 {!finalImage && 
       <div
         className=" pt-4 justify-content-start text-left"
-        style={{ position: "absolute", top:50, width: 295, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? Font.desktopBody : Font.tabletBody, textAlign: 'left' }}
+        style={{ position: "absolute", width: 200, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? Font.desktopBody : Font.tabletBody, textAlign: 'left' }}
       >
         <div
         // ${step != 1 && "move-me move-me-2"}
           className={` pt-3 `}
-          style={{ minHeight: 165 }}
+          style={{ minHeight: 160 }}
         >
           <span className="" style={{ fontSize: Font.desktopBody, fontWeight: "bold" }}>
             {recipientName}
@@ -84,18 +84,18 @@ export const PledgeCard = (props) => {
         </div>
 
         {(imgUrl || recipientName || senderName || message) && (
-          <div className={`${!imgUrl && "pt-1 px-1" }`} style={{ position: "absolute", right: -40, top:180 }}>
+          <div className={`${!imgUrl && "pt-1 px-1" }`} style={{ position: "absolute", right: -40, }}>
 
             
             {(imgUrl || recipientName || senderName || message) ? <>
             <img
               src={imgUrl ? imgUrl : "./mysteryBall.png"}
               alt="selected-ribbons"
-              style={{ width: 150, height: 150 }}
+              style={{ width: 105, height: 105 }}
             />
             
               <svg viewBox="0 0 150 130" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: 'absolute',
-                width: 150, right: -18,top: -10,height: 150,}} >
+                width: 150, right: -40,top: -10,height: 150,}} >
                 <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
                   
                   // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
