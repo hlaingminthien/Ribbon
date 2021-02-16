@@ -64,7 +64,7 @@ const PledgeForm = (props) => {
             console.log("shareImg: ", shareImg)
             const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px"> 
             <div style='position:relative;padding-top: 560px;' align='center'>
-                <a href='${webHostUi}' style='font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f;text-align-center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
+                <a href='${webHostUi}' style='font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
                   Pledge A Ribbon
                 </a>
               </div>       
