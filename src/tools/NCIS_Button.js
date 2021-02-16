@@ -3,7 +3,7 @@ import mediaQueryProvider from "react-media-query-hoc/dist/media-query-provider"
 import { orange } from "../assets/colors";
 
 export const NCIS_Button = (props) => {
-    const {text,icon,onClick,className,buttonColor, fontSize }=props
+    const {text,icon,onClick,className,buttonColor, fontSize, width }=props
   return (
     <button
       className={`btn text-light ${className} ${icon && "d-flex justify-content-between" } py-2 `}
@@ -11,7 +11,7 @@ export const NCIS_Button = (props) => {
         background: buttonColor||orange,
         borderRadius: 50,
         fontSize : fontSize ? fontSize : 13,
-        width: icon?"190px":"140px",
+        width:width ? width : icon?"190px":"140px",
         whiteSpace:'nowrap'
         // textAlign:icon&&"left"
       }}
