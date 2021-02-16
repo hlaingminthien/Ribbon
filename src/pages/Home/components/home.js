@@ -264,7 +264,7 @@ const HomeTitle = (props) => {
       </div>
       <div
         className={media.mobile ? "col-10 " : media.tablet ? "col-9 pb-4" : "col-9 pb-4 pt-2"}
-        style={{ fontSize: (media.mobile || media.tablet) ? Font.mobileBody : Font.desktopBody, fontWeight: "lighter", lineHeight: "25px" }}
+        style={{ fontSize: (media.mobile) ? Font.mobileSmall : Font.desktopBody, fontWeight: "lighter", lineHeight:media.mobile ? "22px" : "25px",fontFamily: "Montserrat", }}
       >
         {/* <Scrollbars style={{ minHeight: media.mobile ? 100 : media.tablet ? 230 : window.innerWidth > 1590 ? 270 : 150 }} ref={scrollbar} > */}
 
@@ -322,8 +322,8 @@ const HighlightsForMobo = props => {
       style={{ color: '#271f57', }}
       className=" px-3"
     >
-      <div className='p-2' style={{ fontSize: 20, fontWeight: "bold",  fontFamily: "Montserrat" }}>Event Highlights</div>
-      <div className="" style={{fontSize: Font.mobileBody, lineHeight :"26px"}}>
+      <div className='p-2' style={{ fontSize: 20, fontWeight: "bold",  fontFamily: "Montserrat",lineHeight :"22px" }}>Event Highlights</div>
+      <div className="" style={{fontSize: Font.mobileSmall, lineHeight :"22px"}}>
         <ul>
           <li>
             Health talks on cancer screening and prevention
@@ -356,7 +356,7 @@ const SponsorsForMobo = props => {
     >
       <div style={{ fontSize: 20, fontWeight: "bold" }}>Our Partners and Sponsors</div>
       <div className='d-flex pt-3 '>
-        <div className='align-self-center col-3 ' style={{ fontWeight: 600, fontSize : Font.mobileBody }}>
+        <div className='align-self-center col-3 ' style={{ fontWeight: 600, fontSize : Font.mobileBody, lineHeight:'22px' }}>
           Organised by:
           </div>
         <div className="d-flex mx-2">
@@ -375,8 +375,8 @@ const SponsorsForMobo = props => {
 
       </div>
       <div className='d-flex pt-3 '>
-        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600, fontSize : Font.mobileBody }}>
-          Sponsored <br/>By:
+        <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600, fontSize : Font.mobileBody,lineHeight:'22px' }}>
+          Sponsors:
           </div>
         <div className='d-flex flex-wrap mx-1'>
           {/*new Array(8).fill(null)*/sponsors.sponsors.map((v, k) => (
@@ -474,7 +474,7 @@ const Sponsors = props => {
                   backgroundColor:'#fff'
                 }}
               >
-                &nbsp;&nbsp;&nbsp;<img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? (media.desktop ? 50 : 40) : (media.tablet ? 60 : 70)}} />
+                &nbsp;&nbsp;&nbsp;<img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width:v.name === "rocheSpon" ? (media.desktop ? 50 : 40) : (media.tablet ? 60 : 60)}} />
               </div>
             </div>
           ))}
@@ -499,7 +499,7 @@ const Sponsors = props => {
                   backgroundColor:'#fff'
                 }}
               >
-                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 55 }} />
+                <img className='mx-2 align-self-center' src={v.imgaeUrl} alt="sponsor" style={{ width: 55, position: 'relative', right: -18 }} />
               </div>
             </div>
           ))}

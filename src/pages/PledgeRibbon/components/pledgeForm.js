@@ -64,7 +64,11 @@ const PledgeForm = (props) => {
             console.log("shareImg: ", shareImg)
             const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px"> 
             <div style='position:relative;padding-top: 560px;' align='center'>
+<<<<<<< HEAD
                 <a href='${webHostUi}' style='font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f;text-align-center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
+=======
+                <a href='${webHostUi}' style='text-decoration:none;font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
+>>>>>>> a03c61832e9cae66ef64c6b34208ec02e2448861
                   Pledge A Ribbon
                 </a>
               </div>       
@@ -503,7 +507,7 @@ export const ThankYouCard = (props) => {
         </div>
         {
           shareApp === 5 ? 
-            <div className='p-1 py-2' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
+            <div className='p-3 py-2' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
               Share the message to your friends to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -515,7 +519,7 @@ export const ThankYouCard = (props) => {
               </div>
             </div>
           : shareApp === 2 ?
-            <div className='p-1' style={{ fontSize: Font.desktopBody,  lineHeight :'24px'  }}>
+            <div className='p-3' style={{ fontSize: Font.desktopBody,  lineHeight :'24px'  }}>
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
@@ -526,31 +530,31 @@ export const ThankYouCard = (props) => {
 
             </div> :
             shareApp === 1 ?
-            <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
+            <div className='p-3' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
               Share the message on your WhatsApp  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
-                1.Right click on the Image and select "Save Image As" to save the Image on your device.
+                1. Right click on the Image and select "Save Image As" to save the Image on your device.
                 <br />
-                2.Go to your WhatsApp
+                2. Go to your WhatsApp
                 <br />
-                3.Select your recipient and insert the Image into your message.
+                3. Select your recipient and insert the Image into your message.
               </div>
 
             </div> :
             shareApp === 3 ?
-            <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
+            <div className='p-3' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
               Share the message on your Instagram  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
-                1.Download your pledge message onto your device.
+                1. Download your pledge message onto your device.
                 <br />
-                2.Upload your pledge message onto your Instagram. (Remember to add #ncisribbonchallenge in your caption)​
+                2. Upload your pledge message onto your Instagram. (Remember to add #ncisribbonchallenge in your caption)​
               </div>
 
             </div> :
             shareApp === 4 ?
-            <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
+            <div className='p-3' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
             <div className='px-2 py-1'>
@@ -564,7 +568,7 @@ export const ThankYouCard = (props) => {
           </div>
           // :
           // shareApp === 5 ?
-          // <div className='p-1' style={{ fontSize: Font.desktopBody }}>
+          // <div className='p-3' style={{ fontSize: Font.desktopBody }}>
           // Share the message via to spread the word to more people!<br />
           /* <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
@@ -575,41 +579,41 @@ export const ThankYouCard = (props) => {
         // </div>
          :
         shareApp === 6 ?
-        <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
+        <div className='p-3' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
           Share the message on your Telegram  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1.Right click on the Image and select "Save Image As" to save the Image on your device.
+            1. Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
-            2.Go to your Telegram.
+            2. Go to your Telegram.
             <br />
-            3.Select your recipient and insert the Image into your message.
+            3. Select your recipient and insert the Image into your message.
           </div>
 
         </div>:
         shareApp === 7 ?
-        <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
+        <div className='p-3' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
           Share the message on your weChat  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1.Right click on the Image and select "Save Image As" to save the Image on your device.
+            1. Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
-            2.Go to your WeChat
+            2. Go to your WeChat
             <br />
-            3.Select your recipient and insert the Image into your message.​
+            3. Select your recipient and insert the Image into your message.​
           </div>
 
         </div>:
         shareApp === 8 ?
-        <div className='p-1' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
+        <div className='p-3' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
           Share the message on your Line to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1.Right click on the Image and select "Save Image As" to save the Image on your device.
+            1. Right click on the Image and select "Save Image As" to save the Image on your device.
             <br />
-            2.Go to your Line
+            2. Go to your Line
             <br />
-            3.Select your recipient and insert the Image into your message.
+            3. Select your recipient and insert the Image into your message.
           </div>
 
         </div>:
@@ -633,7 +637,7 @@ export const ThankYouCard = (props) => {
             </div>
           </div> 
           : shareApp !== 5 ?
-            <p className="pt-2 px-2" style={{ fontSize: Font.tabletBody, lineHeight :'24px'  }}>
+            <p className="p-3" style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
               Don’t stop here, you can do more by pledging again!
               <br />
               Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .

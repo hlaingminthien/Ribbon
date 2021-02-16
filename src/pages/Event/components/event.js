@@ -69,7 +69,7 @@ export const Event = (props) => {
                             <div>we fight Cancer!</div>
                         </b>     
                     </div>                   
-                    <div className="my-4 text-left px-3" style={{ textShadow: "0px 0px 4px #464646", maxWidth: 400}}>
+                    <div className="my-4 text-left px-3" style={{ textShadow: "0px 0px 4px #464646", maxWidth: 400 , fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px"}}>
                         The NCIS Ribbon Challenge was started in 2018 to promote public awareness and education on cancer. Come join us at our event to build your knowledge and awareness about cancer, and what you can do to fight it!
                     </div>
                 </div>
@@ -85,7 +85,7 @@ export const Event = (props) => {
                                         
                 </div>
             </div>
-            <div className=" pt-3 text-left d-flex flex-column justify-content-center px-2">
+            <div className="text-left d-flex flex-column justify-content-center px-2" style={{paddingTop: '2rem'}}>
                 <div className="d-flex px-1 justify-content-between text-left">
                     <div className=""> 
                         <div className="px-2" style={{ fontSize: font.eventTitle, letterSpacing: 1.3 }}>
@@ -100,7 +100,7 @@ export const Event = (props) => {
                                 <div className="pt-3" style={{ textShadow: "0px 0px 2px gray" }}>
                                     Ladies, if you above 50 years old, and have not done a mammogram screening, register for one now and have a peace of mind.<br/>
                                 </div>
-                                <div className="pt-2" style={{ textShadow: "0px 0px 2px gray" }}>
+                                <div className="pt-2" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
                                     The mammobus will be at NUH Main Building Lobby B to carry out mammogram screening. Pre-registration is required. Please call 6773 7888 or click on the button below to book your slots. Terms apply.
                                 </div>                                
                                 <div className='pt-4 d-flex justify-content-start'>
@@ -120,11 +120,11 @@ export const Event = (props) => {
                         <div className="py-3 d-flex flex-wrap flex-md-nowrap px-2"  style={{ maxWidth: 1200 }}>     
                             <img src={FIT} className="pe-3 pb-2" style={{ height: 60 }} />
                                 <div className="flex-grow-1" style={{  }}>  
-                                    <b style={{ fontSize:20,lineHeight : '30px' }}>FIT (Faecal Immunochemical Test) kit </b>
-                                    <div className="pt-3" style={{ textShadow: "0px 0px 2px gray" }}>
+                                    <b style={{ fontSize:20,lineHeight : '26px' }}>FIT (Faecal Immunochemical Test) kit </b>
+                                    <div className="pt-3" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
                                         The Faecal Immunochemical Test (FIT) is a preliminary test that detects the presence of small amounts of blood in faeces. Colorectal polyps and cancers can be detected by the traces of blood that are bled into the colon.  
                                     </div>
-                                    <div className="pt-2" style={{ textShadow: "0px 0px 2px gray" }}>
+                                    <div className="pt-2" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
                                         If you are a Singaporean or PR aged 50 years and above, you can request for a FIT kit at no cost.
                                     </div>
                                     <div className='pt-4 d-flex justify-content-start'>
@@ -144,18 +144,18 @@ export const Event = (props) => {
                         <hr />                         
                         <div className="py-3 d-flex flex-wrap flex-md-nowrap "  style={{ maxWidth: 1200 }}>
                             <img src={CancerEducationTalks} className="pe-3 pb-2 px-2" style={{ height: 60 }} />
-                                <div className="flex-grow-1 px-1" >
-                                    <span className='mx-2 text-center'><b style={{ fontSize:20,lineHeight : '30px' }}>Cancer Education talks in English and Mandarin</b></span>                                                                              
-                                    <div className="pt-3 px-2">
+                                <div className="flex-grow-1 px-1" style={{lineHeight : media.desktop ? "26px" : "22px"}} >
+                                    <b style={{ fontSize:20,lineHeight : '26px' }}>Cancer Education talks in English and Mandarin </b>                                                                            
+                                    <div className="pt-3 px-2" style={{fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px"}}>
                                         Join our cancer specialists as they share with you information on the cancers that affects men and women and the diet & exercise for cancer prevention.
                                     </div><br/>
-                                    <div className="pt-2 px-2">
+                                    <div className="pt-2 px-2" style={{ fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
                                         <div>English sessions</div>
                                         <div style={{ color: "#d5d5d5"}}>6 March 2021</div>                           
                                         <div style={{ color: "#d5d5d5"}}>10am -11.30am</div>   
                                     </div>
                                     <div className="mt-3 pt-2 " style={{ border:"1px solid #ffffff55",borderRadius: 10 }}>
-                                    <div className="d-flex pb-2" style={{borderBottom:"1px solid #ffffff55"}}>
+                                    <div className="d-flex pb-2" style={{borderBottom:"1px solid #ffffff55", fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px"}}>
                                         <div className="px-4 w-50" style={{fontWeight:"bold"}}>
                                             Topic
                                         </div>
@@ -163,8 +163,8 @@ export const Event = (props) => {
                                             Speaker
                                         </div>
                                     </div>
-                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: font.tabletBody }}>
-                                        <div className="px-4 w-50">
+                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
+                                        <div className="px-4 w-50" >
                                             <div>Understanding Cancer,</div>
                                             <div>its Myths and Prevention</div>
                                         </div>
@@ -178,7 +178,7 @@ export const Event = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: font.tabletBody }}>
+                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
                                         <div className="px-4 w-50">
                                             The battle against female cancers: Prevention and Early intervention   
                                         </div>
@@ -192,7 +192,7 @@ export const Event = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize: font.tabletBody }}>
+                                    <div className="mt-2 d-flex justify-content-between pb-1" style={{ borderBottom:"1px solid #ffffff55", fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
                                         <div className="px-4 w-50">
                                             The relationship between cancer and diet  
                                         </div>
@@ -223,13 +223,13 @@ export const Event = (props) => {
                                 />
                             </a>
                             </div>
-                                <div className="pt-3 w-50 px-2">
+                                <div className="pt-3 w-50 px-2" style={{ fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
                                     <div>华语讲座</div>
                                     <div style={{ color: "#e5e5e5 "}}>三月六日, 星期六</div> 
                                     <div style={{ color: "#e5e5e5 "}}>下午2点至3点30分</div>
                                 </div><br/>
                                 <div className="mt-3 pt-2 " style={{border:"1px solid #ffffff55",borderRadius: 10}}>
-                        <div className="d-flex px-2">
+                        <div className="d-flex px-2" style={{fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px"}}>
                             <div className="px-4 w-50 " style={{fontWeight:"bold"}}>
                                 Topic
                             </div>
@@ -237,7 +237,7 @@ export const Event = (props) => {
                                 Speaker
                             </div>
                         </div>
-                        <div className="mt-2 d-flex px-2 justify-content-between pt-1" style={{borderTop:"1px solid #ffffff55"}}>
+                        <div className="mt-2 d-flex px-2 justify-content-between pt-1" style={{borderTop:"1px solid #ffffff55",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px"}}>
                             <div className="px-4 w-50">
                                 <div>洞察癌症的误解以及如何预防</div>
                             </div>
@@ -253,7 +253,7 @@ export const Event = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-2 d-flex px-2 justify-content-between pt-1" style={{borderTop:"1px solid #ffffff55"}}>
+                        <div className="mt-2 d-flex px-2 justify-content-between pt-1" style={{borderTop:"1px solid #ffffff55",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px"}}>
                             <div className="px-4 w-50">
                                 <dvi>妇科癌症；预防胜于治疗</dvi>   
                             </div>
@@ -269,7 +269,7 @@ export const Event = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-2 px-2 d-flex justify-content-between pt-1" style={{borderTop:"1px solid #ffffff55",borderBottom:"1px solid #ffffff55"}}>
+                        <div className="mt-2 px-2 d-flex justify-content-between pt-1" style={{borderTop:"1px solid #ffffff55",borderBottom:"1px solid #ffffff55",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px"}}>
                             <div className="px-4 w-50">
                                 <div>妇科癌症；预防胜于治疗</div>  
                             </div>
@@ -285,7 +285,7 @@ export const Event = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="px-4 w-50 py-2" >
+                        <div className="px-4 w-50 py-2" style={{fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px"}}>
                             问答时间
                         </div>                                            
                         </div>
