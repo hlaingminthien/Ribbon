@@ -93,58 +93,6 @@ export const Event = (props) => {
                         <div className="px-2" style={{ fontSize: font.eventTitle, letterSpacing: 1.3 }}>
                             <b>Event Highlights:</b>
                         </div>
-                        <div className="py-3 px-2 d-flex flex-wrap flex-md-nowrap" style={{ maxWidth: 1200 }}>
-                            <div className="">
-                                <img src={Mamogram} className="pe-3 pb-2" style={{ height: 60 }} />
-                            </div>
-                            <div className="flex-grow-1" style={{  }}>            
-                                <b style={{ fontSize: 20,lineHeight : '26px' }}>Mammogram screening </b>
-                                <div className="pt-3" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
-                                    Ladies, if you above 50 years old, and have not done a mammogram screening, register for one now and have a peace of mind.<br/>
-                                </div>
-                                <div className="pt-2" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
-                                    The mammobus will be at NUH Main Building Lobby B to carry out mammogram screening. Pre-registration is required. Please call 6773 7888 or click on the button below to book your slots. Terms apply.
-                                </div>                                
-                                <div className='pt-4 d-flex justify-content-start'>
-                                    <a href="mailto:cancerscreening@nuhs.edu.sg">
-                                    <NCIS_Button
-                                        text={"Book your slot"}
-                                        width={220}
-                                        onClick={""}
-                                        fontSize={w > 1500 ? 16 : 14}
-                                        fontSize={16}         
-                                            width={220}  
-                                    /></a>
-                                </div>                                
-                            </div>                            
-                        </div>
-                        <hr />
-                        <div className="py-3 d-flex flex-wrap flex-md-nowrap px-2"  style={{ maxWidth: 1200 }}>     
-                            <img src={FIT} className="pe-3 pb-2" style={{ height: 60 }} />
-                                <div className="flex-grow-1" style={{  }}>  
-                                    <b style={{ fontSize:20,lineHeight : '26px' }}>FIT (Faecal Immunochemical Test) kit </b>
-                                    <div className="pt-3" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
-                                        The Faecal Immunochemical Test (FIT) is a preliminary test that detects the presence of small amounts of blood in faeces. 
-                                        {/* Colorectal polyps and cancers can be detected by the traces of blood that are bled into the colon.   */}
-                                    </div>
-                                    <div className="pt-2" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
-                                        If you are a Singaporean or PR aged 50 years and above, you can request for a FIT kit at no cost.
-                                    </div>
-                                    <div className='pt-4 d-flex justify-content-start'>
-                                        <a href="https://bit.ly/3aNzFzF" target="_blank">
-                                        <NCIS_Button
-                                            text={"Request for a FIT kit"}
-                                            onClick={""}
-                                            fontSize={w > 1000 ? 16 : 14}
-                                            className=""
-                                            fontSize={16}         
-                                            width={220}                                   
-                                        />
-                                        </a>
-                                    </div>
-                                </div>                                
-                        </div>   
-                        <hr />                         
                         <div className="py-3 d-flex flex-wrap flex-md-nowrap "  style={{ maxWidth: 1200 }}>
                             <img src={CancerEducationTalks} className="pe-3 pb-2 px-2" style={{ height: 60 }} />
                                 <div className="flex-grow-1 px-1" style={{lineHeight : media.desktop ? "26px" : "22px"}} >
@@ -318,7 +266,60 @@ export const Event = (props) => {
                             </div>  
                             </div>   
                                              
-                        </div>                                                                      
+                        </div>   
+                        <div className="py-3 px-2 d-flex flex-wrap flex-md-nowrap" style={{ maxWidth: 1200 }}>
+                            <div className="">
+                                <img src={Mamogram} className="pe-3 pb-2" style={{ height: 60 }} />
+                            </div>
+                            <div className="flex-grow-1" style={{  }}>            
+                                <b style={{ fontSize: 20,lineHeight : '26px' }}>Mammogram screening </b>
+                                <div className="pt-3" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
+                                    Ladies, if you above 50 years old, and have not done a mammogram screening, register for one now and have a peace of mind.<br/>
+                                </div>
+                                <div className="pt-2" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
+                                    The mammobus will be at NUH Main Building Lobby B to carry out mammogram screening. Pre-registration is required. Please call 6773 7888 or click on the button below to book your slots. Terms apply.
+                                </div>                                
+                                <div className='pt-4 d-flex justify-content-start'>
+                                    <a href="mailto:cancerscreening@nuhs.edu.sg">
+                                    <NCIS_Button
+                                        text={"Book your slot"}
+                                        width={220}
+                                        onClick={""}
+                                        fontSize={w > 1500 ? 16 : 14}
+                                        fontSize={16}         
+                                            width={220}  
+                                    /></a>
+                                </div>                                
+                            </div>                            
+                        </div>
+                        <hr />
+                        <div className="py-3 d-flex flex-wrap flex-md-nowrap px-2"  style={{ maxWidth: 1200 }}>     
+                            <img src={FIT} className="pe-3 pb-2" style={{ height: 60 }} />
+                                <div className="flex-grow-1" style={{  }}>  
+                                    <b style={{ fontSize:20,lineHeight : '26px' }}>FIT (Faecal Immunochemical Test) kit </b>
+                                    <div className="pt-3" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
+                                        The Faecal Immunochemical Test (FIT) is a preliminary test that detects the presence of small amounts of blood in faeces. 
+                                        {/* Colorectal polyps and cancers can be detected by the traces of blood that are bled into the colon.   */}
+                                    </div>
+                                    <div className="pt-2" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
+                                        If you are a Singaporean or PR aged 50 years and above, you can request for a FIT kit at no cost.
+                                    </div>
+                                    <div className='pt-4 d-flex justify-content-start'>
+                                        <a href="https://bit.ly/3aNzFzF" target="_blank">
+                                        <NCIS_Button
+                                            text={"Request for a FIT kit"}
+                                            onClick={""}
+                                            fontSize={w > 1000 ? 16 : 14}
+                                            className=""
+                                            fontSize={16}         
+                                            width={220}                                   
+                                        />
+                                        </a>
+                                    </div>
+                                </div>                                
+                        </div>   
+                        <hr />                         
+                                                                                           
                     </div>                                        
                 </div>                                                                            
             </div>

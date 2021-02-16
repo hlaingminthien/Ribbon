@@ -87,7 +87,7 @@ export const Home = (props) => {
       .clientWidth;
 
   return (
-    <div className="" style={{ overflowX: "hidden" }}>
+    <div className="m-0" style={{ overflowX: "hidden" }}>
       {(media.desktop || media.tablet) && (
         <div
           className="row m-0 pt-0 justify-content-between image-fluid"
@@ -437,7 +437,7 @@ const HomeTitle = (props) => {
           lineHeight: "26px",
         }}
       >
-        Together, We Fight Cancer
+        Together, We Fight Cancer!
       </div>
       <div
         className={
@@ -581,7 +581,7 @@ const SponsorsForMobo = (props) => {
             lineHeight: "22px",
           }}
         >
-          Organised by:
+          Organiser:
         </div>
         <div className="d-flex mx-2">
           <div
@@ -604,14 +604,48 @@ const SponsorsForMobo = (props) => {
       </div>
       <div className="d-flex pt-3 ">
         <div
-          className="col-3 mr-2 pt-4"
+          className="align-self-center col-3 mr-2"
+          style={{ fontWeight: 600, fontSize: Font.mobileBody }}
+        >
+          Supporting Partners:
+        </div>
+        <div className="d-flex flex-wrap mx-1">
+          {
+            /*new Array(8).fill(null)*/ sponsors.supportingPartners.map(
+              (v, k) => (
+                <div className="mx-2" key={k}>
+                  <div
+                    className="d-flex my-1 py-2 align-items-center"
+                    style={{
+                      width: 90,
+                      height: 50,
+                      borderRadius: 10,
+                      backgroundColor: "#fff",
+                    }}
+                  >
+                    <img
+                      className="mx-2 align-self-center"
+                      src={v.imgaeUrl}
+                      alt="sponsor"
+                      style={{ width: 70 }}
+                    />
+                  </div>
+                </div>
+              )
+            )
+          }
+        </div>
+      </div>
+      <div className="d-flex pt-3 ">
+        <div
+          className="col-3 mr-2 "
           style={{
             fontWeight: 600,
             fontSize: Font.mobileBody,
             lineHeight: "22px",
           }}
         >
-          Sponsors:
+          Sponsors by:
         </div>
         <div className="d-flex flex-wrap mx-1">
           {
@@ -654,40 +688,7 @@ const SponsorsForMobo = (props) => {
           }
         </div>
       </div>
-      <div className="d-flex pt-3 ">
-        <div
-          className="align-self-center col-3 mr-2"
-          style={{ fontWeight: 600, fontSize: Font.mobileBody }}
-        >
-          Supported By:
-        </div>
-        <div className="d-flex flex-wrap mx-1">
-          {
-            /*new Array(8).fill(null)*/ sponsors.supportingPartners.map(
-              (v, k) => (
-                <div className="mx-2" key={k}>
-                  <div
-                    className="d-flex my-1 py-2 align-items-center"
-                    style={{
-                      width: 90,
-                      height: 50,
-                      borderRadius: 10,
-                      backgroundColor: "#fff",
-                    }}
-                  >
-                    <img
-                      className="mx-2 align-self-center"
-                      src={v.imgaeUrl}
-                      alt="sponsor"
-                      style={{ width: 70 }}
-                    />
-                  </div>
-                </div>
-              )
-            )
-          }
-        </div>
-      </div>
+      
     </div>
   );
 };
@@ -709,13 +710,13 @@ const Sponsors = (props) => {
       </div> */}
       <div className="d-flex pt-2 ">
         <div
-          className="align-self-center col-3 mr-2"
+          className="align-self-center col-2 mr-2"
           style={{
             fontWeight: 600,
             fontSize: media.tablet ? Font.tabletBody : Font.desktopBody,
           }}
         >
-          Organised by:
+          Organiser:
         </div>
         <div className="d-flex col-6 mx-2">
           <div
@@ -739,13 +740,51 @@ const Sponsors = (props) => {
       </div>
       <div className="d-flex pt-3 ">
         <div
-          className="col-3 mr-2 pt-4"
+          className="align-self-center col-2 mr-2"
           style={{
             fontWeight: 600,
             fontSize: media.tablet ? Font.tabletBody : Font.desktopBody,
           }}
         >
-          Sponsored By:
+          Supporting Partners:
+        </div>
+        <div className="d-flex flex-wrap mx-2">
+          {
+            /*new Array(8).fill(null)*/ sponsors.supportingPartners.map(
+              (v, k) => (
+                <div className="mx-2" key={k}>
+                  <div
+                    className="d-flex my-1 py-2 align-items-center"
+                    style={{
+                      width: 100,
+                      height: 50,
+                      // borderRadius:'50%',
+                      borderRadius: 10,
+                      backgroundColor: "#fff",
+                    }}
+                  >
+                    <img
+                      className="mx-2 align-self-center"
+                      src={v.imgaeUrl}
+                      alt="sponsor"
+                      style={{ width: 55, position: "relative", right: -18 }}
+                    />
+                  </div>
+                </div>
+              )
+            )
+          }
+        </div>
+      </div>
+      <div className="d-flex pt-3 ">
+        <div
+          className="col-2 mr-2 pt-1"
+          style={{
+            fontWeight: 600,
+            fontSize: media.tablet ? Font.tabletBody : Font.desktopBody,
+          }}
+        >
+          Sponsored by:
         </div>
         <div className="d-flex flex-wrap mx-2">
           {
@@ -790,44 +829,7 @@ const Sponsors = (props) => {
           }
         </div>
       </div>
-      <div className="d-flex pt-3 ">
-        <div
-          className="align-self-center col-3 mr-2"
-          style={{
-            fontWeight: 600,
-            fontSize: media.tablet ? Font.tabletBody : Font.desktopBody,
-          }}
-        >
-          Supported By:
-        </div>
-        <div className="d-flex flex-wrap mx-2">
-          {
-            /*new Array(8).fill(null)*/ sponsors.supportingPartners.map(
-              (v, k) => (
-                <div className="mx-2" key={k}>
-                  <div
-                    className="d-flex my-1 py-2 align-items-center"
-                    style={{
-                      width: 100,
-                      height: 50,
-                      // borderRadius:'50%',
-                      borderRadius: 10,
-                      backgroundColor: "#fff",
-                    }}
-                  >
-                    <img
-                      className="mx-2 align-self-center"
-                      src={v.imgaeUrl}
-                      alt="sponsor"
-                      style={{ width: 55, position: "relative", right: -18 }}
-                    />
-                  </div>
-                </div>
-              )
-            )
-          }
-        </div>
-      </div>
+      
     </div>
   );
 };
