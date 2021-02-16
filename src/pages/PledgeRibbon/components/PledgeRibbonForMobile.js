@@ -100,7 +100,7 @@ const PledgeRibbonsForMobile = (props) => {
         </div>
       )}
       {(complete && step == 3 && showThankU )&& (
-        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge} setShowThankU={setShowThankU}  shareApp={shareApp} winner={winner} />
+        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge} setShareApp={setShareApp} setShowThankU={setShowThankU}  shareApp={shareApp} winner={winner} />
       )}
     </div>
   );
@@ -468,7 +468,7 @@ const ThankuCard = (props) => {
         <div className='d-flex justify-content-end py-2 px-1'>
         <i
             className="fa fa-times align-self-start pt-1"
-            onClick={() => setShowThankU(false)}
+            onClick={() => {setShowThankU(false); props.setShareApp(null)}}
           ></i>
         </div>
       <div
@@ -526,10 +526,21 @@ const ThankuCard = (props) => {
             </div>
           </div>:
           shareApp === 5 ?
-          <div className='p-3' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
-          Share the message via to spread the word to more people!<br />
+        //   <div className='p-3' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
+        //   Share the message via to spread the word to more people!<br />
 
-        </div> :
+        // </div> 
+        <div className='p-3 ' style={{ fontSize: font.mobileBody, lineHeight :'22px'  }}>
+          Share the message to your friends to spread the word to more people!<br />
+          <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+          <div className='px-2 py-1'>
+            {"1. Download the image by Right Click -> Save Image As and then download the image file."}
+            <br />
+            {"2. Go to your email app and insert the image in message area."}
+            <br />
+            {"3. Get your recipient to join you in pledging ribbon for good, by sending ribbons of their own!"}
+          </div>
+      </div>:
         shareApp === 6 ?
         <div className='p-3' style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Share the message on your Telegram  to spread the word to more people!<br />

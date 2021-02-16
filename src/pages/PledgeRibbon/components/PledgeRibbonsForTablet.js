@@ -133,7 +133,7 @@ const PledgeRibbonsForTablet = (props) => {
         // <ShareApp shareApp={shareApp} handleShareApp={handleShareApp} />
       )}
       {(complete && step == 3 && showThankU ) && (
-        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge}  media={media} shareApp={shareApp} setShowThankU={setShowThankU} showThankU={showThankU} winner={winner} />
+        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge} setShareApp={setShareApp}  media={media} shareApp={shareApp} setShowThankU={setShowThankU} showThankU={showThankU} winner={winner} />
       )}
       {step == 2 && (
         <div className="d-flex justify-content-center flex-wrap">
@@ -507,7 +507,7 @@ const ThankuCard = (props) => {
         <div className='d-flex justify-content-end py-2'>
         <i
             className="fa fa-times align-self-start pt-1"
-            onClick={() => setShowThankU(false)}
+            onClick={() => {setShowThankU(false);props.setShareApp(null) }}
           ></i>
         </div>
         <div
@@ -566,9 +566,21 @@ const ThankuCard = (props) => {
           </div>:
           shareApp === 5 ?
           <div className='p-3' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
-          Share the message via to spread the word to more people!<br />
-
-        </div> :
+              Share the message to your friends to spread the word to more people!<br />
+              <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+              <div className='px-2 py-1'>
+                {"1. Download the image by Right Click -> Save Image As and then download the image file."}
+                <br />
+                {"2. Go to your email app and insert the image in message area."}
+                <br />
+                {"3. Get your recipient to join you in pledging ribbon for good, by sending ribbons of their own!"}
+              </div>
+            </div>
+          //    <div className='p-3' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
+          //    Share the message via to spread the word to more people!<br />
+   
+          //  </div> 
+         :
         shareApp === 6 ?
         <div className='p-3' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
           Share the message on your Telegram  to spread the word to more people!<br />

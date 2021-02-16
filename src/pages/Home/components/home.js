@@ -224,11 +224,11 @@ export const Home = (props) => {
               style={{
                 marginTop: media.tablet
                   ? "15rem"
-                  : window.innerWidth < 1300 &&
+                  : (window.innerWidth < 1300 &&
                     window.innerWidth > 1100 &&
-                    media.desktop
+                    media.desktop)
                   ? "22rem"
-                  : "15rem",
+                  : "8rem",
                 position: "relative",
               }}
             >
@@ -465,8 +465,7 @@ const HomeTitle = (props) => {
         to select a ribbon, write a message of encouragement and then share it
         on your social media account with our hashtag #ncisribbonchallenge.
         <br />
-        Thank you for your generous support and together, we fight cancer! For
-        more information, visit{" "}
+        For more information, visit{" "}
         <a
           href="https://www.ncis.com.sg"
           style={{ textDecoration: "none", color: "white" }}
@@ -514,7 +513,7 @@ const Highlights = (props) => {
         }}
       >
         <ul>
-          <li>Health talks on cancer screening and prevention</li>
+          <li>Cancer Education Talks</li>
           <li>Mammogram screening</li>
           <li>FIT (Faecal Immunochemical Test) kit distribution</li>
         </ul>
@@ -548,7 +547,7 @@ const HighlightsForMobo = (props) => {
         style={{ fontSize: Font.mobileSmall, lineHeight: "22px" }}
       >
         <ul>
-          <li>Health talks on cancer screening and prevention</li>
+          <li>Cancer Education Talks</li>
           <li>Mammogram screening</li>
           <li>FIT (Faecal Immunochemical Test) kit distribution</li>
         </ul>
@@ -570,9 +569,9 @@ const SponsorsForMobo = (props) => {
 
   return (
     <div style={{}} className="row py-2">
-      <div style={{ fontSize: 20, fontWeight: "bold" }}>
+      {/* <div style={{ fontSize: 20, fontWeight: "bold" }}>
         Our Partners and Sponsors
-      </div>
+      </div> */}
       <div className="d-flex pt-3 ">
         <div
           className="align-self-center col-3 "
@@ -705,9 +704,9 @@ const Sponsors = (props) => {
       }}
       className="row w-50 col-lg-5 justify-content-end"
     >
-      <div style={{ fontSize: 25, fontWeight: "bold" }}>
+      {/* <div style={{ fontSize: 25, fontWeight: "bold" }}>
         Our Partners and Sponsors
-      </div>
+      </div> */}
       <div className="d-flex pt-2 ">
         <div
           className="align-self-center col-3 mr-2"
@@ -722,8 +721,8 @@ const Sponsors = (props) => {
           <div
             className="d-flex mx-2 my-1 py-2 align-items-center"
             style={{
-              width: 150,
-              height: 50,
+              width: 190,
+              height: 70,
               borderRadius: 10,
               backgroundColor: "#fff",
               // borderRadius: '50%',
@@ -733,7 +732,7 @@ const Sponsors = (props) => {
               className="mx-2 align-self-center"
               src={Logo}
               alt="sponsor"
-              style={{ width: 120 }}
+              style={{  height:60 }}
             />
           </div>
         </div>
