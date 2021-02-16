@@ -53,6 +53,7 @@ const NavBar = (props) => {
 				</div>}
 				{!media.mobile && <div className="collapse navbar-collapse px-2 justify-content-end order-lg-1 bg-light" style={{borderTop: '1 solid #e0e0e0'}} id="navbarSupportedContent">
 						<div className="navbar-nav">
+							<div className="mt-sm-4" style={{ height: 1, background: "lightgray"}} />
 							<div className="nav-item text-start" style={{ whiteSpace: 'nowrap' }}>
 								<Link
 									className="nav-link"

@@ -155,7 +155,9 @@ export const SocialShare = (props) => {
       <div className=''>
         <section className="d-flex justify-content-center m-2 pt-4 p-3" >
           <ShareList style={{ textAlign: "center" }}>
-            <div className=" shadow align-self-center text-center mx-3"
+
+            <EmailShareButton 
+              className=" shadow align-self-center text-center mx-3"
               style={{
                 borderRadius: '50%',
                 border: "1px solid #FAFAFA",
@@ -163,24 +165,28 @@ export const SocialShare = (props) => {
                 height: shareApp == 5 ? 54 : 59,
                 background: shareApp == 5 ? "rgb(22, 16, 92)" : "#fff",
                 cursor: "pointer"
-              }} subject={title} body="body"
-              onClick={()=>handleShareApp(5)}
+              }} 
+              subject={title} 
+              body="body"
+              beforeOnClick = { () => {}}
+              onClick={()=>{handleShareApp(5)}}
             >
               <img src={shareApp == 5 ? EmailLogoActive : EmailLogo} className="" style={{ width: 50 }} />
               <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>E-mail</div>
-            </div>
-          <div
-            className="pt-1 shadow align-self-center text-center mx-3"
-            style={{
-              borderRadius: '50%',
-              border: "1px solid #FAFAFA",
-              width: shareApp == 3 ? 54 : 59,
-              height: shareApp == 3 ? 54 : 59,
-              background: shareApp == 3 ? "rgb(22, 16, 92)" : "#fff",
-              cursor: "pointer"
-            }}
-            onClick={() => handleShareApp(3)} 
-          >
+            </EmailShareButton>
+            <div
+              className="pt-1 shadow align-self-center text-center mx-3"
+              style={{
+                borderRadius: 23,
+                border: "1px solid #FAFAFA",
+                width: shareApp == 3 ? 54 : 59,
+                height: shareApp == 3 ? 54 : 59,
+                background: shareApp == 3 ? "rgb(22, 16, 92)" : "#fff",
+                cursor: "pointer"
+              }}
+              onClick={() => handleShareApp(3)} 
+            >
+
             <img src={shareApp == 3 ? InstagramActive : Instagram} className="" style={{ width: 47 }} />
             <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Instagram</div>
           </div>
