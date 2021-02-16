@@ -376,7 +376,7 @@ const SponsorsForMobo = props => {
       </div>
       <div className='d-flex pt-3 '>
         <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600, fontSize : Font.mobileBody }}>
-          Sponsors:
+          Sponsored <br/>By:
           </div>
         <div className='d-flex flex-wrap mx-1'>
           {/*new Array(8).fill(null)*/sponsors.sponsors.map((v, k) => (
@@ -401,7 +401,7 @@ const SponsorsForMobo = props => {
       </div>
       <div className='d-flex pt-3 '>
         <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600, fontSize : Font.mobileBody }}>
-          Supporting Partners:
+          Supported By:
           </div>
         <div className='d-flex flex-wrap mx-1'>
           {/*new Array(8).fill(null)*/sponsors.supportingPartners.map((v, k) => (
@@ -459,7 +459,7 @@ const Sponsors = props => {
       </div>
       <div className='d-flex pt-3 '>
         <div className='col-3 mr-2 pt-4' style={{ fontWeight: 600,fontSize : media.tablet ? Font.tabletBody : Font.desktopBody }}>
-          Sponsors:
+          Sponsored By:
           </div>
         <div className='d-flex flex-wrap mx-2'>
           {/*new Array(8).fill(null)*/sponsors.sponsors.map((v, k) => (
@@ -484,7 +484,7 @@ const Sponsors = props => {
       </div>
       <div className='d-flex pt-3 '>
         <div className='align-self-center col-3 mr-2' style={{ fontWeight: 600,fontSize : media.tablet ? Font.tabletBody : Font.desktopBody }}>
-          Supporting Partners:
+          Supported By:
           </div>
         <div className='d-flex flex-wrap mx-2'>
           {/*new Array(8).fill(null)*/sponsors.supportingPartners.map((v, k) => (

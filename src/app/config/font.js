@@ -1,7 +1,9 @@
 export default {
     mobileBody: 16,
     tabletBody: 16,
-    desktopBody: 18,
+    desktopBody: 16,
+    eventTitle: 20,
+    eventSubTitle: 18,
     big1: 16,
     mobileHeading2: 18,
     tabletHeading2: 22,

@@ -78,9 +78,9 @@ export const Event = (props) => {
                     left: "55%", 
                     top: sSize==="xxl" ? 700+(w-1920)*0.5 :  sSize==="xl" ? 600+(w-1600)*0.5 : sSize==="lg" ? 480+(w-1366)*0.5 : sSize==="md" ? 340+(w-1000)*0.5 : 200+(w-520)*0.5}}>
                     <div className="" > 
-                        <span className="" style={{ fontSize: ["md", "sm"].includes(sSize) ? "1.2em" : "2em", color: "#271f57", fontWeight:"bold", textShadow: "0px 0px 1px #271f57"}}>6 March 2021</span>
+                        <span className="" style={{ fontSize: ["md", "sm"].includes(sSize) ? "1.2em" : "2em", color: "#271f57", fontWeight:"bold"}}>6 March 2021</span>
                         {/* {moment(Date.now()).format("DD MMMM  YYYY")} */}
-                        <span className="d-block" style={{ fontSize: ["md", "sm"].includes(sSize) ? "1em" : "1.8em", color: "#271f57", fontWeight:"bold", textShadow: "0px 0px 1px #271f57" }}>10am - 4pm</span>
+                        <span className="d-block" style={{ fontSize: ["md", "sm"].includes(sSize) ? "1em" : "1.8em", color: "#271f57", fontWeight:"bold" }}>10am - 4pm</span>
                     </div>
                                         
                 </div>
@@ -88,7 +88,7 @@ export const Event = (props) => {
             <div className=" pt-3 text-left d-flex flex-column justify-content-center px-2">
                 <div className="d-flex px-1 justify-content-between text-left">
                     <div className=""> 
-                        <div className="px-2" style={{ fontSize: font.desktopBody, letterSpacing: 1.3 }}>
+                        <div className="px-2" style={{ fontSize: font.eventTitle, letterSpacing: 1.3 }}>
                             <b>Event Highlights:</b>
                         </div>
                         <div className="py-3 px-2 d-flex flex-wrap flex-md-nowrap" style={{ maxWidth: 1200 }}>
@@ -96,7 +96,7 @@ export const Event = (props) => {
                                 <img src={Mamogram} className="pe-3 pb-2" style={{ height: 60 }} />
                             </div>
                             <div className="flex-grow-1" style={{  }}>            
-                                <b style={{ fontSize:20,lineHeight : '30px' }}>Mammogram screening </b>
+                                <b style={{ fontSize: font.eventSubTitle,lineHeight : '30px' }}>Mammogram screening </b>
                                 <div className="pt-3" style={{ textShadow: "0px 0px 2px gray" }}>
                                     Ladies, if you above 50 years old, and have not done a mammogram screening, register for one now and have a peace of mind.<br/>
                                 </div>

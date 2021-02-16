@@ -36,7 +36,8 @@ import { Base_Url } from "../../../routes/Base_Url";
 
 export const SocialShare = (props) => {
   const { handleShareApp, shareApp, shareImg, _handleEdit, paleViolet, _handleShare,
-    url = `172.104.40.242:9898/${shareImg}`,//String(window.location),
+    // url = `172.104.40.242:9898/${shareImg}`,//String(window.location),
+    url = `https://ncisstagingapi.martersolutions.com/${shareImg}`,
     title = "National University Cancer Institute Singapore",
     shareImage = `${Base_Url}${shareImg}`,
     // shareImage = "https://www.steadylearner.com/static/images/brand/prop-passer.png",
