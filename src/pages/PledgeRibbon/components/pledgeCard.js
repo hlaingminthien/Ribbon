@@ -58,12 +58,12 @@ export const PledgeCard = (props) => {
 {!finalImage && 
       <div
         className=" pt-4 justify-content-start text-left"
-        style={{ position: "absolute", top:50, width: 200, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? Font.desktopBody : Font.tabletBody, textAlign: 'left' }}
+        style={{ position: "absolute", width: 200, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? Font.desktopBody : Font.tabletBody, textAlign: 'left' }}
       >
         <div
         // ${step != 1 && "move-me move-me-2"}
           className={` pt-3 `}
-          style={{ minHeight: 130 }}
+          style={{ minHeight: 160 }}
         >
           <span className="" style={{ fontSize: Font.desktopBody, fontWeight: "bold" }}>
             {recipientName}
