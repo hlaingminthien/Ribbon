@@ -9,11 +9,8 @@ import { PledgeProgress } from "../components/pledgeProgressBar";
 import { withMedia } from "react-media-query-hoc";
 import PledgeRibbonsForMobile from "../components/PledgeRibbonForMobile";
 import PledgeRibbonsForTablet from '../components/PledgeRibbonsForTablet';
-// import domtoimage from 'dom-to-image-more';
-import domtoimage from 'dom-to-image';
-import { saveAs } from 'file-saver';
-import RibbonImages from "../../../assets/RibbonImages.json";
-import font from "../../../app/config/font";
+import domtoimage from 'retina-dom-to-image';
+
 
 const PledgeContainer = (props) => {
   const { media } = props;
@@ -59,7 +56,6 @@ const PledgeContainer = (props) => {
 
     domtoimage.toPng(myNode).then(base64data=>{
       const url = `${Base_Url}uploadImage`;
-      // saveAs(base64data, "ribbon.png");
       setFinalImage(base64data);
       axios.post(url, { ribbon: base64data })
         .then(res => {
