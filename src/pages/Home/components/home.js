@@ -455,7 +455,7 @@ const HomeTitle = (props) => {
         }}
       >
         {/* <Scrollbars style={{ minHeight: media.mobile ? 100 : media.tablet ? 230 : window.innerWidth > 1590 ? 270 : 150 }} ref={scrollbar} > */}
-        Themed “Together, we fight cancer”, the NCIS Ribbon Challenge 2021 aims
+        Theme “Together, we fight cancer”, the NCIS Ribbon Challenge 2021 aims
         to increase cancer awareness, emphasise on the importance of maintaining
         a healthy lifestyle and going for regular health screenings. Let us
         spread the word among your loved ones and make a difference in the lives
