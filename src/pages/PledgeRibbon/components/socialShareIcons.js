@@ -173,7 +173,7 @@ export const SocialShare = (props) => {
               onClick={()=>{handleShareApp(5)}}
             >
               <img src={shareApp == 5 ? EmailLogoActive : EmailLogo} className="" style={{ width: 50 }} />
-              <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>E-mai2l</div>
+              <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>E-mail</div>
             </EmailShareButton>
             <div
               className="pt-1 shadow align-self-center text-center mx-3"
