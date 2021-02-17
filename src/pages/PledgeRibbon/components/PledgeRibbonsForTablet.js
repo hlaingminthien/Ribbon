@@ -21,6 +21,7 @@ import { withRouter } from "react-router-dom";
 import { PledgeProgress } from "../components/pledgeProgressBar";
 import {SocialShare} from "./socialShareIcons";
 import font from "../../../app/config/font";
+import { Base_Url,webHost } from "../../../routes/Base_Url";
 
 const PledgeRibbonsForTablet = (props) => {
   const {
@@ -35,8 +36,8 @@ const PledgeRibbonsForTablet = (props) => {
     _handleConfirm,
     _handleEdit,
     recipientName,
-    senderName,cancer,
-    message,shareImage,setCancerName,winner,
+    senderName,cancer,shareImage,
+    message,setCancerName,winner,downloadImg
   } = props;
   
   // const [imgUrl, setImgUrl] = useState(null);
@@ -133,7 +134,7 @@ const PledgeRibbonsForTablet = (props) => {
         // <ShareApp shareApp={shareApp} handleShareApp={handleShareApp} />
       )}
       {(complete && step == 3 && showThankU ) && (
-        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge} setShareApp={setShareApp}  media={media} shareApp={shareApp} setShowThankU={setShowThankU} showThankU={showThankU} winner={winner} />
+        <ThankuCard _handleEdit={_handleEdit} downloadImg={downloadImg} shareImage={shareImage} _handlePledge={_handlePledge} setShareApp={setShareApp}  media={media} shareApp={shareApp} setShowThankU={setShowThankU} showThankU={showThankU} winner={winner} />
       )}
       {step == 2 && (
         <div className="d-flex justify-content-center flex-wrap">
@@ -496,7 +497,7 @@ const Ribbon = (props) => {
   );
 };
 const ThankuCard = (props) => {
-  const { _handleEdit, _handlePledge, media, shareApp, winner, setShowThankU } = props;
+  const { _handleEdit, _handlePledge, media, shareApp, winner, setShowThankU,shareImage,downloadImg } = props;
 
   return (
     <div className="d-flex justify-content-center py-2 " /*style={{position:'absolute'}}*/>
@@ -521,8 +522,10 @@ const ThankuCard = (props) => {
             <div className='p-3' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+              
               <div className='p-3'>
-                1.Download your pledge message onto your device​<br />
+              {/* href={webHost+`/`+shareImage} download="NCIS Ribbon Challenge 2021" */}
+                1.<span style={{ fontWeight:'bold' }} onClick={()=>downloadImg()} >Download</span>  your pledge message onto your device​<br />
                 2.Upload your pledge message onto your Facebook. (Remember to add #ncisribbonchallenge in your caption)
 
               </div>
