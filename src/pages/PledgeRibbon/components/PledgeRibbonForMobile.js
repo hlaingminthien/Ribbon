@@ -736,14 +736,15 @@ const ThankuCard = (props) => {
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='p-3'>
-                1. {" "}
-              <span
-                style={{ fontWeight: "bold" }}
-                onClick={() => downloadImg()}
-              >
-                Download
-              </span>{" "}
-               your pledge message onto your device​<br />
+                1. {" "}Click{" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    HERE
+                  </span>{" "}
+                  to download your pledge message onto your device<br />
+                
                 2. Upload your pledge message onto your Facebook. (Remember to add #ncisribbonchallenge in your caption)
 
               </div>
@@ -754,14 +755,14 @@ const ThankuCard = (props) => {
               Share the message on your WhatsApp  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='p-3'>
-                1.  {" "}<span
-                style={{ fontWeight: "bold" }}
-                onClick={() => downloadImg()}
-              >
-                Download
-              </span>{" "}
-               your pledge message onto your device​<br />
-                <br />
+              1. {" "}Click{" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    HERE
+                  </span>{" "}
+                  to download your pledge message onto your device<br />
                 2. Go to your WhatsApp
                 <br />
                 3. Select your recipient and insert the Image into your message.
@@ -773,14 +774,14 @@ const ThankuCard = (props) => {
               Share the message on your Instagram  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='p-3'>
-                1. {" "}<span
-                style={{ fontWeight: "bold" }}
-                onClick={() => downloadImg()}
-              >
-                Download
-              </span>{" "}
-               your pledge message onto your device​<br />
-                <br />
+              1. {" "}Click{" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    HERE
+                  </span>{" "}
+                  to download your pledge message onto your device<br />
                 2.Upload your pledge message onto your Instagram. (Remember to add #ncisribbonchallenge in your caption)​
               </div>
 
@@ -790,14 +791,14 @@ const ThankuCard = (props) => {
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
             <div className='p-3'>
-              1.  {" "}<span
-                style={{ fontWeight: "bold" }}
-                onClick={() => downloadImg()}
-              >
-                Download
-              </span>{" "}
-               your pledge message onto your device​<br />
-              <br />
+            1. {" "}Click{" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    HERE
+                  </span>{" "}
+                  to download your pledge message onto your device<br />
               2. Click "Start a Post" on Linkedin.
               <br />
               3. Upload your pledge message onto your Linkedin (Remember to add #ncisribbonchallenge in your caption)
@@ -812,14 +813,14 @@ const ThankuCard = (props) => {
           Share the message to your friends to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1.  {" "}<span
-                style={{ fontWeight: "bold" }}
-                onClick={() => downloadImg()}
-              >
-                Download
-              </span>{" "}
-               your pledge message onto your device​<br />
-            <br />
+          1. {" "}Click{" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    HERE
+                  </span>{" "}
+                  to download your pledge message onto your device<br />
             {"2. Go to your email app and insert the image in message area."}
             <br />
             {"3. Get your recipient to join you in pledging ribbon for good, by sending ribbons of their own!"}
@@ -830,14 +831,14 @@ const ThankuCard = (props) => {
           Share the message on your Telegram  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='p-3'>
-            1.  {" "}<span
-                style={{ fontWeight: "bold" }}
-                onClick={() => downloadImg()}
-              >
-                Download
-              </span>{" "}
-               your pledge message onto your device​<br />
-            <br />
+          1. {" "}Click{" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    HERE
+                  </span>{" "}
+                  to download your pledge message onto your device<br />
             2. Go to your Telegram.
             <br />
             3. Select your recipient and insert the Image into your message.
@@ -849,14 +850,14 @@ const ThankuCard = (props) => {
           Share the message on your weChat  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='p-3'>
-            1.  {" "}<span
-                style={{ fontWeight: "bold" }}
-                onClick={() => downloadImg()}
-              >
-                Download
-              </span>{" "}
-               your pledge message onto your device​<br />
-            <br />
+          1. {" "}Click{" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    HERE
+                  </span>{" "}
+                  to download your pledge message onto your device<br />
             2. Go to your WeChat
             <br />
             3. Select your recipient and insert the Image into your message.​
@@ -868,14 +869,14 @@ const ThankuCard = (props) => {
           Share the message on your Line to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='p-3'>
-            1.  {" "}<span
-                style={{ fontWeight: "bold" }}
-                onClick={() => downloadImg()}
-              >
-                Download
-              </span>{" "}
-               your pledge message onto your device​<br />
-            <br />
+          1. {" "}Click{" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    HERE
+                  </span>{" "}
+                  to download your pledge message onto your device<br />
             2. Go to your Line
             <br />
             3. Select your recipient and insert the Image into your message.

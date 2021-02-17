@@ -513,13 +513,13 @@ export const ThankYouCard = (props) => {
           shareApp === 5 ?
             <div className='p-3 py-2 jusitfy-content-center' style={{ fontSize: Font.desktopBody, lineHeight: '24px' }}>
               Share the message via to spread the word to more people!<br />
-              <div>
+              <div className='col-6'>
                 Email address to share with
-                <textarea
+                <input className='py-2 shadow'
                   id="mailing"
                   name="mailing"
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="add email"
+                  placeholder="email@.com"
                   required
                   value={email}
                   style={{ width: '100%', minHeight: '40px' }}
@@ -541,14 +541,14 @@ export const ThankYouCard = (props) => {
                 Share the message on your Facebook to spread the word to more people!<br />
                 <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                 <div className='px-2 py-1'>
-                  1. {" "}
+                  1. {" "}Click{" "}
                   <span
                     style={{ fontWeight: "bold", cursor: "pointer" }}
                     onClick={() => downloadImg()}
                   >
-                    Download
+                    HERE
                   </span>{" "}
-                   your pledge message onto your device​<br />
+                  to download your pledge message onto your device<br />
                 2.Upload your pledge message onto your Facebook. (Remember to add #ncisribbonchallenge in your caption)
 
               </div>
@@ -560,14 +560,14 @@ export const ThankYouCard = (props) => {
                   <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                   <div className='px-2 py-1'>
                     {/* 1. Right click on the Image and select "Save Image As" to save the Image on your device. */}
-                    1. {" "}
+                    1. {" "}Click{" "}
                     <span
                       style={{ fontWeight: "bold", cursor: "pointer" }}
                       onClick={() => downloadImg()}
                     >
-                      Download
+                      HERE
                   </span>{" "}
-                   your pledge message onto your device​<br />
+                  to download your pledge message onto your device<br />
 
                 2. Go to your WhatsApp
                 <br />
@@ -580,14 +580,14 @@ export const ThankYouCard = (props) => {
                     Share the message on your Instagram  to spread the word to more people!<br />
                     <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                     <div className='px-2 py-1'>
-                      1. {" "}
+                      1. {" "}Click{" "}
                       <span
                         style={{ fontWeight: "bold", cursor: "pointer" }}
                         onClick={() => downloadImg()}
                       >
-                        Download
+                        HERE
                   </span>{" "}
-                   your pledge message onto your device​<br />
+                  to download your pledge message onto your device<br />
                 2. Upload your pledge message onto your Instagram. (Remember to add #ncisribbonchallenge in your caption)
               </div>
 
@@ -597,14 +597,14 @@ export const ThankYouCard = (props) => {
                       Share the message on your LinkedIn  to spread the word to more people!<br />
                       <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                       <div className='px-2 py-1'>
-                        1. {" "}
+                        1. {" "}Click{" "}
                         <span
                           style={{ fontWeight: "bold", cursor: "pointer" }}
                           onClick={() => downloadImg()}
                         >
-                          Download
+                          HERE
                   </span>{" "}
-                   your pledge message onto your device​<br />
+                  to download your pledge message onto your device<br />
               2. Click "Start a Post" on Linkedin.
               <br />
               3. Upload your pledge message onto your Linkedin (Remember to add #ncisribbonchallenge in your caption)
@@ -628,14 +628,14 @@ export const ThankYouCard = (props) => {
                         Share the message on your Telegram  to spread the word to more people!<br />
                         <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                         <div className='px-2 py-1'>
-                          1. {" "}
+                          1. {" "}Click{" "}
                           <span
                             style={{ fontWeight: "bold", cursor: "pointer" }}
                             onClick={() => downloadImg()}
                           >
-                            Download
+                            HERE
                   </span>{" "}
-                   your pledge message onto your device​<br />
+                  to download your pledge message onto your device<br />
                       2. Go to your Telegram.
                       <br />
                       3. Select your recipient and insert the Image into your message.
@@ -647,14 +647,14 @@ export const ThankYouCard = (props) => {
                           Share the message on your weChat  to spread the word to more people!<br />
                           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                           <div className='px-2 py-1'>
-                            1. {" "}
+                            1. {" "}Click{" "}
                             <span
                               style={{ fontWeight: "bold", cursor: "pointer" }}
                               onClick={() => downloadImg()}
                             >
-                              Download
+                              HERE
                   </span>{" "}
-                   your pledge message onto your device​<br />
+                  to download your pledge message onto your device<br />
             2. Go to your WeChat
             <br />
             3. Select your recipient and insert the Image into your message.
@@ -666,14 +666,14 @@ export const ThankYouCard = (props) => {
                             Share the message on your Line to spread the word to more people!<br />
                             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                             <div className='px-2 py-1'>
-                              1. {" "}
+                              1. {" "}Click{" "}
                               <span
                                 style={{ fontWeight: "bold", cursor: "pointer" }}
                                 onClick={() => downloadImg()}
                               >
-                                Download
+                                HERE
                   </span>{" "}
-                   your pledge message onto your device​<br />
+                  to download your pledge message onto your device<br />
             2. Go to your Line
             <br />
             3. Select your recipient and insert the Image into your message.
@@ -703,7 +703,14 @@ export const ThankYouCard = (props) => {
             <p className="p-3" style={{ fontSize: Font.desktopBody, lineHeight: '24px' }}>
               Don’t stop here, you can do more by pledging again!
               <br />
-              Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
+              Alternatively, join us at our health talks to know about cancer prevention. Click
+              {" "}
+              <a
+                style={{ fontWeight: "bold", cursor: "pointer", textDecoration: 'none', color: "#000000" }}
+                href="https://tinyurl.com/y36vf922" target="_blank"
+              >
+                HERE
+                  </a>{" "} to register now .
 
               Together, We Fight Cancer
             </p>

@@ -87,10 +87,10 @@ export const Home = (props) => {
       .clientWidth;
 
   return (
-    <div className="m-0" style={{ overflowX: "hidden" }}>
+    <div className="m-0 pt-xl-5 pt-lg-5 pt-md-2" style={{ overflowX: "hidden" }}>
       {(media.desktop || media.tablet) && (
         <div
-          className="row m-0 pt-0 justify-content-between image-fluid"
+          className="row m-0 justify-content-between image-fluid"
           style={{
             backgroundImage: `url(${
               media.tablet ? BackgroundTablet : Background
@@ -99,6 +99,7 @@ export const Home = (props) => {
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
             minHeight: "100vh",
+            width:'100%'
           }}
         >
           <HomeTitle media={media} _handlePledge={_handlePledge} />
@@ -172,7 +173,7 @@ export const Home = (props) => {
           {media.tablet ? (
             <div className="col-12 p-0 img-fluid">
               <div className="d-flex flex-row">
-                <div className="w-100" style={{ marginTop: 150 }}>
+                <div className="img-fluid " style={{ marginTop: 150 }}>
                   {/* <div className={`d-flex justify-content-center ${(window.innerWidth > 700 && window.innerWidth < 1001) ? "move-me move-me-6" : "move-me move-me-7"} `} style={{
                     marginLeft: (window.innerWidth > 700 && window.innerWidth < 1000) ? 270 : 310, marginTop: 0
                   }} >
@@ -189,6 +190,9 @@ export const Home = (props) => {
                     }
                     className="img-fluid"
                     style={{
+                      width: window.innerWidth > 890 ? "99%" : '120%',
+                      height:  window.innerWidth > 890 ? "100%" : "110%" ,
+                      marginTop: window.innerWidth > 890 ? 40 : 80,
                       cursor: 'pointer'
                     }}
                     onClick={_handlePledge}
@@ -215,9 +219,10 @@ export const Home = (props) => {
                 src={SelectedRibbons.SelectedRibbons[shareCount].imgaeUrl}
                 className="img-fluid"
                 style={{
-                  width: window.innerWidth > 1590 && "120%",
+                  width: window.innerWidth > 1390 && "99%",
+                  height:  window.innerWidth > 1390 ? "99%" : "100%",
                   zIndex: 0,
-                  position: "relative",
+                  position: "relative",marginTop: window.innerWidth > 1390 ? -40 : window.innerWidth < 1300 ?  30 : -25,
                   cursor: 'pointer'
                 }}
                 onClick={_handlePledge}
@@ -251,8 +256,8 @@ export const Home = (props) => {
           className="row m-0 pt-0 justify-content-between image-fluid"
           style={{
             backgroundImage: `url(${BackgroundMobile})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
+            // backgroundSize: "cover",
+            // backgroundRepeat: "no-repeat",
           }}
         >
           <div
@@ -482,6 +487,7 @@ const HomeTitle = (props) => {
           href="https://www.ncis.com.sg"
           style={{ textDecoration: "none", color: "white" }}
           target="_blank"
+          className="text-info"
         >
           www.ncis.com.sg
         </a>
@@ -508,7 +514,7 @@ const Highlights = (props) => {
   const { media, _handleRoute } = props;
   return (
     <div
-      style={{ paddingTop: "90px", paddingLeft: "7.5rem" }}
+      style={{ paddingTop: media.tablet ? -60 : "80px", paddingLeft: "5rem" }}
       className="text-light w-50"
     >
       <div
@@ -762,7 +768,7 @@ const Sponsors = (props) => {
               (v, k) => (
                 <div className="mx-2" key={k}>
                   <div
-                    className="d-flex my-1 py-2 align-items-center"
+                    className="d-flex my-1 py-2 align-items-center supporting-partners-div"
                     style={{
                       width: 100,
                       height: 50,
@@ -772,7 +778,7 @@ const Sponsors = (props) => {
                     }}
                   >
                     <img
-                      className="mx-2 align-self-center"
+                      className="mx-2 align-self-center supporting-partners-img"
                       src={v.imgaeUrl}
                       alt="sponsor"
                       style={{ width: 55, position: "relative", right: -18 }}
@@ -799,7 +805,7 @@ const Sponsors = (props) => {
             /*new Array(8).fill(null)*/ sponsors.sponsors.map((v, k) => (
               <div className="mx-2" key={k}>
                 <div
-                  className="d-flex my-1 py-2 align-self-center"
+                  className="d-flex my-1 py-2 align-self-center sponsors-div"
                   style={{
                     width:
                       v.name === "rocheSpon"
@@ -817,7 +823,7 @@ const Sponsors = (props) => {
                 >
                   &nbsp;&nbsp;&nbsp;
                   <img
-                    className="mx-2 align-self-center"
+                    className="mx-2 align-self-center sponsors-img"
                     src={v.imgaeUrl}
                     alt="sponsor"
                     style={{
