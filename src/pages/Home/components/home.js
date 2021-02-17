@@ -220,7 +220,7 @@ export const Home = (props) => {
                 className="img-fluid"
                 style={{
                   width: window.innerWidth > 1390 && "99%",
-                  height:  window.innerWidth > 1390 ? "98%" : "100%",
+                  height:  window.innerWidth > 1390 ? "99%" : "100%",
                   zIndex: 0,
                   position: "relative",marginTop: window.innerWidth > 1390 ? -40 : window.innerWidth < 1300 ?  30 : -25,
                   cursor: 'pointer'

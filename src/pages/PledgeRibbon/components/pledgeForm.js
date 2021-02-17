@@ -513,13 +513,13 @@ export const ThankYouCard = (props) => {
           shareApp === 5 ?
             <div className='p-3 py-2 jusitfy-content-center' style={{ fontSize: Font.desktopBody, lineHeight: '24px' }}>
               Share the message via to spread the word to more people!<br />
-              <div>
+              <div className='col-6'>
                 Email address to share with
-                <textarea
+                <input className='py-2 shadow'
                   id="mailing"
                   name="mailing"
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="add email"
+                  placeholder="email@.com"
                   required
                   value={email}
                   style={{ width: '100%', minHeight: '40px' }}
