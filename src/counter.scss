@@ -65,6 +65,35 @@ body {
 		border-bottom-right-radius: 0.8rem;
 	}
 }
+.borderPipe:before{
+	left: 0;
+}
+.borderPipe:after{
+	right: 0;
+}
+.borderPipe:before, .borderPipe:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,.03) ,#fff, rgba(0,0,0,.07));
+    width: 23px;
+    height: 100%;
+}
+.borderPipe span{
+	
+    height: 23px;
+    width: 40px;
+    display: inline-block;
+    background: linear-gradient(103deg, rgba(0, 0, 0, .03), #fff, rgba(0, 0, 0, 0.07));
+    position: absolute;
+    bottom: 0;
+}
+.borderPipe span:first-child{
+	left: 1px;
+}
+.borderPipe span:last-child{
+	right: 1px;
+}
 
 .overlayImage {
 	position:absolute;
