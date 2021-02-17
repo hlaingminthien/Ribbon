@@ -434,16 +434,35 @@ div.circTxt {
 .numbers-pipe {
   height: 275px;
 }
+.hashtag {
+  font-weight: bold;
+  color: #f49fb6;
+}
 @media only screen and (min-width: 1300px) {
   .numbers-pipe {
     height: 325px;
   }
 }
 
-@media only screen and (max-width: 375px) {
+
+
+@media only screen and (max-width: 425px) {
   .ncis-button {
     width: 100% !important;
     font-size: 8px !important;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .logo-image {
+    height: 45px !important;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .ncis-button {
+    width: 100% !important;
+    font-size: 7px !important;
   }
 }
 

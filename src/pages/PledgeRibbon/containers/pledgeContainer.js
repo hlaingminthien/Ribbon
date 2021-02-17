@@ -213,16 +213,17 @@ const PledgeContainer = (props) => {
               <div className='px-0 mx-0'
                   style={{
                     position:'fixed',
-                    fontSize: media.tablet ? 24 : media.mobile ?  22 : 26,
+                    fontSize: media.tablet ? 24 : media.mobile ?  22 : 20,
                     fontWeight: "bold",
                     bottom : 105,
                     lineHeight: 1,
                     color: '#d8cad8',
-                    zIndex: -1
+                    zIndex: -1,
+                    textAlign: 'left'
                   }}
                 >
                   NCIS Ribbon Challenge 2021
-                  <p className='py-2 text-white' style={{ marginLeft: -78, fontSize: media.tablet ? 20 : media.mobile ?  18 : 22, }}>Together, We Fight Cancer</p>
+                  <p className='py-2 text-white' style={{ fontSize: media.tablet ? 20 : media.mobile ?  18 : 16, }}>Together, We Fight Cancer</p>
                 </div>
             </div>
             <div
