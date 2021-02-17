@@ -317,26 +317,26 @@ const Ribbons = (props) => {
                 style={{ maxWidth: 260, borderRadius: 20, maxHeight: 280 }}
               />
               <div
-                className="d-flex flex-column pt-4 px-3 justify-content-start text-left"
+                className="d-flex flex-column pt-4 px-4 justify-content-start text-left"
                 style={{ position: "absolute", width: 260 }}
               >
                 <div
                 // ${step != 1 && "move-me move-me-2"} 
-                  className={`d-flex flex-column pt-3 `}
+                  className={`d-flex flex-column px-1 pt-1 `}
                   style={{ minHeight: 180,lineHeight:'22px' }}
                 >
-                  <span className="" style={{ fontSize: font.mobileBody, fontWeight: "bold" }}>
+                  <span className="" style={{ fontSize: 12, fontWeight: "bold" }}>
                     {recipientName}
                     {recipientName ? "," : null}
                   </span>
                   <span
                     className="text-white pt-3"
-                    style={{ fontWeight: 500, fontSize: font.mobileBody }}
+                    style={{ fontWeight: 500, fontSize: 12 }}
                   >
                     {message}
                     {/* {message ? "!" : null} */}
                   </span>
-                  <span className="pt-3" style={{ fontSize: font.mobileBody, fontWeight: 600 }}>
+                  <span className="pt-2" style={{ fontSize: 12, fontWeight: 600 }}>
                     {senderName ? "Love," : null} {senderName}
                   </span>
                 </div>

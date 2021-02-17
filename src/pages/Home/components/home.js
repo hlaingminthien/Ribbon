@@ -222,7 +222,7 @@ export const Home = (props) => {
           <Counter count={count} />
           {media.mobile || (
             <div
-              className="row"
+              className="row home-second-paragraph"
               style={{
                 marginTop: media.tablet
                   ? "15rem"

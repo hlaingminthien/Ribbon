@@ -58,27 +58,27 @@ export const PledgeCard = (props) => {
 {!finalImage && 
       <div
         className=" pt-4 justify-content-start text-left"
-        style={{ position: "absolute", width: 200, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? Font.desktopBody : Font.tabletBody, textAlign: 'left' }}
+        style={{ position: "absolute", width: 200, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? Font.desktopBody : Font.tabletBody, textAlign: 'left', marginLeft: '-2rem' }}
       >
         <div
         // ${step != 1 && "move-me move-me-2"}
-          className={` pt-3 `}
+          className={` pt-1 `}
           style={{ minHeight: 160 }}
         >
-          <span className="" style={{ fontSize: Font.desktopBody, fontWeight: "bold" }}>
+          <span className="" style={{ fontSize: 14, fontWeight: "bold" }}>
             {recipientName}
             {recipientName ? "," : null}
           </span>
           <br></br>
           <span
             className="text-white pt-2"
-            style={{ fontWeight: 500, fontSize: Font.desktopBody, }}
+            style={{ fontWeight: 500, fontSize: 12, }}
           >
             {message}
             {/* {message ? "!" : null} */}
           </span>
           <br></br>
-          <span className="pt-2" style={{ fontWeight: 600, fontSize: Font.desktopBody }}>
+          <span className="pt-2" style={{ fontWeight: 600, fontSize: 14 }}>
             {senderName ? "Love," : null} {senderName}
           </span>
         </div>

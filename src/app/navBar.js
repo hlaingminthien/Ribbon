@@ -19,10 +19,10 @@ const NavBar = (props) => {
 			<div className="d-flex justify-content-between align-items-center flex-fill" style={{/* paddingTop: '.5em', paddingBottom: '1em'*/}}>
 				<div className='px-lg-3 pl-xl-3 px-md-3'  style={{ zIndex: 2 }}>
 					<a className="navbar-brand" href="/">
-						<img src={Logo} alt="logo" height={media.mobile > 500 ? '60' : 'auto'} width={media.mobile > 500 ? 'auto' : 120} />
+						<img src={Logo} alt="logo" height={media.mobile > 500 ? '55' : '55'} width={media.mobile > 500 ? 'auto' : 'auto'} />
 					</a>
 				</div>	
-				<div className="d-flex flex-wrap flex-lg-nowrap justify-content-end" style={{ position: "absolute", left: 0, right: media.mobile > 700 ? '15px' : '0px', top: 7, width: '100%'}}>
+				<div className="d-flex flex-wrap flex-lg-nowrap justify-content-end" style={{ position: "absolute", left: 0, right: media.mobile > 700 ? '15px' : '0px', top: 15, width: '100%'}}>
 					<div className="d-flex justify-content-end order-lg-2 pe-4">
 						<div className="d-flex justify-content-end align-items-center" style={{ whiteSpace: 'nowrap' }}>
 							<NCIS_Button text={"Pledge A Ribbon"} onClick={_handlePledge} fontSize={ 14 } width={160} className="ncis-button" />

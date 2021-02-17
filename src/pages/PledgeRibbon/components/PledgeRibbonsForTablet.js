@@ -117,7 +117,7 @@ const PledgeRibbonsForTablet = (props) => {
           />
         </div>
       </div>
-      <div className={` ${window.innerWidth > 1000 && "px-2" } `}>
+      <div className={` ${window.innerWidth > 1000 && "px-2" } `} style={{paddingBottom: 52}}>
         <Ribbon {...props} setImgUrl={setImgUrl} setCancerName={setCancerName}  />
 
       </div>
@@ -174,7 +174,7 @@ const PledgeCardForTablet = (props) => {
       />
 
       <div
-        className={`d-flex flex-column ${window.innerWidth > 780 ? "pt-5" : "pt-4"} px-3 justify-content-start text-left`}
+        className={`d-flex flex-column ${window.innerWidth > 780 ? "pt-5" : "pt-4"} px-4 justify-content-start text-left`}
         style={{ position: "absolute", width: (window.innerWidth > 780 && media.tablet) ? 320 : 275 }}
       >
         <div

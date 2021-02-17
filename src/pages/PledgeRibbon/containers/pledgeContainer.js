@@ -169,7 +169,7 @@ const PledgeContainer = (props) => {
     <div style={{ overflowY:'hidden' }}>
     {loading && <div style={{ position: 'absolute', width: '100%', height: '100vh', zIndex: 2000}}></div>}
      <div style={{opacity:loading ? 1 : 0}} class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-    <div className="d-flex justify-content-center align-self-center " style={{backgroundImage:media.tablet ? "url(/PledgeRibbonTablet.svg)" : 'none' ,backgroundRepeat: "no-repeat",
+    <div className="d-flex align-self-center " style={{backgroundImage:media.tablet ? "url(/PledgeRibbonTablet.svg)" : 'none' ,backgroundRepeat: "no-repeat",
                 backgroundSize: "100%", minHeight:'100vh', paddingTop: 58 }}>
       
       {
@@ -187,14 +187,14 @@ const PledgeContainer = (props) => {
       </div>
       }
       
-      <div className={`${(media.tablet) ? "col-12" : "col-md-10 col-sm-12"} pt-4 px-4`} style={{ overflowY:'hidden', overflowX:'hidden'}}>
+      <div className={`${(media.tablet) ? "col-12" : "col-md-12 col-sm-12"} pt-4 px-4`} style={{ overflowY:'hidden', overflowX:'hidden'}}>
         {(media.desktop) ? (
           <div className="row px-0 ">
             <div
               className="d-flex justify-content-start col-4 align-self-start px-0"
               style={{ textAlign: "center", width: 380 }}
             >
-              <div className="pt-3 pb-1 px-2" style={{ marginTop: window.innerWidth > 1500 ? '4%' : (media.tablet) ? '13%' : '5%', marginLeft: '-1%', position: (media.tablet || media.desktop) && 'fixed' }}>
+              <div className="pt-3 pb-1 px-2" style={{ marginTop: window.innerWidth > 1500 ? '4%' : (media.tablet) ? '13%' : '5%', marginLeft: '2%', position: (media.tablet || media.desktop) && 'fixed' }}>
                 <PledgeCard
                   recipientName={recipientName}
                   senderName={senderName}
