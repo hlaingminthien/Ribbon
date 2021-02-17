@@ -10,7 +10,7 @@ import { withMedia } from "react-media-query-hoc";
 import PledgeRibbonsForMobile from "../components/PledgeRibbonForMobile";
 import PledgeRibbonsForTablet from '../components/PledgeRibbonsForTablet';
 import domtoimage from 'dom-to-image-more';
-
+import { saveAs } from 'file-saver';
 
 const PledgeContainer = (props) => {
   const { media } = props;
@@ -57,13 +57,13 @@ const PledgeContainer = (props) => {
     domtoimage.toPng(myNode).then(base64data=>{
       const url = `${Base_Url}uploadImage`;
       setFinalImage(base64data);
-      axios.post(url, { ribbon: base64data })
-        .then(res => {
-          const shareImg = res.data.payload;
-          setShareImage(shareImg);
-          setLoading(false);
-        })
-        .catch(err => console.log(err));
+      // axios.post(url, { ribbon: base64data })
+      //   .then(res => {
+      //     const shareImg = res.data.payload;
+      //     setShareImage(shareImg);
+      //     setLoading(false);
+      //   })
+      //   .catch(err => console.log(err));
       setLoading(false);
       setStep(3);
     })
@@ -130,7 +130,10 @@ const PledgeContainer = (props) => {
   //     setStep(3);
   //   }
   // }
-
+  const downloadImg = () => {
+    saveAs(finalImage, "NCIS Ribbon Challenge 2021.png");
+    // saveAs(finalImage, "ribbon.png");
+  }
   const _handleSelectOption = (e) => {
     setMessage(e);
     setWarning(false)
@@ -278,6 +281,7 @@ const PledgeContainer = (props) => {
                 _handleSelectOption={_handleSelectOption}
                 setImgUrl={_handleImage}
                 imgUrl={imgUrl}
+                shareImage={shareImage}
                 recipientName={recipientName}
                 message={message}
                 senderName={senderName}
@@ -294,6 +298,7 @@ const PledgeContainer = (props) => {
                 warning={warning}
                 setShowThankU={setShowThankU}
                 showThankU={showThankU}
+                downloadImg={downloadImg}
               />
             </div>
             :
@@ -334,6 +339,7 @@ const PledgeContainer = (props) => {
                     warning={warning}
                     setShowThankU={setShowThankU}
                     showThankU={showThankU}
+                    downloadImg={downloadImg}
                   />
                 </div>
               </div>

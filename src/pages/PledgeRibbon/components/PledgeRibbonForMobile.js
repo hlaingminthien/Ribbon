@@ -8,7 +8,7 @@ import {
   EmailIcon,LinkedinIcon,
   TelegramIcon,LineIcon,WhatsappIcon
 } from "react-share";
-import {Base_Url} from "../../../routes/Base_Url"
+import {Base_Url, webHost,webHostUi} from "../../../routes/Base_Url"
 import { NCIS_Selector } from "../../../tools/NCIS_Selector";
 import { NCIS_TextBox } from "../../../tools/NCIS_TextBox";
 import { NCIS_Button } from "../../../tools/NCIS_Button";
@@ -20,6 +20,9 @@ import { ShareForms } from "../components/pledgeForm";
 import { withRouter } from "react-router-dom";
 import {SocialShare} from "./socialShareIcons";
 import font from "../../../app/config/font";
+import EmailShareCard from "../../../assets/images/EmailShareCard.png";
+import axios from 'axios';
+import domtoimage from 'dom-to-image-more';
 
 const PledgeRibbonsForMobile = (props) => {
   const {
@@ -35,7 +38,7 @@ const PledgeRibbonsForMobile = (props) => {
     _handleEdit,
     recipientName,setShowThankU,showThankU,
     senderName,setCancerName,winner,warning,
-    message, shareImage,cancer,setImgUrl,imgUrl,complete,_handleShare
+    message, shareImage,cancer,setImgUrl,imgUrl,complete,_handleShare,downloadImg
   } = props;
   // const [complete, setComplete] = useState(false);
   const [shareApp, setShareApp] = useState(null);
@@ -46,8 +49,55 @@ const PledgeRibbonsForMobile = (props) => {
     props.history.push("/");
   };
   const handleShareApp = (app) => {
-    setShareApp(app == shareApp ? null : app);
-    _handleShare();
+    if(app===5) {
+      setShareApp(app)
+      _handleShare();
+
+      var receiveEmail = prompt("Please enter email to share", "");
+
+      if (receiveEmail != null && receiveEmail != "") {
+        
+        const url = `${Base_Url}uploadImage`;
+        const myNode = document.getElementById('cardDivId')
+        domtoimage.toPng(myNode).then(base64data=>{
+          axios.post(url, { ribbon: base64data })
+          .then(res => {
+            const shareImg = res.data.payload;
+            const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px"> 
+            <div style='position:relative;padding-top: 560px;' align='center'>
+                <a href='${webHostUi}' style='text-decoration:none;font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
+                  Pledge A Ribbon
+                </a>
+              </div>       
+            </div>`
+
+            const bodyData = {
+              receiveEmail: receiveEmail, 
+              subjectText: "National University Cancer Institute Singapore",
+              contentHtml: contentHtml1.replace(/\s+/g, ' ').trim()
+            }
+            fetch(Base_Url+"share-email", {
+              method: "post",
+              headers: {
+                "Accept": "application/json",
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(bodyData)
+            })
+            .then(res => res.json())
+            .then(d => console.log("data: ", d))
+            .catch(error => console.error(error))
+
+          })
+        })
+    } else {
+      alert("Cancelled sharing!")
+    }
+
+    } else {
+      setShareApp(app)
+      _handleShare();
+    }
   };
  
   return (
@@ -100,7 +150,7 @@ const PledgeRibbonsForMobile = (props) => {
         </div>
       )}
       {(complete && step == 3 && showThankU )&& (
-        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge} setShareApp={setShareApp} setShowThankU={setShowThankU}  shareApp={shareApp} winner={winner} />
+        <ThankuCard _handleEdit={_handleEdit} _handlePledge={_handlePledge} downloadImg={downloadImg} setShareApp={setShareApp} setShowThankU={setShowThankU}  shareApp={shareApp} winner={winner} />
       )}
     </div>
   );
@@ -460,7 +510,7 @@ const Ribbons = (props) => {
 };
 
 const ThankuCard = (props) => {
-  const { _handleEdit, _handlePledge, shareApp, winner , setShowThankU } = props;
+  const { _handleEdit, _handlePledge, shareApp, winner , setShowThankU,downloadImg,senderName, recipientName, message, imgUrl, cancerName,showThankU } = props;
 
   return (
     <div className="d-flex justify-content-center " style={{  }}>
@@ -477,13 +527,112 @@ const ThankuCard = (props) => {
         >
           Thank you for your participation!
         </div>
+        {false && shareApp === 5 && (
+          <div className="p-3 col-8 mx-4" id="cardDivId">
+            <img
+              src={EmailShareCard}
+              alt="EmailShareCard"
+              style={{ width: 280 }}
+            />
+            <div
+              style={{
+                marginTop: -300,
+                color: "white",
+                paddingTop: 10,
+                paddingLeft: 20,
+                paddingRight: 20,
+                width: 280,
+              }}
+            >
+              <div style={{ fontSize: 13, marginTop: 10 }}>{senderName}</div>
+              <div style={{ fontSize: 13, marginTop: 10 }}>{message}</div>
+              <div style={{ fontSize: 13, marginTop: 10 }}>
+                Love, {recipientName}
+              </div>
+            </div>
+            <>
+              <img
+                src={imgUrl ? imgUrl : "./mysteryBall.png"}
+                alt="selected-ribbons"
+                style={{
+                  width: 80,
+                  height: 80,
+                  right: 20,
+                  bottom: -45,
+                  position: "absolute",
+                }}
+              />
+              <svg
+                viewBox="-12 2 115 56"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{
+                  zIndex: 100,
+                  position: "absolute",
+                  right: 30,
+                  bottom: -17,
+                  width: 76,
+                  height: 60,
+                }}
+              >
+                <path
+                  id="curve-path"
+                  fill="none"
+                  stroke="red"
+                  strokeWidth={0}
+                  d2="M0,58 Q50,-20 100,58"
+                  d1={`M 0,120 A 32,32 0 1, 0 54,0 A 32,32 0 1, 0 -54,0`}
+                  // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
+                  // d="M2,62 Q50,-38 104,62"
+                  // d="M 100 0 A 1 1 0 0 0 -100 0"
+                  // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
+                  d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
+                />
+                <text fontSize={10} fontWeight={600} fill="white">
+                  <textPath
+                    href="#curve-path"
+                    startOffset={
+                      50 - (cancerName ? cancerName.length : 18) - 14 * 2 + "%"
+                    }
+                  >
+                    {cancerName + " Cancer"}
+                  </textPath>
+                </text>
+              </svg>{" "}
+            </>
+            <button
+              onClick={() => window.location.reload()}
+              style={{
+                border: 1,
+                borderColor: "#fd784f",
+                borderRadius: 50,
+                background: "#fd784f",
+                color: "white",
+                fontSize: 12,
+                padding: 5,
+                position: "absolute",
+                bottom: -133,
+                right: 100,
+                cursor: "pointer",
+              }}
+            >
+              Pledge A Ribbon
+            </button>
+          </div>
+        )}
         {
           shareApp === 2 ?
             <div className='p-3' style={{ fontSize: font.mobileBody, lineHeight :'22px'  }}>
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='p-3'>
-                1. Download your pledge message onto your device​<br />
+                1. {" "}
+              <span
+                style={{ fontWeight: "bold" }}
+                onClick={() => downloadImg()}
+              >
+                Download
+              </span>{" "}
+               your pledge message onto your device​<br />
                 2. Upload your pledge message onto your Facebook. (Remember to add #ncisribbonchallenge in your caption)
 
               </div>
@@ -494,7 +643,13 @@ const ThankuCard = (props) => {
               Share the message on your WhatsApp  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='p-3'>
-                1. Right click on the Image and select "Save Image As" to save the Image on your device.
+                1. <span
+                style={{ fontWeight: "bold" }}
+                onClick={() => downloadImg()}
+              >
+                Download
+              </span>{" "}
+               your pledge message onto your device​<br />
                 <br />
                 2. Go to your WhatsApp
                 <br />
@@ -507,7 +662,13 @@ const ThankuCard = (props) => {
               Share the message on your Instagram  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='p-3'>
-                1.Download your pledge message onto your device.
+                1.<span
+                style={{ fontWeight: "bold" }}
+                onClick={() => downloadImg()}
+              >
+                Download
+              </span>{" "}
+               your pledge message onto your device​<br />
                 <br />
                 2.Upload your pledge message onto your Instagram. (Remember to add #ncisribbonchallenge in your caption)​
               </div>
@@ -518,7 +679,13 @@ const ThankuCard = (props) => {
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
             <div className='p-3'>
-              1. Download your pledge message onto your device.
+              1. <span
+                style={{ fontWeight: "bold" }}
+                onClick={() => downloadImg()}
+              >
+                Download
+              </span>{" "}
+               your pledge message onto your device​<br />
               <br />
               2. Click "Start a Post" on Linkedin.
               <br />
@@ -534,7 +701,13 @@ const ThankuCard = (props) => {
           Share the message to your friends to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            {"1. Download the image by Right Click -> Save Image As and then download the image file."}
+            1. <span
+                style={{ fontWeight: "bold" }}
+                onClick={() => downloadImg()}
+              >
+                Download
+              </span>{" "}
+               your pledge message onto your device​<br />
             <br />
             {"2. Go to your email app and insert the image in message area."}
             <br />
@@ -546,7 +719,13 @@ const ThankuCard = (props) => {
           Share the message on your Telegram  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='p-3'>
-            1. Right click on the Image and select "Save Image As" to save the Image on your device.
+            1. <span
+                style={{ fontWeight: "bold" }}
+                onClick={() => downloadImg()}
+              >
+                Download
+              </span>{" "}
+               your pledge message onto your device​<br />
             <br />
             2. Go to your Telegram.
             <br />
@@ -559,7 +738,13 @@ const ThankuCard = (props) => {
           Share the message on your weChat  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='p-3'>
-            1. Right click on the Image and select "Save Image As" to save the Image on your device.
+            1. <span
+                style={{ fontWeight: "bold" }}
+                onClick={() => downloadImg()}
+              >
+                Download
+              </span>{" "}
+               your pledge message onto your device​<br />
             <br />
             2. Go to your WeChat
             <br />
@@ -572,7 +757,13 @@ const ThankuCard = (props) => {
           Share the message on your Line to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='p-3'>
-            1. Right click on the Image and select "Save Image As" to save the Image on your device.
+            1. <span
+                style={{ fontWeight: "bold" }}
+                onClick={() => downloadImg()}
+              >
+                Download
+              </span>{" "}
+               your pledge message onto your device​<br />
             <br />
             2. Go to your Line
             <br />
