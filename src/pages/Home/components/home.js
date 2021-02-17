@@ -188,7 +188,10 @@ export const Home = (props) => {
                         .imgaeUrl
                     }
                     className="img-fluid"
-                    style={{}}
+                    style={{
+                      cursor: 'pointer'
+                    }}
+                    onClick={_handlePledge}
                   />
                 </div>
               </div>
@@ -215,7 +218,9 @@ export const Home = (props) => {
                   width: window.innerWidth > 1590 && "120%",
                   zIndex: 0,
                   position: "relative",
+                  cursor: 'pointer'
                 }}
+                onClick={_handlePledge}
               />
             </div>
           )}
@@ -362,7 +367,9 @@ export const Home = (props) => {
                     : media.cusHeight_700
                     ? "80%"
                     : "79%",
+                  cursor: 'pointer'
                 }}
+                onClick={_handlePledge}
               />
             </div>
           </div>
@@ -440,7 +447,7 @@ const HomeTitle = (props) => {
           lineHeight: "26px",
         }}
       >
-        Together, We Fight Cancer<br/>
+        Together, We Fight Cancer!<br/>
         22 Feb - 21 Mar
       </div>
       <div
@@ -456,10 +463,11 @@ const HomeTitle = (props) => {
           fontWeight: "lighter",
           lineHeight: media.mobile ? "22px" : "25px",
           fontFamily: "Montserrat",
+          width: '80%'
         }}
       >
         {/* <Scrollbars style={{ minHeight: media.mobile ? 100 : media.tablet ? 230 : window.innerWidth > 1590 ? 270 : 150 }} ref={scrollbar} > */}
-        Theme “Together, We Fight Cancer! ”, the NCIS Ribbon Challenge 2021 aims
+        Themed “Together, We Fight Cancer! ”, the NCIS Ribbon Challenge 2021 aims
         to increase cancer awareness, emphasise on the importance of maintaining
         a healthy lifestyle and going for regular health screenings. Let us
         spread the word among your loved ones and make a difference in the lives
@@ -467,7 +475,7 @@ const HomeTitle = (props) => {
         <br />
         Play your part today in our fight against cancer. All you have to do is
         to select a ribbon, write a message of encouragement and then share it
-        on your social media account with our hashtag #ncisribbonchallenge.
+        on your social media account with our hashtag <span className="hashtag">#NCISRibbonChallenge</span>.
         <br />
         For more information, visit{" "}
         <a
@@ -702,13 +710,13 @@ const Sponsors = (props) => {
 
   return (
     <div
-      style={{ paddingBottom: "90px", paddingLeft: media.desktop ? "100px" : "26px", marginTop: -75 }}
+      style={{ paddingTop: 90, paddingBottom: "90px", paddingLeft: media.desktop ? "100px" : "26px" }}
       className="row w-50 col-lg-5 justify-content-end"
     >
       {/* <div style={{ fontSize: 25, fontWeight: "bold" }}>
         Our Partners and Sponsors
       </div> */}
-      <div className="d-flex pt-2 ">
+      <div className="d-flex ">
         <div
           className="align-self-center col-3 mr-2"
           style={{
@@ -748,7 +756,7 @@ const Sponsors = (props) => {
         >
           Supporting Partners:
         </div>
-        <div className="d-flex flex-wrap mx-2">
+        <div className="d-flex mx-2">
           {
             /*new Array(8).fill(null)*/ sponsors.supportingPartners.map(
               (v, k) => (
@@ -786,7 +794,7 @@ const Sponsors = (props) => {
         >
           Sponsors:
         </div>
-        <div className="d-flex flex-wrap mx-2">
+        <div className="d-flex mx-2">
           {
             /*new Array(8).fill(null)*/ sponsors.sponsors.map((v, k) => (
               <div className="mx-2" key={k}>

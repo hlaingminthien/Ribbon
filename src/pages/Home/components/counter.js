@@ -14,7 +14,7 @@ export const Counter = props => {
     }
     
 
-  const TodayDate = moment(Date.now()).format(" MMM DD, YYYY");
+  const TodayDate = moment(Date.now()).format(" DD MMM YYYY");
   const media = useContext(MediaContext);
   return media.mobile ?
   <CounterMobile TodayDate={TodayDate} splitCount={splitCount} />
@@ -23,7 +23,7 @@ export const Counter = props => {
   ) : (
       <div
         className="col-4 text-center"
-        style={{ position: "absolute", right: 4, top: -34 }}
+        style={{ position: "absolute", right: 4, top: -184 }}
       >
         <div
           className="numbers-pipe"
@@ -58,7 +58,7 @@ export const Counter = props => {
         <div style={{ fontSize: 23, fontWeight: "bolder" }}>
           Ribbons Collected
       </div>
-        <span style={{ fontSize: 14 }}>{TodayDate}</span>
+        <span style={{ fontSize: 15, lineHeight: 2 }}>{TodayDate}</span>
       </div>
     );
 };
