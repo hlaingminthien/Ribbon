@@ -482,6 +482,7 @@ const HomeTitle = (props) => {
           href="https://www.ncis.com.sg"
           style={{ textDecoration: "none", color: "white" }}
           target="_blank"
+          className="text-info"
         >
           www.ncis.com.sg
         </a>
@@ -762,7 +763,7 @@ const Sponsors = (props) => {
               (v, k) => (
                 <div className="mx-2" key={k}>
                   <div
-                    className="d-flex my-1 py-2 align-items-center"
+                    className="d-flex my-1 py-2 align-items-center supporting-partners-div"
                     style={{
                       width: 100,
                       height: 50,
@@ -772,7 +773,7 @@ const Sponsors = (props) => {
                     }}
                   >
                     <img
-                      className="mx-2 align-self-center"
+                      className="mx-2 align-self-center supporting-partners-img"
                       src={v.imgaeUrl}
                       alt="sponsor"
                       style={{ width: 55, position: "relative", right: -18 }}
@@ -799,7 +800,7 @@ const Sponsors = (props) => {
             /*new Array(8).fill(null)*/ sponsors.sponsors.map((v, k) => (
               <div className="mx-2" key={k}>
                 <div
-                  className="d-flex my-1 py-2 align-self-center"
+                  className="d-flex my-1 py-2 align-self-center sponsors-div"
                   style={{
                     width:
                       v.name === "rocheSpon"
@@ -817,7 +818,7 @@ const Sponsors = (props) => {
                 >
                   &nbsp;&nbsp;&nbsp;
                   <img
-                    className="mx-2 align-self-center"
+                    className="mx-2 align-self-center sponsors-img"
                     src={v.imgaeUrl}
                     alt="sponsor"
                     style={{

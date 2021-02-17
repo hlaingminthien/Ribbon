@@ -472,3 +472,17 @@ div.circTxt {
   }
 
 }
+
+@media only screen and (min-width: 992px) {
+  .supporting-partners-div, .supporting-partners-img {
+    width: auto !important;
+    height: 65px !important;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .sponsors-div, .sponsors-img {
+    width: auto !important;
+    height: 50px !important;
+  }
+}

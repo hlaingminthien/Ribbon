@@ -91,7 +91,7 @@ export const Event = (props) => {
                                         
                 </div>
             </div>
-            <div className="text-left d-flex flex-column justify-content-center px-2" style={{paddingTop: '2rem'}}>
+            <div className="text-left d-flex flex-column justify-content-center px-2" style={{paddingTop: '8rem'}}>
                 <div className="d-flex px-1 justify-content-between text-left">
                     <div className=""> 
                         <div className="px-2" style={{ fontSize: font.eventTitle, letterSpacing: 1.3 }}>
@@ -313,7 +313,7 @@ export const Event = (props) => {
                                 </div>                                
                             </div>                            
                         </div>   
-                        <div className='pt-4' style={{ fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}
+                        <div className='pt-4 pb-4' style={{ fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}
                             onClick={()=>{
                                 var win = window.open("https://www.ncis.com.sg/events/Pages/NCIS-Ribbon-Challenge.aspx","_blank");
                                 win.focus();

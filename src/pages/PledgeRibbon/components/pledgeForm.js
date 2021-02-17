@@ -219,7 +219,7 @@ const PledgeForm = (props) => {
       </form>
       {/* <img width="400" height="500" id="testImg" /> */}
 
-      <div id="cardDivId" style={{
+      <div id="cardDivId" className="d-none" style={{
         zIndex: -10, marginBottom: 80, boxShadow: '0px 0px 8px 0px #a5a5a5', fontSize: "16px", position: 'relative', width: '400px', height: '650px',
         backgroundImage: `url(/static/media/EmailShareCard.1fbbb251.png)`, backgroundSize: '100% 100%'
       }} >
