@@ -275,38 +275,12 @@ export const Event = (props) => {
                                 win.focus();
                               }}
                             >
-                                For more information about this event, please click <a href="" target="_blank">here. </a>
+                                For more information about this event, please click <a className="text-info" href="" target="_blank">here. </a>
                             {/* <hyperlink to https://www.ncis.com.sg/events/Pages/NCIS-Ribbon-Challenge.aspx> */}
                             </div>  
                             </div>   
                                              
                         </div>   
-                        <hr />
-                        <div className="py-3 px-2 d-flex flex-wrap flex-md-nowrap" style={{ maxWidth: 1200 }}>
-                            <div className="">
-                                <img src={Mamogram} className="pe-3 pb-2" style={{ height: 60 }} />
-                            </div>
-                            <div className="flex-grow-1" style={{  }}>            
-                                <b style={{ fontSize: 20,lineHeight : '26px' }}>Mammogram screening </b>
-                                <div className="pt-3" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
-                                    Ladies, if you above 50 years old, and have not done a mammogram screening, register for one now and have a peace of mind.<br/>
-                                </div>
-                                <div className="pt-2" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
-                                    The mammobus will be at NUH Main Building Lobby B to carry out mammogram screening. Pre-registration is required. Please call 6773 7888 or click on the button below to book your slots. Terms apply.
-                                </div>                                
-                                <div className='pt-4 d-flex justify-content-start'>
-                                    <a href="mailto:cancerscreening@nuhs.edu.sg">
-                                    <NCIS_Button
-                                        text={"Book your slot"}
-                                        width={220}
-                                        onClick={""}
-                                        fontSize={w > 1500 ? 16 : 14}
-                                        fontSize={16}         
-                                            width={220}  
-                                    /></a>
-                                </div>                                
-                            </div>                            
-                        </div>
                         <hr />
                         <div className="py-3 d-flex flex-wrap flex-md-nowrap px-2"  style={{ maxWidth: 1200 }}>     
                             <img src={FIT} className="pe-3 pb-2" style={{ height: 60 }} />
@@ -333,7 +307,32 @@ export const Event = (props) => {
                                     </div>
                                 </div>                                
                         </div>   
-                        <hr />                         
+                        <hr />
+                        <div className="py-3 px-2 d-flex flex-wrap flex-md-nowrap" style={{ maxWidth: 1200 }}>
+                            <div className="">
+                                <img src={Mamogram} className="pe-3 pb-2" style={{ height: 60 }} />
+                            </div>
+                            <div className="flex-grow-1" style={{  }}>            
+                                <b style={{ fontSize: 20,lineHeight : '26px' }}>Mammogram screening </b>
+                                <div className="pt-3" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
+                                    Ladies, if you above 50 years old, and have not done a mammogram screening, register for one now and have a peace of mind.<br/>
+                                </div>
+                                <div className="pt-2" style={{ textShadow: "0px 0px 2px gray",fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
+                                    The mammobus will be at NUH Main Building Lobby B to carry out mammogram screening. Pre-registration is required. Please call 6773 7888 or click on the button below to book your slots. Terms apply.
+                                </div>                                
+                                <div className='pt-4 d-flex justify-content-start'>
+                                    <a href="mailto:cancerscreening@nuhs.edu.sg">
+                                    <NCIS_Button
+                                        text={"Book your slot"}
+                                        width={220}
+                                        onClick={""}
+                                        fontSize={w > 1500 ? 16 : 14}
+                                        fontSize={16}         
+                                            width={220}  
+                                    /></a>
+                                </div>                                
+                            </div>                            
+                        </div>                       
                                                                                            
                     </div>                                        
                 </div>                                                                            
