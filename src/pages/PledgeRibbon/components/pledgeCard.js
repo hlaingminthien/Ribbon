@@ -42,96 +42,98 @@ export const PledgeCard = (props) => {
   const { recipientName, senderName, message, media, step, imgUrl, cancer, finalImage } = props;
 
   return (
-    <div className=" d-flex justify-content-center text-white shadow " id="my-node" style={{ background: 'transparent', border: '1px soldi #fff' }}>
-      {finalImage ? 
-      <img
-      className="img-responsive"
-      src={finalImage}
-      style={{ width: 300, height: 300, borderRadius: 10}}
-    />
-      : <img
-        className="img-responsive"
-        src={(imgUrl || recipientName || senderName || message) ? "/cardnoText.jpg" : "/card.jpg"}
-        style={{ width: 300, height: 300, borderRadius: 10 }}
-      />
-}
-{!finalImage && 
-      <div
-        className=" pt-4 justify-content-start text-left"
-        style={{ position: "absolute", width: 200, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? Font.desktopBody : Font.tabletBody, textAlign: 'left', marginLeft: '-2rem' }}
-      >
+    <div className=" d-flex justify-content-center text-white shadow " id="my-node" style={{ background: 'transparent', border: '1px soldi #fff' }} >
+      {finalImage ?
+        <img
+          className="img-responsive"
+          src={finalImage}
+          style={{ width: 300, height: 300, borderRadius: 10 }}
+        />
+        : <img
+          className="img-responsive"
+          src={(imgUrl || recipientName || senderName || message) ? "/cardnoText.jpg" : "/card.jpg"}
+          style={{ width: 300, height: 300, borderRadius: 10 }}
+        />
+      }
+      {!finalImage &&
         <div
-        // ${step != 1 && "move-me move-me-2"}
-          className={` pt-1 `}
-          style={{ minHeight: 160 }}
+          className=" pt-4 justify-content-start text-left"
+          style={{ position: "absolute", width: 200, color: 'white', fontWeight: 500, fontSize: window.innerWidth > 1500 ? Font.desktopBody : Font.tabletBody, textAlign: 'left', marginLeft: '-2rem' }}
         >
-          <span className="" style={{ fontSize: 14, fontWeight: "bold" }}>
-            {recipientName}
-            {recipientName ? "," : null}
-          </span>
-          <br></br>
-          <span
-            className="text-white pt-2"
-            style={{ fontWeight: 500, fontSize: 12, }}
+          <div
+            // ${step != 1 && "move-me move-me-2"}
+            className={` pt-1 `}
+            style={{ minHeight: 160 }}
           >
-            {message}
-            {/* {message ? "!" : null} */}
-          </span>
-          <br></br>
-          <span className="pt-2" style={{ fontWeight: 600, fontSize: 14 }}>
-            {senderName ? "Love," : null} {senderName}
-          </span>
-        </div>
+            <span className="" style={{ fontSize: 14, fontWeight: "bold" }}>
+              {recipientName}
+              {recipientName ? "," : null}
+            </span>
+            <br></br>
+            <span
+              className="text-white pt-2"
+              style={{ fontWeight: 500, fontSize: 12, }}
+            >
+              {message}
+              {/* {message ? "!" : null} */}
+            </span>
+            <br></br>
+            <span className="pt-2" style={{ fontWeight: 600, fontSize: 14 }}>
+              {senderName ? "Love," : null} {senderName}
+            </span>
+          </div>
 
-        {(imgUrl || recipientName || senderName || message) && (
-          <div className={`${!imgUrl && "pt-1 px-1" }`} style={{ position: "absolute", right: -40, }}>
+          {(imgUrl || recipientName || senderName || message) && (
+            <div className={`${!imgUrl && "pt-1 px-1"}`} style={{ position: "absolute", right: -40, }}>
 
-            
-            {(imgUrl || recipientName || senderName || message) ? <>
-            <img
-              src={imgUrl ? imgUrl : "./mysteryBall.png"}
-              alt="selected-ribbons"
-              style={{ width: 105, height: 105 }}
-            />
-            
-              <svg viewBox="0 0 150 130" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 100, position: 'absolute',
-                width: 150, right: -40,top: -10,height: 150,}} >
-                <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
-                  
-                  // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
-                  // d="M2,62 Q50,-38 104,62"
-                  // d="M 100 0 A 1 1 0 0 0 -100 0"
-                  // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
-                  d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
+
+              {(imgUrl || recipientName || senderName || message) ? <>
+                <img
+                  src={imgUrl ? imgUrl : "./mysteryBall.png"}
+                  alt="selected-ribbons"
+                  style={{ width: 105, height: 105 }}
                 />
 
-                <text fontSize={11} fontWeight={600} fill="white">
-                <textPath href="#curve-path" startOffset={(55 - (cancer ? cancer.length+(cancer.length/3) : 18) - 15 * 2) + "%"}>
-                    {(cancer ? cancer : "Select your Ribbon" )+ ((cancer == "All Cancers" || !cancer) ? "" : " Cancer")}
-                  </textPath>
-                </text>
-              </svg> </> : 
-              <>
-              <img
-                src={imgUrl}
-                alt="selected-ribbons"
-                style={{ width: 85, height: 85 }}
-              />
-             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style={{ position: "absolute", left: 0, top: -8, width: 85, height: 85 }} >
-              <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
-                d="M0,48 Q50,-20 100,48" />
+                <svg viewBox="0 0 150 130" xmlns="http://www.w3.org/2000/svg" style={{
+                  zIndex: 100, position: 'absolute',
+                  width: 150, right: -40, top: -10, height: 150,
+                }} >
+                  <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
 
-              <text fontSize={10} fontWeight={600} fill="white">
-                <textPath href="#curve-path" startOffset={(50 - cancer.length - 10 * 2) + "%"}>
-                  Select Your Ribbon
-                </textPath>
-              </text>
-            </svg>
-          </>
-            }
-          </div>
-        )}
-      </div>
+                    // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
+                    // d="M2,62 Q50,-38 104,62"
+                    // d="M 100 0 A 1 1 0 0 0 -100 0"
+                    // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
+                    d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
+                  />
+
+                  <text fontSize={11} fontWeight={600} fill="white">
+                    <textPath href="#curve-path" startOffset={(55 - (cancer ? cancer.length + (cancer.length / 3) : 18) - 15 * 2) + "%"}>
+                      {(cancer ? cancer : "Select your Ribbon") + ((cancer == "All Cancers" || !cancer) ? "" : " Cancer")}
+                    </textPath>
+                  </text>
+                </svg> </> :
+                <>
+                  <img
+                    src={imgUrl}
+                    alt="selected-ribbons"
+                    style={{ width: 85, height: 85 }}
+                  />
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style={{ position: "absolute", left: 0, top: -8, width: 85, height: 85 }} >
+                    <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
+                      d="M0,48 Q50,-20 100,48" />
+
+                    <text fontSize={10} fontWeight={600} fill="white">
+                      <textPath href="#curve-path" startOffset={(50 - cancer.length - 10 * 2) + "%"}>
+                        Select Your Ribbon
+                      </textPath>
+                    </text>
+                  </svg>
+                </>
+              }
+            </div>
+          )}
+        </div>
       }
     </div>
   );

@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.6.0",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.0-beta1",
+    "dom-to-image": "^2.6.0",
     "dom-to-image-more": "^2.8.0",
     "file-saver": "^2.0.5",
     "moment": "^2.29.1",

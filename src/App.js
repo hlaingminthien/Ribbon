@@ -3,7 +3,7 @@ import React from "react";
 import NavBar from "./app/navBar";
 import Footer from "./app/footer";
 
-import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import { MediaQueryProvider } from "react-media-query-hoc";
 
 import Routes from "./routes";
@@ -39,8 +39,8 @@ function App() {
           component={() => <ErrorPage ErrorInfo={"Page Not Found!"} />}
         />
       </Switch>
-      
-      <Footer/>
+
+      <Footer />
     </MediaQueryProvider>
   );
 }
