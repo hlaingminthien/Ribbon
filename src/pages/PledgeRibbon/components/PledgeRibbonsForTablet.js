@@ -66,55 +66,55 @@ const PledgeRibbonsForTablet = (props) => {
   //   setImgUrl(img);
   // };
   const handleShareApp = (app) => {
-    if (app === 5) {
+    // if (app === 5) {
+    //   setShareApp(app)
+    //   _handleShare();
+
+    //   var receiveEmail = prompt("Please enter email to share", "");
+
+    //   if (receiveEmail != null && receiveEmail != "") {
+
+    //     const url = `${Base_Url}uploadImage`;
+    //     const myNode = document.getElementById('cardDivId')
+    //     domtoimage.toPng(myNode).then(base64data => {
+    //       axios.post(url, { ribbon: base64data })
+    //         .then(res => {
+    //           const shareImg = res.data.payload;
+    //           const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px; margin-left: auto; margin-right: auto;"> 
+    //         <div style='position:relative;padding-top: 560px;' align='center'>
+    //             <a href='${webHostUi}' style='text-decoration:none;fontSize:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
+    //               Pledge A Ribbon
+    //             </a>
+    //           </div>       
+    //         </div>`
+
+    //           const bodyData = {
+    //             receiveEmail: receiveEmail,
+    //             subjectText: "National University Cancer Institute Singapore",
+    //             contentHtml: contentHtml1.replace(/\s+/g, ' ').trim()
+    //           }
+    //           fetch(Base_Url + "share-email", {
+    //             method: "post",
+    //             headers: {
+    //               "Accept": "application/json",
+    //               'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(bodyData)
+    //           })
+    //             .then(res => res.json())
+    //             .then(d => console.log("data: ", d))
+    //             .catch(error => console.error(error))
+
+    //         })
+    //     })
+    //   } else {
+    //     alert("Cancelled sharing!")
+    //   }
+
+    // } else {
       setShareApp(app)
       _handleShare();
-
-      var receiveEmail = prompt("Please enter email to share", "");
-
-      if (receiveEmail != null && receiveEmail != "") {
-
-        const url = `${Base_Url}uploadImage`;
-        const myNode = document.getElementById('cardDivId')
-        domtoimage.toPng(myNode).then(base64data => {
-          axios.post(url, { ribbon: base64data })
-            .then(res => {
-              const shareImg = res.data.payload;
-              const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px; margin-left: auto; margin-right: auto;"> 
-            <div style='position:relative;padding-top: 560px;' align='center'>
-                <a href='${webHostUi}' style='text-decoration:none;fontSize:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
-                  Pledge A Ribbon
-                </a>
-              </div>       
-            </div>`
-
-              const bodyData = {
-                receiveEmail: receiveEmail,
-                subjectText: "National University Cancer Institute Singapore",
-                contentHtml: contentHtml1.replace(/\s+/g, ' ').trim()
-              }
-              fetch(Base_Url + "share-email", {
-                method: "post",
-                headers: {
-                  "Accept": "application/json",
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(bodyData)
-              })
-                .then(res => res.json())
-                .then(d => console.log("data: ", d))
-                .catch(error => console.error(error))
-
-            })
-        })
-      } else {
-        alert("Cancelled sharing!")
-      }
-
-    } else {
-      setShareApp(app)
-      _handleShare();
-    }
+    // }
   };
   return (
     <div className="pt-3 px-1 container justify-content-center">
@@ -213,7 +213,7 @@ const PledgeRibbonsForTablet = (props) => {
         // <ShareApp shareApp={shareApp} handleShareApp={handleShareApp} />
       )}
       {complete && step == 3 && showThankU && (
-        <ThankuCard
+        <ThankYouCard
           _handleEdit={_handleEdit}
           downloadImg={downloadImg}
           shareImage={shareImage}
