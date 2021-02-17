@@ -178,7 +178,7 @@ const PledgeContainer = (props) => {
       {
         (media.mobile || media.desktop ) &&
       <div id="testsvg" style={{ width:'100%', background:'#e6dfe6' }}>
-          <div className='' style={{ width:media.desktop && '83%'  }}>
+          <div className='' style={{ width:media.desktop && '80%'  }}>
               <img
                   className="img-fluid  w-100"
                   src={media.desktop ? "/Desktop_PledgeARibbonPage.png" : "/PledgeBgMobo.png"}
@@ -210,14 +210,15 @@ const PledgeContainer = (props) => {
                   finalImage={finalImage}
                 />
               </div>
-              <div className='px-0 mx-0'
+              <div className=' '
                   style={{
                     position:'fixed',
                     fontSize: media.tablet ? 24 : media.mobile ?  22 : 26,
                     fontWeight: "bold",
-                    bottom : 105,
+                    bottom : 65,
                     lineHeight: 1,
                     color: '#d8cad8',
+                    marginLeft: 75,
                     zIndex: -1
                   }}
                 >
