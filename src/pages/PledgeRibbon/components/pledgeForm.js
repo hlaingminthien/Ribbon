@@ -42,61 +42,57 @@ const PledgeForm = (props) => {
     _handleImage, warning,winner,imgUrl, cancerName
   } = props;
   const [shareApp, setShareApp] = useState(null);
+  const [email ,setEmail] =useState("");
 
   const ribbonName = imgUrl ? imgUrl.split("/")[imgUrl.split("/").length-1] : "ribbonname"
   
   const handleShareApp = (app) => {
-    // setShareApp(app == shareApp ? null : app);    
-    if(app===5) {
+ 
       setShareApp(app)
       _handleShare();
 
-      var receiveEmail = prompt("Please enter email to share", "");
-
-      if (receiveEmail != null && receiveEmail != "") {
-        
-        const url = `${Base_Url}uploadImage`;
-        const myNode = document.getElementById('cardDivId')
-        domtoimage.toPng(myNode).then(base64data=>{
-          axios.post(url, { ribbon: base64data })
-          .then(res => {
-            const shareImg = res.data.payload;
-            const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px"> 
-            <div style='position:relative;padding-top: 560px;' align='center'>
-                <a href='${webHostUi}' style='text-decoration:none;font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
-                  Pledge A Ribbon
-                </a>
-              </div>       
-            </div>`
-
-            const bodyData = {
-              receiveEmail: receiveEmail, 
-              subjectText: "National University Cancer Institute Singapore",
-              contentHtml: contentHtml1.replace(/\s+/g, ' ').trim()
-            }
-            fetch(Base_Url+"share-email", {
-              method: "post",
-              headers: {
-                "Accept": "application/json",
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(bodyData)
-            })
-            .then(res => res.json())
-            .then(d => console.log("data: ", d))
-            .catch(error => console.error(error))
-
-          })
-        })
-    } else {
-      alert("Cancelled sharing!")
-    }
-
-    } else {
-      setShareApp(app)
-      _handleShare();
-    }
   };
+
+  const shareMail =()=>{
+    if(email !== null && email !== ""){
+      const url = `${Base_Url}uploadImage`;
+      const myNode = document.getElementById('cardDivId')
+      domtoimage.toPng(myNode).then(base64data=>{
+        axios.post(url, { ribbon: base64data })
+        .then(res => {
+          const shareImg = res.data.payload;
+          
+          const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px"> 
+          <div style='position:relative;padding-top: 560px;' align='center'>
+              <a href='${webHostUi}' style='text-decoration:none;font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
+                Pledge A Ribbon
+              </a>
+            </div>       
+          </div>`
+  
+          const bodyData = {
+            receiveEmail: email, 
+            subjectText: "National University Cancer Institute Singapore",
+            contentHtml: contentHtml1.replace(/\s+/g, ' ').trim()
+          }
+          fetch(Base_Url+"share-email", {
+            method: "post",
+            headers: {
+              "Accept": "application/json",
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(bodyData)
+          })
+          .then(res => res.json())
+          .then(d => console.log("data: ", d))
+          .catch(error => console.error(error))
+  
+        })
+      })
+    }
+    
+  }
+
   const _handlePledge = () => {
     props.history.push("/");
   };
@@ -120,7 +116,7 @@ const PledgeForm = (props) => {
         {step === 1 && <PledgeRibbons {...props} />}
         {/* //  _handleSelect={_handleSelect} _handleRibbonClick={_handleRibbonClick} menuVisible={menuVisible} */}
         {(step === 3 && complete && showThankU) ? (
-          <ThankYouCard _handlePledge={_handlePledge} setShareApp={setShareApp} setShowThankU={setShowThankU} showThankU={showThankU} recipientName={recipientName} senderName={senderName} message={message} imgUrl={imgUrl} cancerName={cancerName} shareApp={shareApp} winner={winner} />
+          <ThankYouCard handleShareApp={handleShareApp} shareMail={shareMail} setEmail={setEmail} email={email} _handlePledge={_handlePledge} setShareApp={setShareApp} setShowThankU={setShowThankU} showThankU={showThankU} recipientName={recipientName} senderName={senderName} message={message} imgUrl={imgUrl} cancerName={cancerName} shareApp={shareApp} winner={winner} />
         ) : (step === 3 || showThankU ) ? (
           <div className='d-flex justify-content-center'>
             <div className='px-2 pt-5' style={{ fontWeight: 600 }}>Share Via:</div>
@@ -431,7 +427,7 @@ const [ rand, setRandom ]=useState(0);
 };
 
 export const ThankYouCard = (props) => {
-  const { _handleEdit, _handlePledge, shareApp,winner, senderName, recipientName, message, imgUrl, cancerName,setShowThankU,showThankU } = props;
+  const { _handleEdit, _handlePledge,setEmail,email, shareApp,winner, senderName,shareMail, recipientName,handleShareApp, message, imgUrl, cancerName,setShowThankU,showThankU } = props;
 
   return (
     <div className="d-flex justify-content-center px-2 " style={{ position:'absolute', paddingBottom: 100 }}>
@@ -502,24 +498,38 @@ export const ThankYouCard = (props) => {
         </div>
         {
           shareApp === 5 ? 
-            <div className='p-3 py-2' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
-              Share the message to your friends to spread the word to more people!<br />
-              <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+            <div className='p-3 py-2 jusitfy-content-center' style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
+              Share the message via to spread the word to more people!<br />
+              <div>
+                Email address to share with
+                <textarea
+                  id="mailing"
+                  name="mailing"
+                  onChange={(e)=>setEmail(e.target.value)}
+                  placeholder="add email"
+                  required
+                  value={email}
+                  style={{width: '100%', minHeight: '40px'}}
+                />
+              </div>
+              {/* <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
                 {"1. Download the image by Right Click -> Save Image As and then download the image file."}
                 <br />
                 {"2. Go to your email app and insert the image in message area."}
                 <br />
                 {"3. Get your recipient to join you in pledging ribbon for good, by sending ribbons of their own!"}
-              </div>
+              </div> */}
             </div>
+           
+
           : shareApp === 2 ?
             <div className='p-3' style={{ fontSize: Font.desktopBody,  lineHeight :'24px'  }}>
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
-                1. Download your pledge message onto your device​<br />
-                2. Upload your pledge message onto your Facebook. (Remember to add #ncisribbonchallenge in your caption)
+                1.Download your pledge message onto your device​<br />
+                2.Upload your pledge message onto your Facebook. (Remember to add #ncisribbonchallenge in your caption)
 
               </div>
 
@@ -631,26 +641,19 @@ export const ThankYouCard = (props) => {
               <img src={"/mysteryRibbon.jpeg"} style={{ width:120 }} />
             </div>
           </div> 
-          : /*shareApp !== 5 ?*/
+          : 
             <p className="p-3" style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
               Don’t stop here, you can do more by pledging again!
               <br />
-              Alternatively, join us at our health talks to know about cancer prevention. <a href="https://tinyurl.com/y36vf922" target="_blank">Click here</a>  to register now .
+              Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
 
               Together, We Fight Cancer
             </p>
         }
         
         <div className="d-flex justify-content-center text-left mx-2">
-          <div className="pb-2  d-flex justify-content-center">
-            <NCIS_Button
-              text={"Pledge Another"}
-              width={220}
-              fontSize={Font.button}
-              onClick={() => window.location.reload()}
-              className="mx-1"
-            />
-          </div>
+         
+          
           {
             winner ?
             <div>
@@ -662,6 +665,7 @@ export const ThankYouCard = (props) => {
               }}
               className="mx-1"
               buttonColor={violet}
+              width={220}
             />
           </div>:
           <div className="pb-2 d-flex justify-content-center">
@@ -672,6 +676,28 @@ export const ThankYouCard = (props) => {
             buttonColor={violet}
             width={220}
             fontSize={Font.button}
+          />
+        </div>
+          }
+           {
+            shareApp === 5 ?
+            <div className="pb-2  d-flex justify-content-center">
+            <NCIS_Button
+              text={"Send & Pledge Another"}
+              width={220}
+              fontSize={Font.button}
+              type="button" value="Submit"
+              onClick={()=>shareMail()}
+              className="mx-1"
+            />
+          </div>:
+          <div className="pb-2  d-flex justify-content-center">
+          <NCIS_Button
+            text={"Pledge Another"}
+            width={220}
+            fontSize={Font.button}
+            onClick={() => window.location.reload()}
+            className="mx-1"
           />
         </div>
           }
