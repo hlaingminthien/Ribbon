@@ -715,7 +715,7 @@ const Ribbon = (props) => {
         )}
       </div>
       <div style={{ maxHeight: '10px', overflow: 'hidden' }}>
-        <div className="p-3 col-8 mx-4" id="cardDivId" style={{ zIndex: -10, position: 'absolute' }}>
+        <div className="p-3 col-8 mx-4 d-none" id="cardDivId" style={{ zIndex: -10, position: 'absolute' }}>
           <img
             src={EmailShareCard}
             alt="EmailShareCard"
