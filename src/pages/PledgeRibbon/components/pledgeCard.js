@@ -42,7 +42,7 @@ export const PledgeCard = (props) => {
   const { recipientName, senderName, message, media, step, imgUrl, cancer, finalImage } = props;
 
   return (
-    <div className=" d-flex justify-content-center text-white shadow " id="my-node" style={{ background: 'transparent', border: '1px soldi #fff' }} >
+    <div className=" d-flex justify-content-center text-white shadow " id="my-node" style={{ background: 'transparent', border: '1px soldi #fff' }}>
       {finalImage ?
         <img
           className="img-responsive"
@@ -84,19 +84,19 @@ export const PledgeCard = (props) => {
           </div>
 
           {(imgUrl || recipientName || senderName || message) && (
-            <div className={`${!imgUrl && "pt-1 px-1"}`} style={{ position: "absolute", right: -40, }}>
+            <div className={`${!imgUrl && "pt-2"}`} style={{ position: "absolute", right: -60, }}>
 
 
               {(imgUrl || recipientName || senderName || message) ? <>
                 <img
                   src={imgUrl ? imgUrl : "./mysteryBall.png"}
                   alt="selected-ribbons"
-                  style={{ width: 105, height: 105 }}
+                  style={{ width: !imgUrl ? 97 : 105, height: !imgUrl ? 102 : 105 }}
                 />
 
                 <svg viewBox="0 0 150 130" xmlns="http://www.w3.org/2000/svg" style={{
                   zIndex: 100, position: 'absolute',
-                  width: 150, right: -40, top: -10, height: 150,
+                  width: 150, right: !imgUrl ? -45 : -40, top: -10, height: 150,
                 }} >
                   <path id="curve-path" fill="none" stroke="red" strokeWidth={0}
 
@@ -126,7 +126,7 @@ export const PledgeCard = (props) => {
                     <text fontSize={10} fontWeight={600} fill="white">
                       <textPath href="#curve-path" startOffset={(50 - cancer.length - 10 * 2) + "%"}>
                         Select Your Ribbon
-                      </textPath>
+                </textPath>
                     </text>
                   </svg>
                 </>
