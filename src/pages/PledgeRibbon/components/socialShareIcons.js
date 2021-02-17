@@ -78,7 +78,7 @@ export const SocialShare = (props) => {
             <img src={shareApp == 6 ? TelegramLogoActive : TelegramLogo} className="" style={{ width: 50 }} />
             <div className='pt-3' style={{ fontSize: 12, fontWeight: 600 }}>Telegram</div>
           </div>
-          <div className=" shadow  align-self-center text-center mx-2"
+          <div className=" shadow  align-self-center text-center mx-3"
             onClick={() => handleShareApp(1)}
             style={{
               borderRadius: '50%',
@@ -178,7 +178,7 @@ export const SocialShare = (props) => {
             <div
               className="pt-1 shadow align-self-center text-center mx-3"
               style={{
-                borderRadius: 23,
+                borderRadius: '50%',
                 border: "1px solid #FAFAFA",
                 width: shareApp == 3 ? 54 : 59,
                 height: shareApp == 3 ? 54 : 59,
