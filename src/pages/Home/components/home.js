@@ -131,7 +131,7 @@ export const Home = (props) => {
                     position: "fixed",
                     opacity: 0.9,
                     zIndex: 2000,
-                    right: 20,
+                    right:  window.innerWidth < 375 ? 10 : 20,
                     bottom: 50,
                   }}
                 />
@@ -222,7 +222,7 @@ export const Home = (props) => {
           <Counter count={count} />
           {media.mobile || (
             <div
-              className="row pb-5"
+              className="row"
               style={{
                 marginTop: media.tablet
                   ? "15rem"
@@ -232,6 +232,7 @@ export const Home = (props) => {
                   ? "22rem"
                   : "8rem",
                 position: "relative",
+                paddingBottom: "5rem"
               }}
             >
               <Highlights media={media} _handleRoute={_handleRoute} />
@@ -271,7 +272,7 @@ export const Home = (props) => {
                   width: 70,
                   position: "fixed",
                   opacity: 0.9,
-                  right: 20,
+                  right: media.mobile ? 10 : 20,
                   bottom: 50,
                 }}
               />
@@ -708,7 +709,7 @@ const Sponsors = (props) => {
       </div> */}
       <div className="d-flex pt-2 ">
         <div
-          className="align-self-center col-2 mr-2"
+          className="align-self-center col-3 mr-2"
           style={{
             fontWeight: 600,
             fontSize: media.tablet ? Font.tabletBody : Font.desktopBody,
@@ -738,7 +739,7 @@ const Sponsors = (props) => {
       </div>
       <div className="d-flex pt-3 ">
         <div
-          className="align-self-center col-2 mr-2"
+          className="align-self-center col-3 mr-2"
           style={{
             fontWeight: 600,
             fontSize: media.tablet ? Font.tabletBody : Font.desktopBody,
@@ -776,7 +777,7 @@ const Sponsors = (props) => {
       </div>
       <div className="d-flex pt-3 ">
         <div
-          className="col-2 mr-2 pt-1"
+          className="col-3 mr-2 pt-1"
           style={{
             fontWeight: 600,
             fontSize: media.tablet ? Font.tabletBody : Font.desktopBody,

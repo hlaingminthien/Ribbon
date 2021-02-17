@@ -431,3 +431,18 @@ div.circTxt {
   }
 }
 
+.numbers-pipe {
+  height: 275px;
+}
+@media only screen and (min-width: 1300px) {
+  .numbers-pipe {
+    height: 325px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .ncis-button {
+    width: 100% !important;
+    font-size: 8px !important;
+  }
+}

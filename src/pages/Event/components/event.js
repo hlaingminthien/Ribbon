@@ -267,6 +267,7 @@ export const Event = (props) => {
                             </div>   
                                              
                         </div>   
+                        <hr />
                         <div className="py-3 px-2 d-flex flex-wrap flex-md-nowrap" style={{ maxWidth: 1200 }}>
                             <div className="">
                                 <img src={Mamogram} className="pe-3 pb-2" style={{ height: 60 }} />

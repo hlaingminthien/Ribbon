@@ -26,6 +26,7 @@ export const Counter = props => {
         style={{ position: "absolute", right: 4, top: -34 }}
       >
         <div
+          className="numbers-pipe"
           style={{
             marginLeft: 50,
             marginRight: 50,
@@ -34,7 +35,7 @@ export const Counter = props => {
             borderRight: "4px solid white",
             position: "relative",
             top: 74,
-            height: 250,
+            // height: 250,
           }}
         />
         <div className="numbers pb-2">

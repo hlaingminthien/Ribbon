@@ -66,7 +66,7 @@ const PledgeRibbonsForTablet = (props) => {
          }}
                 >
          NCIS Ribbon Challenge 2021
-         <p className='py-2' style={{  fontSize: media.tablet ? 20 : media.mobile ?  18 : 22, }}>Together, We Fight Cancer</p>
+         <p className='py-2 text-white' style={{  fontSize: media.tablet ? 20 : media.mobile ?  18 : 22, }}>Together, We Fight Cancer</p>
                 </div>
         <div
           className="col-7 align-self-center pb-5 justify-content-start "

@@ -187,7 +187,7 @@ const PledgeContainer = (props) => {
       </div>
       }
       
-      <div className={`${(media.tablet) ? "col-12" : "col-10"} pt-4`} style={{ overflowY:'hidden', overflowX:'hidden'}}>
+      <div className={`${(media.tablet) ? "col-12" : "col-md-10 col-sm-12"} pt-4 px-4`} style={{ overflowY:'hidden', overflowX:'hidden'}}>
         {(media.desktop) ? (
           <div className="row px-0 ">
             <div
@@ -219,12 +219,12 @@ const PledgeContainer = (props) => {
                   }}
                 >
                   NCIS Ribbon Challenge 2021
-                  <p className='py-2' style={{ marginLeft: -78, fontSize: media.tablet ? 20 : media.mobile ?  18 : 22, }}>Together, We Fight Cancer</p>
+                  <p className='py-2 text-white' style={{ marginLeft: -78, fontSize: media.tablet ? 20 : media.mobile ?  18 : 22, }}>Together, We Fight Cancer</p>
                 </div>
             </div>
             <div
               className="col-8 pt-4 justify-content-center mx-0"
-              style={{ height: "90vh", flex: 1 }}
+              style={{ flex: 1 }}
             >
               <div className='d-flex justify-content-center mx-0 px-0'>
                 <div className='col-7 px-0'>
