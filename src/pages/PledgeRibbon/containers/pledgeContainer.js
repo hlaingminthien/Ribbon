@@ -153,10 +153,13 @@ const PledgeContainer = (props) => {
   //   }
   // }
   const downloadImg = () => {
-    console.log("aaya");
     const myNode = document.getElementById('my-big-node')
+    const wrapper = document.getElementById('big-card-wrapper')
+
+    wrapper.style.removeProperty("display");
 
     domtoimage.toPng(myNode).then(base64data => {
+      wrapper.style.display = 'none';
       saveAs(base64data, "NCIS Ribbon Challenge 2021.png");
     });
   }
