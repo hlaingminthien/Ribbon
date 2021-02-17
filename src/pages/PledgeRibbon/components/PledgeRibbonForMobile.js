@@ -643,7 +643,7 @@ const ThankuCard = (props) => {
               Share the message on your WhatsApp  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='p-3'>
-                1. <span
+                1.  {" "}<span
                 style={{ fontWeight: "bold" }}
                 onClick={() => downloadImg()}
               >
@@ -662,7 +662,7 @@ const ThankuCard = (props) => {
               Share the message on your Instagram  to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='p-3'>
-                1.<span
+                1. {" "}<span
                 style={{ fontWeight: "bold" }}
                 onClick={() => downloadImg()}
               >
@@ -679,7 +679,7 @@ const ThankuCard = (props) => {
             Share the message on your LinkedIn  to spread the word to more people!<br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
             <div className='p-3'>
-              1. <span
+              1.  {" "}<span
                 style={{ fontWeight: "bold" }}
                 onClick={() => downloadImg()}
               >
@@ -701,7 +701,7 @@ const ThankuCard = (props) => {
           Share the message to your friends to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='px-2 py-1'>
-            1. <span
+            1.  {" "}<span
                 style={{ fontWeight: "bold" }}
                 onClick={() => downloadImg()}
               >
@@ -719,7 +719,7 @@ const ThankuCard = (props) => {
           Share the message on your Telegram  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='p-3'>
-            1. <span
+            1.  {" "}<span
                 style={{ fontWeight: "bold" }}
                 onClick={() => downloadImg()}
               >
@@ -738,7 +738,7 @@ const ThankuCard = (props) => {
           Share the message on your weChat  to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='p-3'>
-            1. <span
+            1.  {" "}<span
                 style={{ fontWeight: "bold" }}
                 onClick={() => downloadImg()}
               >
@@ -757,7 +757,7 @@ const ThankuCard = (props) => {
           Share the message on your Line to spread the word to more people!<br />
           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
           <div className='p-3'>
-            1. <span
+            1.  {" "}<span
                 style={{ fontWeight: "bold" }}
                 onClick={() => downloadImg()}
               >
@@ -795,7 +795,7 @@ const ThankuCard = (props) => {
           <p className="p-3" style={{ fontSize: font.mobileBody, lineHeight :'22px' }}>
           Don’t stop here, you can do more by pledging again!
           <br />
-          Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
+          Alternatively, join us at our health talks to know about cancer prevention. <a href="https://tinyurl.com/y36vf922" target="_blank">Click here</a> to register now .
 
           Together, We Fight Cancer
         </p>

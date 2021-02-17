@@ -518,8 +518,8 @@ export const ThankYouCard = (props) => {
               Share the message on your Facebook to spread the word to more people!<br />
               <div style={{ fontWeight: 600 }}>Follow these steps:</div>
               <div className='px-2 py-1'>
-                1.Download your pledge message onto your device​<br />
-                2.Upload your pledge message onto your Facebook. (Remember to add #ncisribbonchallenge in your caption)
+                1. Download your pledge message onto your device​<br />
+                2. Upload your pledge message onto your Facebook. (Remember to add #ncisribbonchallenge in your caption)
 
               </div>
 
@@ -631,15 +631,14 @@ export const ThankYouCard = (props) => {
               <img src={"/mysteryRibbon.jpeg"} style={{ width:120 }} />
             </div>
           </div> 
-          : shareApp !== 5 ?
+          : /*shareApp !== 5 ?*/
             <p className="p-3" style={{ fontSize: Font.desktopBody, lineHeight :'24px'  }}>
               Don’t stop here, you can do more by pledging again!
               <br />
-              Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
+              Alternatively, join us at our health talks to know about cancer prevention. <a href="https://tinyurl.com/y36vf922" target="_blank">Click here</a>  to register now .
 
               Together, We Fight Cancer
             </p>
-          : null
         }
         
         <div className="d-flex justify-content-center text-left mx-2">

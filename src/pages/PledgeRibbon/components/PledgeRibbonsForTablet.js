@@ -839,7 +839,7 @@ const ThankuCard = (props) => {
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
             <div className="p-3">
               {/* href={webHost+`/`+shareImage} download="NCIS Ribbon Challenge 2021" */}
-              1.
+              1. {" "}
               <span
                 style={{ fontWeight: "bold" }}
                 onClick={() => downloadImg()}
@@ -848,7 +848,7 @@ const ThankuCard = (props) => {
               </span>{" "}
               your pledge message onto your device​
               <br />
-              2.Upload your pledge message onto your Facebook. (Remember to add
+              2. Upload your pledge message onto your Facebook. (Remember to add
               #ncisribbonchallenge in your caption)
             </div>
           </div>
@@ -863,7 +863,7 @@ const ThankuCard = (props) => {
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
             <div className="p-3">
               {/* 1.Right click on the Image and select "Save Image As" to save the Image on your device. */}
-              1.
+              1. {" "}
               <span
                 style={{ fontWeight: "bold" }}
                 onClick={() => downloadImg()}
@@ -873,9 +873,9 @@ const ThankuCard = (props) => {
               your pledge message onto your device​
               <br />
               <br />
-              2.Go to your WhatsApp
+              2. Go to your WhatsApp
               <br />
-              3.Select your recipient and insert the Image into your message.
+              3. Select your recipient and insert the Image into your message.
             </div>
           </div>
         ) : shareApp === 3 ? (
@@ -888,7 +888,7 @@ const ThankuCard = (props) => {
             <br />
             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
             <div className="p-3">
-              1.
+              1. {" "}
               <span
                 style={{ fontWeight: "bold" }}
                 onClick={() => downloadImg()}
@@ -897,7 +897,7 @@ const ThankuCard = (props) => {
               </span>{" "}
               your pledge message onto your device.
               <br />
-              2.Upload your pledge message onto your Instagram. (Remember to add
+              2. Upload your pledge message onto your Instagram. (Remember to add
               #ncisribbonchallenge in your caption)​
             </div>
           </div>
@@ -974,9 +974,9 @@ const ThankuCard = (props) => {
               </span>{" "}
               your pledge message onto your device.
               <br />
-              2.Go to your Telegram.
+              2. Go to your Telegram.
               <br />
-              3.Select your recipient and insert the Image into your message.
+              3. Select your recipient and insert the Image into your message.
             </div>
           </div>
         ) : shareApp === 7 ? (
@@ -997,9 +997,9 @@ const ThankuCard = (props) => {
               </span>{" "}
               your pledge message onto your device.
               <br />
-              2.Go to your WeChat
+              2. Go to your WeChat
               <br />
-              3.Select your recipient and insert the Image into your message.​
+              3. Select your recipient and insert the Image into your message.​
             </div>
           </div>
         ) : shareApp === 8 ? (
@@ -1020,9 +1020,9 @@ const ThankuCard = (props) => {
               </span>{" "}
               your pledge message onto your device.
               <br />
-              2.Go to your Line
+              2. Go to your Line
               <br />
-              3.Select your recipient and insert the Image into your message.
+              3. Select your recipient and insert the Image into your message.
             </div>
           </div>
         ) : (
@@ -1056,7 +1056,7 @@ const ThankuCard = (props) => {
             Don’t stop here, you can do more by pledging again!
             <br />
             Alternatively, join us at our health talks to know about cancer
-            prevention. Click here to register now . Together, We Fight Cancer
+            prevention. <a href="https://tinyurl.com/y36vf922" target="_blank">Click here</a> to register now . Together, We Fight Cancer
           </p>
         )}
 
