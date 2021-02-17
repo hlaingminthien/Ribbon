@@ -152,7 +152,7 @@ const PledgeRibbonsForMobile = (props) => {
         </div>
       )}
       {(complete && step == 3 && showThankU) && (
-        <ThankuCard _handleEdit={_handleEdit} recipientName={recipientName} senderName={senderName} message={message} media={media} step={step} setImgUrl={setImgUrl} cancer={cancer} finalImage = {finalImage}    _handlePledge={_handlePledge} downloadImg={downloadImg} setShareApp={setShareApp} setShowThankU={setShowThankU}  shareApp={shareApp} winner={winner} />
+        <ThankuCard _handleEdit={_handleEdit} recipientName={recipientName} senderName={senderName} message={message} media={media} step={step} imgUrl={imgUrl} setImgUrl={setImgUrl} cancer={cancer} finalImage = {finalImage}    _handlePledge={_handlePledge} downloadImg={downloadImg} setShareApp={setShareApp} setShowThankU={setShowThankU}  shareApp={shareApp} winner={winner} />
       )}
     </div>
   );
@@ -509,7 +509,7 @@ const Ribbons = (props) => {
           </div>
         )}
       
-      <div className="p-3 col-8 mx-4" id="cardDivId" style={{ zIndex: -10, position: 'absolute' }}>
+      <div className="p-3 col-8 mx-4 d-none" id="cardDivId" style={{ zIndex: -10, position: 'absolute' }}>
         <img
           src={EmailShareCard}
           alt="EmailShareCard"
