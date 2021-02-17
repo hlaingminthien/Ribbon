@@ -25,3 +25,6 @@ yarn-error.log*
 src/routes/Base_Url.js
 src/routes/Base_Url.js
 src/routes/Base_Url.js
+.eslintcache
+src/routes/Base_Url.js
+src/routes/Base_Url.js
