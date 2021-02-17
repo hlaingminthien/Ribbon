@@ -70,7 +70,7 @@ const PledgeForm = (props) => {
           .then(res => {
             const shareImg = res.data.payload;
 
-            const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px"> 
+            const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px; margin-left: auto; margin-right: auto;"> 
               <div style='position:relative;padding-top: 560px;' align='center'>
                   <a href='${webHostUi}' style='text-decoration:none;font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
                     Pledge A Ribbon
@@ -219,7 +219,7 @@ const PledgeForm = (props) => {
       </form>
       {/* <img width="400" height="500" id="testImg" /> */}
 
-      <div id="cardDivId" className="d-none" style={{
+      <div id="cardDivId" style={{
         zIndex: -10, marginBottom: 80, boxShadow: '0px 0px 8px 0px #a5a5a5', fontSize: "16px", position: 'relative', width: '400px', height: '650px',
         backgroundImage: `url(/static/media/EmailShareCard.1fbbb251.png)`, backgroundSize: '100% 100%'
       }} >

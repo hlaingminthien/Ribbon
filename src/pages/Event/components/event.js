@@ -70,23 +70,13 @@ export const Event = (props) => {
           lineHeight: "26px",
         }}
       >
-        Together, We Fight Cancer<br/>
+        Together, We Fight Cancer!<br/>
         22 Feb - 21 Mar
       </div>
       
             {/* <div style={{ position: "absolute", left: 50, top: 150, color: "white", padding: 20, background: "green", fontSize: "2em"}}>{w } {sSize}</div> */}
             <div className="d-flex px-2" style={{ paddingTop :media.mobile ? 30 : media.tablet ? 50 : 100 }}>            
-                <div className="pt-3 text-left" >
-                    <div className="px-3 " style={{ fontSize: font.tabletHeading2 }}>                        
-                        <b>
-                            <div>Together, We Fight Cancer!</div>
-                        </b>     
-                    </div>                   
-                    <div className="my-4 text-left px-3" style={{ textShadow: "0px 0px 4px #464646", maxWidth: 400 , fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px"}}>
-                    Themed “Together, We Fight Cancer!”, the NCIS Ribbon Challenge 2021 aims to increase cancer awareness, emphasise on the importance of maintaining a healthy lifestyle and going for regular health screenings. Join our cancer specialists as they share with you information on the top cancers that affects men and women in Singapore. <b>Join us in the fight against cancer! </b>
-                        {/* The NCIS Ribbon Challenge was started in 2018 to promote public awareness and education on cancer. Come join us at our event to build your knowledge and awareness about cancer, and what you can do to fight it! */}
-                    </div>
-                </div>
+               
                 <div className="px-3 text-dark" 
                     style={{ position: "absolute", 
                     left: "55%", 
@@ -115,10 +105,9 @@ export const Event = (props) => {
                                         Join our cancer specialists as they share with you information on the cancers that affects men and women and the diet & exercise for cancer prevention.
                                     </div><br/>
                                     <div className="pt-2 px-2" style={{ fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
-                                        <div>English sessions</div>
-                                        <div style={{ color: "#d5d5d5"}}>6 March 2021</div>        
-                                        {/* <div style={{ color: "#d5d5d5"}}>10am - 4pm</div>                      */}
-                                        <div style={{ color: "#d5d5d5"}}>10am -11.30am</div>   
+                                        <div>English session</div>
+                                        {/* <div style={{ color: "#d5d5d5"}}>6 March 2021</div>        
+                                        <div style={{ color: "#d5d5d5"}}>10am -11.30am</div>    */}
                                     </div>
                                     <div className="mt-3 pt-2 " style={{ border:"1px solid #ffffff55",borderRadius: 10 }}>
                                     <div className="d-flex pb-2" style={{borderBottom:"1px solid #ffffff55", fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px"}}>
@@ -191,9 +180,8 @@ export const Event = (props) => {
                             </div>
                                 <div className="pt-3 w-50 px-2" style={{ fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}>
                                     <div>华语讲座</div>
-                                    <div style={{ color: "#e5e5e5 "}}>三月六日, 星期六</div> 
-                                    {/* <div style={{ color: "#e5e5e5 "}}>下午2点至3点</div> */}
-                                    <div style={{ color: "#e5e5e5 "}}>下午2点至3点30分</div>
+                                    {/* <div style={{ color: "#e5e5e5 "}}>三月六日, 星期六</div> 
+                                    <div style={{ color: "#e5e5e5 "}}>下午2点至3点30分</div> */}
                                 </div><br/>
                                 <div className="mt-3 pt-2 " style={{border:"1px solid #ffffff55",borderRadius: 10}}>
                         <div className="d-flex px-2" style={{fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px"}}>
@@ -269,15 +257,7 @@ export const Event = (props) => {
                                 />
                             </a>
                             </div>  
-                            <div className='pt-4' style={{ fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}
-                            onClick={()=>{
-                                var win = window.open("https://www.ncis.com.sg/events/Pages/NCIS-Ribbon-Challenge.aspx","_blank");
-                                win.focus();
-                              }}
-                            >
-                                For more information about this event, please click <a className="text-info" href="" target="_blank">here. </a>
-                            {/* <hyperlink to https://www.ncis.com.sg/events/Pages/NCIS-Ribbon-Challenge.aspx> */}
-                            </div>  
+                        
                             </div>   
                                              
                         </div>   
@@ -332,7 +312,16 @@ export const Event = (props) => {
                                     /></a>
                                 </div>                                
                             </div>                            
-                        </div>                       
+                        </div>   
+                        <div className='pt-4' style={{ fontSize : media.desktop ? font.desktopBody : media.mobile ? font.mobileBody : font.tabletBody, lineHeight: media.mobile ? "22px" : "26px" }}
+                            onClick={()=>{
+                                var win = window.open("https://www.ncis.com.sg/events/Pages/NCIS-Ribbon-Challenge.aspx","_blank");
+                                win.focus();
+                              }}
+                            >
+                                For more information about this event, please click <a className="text-info" href="" target="_blank">here. </a>
+                            {/* <hyperlink to https://www.ncis.com.sg/events/Pages/NCIS-Ribbon-Challenge.aspx> */}
+                        </div>                      
                                                                                            
                     </div>                                        
                 </div>                                                                            
