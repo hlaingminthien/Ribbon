@@ -87,10 +87,10 @@ export const Home = (props) => {
       .clientWidth;
 
   return (
-    <div className="m-0" style={{ overflowX: "hidden" }}>
+    <div className="m-0 pt-xl-5 pt-lg-5 pt-md-2" style={{ overflowX: "hidden" }}>
       {(media.desktop || media.tablet) && (
         <div
-          className="row m-0 pt-0 justify-content-between image-fluid"
+          className="row m-0 justify-content-between image-fluid"
           style={{
             backgroundImage: `url(${
               media.tablet ? BackgroundTablet : Background
@@ -99,6 +99,7 @@ export const Home = (props) => {
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
             minHeight: "100vh",
+            width:'100%'
           }}
         >
           <HomeTitle media={media} _handlePledge={_handlePledge} />
@@ -172,7 +173,7 @@ export const Home = (props) => {
           {media.tablet ? (
             <div className="col-12 p-0 img-fluid">
               <div className="d-flex flex-row">
-                <div className="w-100" style={{ marginTop: 150 }}>
+                <div className="img-fluid " style={{ marginTop: 150 }}>
                   {/* <div className={`d-flex justify-content-center ${(window.innerWidth > 700 && window.innerWidth < 1001) ? "move-me move-me-6" : "move-me move-me-7"} `} style={{
                     marginLeft: (window.innerWidth > 700 && window.innerWidth < 1000) ? 270 : 310, marginTop: 0
                   }} >
@@ -188,7 +189,11 @@ export const Home = (props) => {
                         .imgaeUrl
                     }
                     className="img-fluid"
-                    style={{}}
+                    style={{
+                      width: window.innerWidth > 890 && "99%",
+                      // height:  window.innerWidth > 890 ? "100%" : "50%" ,
+                      marginTop: window.innerWidth > 890 ? 40 : 80,
+                    }}
                   />
                 </div>
               </div>
@@ -212,9 +217,10 @@ export const Home = (props) => {
                 src={SelectedRibbons.SelectedRibbons[shareCount].imgaeUrl}
                 className="img-fluid"
                 style={{
-                  width: window.innerWidth > 1590 && "120%",
+                  width: window.innerWidth > 1390 && "99%",
+                  height:  window.innerWidth > 1390 ? "98%" : "100%",
                   zIndex: 0,
-                  position: "relative",
+                  position: "relative",marginTop: window.innerWidth > 1390 ? -40 : window.innerWidth < 1300 ?  30 : -25
                 }}
               />
             </div>
@@ -246,8 +252,8 @@ export const Home = (props) => {
           className="row m-0 pt-0 justify-content-between image-fluid"
           style={{
             backgroundImage: `url(${BackgroundMobile})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
+            // backgroundSize: "cover",
+            // backgroundRepeat: "no-repeat",
           }}
         >
           <div
@@ -500,7 +506,7 @@ const Highlights = (props) => {
   const { media, _handleRoute } = props;
   return (
     <div
-      style={{ paddingTop: "90px", paddingLeft: "7.5rem" }}
+      style={{ paddingTop: media.tablet ? -60 : "80px", paddingLeft: "5rem" }}
       className="text-light w-50"
     >
       <div
