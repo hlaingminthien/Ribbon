@@ -310,8 +310,8 @@ const PledgeCardForTablet = (props) => {
             style={{
               fontSize:
                 window.innerWidth > 780 && media.tablet
-                  ? font.tabletBody
-                  : font.tabletBody,
+                  ? '12px'
+                  : '12px',
               fontWeight: "bold",
             }}
           >
@@ -324,8 +324,8 @@ const PledgeCardForTablet = (props) => {
               fontWeight: 500,
               fontSize:
                 window.innerWidth > 780 && media.tablet
-                  ? font.tabletBody
-                  : font.tabletBody,
+                  ? '10px'
+                  : '10px',
             }}
           >
             {message}
@@ -337,8 +337,8 @@ const PledgeCardForTablet = (props) => {
               fontWeight: 600,
               fontSize:
                 window.innerWidth > 780 && media.tablet
-                  ? font.tabletBody
-                  : font.tabletBody,
+                  ? '12px'
+                  : '12px',
             }}
           >
             {senderName ? "Love," : null} {senderName}
@@ -714,98 +714,98 @@ const Ribbon = (props) => {
           </div>
         )}
       </div>
-
-      <div className="p-3 col-8 mx-4 d-none" id="cardDivId" style={{ zIndex: -10, position: 'absolute' }}>
-        <img
-          src={EmailShareCard}
-          alt="EmailShareCard"
-          style={{ width: 280 }}
-        />
-        <div
-          style={{
-            marginTop: -300,
-            color: "white",
-            paddingTop: 10,
-            paddingLeft: 20,
-            paddingRight: 20,
-            width: 280,
-          }}
-        >
-          <div style={{ fontSize: 13, marginTop: 10 }}>{senderName}</div>
-          <div style={{ fontSize: 13, marginTop: 10 }}>{message}</div>
-          <div style={{ fontSize: 13, marginTop: 10 }}>
-            Love, {recipientName}
-          </div>
-        </div>
-        <>
+      <div style={{ maxHeight: '10px', overflow: 'hidden' }}>
+        <div className="p-3 col-8 mx-4" id="cardDivId" style={{ zIndex: -10, position: 'absolute' }}>
           <img
-            src={imgUrl ? imgUrl : "./mysteryBall.png"}
-            alt="selected-ribbons"
-            style={{
-              width: 80,
-              height: 80,
-              right: 20,
-              bottom: -45,
-              position: "absolute",
-            }}
+            src={EmailShareCard}
+            alt="EmailShareCard"
+            style={{ width: 280 }}
           />
-          <svg
-            viewBox="-12 2 115 56"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
             style={{
-              zIndex: 100,
-              position: "absolute",
-              right: 30,
-              bottom: -17,
-              width: 76,
-              height: 60,
+              marginTop: -300,
+              color: "white",
+              paddingTop: 10,
+              paddingLeft: 20,
+              paddingRight: 20,
+              width: 280,
             }}
           >
-            <path
-              id="curve-path"
-              fill="none"
-              stroke="red"
-              strokeWidth={0}
-              d2="M0,58 Q50,-20 100,58"
-              d1={`M 0,120 A 32,32 0 1, 0 54,0 A 32,32 0 1, 0 -54,0`}
-              // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
-              // d="M2,62 Q50,-38 104,62"
-              // d="M 100 0 A 1 1 0 0 0 -100 0"
-              // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
-              d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
+            <div style={{ fontSize: 13, marginTop: 10 }}>{senderName}</div>
+            <div style={{ fontSize: 13, marginTop: 10 }}>{message}</div>
+            <div style={{ fontSize: 13, marginTop: 10 }}>
+              Love, {recipientName}
+            </div>
+          </div>
+          <>
+            <img
+              src={imgUrl ? imgUrl : "./mysteryBall.png"}
+              alt="selected-ribbons"
+              style={{
+                width: 80,
+                height: 80,
+                right: 20,
+                bottom: -45,
+                position: "absolute",
+              }}
             />
-            <text fontSize={10} fontWeight={600} fill="white">
-              <textPath
-                href="#curve-path"
-                startOffset={
-                  50 - (cancer ? cancer.length : 18) - 14 * 2 + "%"
-                }
-              >
-                {cancer + " Cancer"}
-              </textPath>
-            </text>
-          </svg>{" "}
-        </>
-        <button
-          onClick={() => window.location.reload()}
-          style={{
-            border: 1,
-            borderColor: "#fd784f",
-            borderRadius: 50,
-            background: "#fd784f",
-            color: "white",
-            fontSize: 12,
-            padding: 5,
-            position: "absolute",
-            bottom: -133,
-            right: 100,
-            cursor: "pointer",
-          }}
-        >
-          Pledge A Ribbon
+            <svg
+              viewBox="-12 2 115 56"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{
+                zIndex: 100,
+                position: "absolute",
+                right: 30,
+                bottom: -17,
+                width: 76,
+                height: 60,
+              }}
+            >
+              <path
+                id="curve-path"
+                fill="none"
+                stroke="red"
+                strokeWidth={0}
+                d2="M0,58 Q50,-20 100,58"
+                d1={`M 0,120 A 32,32 0 1, 0 54,0 A 32,32 0 1, 0 -54,0`}
+                // d="M0,68 C0,68 10,34 30,30 50,20 70,30, 90,34, 99,68 Z"
+                // d="M2,62 Q50,-38 104,62"
+                // d="M 100 0 A 1 1 0 0 0 -100 0"
+                // d="M100 50C100 77.6142 77.6142 58 50 58C22.3858 58 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50"
+                d="M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344"
+              />
+              <text fontSize={10} fontWeight={600} fill="white">
+                <textPath
+                  href="#curve-path"
+                  startOffset={
+                    50 - (cancer ? cancer.length : 18) - 14 * 2 + "%"
+                  }
+                >
+                  {cancer + " Cancer"}
+                </textPath>
+              </text>
+            </svg>{" "}
+          </>
+          <button
+            onClick={() => window.location.reload()}
+            style={{
+              border: 1,
+              borderColor: "#fd784f",
+              borderRadius: 50,
+              background: "#fd784f",
+              color: "white",
+              fontSize: 12,
+              padding: 5,
+              position: "absolute",
+              bottom: -133,
+              right: 100,
+              cursor: "pointer",
+            }}
+          >
+            Pledge A Ribbon
             </button>
+        </div>
       </div>
-
 
     </>
   );
@@ -880,7 +880,7 @@ const ThankuCard = (props) => {
                 }}
               >
                 <div style={{ fontSize: 13, marginTop: 10 }}>{senderName}</div>
-                <div style={{ fontSize: 13, marginTop: 10 }}>{message}</div>
+                <div style={{ fontSize: 5, marginTop: 10 }}>{message}</div>
                 <div style={{ fontSize: 13, marginTop: 10 }}>
                   Love, {recipientName}
                 </div>

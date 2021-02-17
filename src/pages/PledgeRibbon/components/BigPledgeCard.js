@@ -42,8 +42,8 @@ export const BigPledgeCard = (props) => {
   const { recipientName, senderName, message, media, step, imgUrl, cancer, finalImage } = props;
 
   return (
-    <div style={{ position: 'absolute', left: '1000%' }}>
-      <div className=" d-flex justify-content-center text-white shadow " id="my-big-node" style={{ background: 'transparent', border: '1px solid #fff' }}>
+    <div id="big-card-wrapper" style={{ position: 'absolute', top: '1000%', display: 'none' }}>
+      <div className=" d-flex justify-content-center text-white shadow " id="my-big-node" style={{ background: 'transparent', border: '1px soldi #fff' }}>
         {finalImage ?
           <img
             className="img-responsive"
@@ -73,7 +73,7 @@ export const BigPledgeCard = (props) => {
               <br></br>
               <span
                 className="text-white pt-2"
-                style={{ fontWeight: 500, fontSize: 25.68, }}
+                style={{ fontWeight: 500, fontSize: 22.68, lineHeight: 1.5 }}
               >
                 {message}
                 {/* {message ? "!" : null} */}
@@ -137,6 +137,6 @@ export const BigPledgeCard = (props) => {
           </div>
         }
       </div>
-    </div>
+    </div >
   );
 };

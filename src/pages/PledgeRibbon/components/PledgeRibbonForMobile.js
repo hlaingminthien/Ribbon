@@ -268,7 +268,7 @@ const Ribbons = (props) => {
                       fontSize: font.mobileBody,
                       position: "absolute",
                       width: 100,
-                      lineHeight:'22px'
+                      lineHeight:1
                     }}
                   >
                     {v.name}
@@ -509,7 +509,8 @@ const Ribbons = (props) => {
           </div>
         )}
       
-      <div className="p-3 col-8 mx-4 d-none" id="cardDivId" style={{ zIndex: -10, position: 'absolute' }}>
+      <div style={{ maxHeight: '10px', overflow: 'hidden' }}>
+      <div className="p-3 col-8 mx-4" id="cardDivId" style={{ zIndex: -10, position: 'absolute' }}>
         <img
           src={EmailShareCard}
           alt="EmailShareCard"
@@ -599,7 +600,7 @@ const Ribbons = (props) => {
           Pledge A Ribbon
             </button>
       </div>
-
+      </div>
     </div>
 
   );

@@ -218,35 +218,35 @@ const PledgeForm = (props) => {
         )}
       </form>
       {/* <img width="400" height="500" id="testImg" /> */}
-
-      <div id="cardDivId" className="d-none" style={{
-        zIndex: -10, marginBottom: 80, boxShadow: '0px 0px 8px 0px #a5a5a5', fontSize: "16px", position: 'relative', width: '400px', height: '650px',
-        backgroundImage: `url(/static/media/EmailShareCard.1fbbb251.png)`, backgroundSize: '100% 100%'
-      }} >
-        <div style={{ position: "absolute", top: "27%", left: "60px", right: "40px", textAlign: "start", color: "white" }}>
-          <div style={{ paddingBottom: "16px" }}>Dear {recipientName},</div>
-          <div style={{ paddingBottom: "16px" }}>{message}</div>
-          <div>Love {senderName}</div>
-        </div>
-        <img
-          src={`/assets/images/ribbons/${ribbonName}`}
-          alt='selected-ribbons'
-          style={{ position: "absolute", width: "130px", height: "130px", right: "20px", top: "47%" }}
-        />
-        <svg viewBox='-9 10 115 56' xmlns='http://www.w3.org/2000/svg' style={{ position: "absolute", width: "120px", height: "120px", right: "34px", top: "45%", transform: "rotate(0deg)" }} >
-          <path id='curve-path'
-            fill='none' stroke='red' stroke-width='0'
-            d='M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344'
+      <div style={{ maxHeight: '10px', overflow: 'hidden' }}>
+        <div id="cardDivId" style={{
+          zIndex: -10, marginBottom: 80, boxShadow: '0px 0px 8px 0px #a5a5a5', fontSize: "16px", position: 'relative', width: '400px', height: '650px',
+          backgroundImage: `url(/static/media/EmailShareCard.1fbbb251.png)`, backgroundSize: '100% 100%'
+        }} >
+          <div style={{ position: "absolute", top: "27%", left: "60px", right: "40px", textAlign: "start", color: "white" }}>
+            <div style={{ paddingBottom: "16px" }}>Dear {recipientName},</div>
+            <div style={{ paddingBottom: "16px" }}>{message}</div>
+            <div>Love {senderName}</div>
+          </div>
+          <img
+            src={`/assets/images/ribbons/${ribbonName}`}
+            alt='selected-ribbons'
+            style={{ position: "absolute", width: "130px", height: "130px", right: "20px", top: "47%" }}
           />
-          <text font-size='10' font-weight='600' fill='white'>
-            <textPath href='#curve-path' startOffset='30'>
-              {cancerName} Cancer
+          <svg viewBox='-9 10 115 56' xmlns='http://www.w3.org/2000/svg' style={{ position: "absolute", width: "120px", height: "120px", right: "34px", top: "45%", transform: "rotate(0deg)" }} >
+            <path id='curve-path'
+              fill='none' stroke='red' stroke-width='0'
+              d='M5.47387 48.2344C10.5 -16 107 -10.5 108.474 48.2344'
+            />
+            <text font-size='10' font-weight='600' fill='white'>
+              <textPath href='#curve-path' startOffset='30'>
+                {cancerName} Cancer
                 </textPath>
-          </text>
-        </svg>
+            </text>
+          </svg>
 
+        </div>
       </div>
-
       {/* <div className="p-3 col-8 mx-4" id="cardDivId1">
     <img
           src={EmailShareCard}
@@ -561,14 +561,14 @@ export const ThankYouCard = (props) => {
                   <div className='px-2 py-1'>
                     {/* 1. Right click on the Image and select "Save Image As" to save the Image on your device. */}
                     1. {" "}Click{" "}
-                  <span
-                    style={{ fontWeight: "bold", cursor: "pointer" }}
-                    onClick={() => downloadImg()}
-                  >
-                    HERE
+                    <span
+                      style={{ fontWeight: "bold", cursor: "pointer" }}
+                      onClick={() => downloadImg()}
+                    >
+                      HERE
                   </span>{" "}
                   to download your pledge message onto your device<br />
-                
+
                 2. Go to your WhatsApp
                 <br />
                 3. Select your recipient and insert the Image into your message.
@@ -580,12 +580,12 @@ export const ThankYouCard = (props) => {
                     Share the message on your Instagram  to spread the word to more people!<br />
                     <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                     <div className='px-2 py-1'>
-                    1. {" "}Click{" "}
-                  <span
-                    style={{ fontWeight: "bold", cursor: "pointer" }}
-                    onClick={() => downloadImg()}
-                  >
-                    HERE
+                      1. {" "}Click{" "}
+                      <span
+                        style={{ fontWeight: "bold", cursor: "pointer" }}
+                        onClick={() => downloadImg()}
+                      >
+                        HERE
                   </span>{" "}
                   to download your pledge message onto your device<br />
                 2. Upload your pledge message onto your Instagram. (Remember to add #ncisribbonchallenge in your caption)
@@ -597,12 +597,12 @@ export const ThankYouCard = (props) => {
                       Share the message on your LinkedIn  to spread the word to more people!<br />
                       <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                       <div className='px-2 py-1'>
-                      1. {" "}Click{" "}
-                  <span
-                    style={{ fontWeight: "bold", cursor: "pointer" }}
-                    onClick={() => downloadImg()}
-                  >
-                    HERE
+                        1. {" "}Click{" "}
+                        <span
+                          style={{ fontWeight: "bold", cursor: "pointer" }}
+                          onClick={() => downloadImg()}
+                        >
+                          HERE
                   </span>{" "}
                   to download your pledge message onto your device<br />
               2. Click "Start a Post" on Linkedin.
@@ -628,12 +628,12 @@ export const ThankYouCard = (props) => {
                         Share the message on your Telegram  to spread the word to more people!<br />
                         <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                         <div className='px-2 py-1'>
-                        1. {" "}Click{" "}
-                  <span
-                    style={{ fontWeight: "bold", cursor: "pointer" }}
-                    onClick={() => downloadImg()}
-                  >
-                    HERE
+                          1. {" "}Click{" "}
+                          <span
+                            style={{ fontWeight: "bold", cursor: "pointer" }}
+                            onClick={() => downloadImg()}
+                          >
+                            HERE
                   </span>{" "}
                   to download your pledge message onto your device<br />
                       2. Go to your Telegram.
@@ -647,12 +647,12 @@ export const ThankYouCard = (props) => {
                           Share the message on your weChat  to spread the word to more people!<br />
                           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                           <div className='px-2 py-1'>
-                          1. {" "}Click{" "}
-                  <span
-                    style={{ fontWeight: "bold", cursor: "pointer" }}
-                    onClick={() => downloadImg()}
-                  >
-                    HERE
+                            1. {" "}Click{" "}
+                            <span
+                              style={{ fontWeight: "bold", cursor: "pointer" }}
+                              onClick={() => downloadImg()}
+                            >
+                              HERE
                   </span>{" "}
                   to download your pledge message onto your device<br />
             2. Go to your WeChat
@@ -666,12 +666,12 @@ export const ThankYouCard = (props) => {
                             Share the message on your Line to spread the word to more people!<br />
                             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                             <div className='px-2 py-1'>
-                            1. {" "}Click{" "}
-                  <span
-                    style={{ fontWeight: "bold", cursor: "pointer" }}
-                    onClick={() => downloadImg()}
-                  >
-                    HERE
+                              1. {" "}Click{" "}
+                              <span
+                                style={{ fontWeight: "bold", cursor: "pointer" }}
+                                onClick={() => downloadImg()}
+                              >
+                                HERE
                   </span>{" "}
                   to download your pledge message onto your device<br />
             2. Go to your Line
@@ -703,13 +703,13 @@ export const ThankYouCard = (props) => {
             <p className="p-3" style={{ fontSize: Font.desktopBody, lineHeight: '24px' }}>
               Don’t stop here, you can do more by pledging again!
               <br />
-              Alternatively, join us at our health talks to know about cancer prevention. Click 
+              Alternatively, join us at our health talks to know about cancer prevention. Click
               {" "}
               <a
-                    style={{ fontWeight: "bold", cursor: "pointer", textDecoration: 'none', color: "#000000" }}
-                    href="https://tinyurl.com/y36vf922" target="_blank"
-                  >
-                    HERE
+                style={{ fontWeight: "bold", cursor: "pointer", textDecoration: 'none', color: "#000000" }}
+                href="https://tinyurl.com/y36vf922" target="_blank"
+              >
+                HERE
                   </a>{" "} to register now .
 
               Together, We Fight Cancer
