@@ -153,6 +153,7 @@ const PledgeContainer = (props) => {
   //   }
   // }
   const downloadImg = () => {
+    console.log("aaya");
     const myNode = document.getElementById('my-big-node')
 
     domtoimage.toPng(myNode).then(base64data => {
@@ -244,8 +245,8 @@ const PledgeContainer = (props) => {
                       message={message}
                       media={media}
                       step={step}
-                      _handleImage={_handleImage}
                       imgUrl={imgUrl}
+                      _handleImage={_handleImage}
                       cancer={cancerName}
                       finalImage={finalImage}
                     />
@@ -342,6 +343,8 @@ const PledgeContainer = (props) => {
                     setShowThankU={setShowThankU}
                     showThankU={showThankU}
                     downloadImg={downloadImg}
+                    cancer={cancerName}
+                    finalImage={finalImage}
                   />
                 </div>
                 :
@@ -383,6 +386,8 @@ const PledgeContainer = (props) => {
                         setShowThankU={setShowThankU}
                         showThankU={showThankU}
                         downloadImg={downloadImg}
+                        cancer={cancerName}
+                        finalImage={finalImage}
                       />
                     </div>
                   </div>
