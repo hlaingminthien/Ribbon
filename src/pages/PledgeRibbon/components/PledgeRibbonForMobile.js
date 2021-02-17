@@ -391,7 +391,7 @@ const Ribbons = (props) => {
                   </span>
                 </div>
                 {imgUrl && (
-          <div className="d-flex justify-content-end align-items-start" style={{ position: "absolute", right: 10, bottom: -50 }}>
+                  <div className="d-flex justify-content-end align-items-start" style={{ position: "absolute", right: 10, bottom: -50 }}>
 
             
             {imgUrl ? <>
@@ -434,7 +434,7 @@ const Ribbons = (props) => {
                 </textPath>
               </text>
             </svg>
-          </>
+             </>
             }
           </div>
         )}
