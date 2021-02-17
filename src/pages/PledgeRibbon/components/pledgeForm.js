@@ -70,7 +70,7 @@ const PledgeForm = (props) => {
           .then(res => {
             const shareImg = res.data.payload;
 
-            const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px"> 
+            const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px; margin-left: auto; margin-right: auto;"> 
               <div style='position:relative;padding-top: 560px;' align='center'>
                   <a href='${webHostUi}' style='text-decoration:none;font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
                     Pledge A Ribbon
@@ -219,7 +219,7 @@ const PledgeForm = (props) => {
       </form>
       {/* <img width="400" height="500" id="testImg" /> */}
 
-      <div id="cardDivId" className="d-none" style={{
+      <div id="cardDivId" style={{
         zIndex: -10, marginBottom: 80, boxShadow: '0px 0px 8px 0px #a5a5a5', fontSize: "16px", position: 'relative', width: '400px', height: '650px',
         backgroundImage: `url(/static/media/EmailShareCard.1fbbb251.png)`, backgroundSize: '100% 100%'
       }} >
@@ -543,7 +543,7 @@ export const ThankYouCard = (props) => {
                 <div className='px-2 py-1'>
                   1. {" "}
                   <span
-                    style={{ fontWeight: "bold" }}
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
                     onClick={() => downloadImg()}
                   >
                     Download
@@ -559,8 +559,16 @@ export const ThankYouCard = (props) => {
                   Share the message on your WhatsApp  to spread the word to more people!<br />
                   <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                   <div className='px-2 py-1'>
-                    1. Right click on the Image and select "Save Image As" to save the Image on your device.
-                <br />
+                    {/* 1. Right click on the Image and select "Save Image As" to save the Image on your device. */}
+                    1. {" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    Download
+                  </span>{" "}
+                   your pledge message onto your device​<br />
+                
                 2. Go to your WhatsApp
                 <br />
                 3. Select your recipient and insert the Image into your message.
@@ -572,8 +580,14 @@ export const ThankYouCard = (props) => {
                     Share the message on your Instagram  to spread the word to more people!<br />
                     <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                     <div className='px-2 py-1'>
-                      1. Download your pledge message onto your device.
-                <br />
+                    1. {" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    Download
+                  </span>{" "}
+                   your pledge message onto your device​<br />
                 2. Upload your pledge message onto your Instagram. (Remember to add #ncisribbonchallenge in your caption)
               </div>
 
@@ -583,8 +597,14 @@ export const ThankYouCard = (props) => {
                       Share the message on your LinkedIn  to spread the word to more people!<br />
                       <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                       <div className='px-2 py-1'>
-                        1. Download your pledge message onto your device.
-              <br />
+                      1. {" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    Download
+                  </span>{" "}
+                   your pledge message onto your device​<br />
               2. Click "Start a Post" on Linkedin.
               <br />
               3. Upload your pledge message onto your Linkedin (Remember to add #ncisribbonchallenge in your caption)
@@ -608,12 +628,18 @@ export const ThankYouCard = (props) => {
                         Share the message on your Telegram  to spread the word to more people!<br />
                         <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                         <div className='px-2 py-1'>
-                          1. Right click on the Image and select "Save Image As" to save the Image on your device.
-            <br />
-            2. Go to your Telegram.
-            <br />
-            3. Select your recipient and insert the Image into your message.
-          </div>
+                        1. {" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    Download
+                  </span>{" "}
+                   your pledge message onto your device​<br />
+                      2. Go to your Telegram.
+                      <br />
+                      3. Select your recipient and insert the Image into your message.
+                    </div>
 
                       </div> :
                       shareApp === 7 ?
@@ -621,8 +647,14 @@ export const ThankYouCard = (props) => {
                           Share the message on your weChat  to spread the word to more people!<br />
                           <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                           <div className='px-2 py-1'>
-                            1. Right click on the Image and select "Save Image As" to save the Image on your device.
-            <br />
+                          1. {" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    Download
+                  </span>{" "}
+                   your pledge message onto your device​<br />
             2. Go to your WeChat
             <br />
             3. Select your recipient and insert the Image into your message.
@@ -634,8 +666,14 @@ export const ThankYouCard = (props) => {
                             Share the message on your Line to spread the word to more people!<br />
                             <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                             <div className='px-2 py-1'>
-                              1. Right click on the Image and select "Save Image As" to save the Image on your device.
-            <br />
+                            1. {" "}
+                  <span
+                    style={{ fontWeight: "bold", cursor: "pointer" }}
+                    onClick={() => downloadImg()}
+                  >
+                    Download
+                  </span>{" "}
+                   your pledge message onto your device​<br />
             2. Go to your Line
             <br />
             3. Select your recipient and insert the Image into your message.
