@@ -339,6 +339,7 @@ const PledgeContainer = (props) => {
                     warning={warning}
                     setShowThankU={setShowThankU}
                     showThankU={showThankU}
+                    downloadImg={downloadImg}
                   />
                 </div>
               </div>
