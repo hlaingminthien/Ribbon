@@ -22,7 +22,7 @@ import {SocialShare} from "./socialShareIcons";
 import font from "../../../app/config/font";
 import EmailShareCard from "../../../assets/images/EmailShareCard.png";
 import axios from 'axios';
-import domtoimage from 'dom-to-image-more';
+import domtoimage from 'dom-to-image';
 
 const PledgeRibbonsForMobile = (props) => {
   const {
@@ -65,7 +65,7 @@ const PledgeRibbonsForMobile = (props) => {
             const shareImg = res.data.payload;
             const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px"> 
             <div style='position:relative;padding-top: 560px;' align='center'>
-                <a href='${webHostUi}' style='text-decoration:none;font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
+                <a href='${webHostUi}' style='text-decoration:none;fontSize:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
                   Pledge A Ribbon
                 </a>
               </div>       

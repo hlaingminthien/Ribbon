@@ -22,7 +22,7 @@ import { withRouter } from "react-router-dom";
 import { PledgeProgress } from "../components/pledgeProgressBar";
 import { SocialShare } from "./socialShareIcons";
 import font from "../../../app/config/font";
-import { Base_Url, webHost,webHostUi } from "../../../routes/Base_Url";
+import { Base_Url, webHost, webHostUi } from "../../../routes/Base_Url";
 import EmailShareCard from "../../../assets/images/EmailShareCard.png";
 import axios from 'axios';
 
@@ -64,50 +64,50 @@ const PledgeRibbonsForTablet = (props) => {
   //   setImgUrl(img);
   // };
   const handleShareApp = (app) => {
-    if(app===5) {
+    if (app === 5) {
       setShareApp(app)
       _handleShare();
 
       var receiveEmail = prompt("Please enter email to share", "");
 
       if (receiveEmail != null && receiveEmail != "") {
-        
+
         const url = `${Base_Url}uploadImage`;
         const myNode = document.getElementById('cardDivId')
-        domtoimage.toPng(myNode).then(base64data=>{
+        domtoimage.toPng(myNode).then(base64data => {
           axios.post(url, { ribbon: base64data })
-          .then(res => {
-            const shareImg = res.data.payload;
-            const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px"> 
+            .then(res => {
+              const shareImg = res.data.payload;
+              const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px"> 
             <div style='position:relative;padding-top: 560px;' align='center'>
-                <a href='${webHostUi}' style='text-decoration:none;font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
+                <a href='${webHostUi}' style='text-decoration:none;fontSize:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
                   Pledge A Ribbon
                 </a>
               </div>       
             </div>`
 
-            const bodyData = {
-              receiveEmail: receiveEmail, 
-              subjectText: "National University Cancer Institute Singapore",
-              contentHtml: contentHtml1.replace(/\s+/g, ' ').trim()
-            }
-            fetch(Base_Url+"share-email", {
-              method: "post",
-              headers: {
-                "Accept": "application/json",
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(bodyData)
-            })
-            .then(res => res.json())
-            .then(d => console.log("data: ", d))
-            .catch(error => console.error(error))
+              const bodyData = {
+                receiveEmail: receiveEmail,
+                subjectText: "National University Cancer Institute Singapore",
+                contentHtml: contentHtml1.replace(/\s+/g, ' ').trim()
+              }
+              fetch(Base_Url + "share-email", {
+                method: "post",
+                headers: {
+                  "Accept": "application/json",
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(bodyData)
+              })
+                .then(res => res.json())
+                .then(d => console.log("data: ", d))
+                .catch(error => console.error(error))
 
-          })
+            })
         })
-    } else {
-      alert("Cancelled sharing!")
-    }
+      } else {
+        alert("Cancelled sharing!")
+      }
 
     } else {
       setShareApp(app)
@@ -117,9 +117,8 @@ const PledgeRibbonsForTablet = (props) => {
   return (
     <div className="pt-3 px-1 container justify-content-center">
       <div
-        className={`d-flex ${
-          window.innerWidth > 800 ? "col-8" : "col-10"
-        } container justify-content-center justify-content-between`}
+        className={`d-flex ${window.innerWidth > 800 ? "col-8" : "col-10"
+          } container justify-content-center justify-content-between`}
       >
         <div
           className="px-0 mx-0"
@@ -194,7 +193,7 @@ const PledgeRibbonsForTablet = (props) => {
         </div>
       </div>
 
-      <div className={` ${window.innerWidth > 1000 && "px-2"} `} style={{paddingBottom: 52}}>
+      <div className={` ${window.innerWidth > 1000 && "px-2"} `} style={{ paddingBottom: 52 }}>
         <Ribbon
           {...props}
           setImgUrl={setImgUrl}
@@ -265,9 +264,8 @@ const PledgeCardForTablet = (props) => {
   } = props;
   return (
     <div
-      className={` d-flex pb-1 ${
-        window.innerWidth > 780 && media.tablet && "pt-5"
-      } justify-content-center text-white`}
+      className={` d-flex pb-1 ${window.innerWidth > 780 && media.tablet && "pt-5"
+        } justify-content-center text-white`}
       id="my-node"
     >
       <img
@@ -281,9 +279,8 @@ const PledgeCardForTablet = (props) => {
       />
 
       <div
-        className={`d-flex flex-column ${
-          window.innerWidth > 780 ? "pt-5" : "pt-4"
-        } px-4 justify-content-start text-left`}
+        className={`d-flex flex-column ${window.innerWidth > 780 ? "pt-5" : "pt-4"
+          } px-4 justify-content-start text-left`}
         style={{
           position: "absolute",
           width: window.innerWidth > 780 && media.tablet ? 320 : 275,
@@ -391,42 +388,42 @@ const PledgeCardForTablet = (props) => {
                 </svg>{" "}
               </>
             ) : (
-              <>
-                <img
-                  src={imgUrl}
-                  alt="selected-ribbons"
-                  style={{ width: 85, height: 85 }}
-                />
-                <svg
-                  viewBox="0 0 100 100"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{
-                    position: "absolute",
-                    left: 0,
-                    top: -8,
-                    width: 85,
-                    height: 85,
-                  }}
-                >
-                  <path
-                    id="curve-path"
-                    fill="none"
-                    stroke="red"
-                    strokeWidth={0}
-                    d="M0,48 Q50,-20 100,48"
+                <>
+                  <img
+                    src={imgUrl}
+                    alt="selected-ribbons"
+                    style={{ width: 85, height: 85 }}
                   />
+                  <svg
+                    viewBox="0 0 100 100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      top: -8,
+                      width: 85,
+                      height: 85,
+                    }}
+                  >
+                    <path
+                      id="curve-path"
+                      fill="none"
+                      stroke="red"
+                      strokeWidth={0}
+                      d="M0,48 Q50,-20 100,48"
+                    />
 
-                  <text fontSize={10} fontWeight={600} fill="white">
-                    <textPath
-                      href="#curve-path"
-                      startOffset={50 - cancer.length - 10 * 2 + "%"}
-                    >
-                      Select Your Ribbon
+                    <text fontSize={10} fontWeight={600} fill="white">
+                      <textPath
+                        href="#curve-path"
+                        startOffset={50 - cancer.length - 10 * 2 + "%"}
+                      >
+                        Select Your Ribbon
                     </textPath>
-                  </text>
-                </svg>
-              </>
-            )}
+                    </text>
+                  </svg>
+                </>
+              )}
           </div>
         )}
         {/* {
@@ -535,15 +532,15 @@ const Ribbon = (props) => {
               <div
                 className="col-3 "
                 style={{ cursor: "pointer", maxWidth: 180 }}
-                // onClick={() => setImgUrl(v.imgaeUrl)}
+              // onClick={() => setImgUrl(v.imgaeUrl)}
               >
                 <div
                   className="d-flex flex-row flex-wrap flex-lg-wrap flex-sm-wrap flex-md-wrap justify-content-center text-center  pb-3 pt-2"
                   id={k}
                   style={{ borderRadius: "10px", minHeight: 73 }}
                   onClick={(e) => _handleClick(e, v.name, k, v.imgaeUrl)}
-                  // onMouseOver={(e) => _handleHover(e, v.name, k)}
-                  // onMouseLeave={(e) => _handleLeave(e, v.name)}
+                // onMouseOver={(e) => _handleHover(e, v.name, k)}
+                // onMouseLeave={(e) => _handleLeave(e, v.name)}
                 >
                   <img
                     src={v.imgaeUrl}
@@ -579,8 +576,8 @@ const Ribbon = (props) => {
                       background: "white",
                       zIndex: 200,
                     }}
-                    // onMouseLeave={(e) => _handleLeave(e)}
-                    // onMouseOver={(e) => _handleHover(e)}
+                  // onMouseLeave={(e) => _handleLeave(e)}
+                  // onMouseOver={(e) => _handleHover(e)}
                   >
                     <div className="d-flex justify-content-between px-2">
                       <h6 className="pt-2" id={k}>
@@ -608,15 +605,15 @@ const Ribbon = (props) => {
                               ))} */}
                         </div>
                       ) : (
-                        <div
-                          className="py-2"
-                          id={k}
-                          style={{ fontSize: font.mobileBody }}
-                        >
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Proin vel sollicitudin sapien.
-                        </div>
-                      )}
+                          <div
+                            className="py-2"
+                            id={k}
+                            style={{ fontSize: font.mobileBody }}
+                          >
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Proin vel sollicitudin sapien.
+                          </div>
+                        )}
                     </>
                     {/* } */}
                   </div>
@@ -710,7 +707,7 @@ const ThankuCard = (props) => {
     winner,
     setShowThankU,
     shareImage,
-    downloadImg,senderName, recipientName, message, imgUrl, cancerName,showThankU
+    downloadImg, senderName, recipientName, message, imgUrl, cancerName, showThankU
   } = props;
 
   return (
@@ -846,7 +843,7 @@ const ThankuCard = (props) => {
               >
                 Download
               </span>{" "}
-              your pledge message onto your device​
+              your pledge message onto your device
               <br />
               2. Upload your pledge message onto your Facebook. (Remember to add
               #ncisribbonchallenge in your caption)
@@ -870,7 +867,7 @@ const ThankuCard = (props) => {
               >
                 Download
               </span>{" "}
-              your pledge message onto your device​
+              your pledge message onto your device
               <br />
               <br />
               2. Go to your WhatsApp
@@ -898,7 +895,7 @@ const ThankuCard = (props) => {
               your pledge message onto your device.
               <br />
               2. Upload your pledge message onto your Instagram. (Remember to add
-              #ncisribbonchallenge in your caption)​
+              #ncisribbonchallenge in your caption)
             </div>
           </div>
         ) : shareApp === 4 ? (
@@ -952,25 +949,25 @@ const ThankuCard = (props) => {
             </div>
           </div>
         ) : //    <div className='p-3' style={{ fontSize: font.tabletBody, lineHeight :'24px'  }}>
-        //    Share the message via to spread the word to more people!<br />
+                  //    Share the message via to spread the word to more people!<br />
 
-        //  </div>
-        shareApp === 6 ? (
-          <div
-            className="p-3"
-            style={{ fontSize: font.tabletBody, lineHeight: "24px" }}
-          >
-            Share the message on your Telegram to spread the word to more
-            people!
-            <br />
-            <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-            <div className="p-3">
-              1.{" "}
-              <span
-                style={{ fontWeight: "bold" }}
-                onClick={() => downloadImg()}
-              >
-                Download
+                  //  </div>
+                  shareApp === 6 ? (
+                    <div
+                      className="p-3"
+                      style={{ fontSize: font.tabletBody, lineHeight: "24px" }}
+                    >
+                      Share the message on your Telegram to spread the word to more
+                      people!
+                      <br />
+                      <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+                      <div className="p-3">
+                        1.{" "}
+                        <span
+                          style={{ fontWeight: "bold" }}
+                          onClick={() => downloadImg()}
+                        >
+                          Download
               </span>{" "}
               your pledge message onto your device.
               <br />
@@ -978,45 +975,45 @@ const ThankuCard = (props) => {
               <br />
               3. Select your recipient and insert the Image into your message.
             </div>
-          </div>
-        ) : shareApp === 7 ? (
-          <div
-            className="p-3"
-            style={{ fontSize: font.tabletBody, lineHeight: "24px" }}
-          >
-            Share the message on your weChat to spread the word to more people!
-            <br />
-            <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-            <div className="p-3">
-              1.{" "}
-              <span
-                style={{ fontWeight: "bold" }}
-                onClick={() => downloadImg()}
-              >
-                Download
+                    </div>
+                  ) : shareApp === 7 ? (
+                    <div
+                      className="p-3"
+                      style={{ fontSize: font.tabletBody, lineHeight: "24px" }}
+                    >
+                      Share the message on your weChat to spread the word to more people!
+                      <br />
+                      <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+                      <div className="p-3">
+                        1.{" "}
+                        <span
+                          style={{ fontWeight: "bold" }}
+                          onClick={() => downloadImg()}
+                        >
+                          Download
               </span>{" "}
               your pledge message onto your device.
               <br />
               2. Go to your WeChat
               <br />
-              3. Select your recipient and insert the Image into your message.​
+              3. Select your recipient and insert the Image into your message.
             </div>
-          </div>
-        ) : shareApp === 8 ? (
-          <div
-            className="p-3"
-            style={{ fontSize: font.tabletBody, lineHeight: "24px" }}
-          >
-            Share the message on your Line to spread the word to more people!
-            <br />
-            <div style={{ fontWeight: 600 }}>Follow these steps:</div>
-            <div className="p-3">
-              1.{" "}
-              <span
-                style={{ fontWeight: "bold" }}
-                onClick={() => downloadImg()}
-              >
-                Download
+                    </div>
+                  ) : shareApp === 8 ? (
+                    <div
+                      className="p-3"
+                      style={{ fontSize: font.tabletBody, lineHeight: "24px" }}
+                    >
+                      Share the message on your Line to spread the word to more people!
+                      <br />
+                      <div style={{ fontWeight: 600 }}>Follow these steps:</div>
+                      <div className="p-3">
+                        1.{" "}
+                        <span
+                          style={{ fontWeight: "bold" }}
+                          onClick={() => downloadImg()}
+                        >
+                          Download
               </span>{" "}
               your pledge message onto your device.
               <br />
@@ -1024,10 +1021,10 @@ const ThankuCard = (props) => {
               <br />
               3. Select your recipient and insert the Image into your message.
             </div>
-          </div>
-        ) : (
-          ""
-        )}
+                    </div>
+                  ) : (
+                          ""
+                        )}
         {winner ? (
           <div className="d-flex">
             <div className="p-2 col-8">
@@ -1049,16 +1046,16 @@ const ThankuCard = (props) => {
             </div>
           </div>
         ) : (
-          <p
-            className="p-3"
-            style={{ fontSize: font.tabletBody, lineHeight: "24px" }}
-          >
-            Don’t stop here, you can do more by pledging again!
-            <br />
+            <p
+              className="p-3"
+              style={{ fontSize: font.tabletBody, lineHeight: "24px" }}
+            >
+              Don’t stop here, you can do more by pledging again!
+              <br />
             Alternatively, join us at our health talks to know about cancer
             prevention. <a href="https://tinyurl.com/y36vf922" target="_blank">Click here</a> to register now . Together, We Fight Cancer
-          </p>
-        )}
+            </p>
+          )}
 
         <div className="d-flex justify-content-center text-left">
           <div className="p-2  d-flex justify-content-center">
@@ -1089,18 +1086,18 @@ const ThankuCard = (props) => {
               />
             </div>
           ) : (
-            <div className="p-2 d-flex justify-content-center">
-              <NCIS_Button
-                text={"Back To Home"}
-                onClick={_handlePledge}
-                className="mx-2"
-                buttonColor={violet}
-                media={media}
-                width={200}
-                fontSize={font.button}
-              />
-            </div>
-          )}
+              <div className="p-2 d-flex justify-content-center">
+                <NCIS_Button
+                  text={"Back To Home"}
+                  onClick={_handlePledge}
+                  className="mx-2"
+                  buttonColor={violet}
+                  media={media}
+                  width={200}
+                  fontSize={font.button}
+                />
+              </div>
+            )}
         </div>
       </div>
     </div>

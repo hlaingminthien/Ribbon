@@ -36,7 +36,7 @@ const NavBar = (props) => {
 							aria-expanded="false"
 							aria-label="Toggle navigation"
 							style={{ border: "none" }} >
-							<span class="navbar-toggler-icon"></span>
+							<span className="navbar-toggler-icon"></span>
 						</div>
 					</div>
 				{media.mobile && <div className="collapse navbar-collapse px-2 justify-content-end order-lg-1 bg-white" style={{borderTop: '1 solid #e0e0e0', paddingTop: '.5em', paddingBottom: '.5em'}} id="navbarSupportedContent">
@@ -46,7 +46,7 @@ const NavBar = (props) => {
 								className="nav-link"
 								style={{ fontSize: font.mobileBody }}
 								to="/event_details">
-								<span class="new-link">Event Details</span>
+								<span className="new-link">Event Details</span>
 							</Link>
 						</div>
 					</div>
@@ -59,7 +59,7 @@ const NavBar = (props) => {
 									className="nav-link"
 									style={{ fontSize: font.mobileBody }}
 									to="/event_details">
-									<span class="new-link">Event Details</span>
+									<span className="new-link">Event Details</span>
 								</Link>
 							</div>
 						</div>
