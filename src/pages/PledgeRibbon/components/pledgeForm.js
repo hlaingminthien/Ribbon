@@ -10,7 +10,7 @@ import {
   LinkedinIcon, WhatsappIcon, LinkedinShareButton
 } from "react-share";
 
-import domtoimage from 'dom-to-image-more';
+import domtoimage from 'dom-to-image';
 
 import { NCIS_Selector } from "../../../tools/NCIS_Selector";
 import { NCIS_TextBox } from "../../../tools/NCIS_TextBox";
@@ -37,8 +37,11 @@ const PledgeForm = (props) => {
     recipientName,
     senderName,
     message,
+    setLoading,
+    resetContainer,
     _handleShare, showThankU,
     media, shareImage, setShowThankU,
+    downloadImg,
     _handleImage, warning, winner, imgUrl, cancerName
   } = props;
   const [shareApp, setShareApp] = useState(null);
@@ -47,13 +50,18 @@ const PledgeForm = (props) => {
   const ribbonName = imgUrl ? imgUrl.split("/")[imgUrl.split("/").length - 1] : "ribbonname"
 
   const handleShareApp = (app) => {
-
     setShareApp(app)
     _handleShare();
 
   };
 
-  const shareMail = () => {
+  const shareMail = (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+    setShowThankU(false);
+    setShareApp(null)
+
     if (email !== null && email !== "") {
       const url = `${Base_Url}uploadImage`;
       const myNode = document.getElementById('cardDivId')
@@ -63,12 +71,12 @@ const PledgeForm = (props) => {
             const shareImg = res.data.payload;
 
             const contentHtml1 = `<div style="width: 400px; height: 650px; background-image: url(${webHost}/${shareImg}); box-shadow: 0px 0px 8px 1px #00000033; margin: 20px"> 
-          <div style='position:relative;padding-top: 560px;' align='center'>
-              <a href='${webHostUi}' style='text-decoration:none;font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
-                Pledge A Ribbon
-              </a>
-            </div>       
-          </div>`
+              <div style='position:relative;padding-top: 560px;' align='center'>
+                  <a href='${webHostUi}' style='text-decoration:none;font-size:15px;height:28px;border-radius:14px;color:white;background-color:#fd784f !important;text-align:center;padding-left:16px;padding-right:16px;padding-top: 2px; padding-bottom: 2px;'>
+                    Pledge A Ribbon
+                  </a>
+                </div>       
+              </div>`;
 
             const bodyData = {
               receiveEmail: email,
@@ -84,8 +92,11 @@ const PledgeForm = (props) => {
               body: JSON.stringify(bodyData)
             })
               .then(res => res.json())
-              .then(d => console.log("data: ", d))
-              .catch(error => console.error(error))
+              .then(d => resetContainer())
+              .catch(error => {
+                console.error(error);
+                resetContainer()
+              })
 
           })
       })
@@ -116,7 +127,7 @@ const PledgeForm = (props) => {
         {step === 1 && <PledgeRibbons {...props} />}
         {/* //  _handleSelect={_handleSelect} _handleRibbonClick={_handleRibbonClick} menuVisible={menuVisible} */}
         {(step === 3 && complete && showThankU) ? (
-          <ThankYouCard handleShareApp={handleShareApp} shareMail={shareMail} setEmail={setEmail} email={email} _handlePledge={_handlePledge} setShareApp={setShareApp} setShowThankU={setShowThankU} showThankU={showThankU} recipientName={recipientName} senderName={senderName} message={message} imgUrl={imgUrl} cancerName={cancerName} shareApp={shareApp} winner={winner} />
+          <ThankYouCard handleShareApp={handleShareApp} downloadImg={downloadImg} shareMail={shareMail} setEmail={setEmail} email={email} _handlePledge={_handlePledge} setShareApp={setShareApp} setShowThankU={setShowThankU} showThankU={showThankU} recipientName={recipientName} senderName={senderName} message={message} imgUrl={imgUrl} cancerName={cancerName} shareApp={shareApp} winner={winner} />
         ) : (step === 3 || showThankU) ? (
           <div className='d-flex justify-content-center'>
             <div className='px-2 pt-5' style={{ fontWeight: 600 }}>Share Via:</div>
@@ -429,7 +440,7 @@ const PledgeRibbons = (props) => {
 };
 
 export const ThankYouCard = (props) => {
-  const { _handleEdit, _handlePledge, setEmail, email, shareApp, winner, senderName, shareMail, recipientName, handleShareApp, message, imgUrl, cancerName, setShowThankU, showThankU } = props;
+  const { _handleEdit, _handlePledge, setEmail, email, shareApp, winner, senderName, shareMail, recipientName, handleShareApp, downloadImg, message, imgUrl, cancerName, setShowThankU, showThankU } = props;
 
   return (
     <div className="d-flex justify-content-center px-2 " style={{ position: 'absolute', paddingBottom: 100 }}>
@@ -530,7 +541,14 @@ export const ThankYouCard = (props) => {
                 Share the message on your Facebook to spread the word to more people!<br />
                 <div style={{ fontWeight: 600 }}>Follow these steps:</div>
                 <div className='px-2 py-1'>
-                  1.Download your pledge message onto your device​<br />
+                  1. {" "}
+                  <span
+                    style={{ fontWeight: "bold" }}
+                    onClick={() => downloadImg()}
+                  >
+                    Download
+                  </span>{" "}
+                   your pledge message onto your device​<br />
                 2.Upload your pledge message onto your Facebook. (Remember to add #ncisribbonchallenge in your caption)
 
               </div>
@@ -689,7 +707,7 @@ export const ThankYouCard = (props) => {
                   width={220}
                   fontSize={Font.button}
                   type="button" value="Submit"
-                  onClick={() => shareMail()}
+                  onClick={(e) => shareMail(e)}
                   className="mx-1"
                 />
               </div> :
