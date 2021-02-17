@@ -43,7 +43,7 @@ export const BigPledgeCard = (props) => {
 
   return (
     <div style={{ position: 'absolute', left: '1000%' }}>
-      <div className=" d-flex justify-content-center text-white shadow " id="my-big-node" style={{ background: 'transparent', border: '1px soldi #fff' }}>
+      <div className=" d-flex justify-content-center text-white shadow " id="my-big-node" style={{ background: 'transparent', border: '1px solid #fff' }}>
         {finalImage ?
           <img
             className="img-responsive"
