@@ -14,7 +14,7 @@ export const Counter = props => {
     }
     
 
-  const TodayDate = moment(Date.now()).format(" MMMM DD, YYYY");
+  const TodayDate = moment(Date.now()).format(" MMM DD, YYYY");
   const media = useContext(MediaContext);
   return media.mobile ?
   <CounterMobile TodayDate={TodayDate} splitCount={splitCount} />

@@ -60,6 +60,20 @@ export const Event = (props) => {
         <br />
         Challenge 2021
       </div>
+      
+      <div
+        className={`${media.mobile ? "pt-3 px-4" : "pt-3 px-3"}`}
+        style={{
+          fontSize: media.tablet ? 20 : media.mobile ? 12 : 28,
+          fontWeight: 600,
+          paddingBottom: media.cusHeight_600 || media.mobile ? "40px" : "60px",
+          lineHeight: "26px",
+        }}
+      >
+        Together, We Fight Cancer<br/>
+        22 Feb - 21 Mar
+      </div>
+      
             {/* <div style={{ position: "absolute", left: 50, top: 150, color: "white", padding: 20, background: "green", fontSize: "2em"}}>{w } {sSize}</div> */}
             <div className="d-flex px-2" style={{ paddingTop :media.mobile ? 30 : media.tablet ? 50 : 100 }}>            
                 <div className="pt-3 text-left" >

@@ -67,7 +67,7 @@ const PledgeRibbonsForTablet = (props) => {
                 >
          NCIS Ribbon Challenge 2021
          <p className='py-2 text-white' style={{  fontSize: media.tablet ? 20 : media.mobile ?  18 : 22, }}>Together, We Fight Cancer</p>
-                </div>
+        </div>
         <div
           className="col-7 align-self-center pb-5 justify-content-start "
           style={{}}
@@ -645,7 +645,7 @@ const ThankuCard = (props) => {
           <br />
           Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
 
-          Together, We Fight Cancer!
+          Together, We Fight Cancer
         </p>
         }
 

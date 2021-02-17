@@ -440,7 +440,8 @@ const HomeTitle = (props) => {
           lineHeight: "26px",
         }}
       >
-        Together, We Fight Cancer!
+        Together, We Fight Cancer<br/>
+        22 Feb - 21 Mar
       </div>
       <div
         className={
@@ -783,7 +784,7 @@ const Sponsors = (props) => {
             fontSize: media.tablet ? Font.tabletBody : Font.desktopBody,
           }}
         >
-          Sponsored by:
+          Sponsors:
         </div>
         <div className="d-flex flex-wrap mx-2">
           {

@@ -606,7 +606,7 @@ const ThankuCard = (props) => {
           <br />
           Alternatively, join us at our health talks to know about cancer prevention. Click here to register now .
 
-          Together, We Fight Cancer!
+          Together, We Fight Cancer
         </p>
         }
 
