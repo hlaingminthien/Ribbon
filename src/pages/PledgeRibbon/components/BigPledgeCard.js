@@ -127,7 +127,7 @@ export const BigPledgeCard = (props) => {
                       <text fontSize={10} fontWeight={600} fill="white">
                         <textPath href="#curve-path" startOffset={(50 - cancer.length - 10 * 2) + "%"}>
                           Select Your Ribbon
-                </textPath>
+                        </textPath>
                       </text>
                     </svg>
                   </>

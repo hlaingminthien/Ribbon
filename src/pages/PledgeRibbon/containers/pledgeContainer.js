@@ -158,9 +158,19 @@ const PledgeContainer = (props) => {
 
     wrapper.style.removeProperty("display");
 
-    domtoimage.toPng(myNode).then(base64data => {
-      wrapper.style.display = 'none';
-      saveAs(base64data, "NCIS Ribbon Challenge 2021.png");
+    function openImage(i) {
+      domtoimage.toPng(myNode).then(base64data => {
+        wrapper.style.display = 'none';
+
+        let a = document.createElement("a"); //Create <a>
+        a.href = `${base64data}`; //Image Base64 Goes here
+        a.download = "NCIS Ribbon Challenge 2021.png"; //File name Here
+        a.click();
+      });
+    };
+
+    domtoimage.toPng(myNode).then((base64data) => {
+      openImage();
     });
   }
 
